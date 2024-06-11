@@ -14,6 +14,8 @@ function App() {
         <Mainnav />
         <Routes>
           <Route path="/"  element={<Homepage/>}/>
+          <Route path="/"  element={<Homepage/>}/>
+          
 
         </Routes>
          {/* Route for the Homepage */}
