@@ -1,32 +1,28 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import Mainnav from "./components/Navbar.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { BrowserRouter as Router, Route, Switch }  from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom'; // Import BrowserRouter and Route
 
-// import Homepage from './pages/Homepage.jsx'
+import Homepage from './pages/Homepage.jsx';
 
-import './App.css'
+import './App.css';
 
 function App() {
- 
-
   return (
-    <div>
-      <Mainnav></Mainnav>
-      {/* <Router>
-        <Switch>
-          <Route path="/" component={Homepage}/>
-          <Route/>
-          <Route/>
-          <Route/>
-        </Switch>
-      </Router> */}
+    <Router> {/* Wrap your components with the Router component */}
+      <div>
+        <Mainnav />
+        <Routes>
+          <Route path="/"  element={<Homepage/>}/>
 
-      
-
-    </div>
-
-  )
+        </Routes>
+         {/* Route for the Homepage */}
+          {/* Define routes for other pages here */}
+        
+       
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
