@@ -1,6 +1,6 @@
 
 import { Form, FormControl, Button, Container, Row, Col, DropdownButton, Dropdown } from 'react-bootstrap';
-import { FaSearch, FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
+import {  FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
 
 function Searchdiv() {
   return (
