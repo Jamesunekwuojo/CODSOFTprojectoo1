@@ -22,7 +22,7 @@ function Loginform() {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      Axios.post("http://localhost:5500/users/Signup",{
+      Axios.post("http://localhost:5000/api/signup",{
         name:name,
         email:email,
         password:password,
