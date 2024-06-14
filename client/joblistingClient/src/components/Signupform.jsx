@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import {Form, Button, Col, Container, Row,} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import Axios from 'axios';
 
-function Loginform() {
+
+function Signupform() {
     // const [formData, setFormData] = useState({
     //   name:'',
     //   email: '',
@@ -42,7 +44,7 @@ function Loginform() {
         <Row className="justify-content-md-center">
           <Col md={4} xs={12}>
               <div className="d-flex justify-content-center">
-                  <h2>Login</h2>
+                  <h2>Sign up</h2>
   
               </div>
             
@@ -99,7 +101,7 @@ function Loginform() {
   
               <div className="d-flex justify-content-center">
               <Button style={{color:"black", backgroundColor:"#a8071a"}}  type="submit"  >
-                Login
+                Signup
               </Button>
   
               </div>
@@ -112,8 +114,9 @@ function Loginform() {
                   </div>
   
                   <div>
-                      {/* <a href="#register">Don't have an account? SignUp</a> */}
-                      <p>Don&apos;t have an account?<a href="#register"> SignUp</a></p>
+                     
+                      {/* <p>Don&apos;t have an account?<a href="#register"> SignUp</a></p> */}
+                      <p>Already have an account? <Link>Login</Link></p>
                   </div>
              
                
@@ -124,6 +127,6 @@ function Loginform() {
       </Container>
     );
   }
-  export default Loginform
+  export default Signupform
   
   

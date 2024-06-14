@@ -11,7 +11,7 @@ export const CreateUser = async (req, res) =>{
 
         if(user){
             console.log("User already exist ");
-            res.status(400).json({message:"User already exist"})
+            return res.status(400).json({message:"User already exist"})
         }
 
         const hashPassword = await bcrypt.hash(password, 10); 
@@ -26,13 +26,13 @@ export const CreateUser = async (req, res) =>{
         await newUser.save();
         console.log("User Registered Successfully");
 
-        res.status(201).json({message:"User registerd successfully"});
+        return res.status(201).json({message:"User registerd successfully"});
 
 
 
     }catch(error){
         console.log("Error registering user", error);
-        res.status(500).json({message:"Error registering User"})
+        return res.status(500).json({message:"Error registering User"})
         
 
     }

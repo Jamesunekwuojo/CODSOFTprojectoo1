@@ -1,11 +1,11 @@
 
-import Loginform from '../components/Loginform.jsx'
+import Signupform from '../components/Signupform.jsx'
 
 function Loginpage(){
     return(
 
         <div>
-            <Loginform></Loginform>
+            <Signupform></Signupform>
         </div>
      
     )

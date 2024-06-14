@@ -29,7 +29,7 @@ function Mainnav() {
 
             <Nav.Link as={Link} to="/about" className="ms-3">About Us</Nav.Link>
             
-            <Nav.Link as={Link} to="/login" className="ms-3">Log in <BiUserCircle className="" size={'24px'}/> </Nav.Link>
+            <Nav.Link as={Link} to="/signup" className="ms-3">Log in <BiUserCircle className="" size={'24px'}/> </Nav.Link>
              {/* Link to Login Page */}
 
           
