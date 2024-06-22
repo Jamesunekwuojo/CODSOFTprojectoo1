@@ -1,132 +1,113 @@
-import {useState} from 'react';
-import {Form, Button, Col, Container, Row,} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { useState } from 'react';
+import { Form, Button, Col, Container, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
+function SignupForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    role: ''
+  });
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-function Signupform() {
-    // const [formData, setFormData] = useState({
-    //   name:'',
-    //   email: '',
-    //   password: '',
-    //   rememberMe: false,
-    // });
-  
-    const [name, setName] = useState('');
-  
-    const [email, setEmail] = useState('');
-  
-    const [password, setPassword]= useState('');
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const [role, setRole] = useState('');
-  
-
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      Axios.post("http://localhost:5000/api/signup",{
-        name:name,
-        email:email,
-        password:password,
-        role:role
-  
-      }).then(response =>{
-        console.log(response)
-  
-      }).catch(err =>{
-        console.log(err)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    Axios.post("http://localhost:5000/api/signup", formData)
+      .then(response => {
+        console.log(response);
+        const role = response.data.role.toLowerCase(); // Convert role to lowercase
+        if (role === "employer") {
+          navigate('/employer-dashboard');
+        } else if (role === "candidate") {
+          navigate('/candidate-dashboard');
+        } else {
+          console.error('Invalid role received:', response.data.role);
+        }
       })
-      // Perform validation and submit data
-    };
-  
-    return (
-      <Container className="">
-        <Row className="justify-content-md-center">
-          <Col md={4} xs={12}>
-              <div className="d-flex justify-content-center">
-                  <h2>Sign up</h2>
-  
-              </div>
-            
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formText">
-                <Form.Label>Name:</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="name"
-          
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </Form.Group>
-  
-              <Form.Group controlId="formEmail">
-                <Form.Label>Email address:</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-              
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </Form.Group>
-  
-              <Form.Group controlId="formPassword">
-                <Form.Label>Password:</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-               
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </Form.Group>
+      .catch(err => {
+        console.log(err);
+        setError('Error signing up. Please try again.');
+      });
+  };
 
-
-              <Form.Group controlId="formRole" className="mb-3">
-               <Form.Label>Role:</Form.Label>
-               <Form.Control
+  return (
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md={4} xs={12}>
+          <div className="d-flex justify-content-center">
+            <h2>Sign Up</h2>
+          </div>
+          {error && <div className="alert alert-danger">{error}</div>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formName">
+              <Form.Label>Name:</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email Address:</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="formRole" className="mb-3">
+              <Form.Label>Role:</Form.Label>
+              <Form.Control
                 as="select"
                 name="role"
-                onChange={(e) => setRole(e.target.value)}
+                value={formData.role}
+                onChange={handleChange}
                 required
               >
                 <option value="">Select role...</option>
                 <option value="employer">Employer</option>
                 <option value="candidate">Candidate</option>
-               </Form.Control>
-              </Form.Group>
-
-
-  
-              <div className="d-flex justify-content-center">
-              <Button style={{color:"black", backgroundColor:"#a8071a"}}  type="submit"  >
-                Signup
+              </Form.Control>
+            </Form.Group>
+            <div className="d-flex justify-content-center">
+              <Button style={{ color: "black", backgroundColor: "#a8071a" }} type="submit">
+                Sign Up
               </Button>
-  
+            </div>
+            <div className="d-flex flex-row mt-3">
+              <div className="pmargin">
+                <a href="#forgot-password">Forgot Password?</a>
               </div>
-  
-          
-              <div className=" d-flex flex-row ">
-  
-                  <div className="pmargin">
-                  <a href="#forgot-password">Forgot Password?</a>
-                  </div>
-  
-                  <div>
-                     
-                      {/* <p>Don&apos;t have an account?<a href="#register"> SignUp</a></p> */}
-                      <p>Already have an account? <Link>Login</Link></p>
-                  </div>
-             
-               
+              <div className="ml-auto">
+                <p>Already have an account? <Link to="/login">Login</Link></p>
               </div>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-  export default Signupform
-  
-  
+            </div>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
+
+export default SignupForm;

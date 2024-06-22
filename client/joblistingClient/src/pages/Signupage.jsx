@@ -1,7 +1,7 @@
 
 import Signupform from '../components/Signupform.jsx'
 
-function Loginpage(){
+function Signupage(){
     return(
 
         <div>
@@ -10,5 +10,5 @@ function Loginpage(){
      
     )
 }
-export default Loginpage;
+export default Signupage;
 

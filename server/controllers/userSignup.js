@@ -26,7 +26,7 @@ export const CreateUser = async (req, res) =>{
         await newUser.save();
         console.log("User Registered Successfully");
 
-        return res.status(201).json({message:"User registerd successfully"});
+        return res.status(201).json({message:"User registerd successfully", role:newUser.role});
 
 
 

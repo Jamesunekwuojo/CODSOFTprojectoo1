@@ -19,8 +19,12 @@ function Mainnav() {
             <NavDropdown title="Pages" id="basic-nav-dropdown" className="ms-3">
               <NavDropdown.Item as={Link} to="/job-details">Job Details Page</NavDropdown.Item> {/* Link to Job Details Page */}
               <NavDropdown.Item as={Link} to="/job-listing">Job Listing Page</NavDropdown.Item> {/* Link to Job Listing Page */}
-              <NavDropdown.Item as={Link} to="/candidate-dashboard">Candidate Dashboard</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/employer-dashboard">Employer Dashboard</NavDropdown.Item> {/* Link to Candidate Dashboard */}
+{/* 
+              <NavDropdown.Item as={Link} to="/candidate-dashboard">Candidate Dashboard</NavDropdown.Item> */}
+
+              {/* <NavDropdown.Item as={Link} to="/employer-dashboard">Employer Dashboard</NavDropdown.Item>  */}
+
+              {/* Link to Candidate Dashboard */}
               {/* Add more NavDropdown.Items for other pages */}
             </NavDropdown>
 
