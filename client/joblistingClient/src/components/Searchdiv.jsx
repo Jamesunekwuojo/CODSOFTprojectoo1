@@ -8,6 +8,7 @@ function Searchdiv() {
 
   const handleLocationSelect = (e) => {
     setSelectedLocation(e);
+    
   };
 
   const handleCategorySelect = (e) => {
