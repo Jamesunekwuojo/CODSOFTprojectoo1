@@ -63,7 +63,7 @@ function Searchdiv() {
           </Col>
           
           <Col xs={12} md={2} className="mb-2">
-            <Button variant="success" className="w-100" style={{ height: '50px' }}>
+            <Button variant="success" className="w-100" style={{ height: '50%' }}>
               Search
             </Button>
           </Col>

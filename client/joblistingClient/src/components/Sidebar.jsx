@@ -10,7 +10,7 @@ function Sidebar () {
         <Nav.Item className="mb-3">
           
             <Nav.Link as={Link} to='/home'>
-              <FaHome className="mr-2" /> Home
+              <FaHome className="mr-2" /> Dashboard
             </Nav.Link>
          
         </Nav.Item>
@@ -25,7 +25,7 @@ function Sidebar () {
         <Nav.Item className="mb-3">
          
             <Nav.Link as={Link} to='/reports'>
-              <FaChartBar className="mr-2" /> Reports
+              <FaChartBar className="mr-2" /> Add new job
             </Nav.Link>
          
         </Nav.Item>
