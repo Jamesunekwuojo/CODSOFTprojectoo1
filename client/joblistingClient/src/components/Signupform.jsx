@@ -40,13 +40,14 @@ function SignupForm() {
   return (
     <Container>
       <Row className="justify-content-md-center">
-        <Col md={4} xs={12}>
-          <div className="d-flex justify-content-center">
+        <Col md={4} xs={12} className="signupForm-container mt-3 p-2">
+          <div className="d-flex justify-content-center mt-2">
             <h2>Sign Up</h2>
           </div>
           {error && <div className="alert alert-danger">{error}</div>}
+
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName">
+            <Form.Group controlId="formName" className="m-2">
               <Form.Label>Name:</Form.Label>
               <Form.Control
                 type="text"
@@ -54,9 +55,12 @@ function SignupForm() {
                 value={formData.name}
                 onChange={handleChange}
                 required
+                className="p-2"
+
               />
             </Form.Group>
-            <Form.Group controlId="formEmail">
+
+            <Form.Group controlId="formEmail" className="m-2">
               <Form.Label>Email Address:</Form.Label>
               <Form.Control
                 type="email"
@@ -64,9 +68,11 @@ function SignupForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className="p-2"
               />
             </Form.Group>
-            <Form.Group controlId="formPassword">
+
+            <Form.Group controlId="formPassword" className="m-2">
               <Form.Label>Password:</Form.Label>
               <Form.Control
                 type="password"
@@ -74,9 +80,11 @@ function SignupForm() {
                 value={formData.password}
                 onChange={handleChange}
                 required
+                className="p-2 mb-3"
               />
             </Form.Group>
-            <Form.Group controlId="formRole" className="mb-3">
+
+            <Form.Group controlId="formRole" className="m-2">
               <Form.Label>Role:</Form.Label>
               <Form.Control
                 as="select"
@@ -84,25 +92,32 @@ function SignupForm() {
                 value={formData.role}
                 onChange={handleChange}
                 required
+                className="p-2 mb-2"
               >
                 <option value="">Select role...</option>
                 <option value="employer">Employer</option>
                 <option value="candidate">Candidate</option>
               </Form.Control>
+
             </Form.Group>
             <div className="d-flex justify-content-center">
               <Button style={{ color: "black", backgroundColor: "#a8071a" }} type="submit">
                 Sign Up
               </Button>
             </div>
-            <div className="d-flex flex-row mt-3">
-              <div className="pmargin">
-                <a href="#forgot-password">Forgot Password?</a>
-              </div>
-              <div className="ml-auto">
-                <p>Already have an account? <Link to="/login">Login</Link></p>
-              </div>
-            </div>
+
+            <Row className="mt-3">
+              <Col>
+                <Form.Text>
+                  <Link to="#forgot-password">Forgot Password?</Link>
+                </Form.Text>
+              </Col>
+              <Col className="text-right">
+                <Form.Text>
+                  Have an account? <Link to="/login">Login</Link>
+                </Form.Text>
+              </Col>
+            </Row>
           </Form>
         </Col>
       </Row>

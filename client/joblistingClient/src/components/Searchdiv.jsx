@@ -17,7 +17,7 @@ function Searchdiv() {
   // };
 
   return (
-    <Container className="mt-5 w-20">
+    <Container className="mt-5 ">
       <Row className="justify-content-left">
 
         <Col className="form-container " >

@@ -1,5 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import Searchdiv from "../components/Searchdiv";
+import ChooseUs from '../components/ChooseUs';
+import Sideimgdiv from '../components/Sideimgdiv';
 
 import "../App.css"
 
@@ -9,8 +11,15 @@ function Homepage() {
     <Container className="d-flex flex-column justify-content-center align-items-center min-vh-100">
       <Row>
         <Col xs={12} md={8} lg={6}>
-        <Searchdiv></Searchdiv>
+        <Searchdiv className="h-20"></Searchdiv>
 
+        </Col>
+
+        <Col className="sideFormimg"  xs={12} md={8} lg={6}>
+        <Sideimgdiv></Sideimgdiv>
+
+   
+        
         </Col>
       </Row>
       {/* <Row className="justify-content-center text-center m-4">
@@ -73,6 +82,16 @@ function Homepage() {
         </Col>
       </Row>
 
+      <Row>
+        <Col>
+        <div>
+          <ChooseUs></ChooseUs>
+        </div>
+
+        </Col>
+
+      </Row>
+
 
       <Row classsName="m-4">
         <Col className="d-flex justify-content-center">
@@ -91,59 +110,86 @@ function Homepage() {
       <Row className="d-flex justify-content-center">
 
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box1</div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+
+        AUL Hub
+        </div>
         
         </Col>
 
 
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box2</div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+        Technology and IT
+
+        </div>
         
         </Col>
 
 
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box3</div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+          Education and Training
+        </div>
         
         </Col>
 
         <Col className="d-flex justify-content-center mb-3" >
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 4 </div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+          Healthcare
+
+        </div>
         
         </Col>
 
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 5</div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">Marketing and Sales
+
+        </div>
         
         </Col>
 
 
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 6</div>
-        
-        </Col>
-        
-        
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 7</div>
-        
-        </Col>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">Engineering
 
-        
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 8</div>
+        </div>
         
         </Col>
-
+        
         
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 9</div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+        Human Resources
+
+        </div>
         
         </Col>
 
         
         <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">box 10</div>
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+        Creative Arts and Design:
+
+        </div>
+        
+        </Col>
+
+        
+        <Col className="d-flex justify-content-center mb-3">
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+        Customer Service and Support
+
+        </div>
+        
+        </Col>
+
+        
+        <Col className="d-flex justify-content-center mb-3">
+        <div className="box p-4 custom-box1 border rounded shadow-sm">
+          Finance and Accounting
+
+        </div>
         
         </Col>
 
