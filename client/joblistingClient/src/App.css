@@ -87,6 +87,12 @@ p {
   }
 }
 
+@media (max-width: 992px) {
+  .chooseUstext {
+    margin: 20px;
+  }
+}
+
 
 
 

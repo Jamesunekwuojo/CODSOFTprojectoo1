@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import "../App.css"; // Make sure to add your styles in this file
 
@@ -10,19 +10,19 @@ function ChooseUs() {
         <Col xs={12} md={6} lg={6} className="d-flex flex-column">
           <div className='chooseUsDiv mb-4'>
             {/* Image or content for the first div */}
-            <img src="image1.jpg" alt="First" className="img-fluid" />
+            <img  src="/chooseus2.png" alt="First" className="img-fluid" />
           </div>
           <div className='chooseUsDiv mb-4 ml-auto'>
             {/* Image or content for the second div */}
-            <img src="image2.jpg" alt="Second" className="img-fluid" />
+            <img src="/chooseus1.png" alt="Second" className="img-fluid" />
           </div>
           <div className='chooseUsDiv'>
             {/* Image or content for the third div */}
-            <img src="image3.jpg" alt="Third" className="img-fluid" />
+            <img src="/chooseus3.png" alt="Third" className="img-fluid" />
           </div>
         </Col>
         {/* Right Column with Text */}
-        <Col xs={12} md={6} lg={6} className="chooseUstext d-flex flex-column justify-content-center">
+        <Col xs={12} md={6} lg={6} className=" chooseUstext d-flex flex-column justify-content-center">
           <div className='textDiv'>
             <h2>Get the job of your dreams quick & easy.</h2>
             <p>
