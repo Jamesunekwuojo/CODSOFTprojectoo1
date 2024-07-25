@@ -59,14 +59,38 @@ p {
 
 /* Why choose us section */
 
-.textDiv {
-  display: flex;
+ /* .textDiv {
   width: 350px;
 
 }
 
+.chooseUsDiv {
 
-/* SIDE IMAGE  */
+} */
+
+.chooseUsDiv {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border:  1px solid #ddd;;
+}
+
+@media (min-width: 768px) {
+  .chooseUsDiv:nth-child(2) {
+    margin-left: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .chooseUsDiv:nth-child(2) {
+    margin-left: 30%;
+  }
+}
+
+
+
+
+/* SIDE IMAGE  FOR LANDING FORM  */
 /* .sideFormimg {
   
   margin-top: 30px;
