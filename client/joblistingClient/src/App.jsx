@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import Mainnav from "./components/Navbar.jsx";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom'; // Import BrowserRouter and Route
+import Mainnav from "./components/Navbar.jsx";
 import Homepage from './pages/Homepage.jsx';
 import Employerdashboard from './pages/Employerdashboard.jsx';
 import Signupage from './pages/Signupage.jsx'
-
 import Candidatedashboard from './pages/Candidatedashboard.jsx';
 
 

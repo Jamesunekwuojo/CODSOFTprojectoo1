@@ -2,6 +2,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Searchdiv from "../components/Searchdiv";
 import ChooseUs from '../components/ChooseUs';
 import Sideimgdiv from '../components/Sideimgdiv';
+import { PersonAdd } from 'react-bootstrap-icons';
+import { Camera } from 'react-bootstrap-icons';
+import { PersonCheck} from 'react-bootstrap-icons';
+
 
 import "../App.css"
 
@@ -22,21 +26,7 @@ function Homepage() {
         
         </Col>
       </Row>
-      {/* <Row className="justify-content-center text-center m-4">
-      <Row className="justify-content-center text-center mt-4">
-        <Col>
-          <h1>+2000 Jobs Available</h1>
-          <h2>EXPLORE JOBHUB</h2>
-        </Col>
-      </Row>
-
-      <Row className="justify-content-center mb-4">
-        <Col>
-          <Searchdiv />
-        </Col>
-      </Row>
-
-      </Row> */}
+  
       
 
       <Row className="mt-5">
@@ -50,21 +40,28 @@ function Homepage() {
         <Col className="m-3 d-flex justify-content-center">
           <div className=" d-flex justify content centre box custom-box p-4 border rounded shadow-sm mb-2">
             <h5> Create Account</h5>
-            <img/>
+
+            <PersonAdd size={32}/>
+          
+           
           </div>
         </Col>
 
         <Col className="m-3 d-flex justify-content-center">
-          <div className="box custom-box p-4 border rounded shadow-sm ">Box 2
+          <div className="box custom-box p-4 border rounded shadow-sm ">
+            <PersonCheck size={"32"}/>
             <h5>Complete Profile</h5>
           
           </div>
           
         </Col>
         
-        <Col className="m-3 d-flex justify-content-center">
-          <div className="box p-4  custom-box border rounded shadow-sm">Box 3
-            <h5>Employ or Apply for Jobs</h5>
+        <Col className="m-3 d-flex justify-content-center align-items-center">
+          <div className="box p-4  custom-box border rounded shadow-sm">
+            <Camera size={32}/>
+            <p>Employ or Apply for Jobs</p>
+
+         
           
           </div>
           

@@ -12,6 +12,7 @@ function ChooseUs() {
             {/* Image or content for the first div */}
             <img  src="/chooseus2.png" alt="First" className="img-fluid" />
           </div>
+          
           <div className='chooseUsDiv mb-4 ml-auto'>
             {/* Image or content for the second div */}
             <img src="/chooseus1.png" alt="Second" className="img-fluid" />
