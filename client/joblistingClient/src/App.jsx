@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -9,10 +8,12 @@ import Homepage from './pages/Homepage.jsx';
 import Employerdashboard from './pages/Employerdashboard.jsx';
 import Signupage from './pages/Signupage.jsx'
 import Candidatedashboard from './pages/Candidatedashboard.jsx';
+import Footer from "./components/Footer.jsx"
 
 
 
 import './App.css';
+
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         </Routes>
          {/* Route for the Homepage */}
           {/* Define routes for other pages here */}
+        <Footer></Footer>
         
        
       </div>

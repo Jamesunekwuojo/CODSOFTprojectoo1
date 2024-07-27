@@ -5,6 +5,7 @@ import Sideimgdiv from '../components/Sideimgdiv';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
+import Footer from "../components/Footer"
 
 
 import "../App.css"
@@ -38,28 +39,29 @@ function Homepage() {
       <Row className="d-flex justify-content-center">
         
         <Col className="m-3 d-flex justify-content-center">
-          <div className=" d-flex justify content centre box custom-box p-4 border rounded shadow-sm mb-2">
-            <h5> Create Account</h5>
-
+          <div className=" d-flex justify-content-center  align-items-center flex-column box custom-box p-4 border rounded shadow-sm mb-2">
             <PersonAdd size={32}/>
+            <p className='fw-bold'> Create Account</p>
+
+            
           
            
           </div>
         </Col>
 
         <Col className="m-3 d-flex justify-content-center">
-          <div className="box custom-box p-4 border rounded shadow-sm ">
+          <div className="box custom-box p-4 border rounded shadow-sm d-flex justify-content-center align-items-center flex-column">
             <PersonCheck size={"32"}/>
-            <h5>Complete Profile</h5>
+            <p className='fw-bold'>Complete Profile</p>
           
           </div>
           
         </Col>
         
         <Col className="m-3 d-flex justify-content-center align-items-center">
-          <div className="box p-4  custom-box border rounded shadow-sm">
+          <div className=" d-flex justify-content-center  align-items-center flex-column box p-4  custom-box border rounded shadow-sm">
             <Camera size={32}/>
-            <p>Employ or Apply for Jobs</p>
+            <p className='fw-bold' >Employ or Apply for Jobs</p>
 
          
           
@@ -71,7 +73,7 @@ function Homepage() {
       </Row>
 
 
-      <Row>
+      <Row className="mt-4">
         <Col className="d-flex justify-content-center">
         <div className="mt-4">
           <h4>Why Choose Us?</h4>
@@ -81,7 +83,7 @@ function Homepage() {
 
       <Row>
         <Col>
-        <div>
+        <div className='d-flex justify-content-center align-items-center'>
           <ChooseUs></ChooseUs>
         </div>
 
@@ -212,6 +214,8 @@ function Homepage() {
         </div>
         </Col>
       </Row>
+
+   
 
       
     </Container>
