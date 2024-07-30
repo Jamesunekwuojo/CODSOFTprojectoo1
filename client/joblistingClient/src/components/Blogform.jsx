@@ -2,7 +2,7 @@
 import  { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import "./App.css"
+import "../App.css";
 
 const BlogForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const BlogForm = ({ onSubmit }) => {
   };
 
   return (
-    <Container>
+    <Container className='blogstyles p-4'>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formAuthorName">
           <Form.Label>Author Name*</Form.Label>

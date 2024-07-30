@@ -5,7 +5,7 @@ import { Facebook, Twitter, Instagram, Youtube } from 'react-bootstrap-icons';
 
 function Footer() {
   return (
-    <footer className="footer mt-auto py-3 bg-dark text-white">
+    <footer className="footer mt-5 py-3 bg-dark text-white">
       <Container>
         <Row className="mb-3">
           <Col md={3}>

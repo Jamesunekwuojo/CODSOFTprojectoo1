@@ -144,3 +144,10 @@ p {
   display: inline-block;
 }
 
+
+/* BLOG FORM STYLES */
+
+.blogstyles {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}

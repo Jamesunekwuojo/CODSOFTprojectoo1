@@ -5,8 +5,12 @@ import Sideimgdiv from '../components/Sideimgdiv';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
-// import Footer from "../components/Footer"
+
+// TESTING IMPORTS SOON TO BE REMOVED
+
 import Blogform from "../components/Blogform";
+import Blogformcard from "../components/Blogformcard";
+
 
 
 
@@ -223,6 +227,7 @@ function Homepage() {
 
         <div className="mt-4">
           <Blogform></Blogform>
+          <Blogformcard></Blogformcard>
         </div>
         </Col>
       </Row>
