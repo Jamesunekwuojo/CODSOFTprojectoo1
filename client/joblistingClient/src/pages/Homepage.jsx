@@ -9,7 +9,7 @@ import { PersonCheck} from 'react-bootstrap-icons';
 // TESTING IMPORTS SOON TO BE REMOVED
 
 import Blogform from "../components/Blogform";
-import Blogformcard from "../components/Blogformcard";
+import BlogCard from "../components/BlogCard";
 
 
 
@@ -227,7 +227,7 @@ function Homepage() {
 
         <div className="mt-4">
           <Blogform></Blogform>
-          <Blogformcard></Blogformcard>
+          <BlogCard></BlogCard>
         </div>
         </Col>
       </Row>
