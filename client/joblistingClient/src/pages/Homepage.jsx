@@ -5,10 +5,13 @@ import Sideimgdiv from '../components/Sideimgdiv';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
-import Footer from "../components/Footer"
+// import Footer from "../components/Footer"
+import Blogform from "../components/Blogform";
+
 
 
 import "../App.css"
+
 
 
 function Homepage() {
@@ -211,6 +214,15 @@ function Homepage() {
 
         <div className="mt-4">
           <h4>Latest Blogs</h4>
+        </div>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="d-flex justify-content-center">
+
+        <div className="mt-4">
+          <Blogform></Blogform>
         </div>
         </Col>
       </Row>

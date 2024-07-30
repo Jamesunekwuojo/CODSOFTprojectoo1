@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Facebook, Twitter, Instagram, Youtube } from 'react-bootstrap-icons';
 // import './Footer.css'; // Assuming you have some custom styles
 
-const Footer = () => {
+function Footer() {
   return (
     <footer className="footer mt-auto py-3 bg-dark text-white">
       <Container>
@@ -74,12 +74,12 @@ const Footer = () => {
         </Row>
         <Row className="mt-3">
           <Col className="text-center">
-            <p className="mb-0">&copy; 2024 Company Name. All rights reserved.</p>
+            <p className="mb-0">&copy; 2024 Unekwuojos Tech. All rights reserved.</p>
           </Col>
         </Row>
       </Container>
     </footer>
   );
-};
+}
 
 export default Footer;
