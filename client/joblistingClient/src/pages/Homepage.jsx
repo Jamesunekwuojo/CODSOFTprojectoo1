@@ -8,8 +8,10 @@ import { PersonCheck} from 'react-bootstrap-icons';
 
 // TESTING IMPORTS SOON TO BE REMOVED
 
-import Blogform from "../components/Blogform";
-import BlogCard from "../components/BlogCard";
+// import Blogform from "../components/Blogform";
+// import BlogCard from "../components/BlogCard";
+
+import BlogContainer from '../components/BlogContainer';
 
 
 
@@ -226,8 +228,8 @@ function Homepage() {
         <Col className="d-flex justify-content-center">
 
         <div className="mt-4">
-          <Blogform></Blogform>
-          <BlogCard></BlogCard>
+          <BlogContainer></BlogContainer>
+        
         </div>
         </Col>
       </Row>
