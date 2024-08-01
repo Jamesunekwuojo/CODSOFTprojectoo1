@@ -40,7 +40,7 @@ function EmployerSidebar () {
 
         <Nav.Item className="mb-3">
           
-          <Nav.Link as={Link} to='/employerAddblog'>
+          <Nav.Link as={Link} to='employerAddblog'>
             <FaCog className="mr-2" /> Add Blog
           </Nav.Link>
        

@@ -1,11 +1,27 @@
+
+import{Container, Row, Col} from "react-bootstrap";
+import {Routes, Route} from "react-router-dom"
+
 import EmployerSidebar from "../components/EmployerSidebar.jsx";
+import Addblogpage from "./Addblogpage.jsx";
+
+
 
 function Employerdashboard (){
     return(
-        <div>
-            <EmployerSidebar></EmployerSidebar>
-        </div>
-    
+        <Container fluid>
+        <Row>
+          <Col md={2}>
+            <EmployerSidebar />
+          </Col>
+          <Col md={10}>
+            <Routes>
+              <Route path="employerAddblog" element={<Addblogpage/>} />
+           
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
     )
 
 }

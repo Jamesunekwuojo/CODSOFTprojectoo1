@@ -2,7 +2,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-import { BrowserRouter as Router, Route, Routes, Navigate  } from 'react-router-dom'; // Import BrowserRouter and Route
+import { BrowserRouter as Router, Route, Routes,   } from 'react-router-dom'; // Import BrowserRouter and Route
 import Mainnav from "./components/Navbar.jsx";
 import Homepage from './pages/Homepage.jsx';
 import Employerdashboard from './pages/Employerdashboard.jsx';
@@ -27,19 +27,18 @@ function App() {
         <Mainnav />
         <Routes>
           <Route path="/"  element={<Homepage/>}/>
-          <Route path="/employer-dashboard"  element={<Layout/>}/>
 
           <Route path="/signup"  element={<Signupage/>}/>
           
           <Route path="/candidate-dashboard"  element={<Candidatedashboard/>}/>
 
-         
+
           {/* TESTING ROUTES */}
-          
+          <Route path="/employer-dashboard/*" element={<Employerdashboard/>}/>
 
         
-        
-          
+
+
 
         </Routes>
       

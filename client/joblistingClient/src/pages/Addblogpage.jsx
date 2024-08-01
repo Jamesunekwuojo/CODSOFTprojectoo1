@@ -1,15 +1,21 @@
-
-
-import EmployerSidebar from "../components/EmployerSidebar";
+import {Container, Row, Col} from "react-bootstrap"
 import Blogform from "../components/Blogform";
 
 function Addblogpage() {
     return (
-        <div>
-            {/* <EmployerSidebar></EmployerSidebar> */}
-            <Blogform></Blogform>
+        // <div className="d-flex justify-content-center">
+        
+        //     <Blogform></Blogform>
 
-        </div>
+        // </div>
+        <Container className="d-flex justify-content-center align-items-center">
+            <Row>
+                <Col >
+                <Blogform></Blogform>
+
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

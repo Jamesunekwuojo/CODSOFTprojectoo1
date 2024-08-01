@@ -40,8 +40,8 @@ const BlogForm = ({ onSubmit }) => {
     // and get the URLs to store in state.
     // For demonstration, assume profilePhotoURL and articleLink are set here
     
-    const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    localStorage.setItem('blogPosts', JSON.stringify([...blogPosts, formData]));
+    // const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+    // localStorage.setItem('blogPosts', JSON.stringify([...blogPosts, formData]));
     navigate('/blogs')
     
     const uploadedProfilePhotoURL = "url-to-uploaded-profile-photo";
@@ -71,7 +71,7 @@ const BlogForm = ({ onSubmit }) => {
   };
 
   return (
-    <Container className="blogstyles p-4">
+    <Container className="blogstyles p-3 ">
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formAuthorName">
         <Form.Label>Author Name*</Form.Label>

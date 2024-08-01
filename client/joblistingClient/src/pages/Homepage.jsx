@@ -11,7 +11,7 @@ import { PersonCheck} from 'react-bootstrap-icons';
 // import Blogform from "../components/Blogform";
 // import BlogCard from "../components/BlogCard";
 
-import BlogContainer from '../components/BlogContainer';
+import Blogform from '../components/Blogform.jsx';
 
 
 
@@ -228,7 +228,8 @@ function Homepage() {
         <Col className="d-flex justify-content-center">
 
         <div className="mt-4">
-          <BlogContainer></BlogContainer>
+          <Blogform></Blogform>
+          
         
         </div>
         </Col>
