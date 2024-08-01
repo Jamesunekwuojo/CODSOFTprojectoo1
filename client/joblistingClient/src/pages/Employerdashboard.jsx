@@ -1,9 +1,9 @@
-import Sidebar from "../components/Sidebar.jsx";
+import EmployerSidebar from "../components/EmployerSidebar.jsx";
 
 function Employerdashboard (){
     return(
         <div>
-            <Sidebar></Sidebar>
+            <EmployerSidebar></EmployerSidebar>
         </div>
     
     )

@@ -3,6 +3,8 @@ import  { useState } from 'react';
 import  PropTypes  from 'prop-types';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
+import { useNavigate } from 'react-router-dom';
+
 import '../App.css'
 
 
@@ -21,6 +23,9 @@ const BlogForm = ({ onSubmit }) => {
     articleLink: '', // URL to the full article
   });
 
+  const navigate = useNavigate();
+  
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -34,6 +39,11 @@ const BlogForm = ({ onSubmit }) => {
     // Here, you would typically upload the files (profile photo, article file)
     // and get the URLs to store in state.
     // For demonstration, assume profilePhotoURL and articleLink are set here
+    
+    const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+    localStorage.setItem('blogPosts', JSON.stringify([...blogPosts, formData]));
+    navigate('/blogs')
+    
     const uploadedProfilePhotoURL = "url-to-uploaded-profile-photo";
     const uploadedArticleLink = "url-to-uploaded-article";
 

@@ -1,11 +1,22 @@
 // BlogContainer.js
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Blogform from './Blogform';
 import BlogCard from './BlogCard';
 
 const BlogContainer = () => {
   const [blogs, setBlogs] = useState([]);
 
+
+
+  useEffect(() => {
+    // Fetch the blog posts from localStorage
+    const storedBlogs = JSON.parse(localStorage.getItem('blogPosts')) || [];
+    setBlogs(storedBlogs);
+  }, []);
+
+
+
+  
   const addBlogPost = (formData) => {
     setBlogs([...blogs, formData]);
   };

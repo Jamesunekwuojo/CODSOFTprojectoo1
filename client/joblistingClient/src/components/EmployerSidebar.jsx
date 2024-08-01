@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import { FaHome, FaUsers, FaChartBar, FaCog } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 
-function Sidebar () {
+function EmployerSidebar () {
   return (
     <div className="d-flex flex-column vh-100 bg-light" style={{ width: '250px' }}>
       <Nav className="flex-column mt-4">
@@ -24,7 +24,7 @@ function Sidebar () {
 
         <Nav.Item className="mb-3">
          
-            <Nav.Link as={Link} to='/reports'>
+            <Nav.Link as={Link} to='/employerAddnewjob'>
               <FaChartBar className="mr-2" /> Add new job
             </Nav.Link>
          
@@ -32,14 +32,22 @@ function Sidebar () {
 
         <Nav.Item className="mb-3">
           
-            <Nav.Link as={Link} to='/settings'>
-              <FaCog className="mr-2" /> Settings
+            <Nav.Link as={Link} to='/employerBlog'>
+              <FaCog className="mr-2" /> Blogs
             </Nav.Link>
          
+        </Nav.Item>
+
+        <Nav.Item className="mb-3">
+          
+          <Nav.Link as={Link} to='/employerAddblog'>
+            <FaCog className="mr-2" /> Add Blog
+          </Nav.Link>
+       
         </Nav.Item>
       </Nav>
     </div>
   );
 }
 
-export default Sidebar;
+export default EmployerSidebar;

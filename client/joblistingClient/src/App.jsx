@@ -2,7 +2,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom'; // Import BrowserRouter and Route
+import { BrowserRouter as Router, Route, Routes, Navigate  } from 'react-router-dom'; // Import BrowserRouter and Route
 import Mainnav from "./components/Navbar.jsx";
 import Homepage from './pages/Homepage.jsx';
 import Employerdashboard from './pages/Employerdashboard.jsx';
@@ -10,9 +10,14 @@ import Signupage from './pages/Signupage.jsx'
 import Candidatedashboard from './pages/Candidatedashboard.jsx';
 import Footer from "./components/Footer.jsx"
 
+// TESTING IMPORTS SOON TO BE REMOVED
+import Addblogpage from "./pages/Addblogpage.jsx";
+import Layout from "./components/Layout.jsx"
+
 
 
 import './App.css';
+
 
 
 function App() {
@@ -22,18 +27,22 @@ function App() {
         <Mainnav />
         <Routes>
           <Route path="/"  element={<Homepage/>}/>
-          <Route path="/employer-dashboard"  element={<Employerdashboard/>}/>
+          <Route path="/employer-dashboard"  element={<Layout/>}/>
 
           <Route path="/signup"  element={<Signupage/>}/>
           
           <Route path="/candidate-dashboard"  element={<Candidatedashboard/>}/>
-          {/* <Route path="/job-details"  element={</>}/>
-          <Route path="/job-details"  element={</>}/> */}
+
+         
+          {/* TESTING ROUTES */}
+          
+
+        
+        
           
 
         </Routes>
-         {/* Route for the Homepage */}
-          {/* Define routes for other pages here */}
+      
         <Footer></Footer>
         
        
