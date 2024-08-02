@@ -1,14 +1,15 @@
 // BlogForm.js
 import  { useState } from 'react';
-import  PropTypes  from 'prop-types';
+// import  PropTypes  from 'prop-types';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
-import { useNavigate } from 'react-router-dom';
+import Axios from 'axios'
+
 
 import '../App.css'
 
 
-const BlogForm = ({ onSubmit }) => {
+const BlogForm = () => {
   const [formData, setFormData] = useState({
     authorName: '',
     authorEmail: '',
@@ -23,7 +24,7 @@ const BlogForm = ({ onSubmit }) => {
     articleLink: '', // URL to the full article
   });
 
-  const navigate = useNavigate();
+
   
 
   const handleChange = (e) => {
@@ -36,38 +37,8 @@ const BlogForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you would typically upload the files (profile photo, article file)
-    // and get the URLs to store in state.
-    // For demonstration, assume profilePhotoURL and articleLink are set here
-    
-    // const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    // localStorage.setItem('blogPosts', JSON.stringify([...blogPosts, formData]));
-    navigate('/blogs')
-    
-    const uploadedProfilePhotoURL = "url-to-uploaded-profile-photo";
-    const uploadedArticleLink = "url-to-uploaded-article";
 
-    onSubmit({
-      ...formData,
-      profilePhotoURL: uploadedProfilePhotoURL,
-      articleLink: uploadedArticleLink,
-      date: new Date().toLocaleDateString(), // or set this from a date input field
-      readTime: '5', // Hardcoded for simplicity, could be calculated or set by user
-    });
-    // Reset form fields
-    setFormData({
-      authorName: '',
-      authorEmail: '',
-      authorPhone: '',
-      websiteLink: '',
-      profilePhoto: null,
-      articleTitle: '',
-      articleFile: null,
-      date: '',
-      readTime: '',
-      profilePhotoURL: '',
-      articleLink: '',
-    });
+    
   };
 
   return (
@@ -163,8 +134,8 @@ const BlogForm = ({ onSubmit }) => {
 };
 
 
- BlogForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
- }; 
+//  BlogForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+//  }; 
 
 export default BlogForm;
