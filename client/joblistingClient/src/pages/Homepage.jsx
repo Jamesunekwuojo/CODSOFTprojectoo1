@@ -228,7 +228,7 @@ function Homepage() {
         <Col className="d-flex justify-content-center">
 
         <div className="mt-4">
-          <Blogform></Blogform>
+          
           
         
         </div>
