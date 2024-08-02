@@ -16,7 +16,7 @@ const BlogForm = ({ onSubmit }) => {
     websiteLink: '',
     profilePhoto: null,
     articleTitle: '',
-    articleFile: null,
+    articleDescript: null,
     date: '',
     readTime: '',
     profilePhotoURL: '', // For storing the URL after upload

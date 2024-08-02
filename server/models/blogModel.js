@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 });
 
 
-const upload = multer({ storage: storage});
+const upload = multer({ storage: storage}); 
 
 
 
@@ -29,7 +29,22 @@ const blogSchema = new mongoose.Schema ({
     authorPhone: {type:String, required:true},
     websiteLink: {type:String, required:true},
 
-    profilePhoto:
+    articleTitle: {type:String, required:true},
+    articleDescript: {type:String,  required:true},
+    date: {type:String, required:true},
+    readTime:{type:String, required:true},
+    articleLink: {type:String, required:true},
+
+    profilePhoto:{
+        url: String,
+        filename:String,
+        mimetype:String,
+        size:Number
+
+    },
+
+ 
+
 
 
 
