@@ -3,7 +3,7 @@ import  { useState } from 'react';
 // import  PropTypes  from 'prop-types';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
-import Axios from 'axios'
+import Axios from 'axios';
 
 
 import '../App.css'
@@ -17,10 +17,10 @@ const BlogForm = () => {
     websiteLink: '',
     profilePhoto: null,
     articleTitle: '',
-    articleDescript: null,
+    articleDescript: '',
     date: '',
     readTime: '',
-    profilePhotoURL: '', // For storing the URL after upload
+    // For storing the URL after upload
     articleLink: '', // URL to the full article
   });
 
@@ -38,6 +38,26 @@ const BlogForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const data = FormData();
+
+    data.append('authorName', formData.authorName);
+    data.append('authorEmail', formData.authorEmail);
+    data.append('authorPhone', formData.authorPhone);
+    data.append('websiteLink', formData.websiteLink);
+    data.append('profilePhoto', formData.profilePhoto);
+    data.append('articleLink', formData.articleLink);
+    data.append('articleTitle', formData.articleTitle);
+    data.append('articleDescript', formData.articleDescript)
+
+    Axios.post('http://localhost:5000/api/createblog', data)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch(err =>{
+      console.log(err);
+      alert('Error Submitting blog form!');
+    });
+    
     
   };
 
