@@ -47,7 +47,7 @@ export const CreateBlog = (req, res) =>{
 
         try{
 
-            const {authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript, date, readTime, articleLink} =req.body;
+            const {authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript,   articleLink} =req.body;
     
             const profilePhoto = {
             url: `../uploads ${req.file.filename}`,
@@ -62,7 +62,7 @@ export const CreateBlog = (req, res) =>{
             
     
             const newBlog = new Blog({
-            authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript, date, readTime, articleLink,
+            authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript,  articleLink,
             profilePhoto 
             });
     

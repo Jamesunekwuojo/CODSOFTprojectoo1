@@ -18,10 +18,9 @@ const BlogForm = () => {
     profilePhoto: null,
     articleTitle: '',
     articleDescript: '',
-    date: '',
-    readTime: '',
-    // For storing the URL after upload
-    articleLink: '', // URL to the full article
+    // date: '5',
+    // readTime: '5',
+    articleLink: '',  
   });
 
 
@@ -38,7 +37,7 @@ const BlogForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = FormData();
+    const data = new FormData();
 
     data.append('authorName', formData.authorName);
     data.append('authorEmail', formData.authorEmail);
@@ -47,7 +46,9 @@ const BlogForm = () => {
     data.append('profilePhoto', formData.profilePhoto);
     data.append('articleLink', formData.articleLink);
     data.append('articleTitle', formData.articleTitle);
-    data.append('articleDescript', formData.articleDescript)
+    data.append('articleDescript', formData.articleDescript);
+    // data.append('readTime', formData.readTime );
+    // data.append('date', formData.date);
 
     Axios.post('http://localhost:5000/api/createblog', data)
     .then((response) => {
@@ -136,10 +137,11 @@ const BlogForm = () => {
       </Form.Group>
 
       <Form.Group controlId="formArticleFile">
-        <Form.Label>Article* (Upload your article in word or pages doc file)</Form.Label>
+        <Form.Label>Article Description* (Write a brief description about your article)</Form.Label>
         <Form.Control
-          type="file"
-          name="articleFile"
+          type="text"
+          name="articleDescript"
+          value={formData.articleTitle}
           onChange={handleChange}
           required
         />
