@@ -50,12 +50,17 @@ const BlogForm = () => {
     // data.append('readTime', formData.readTime );
     // data.append('date', formData.date);
 
-    Axios.post('http://localhost:5000/api/createblog', data)
+    Axios.post('http://localhost:5000/api/createblog', data, {
+      headers:{
+        'Content-Type': 'multipart/form-data',
+      }
+    })
     .then((response) => {
       console.log(response.data);
     })
     .catch(err =>{
-      console.log(err);
+      
+      console.log(err.response ? err.response.data : err.message)
       alert('Error Submitting blog form!');
     });
     

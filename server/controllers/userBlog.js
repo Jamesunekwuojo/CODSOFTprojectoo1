@@ -1,12 +1,17 @@
 import {Blog} from "../models/blogModel.js";
 import multer from "multer";
 import path from "path";
+import { fileURLToPath } from "url";
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 // Configure Multer storage and file naming
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'public/images'); // Ensure this folder exists or create it
+      cb(null, path.join(__dirname, 'uploads')); // Ensure this folder exists or create it
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -41,6 +46,7 @@ export const CreateBlog = (req, res) =>{
 
     upload(req, res, async (err) =>{
         if (err) {
+           console.log("Multer error", err)
             return res.status(400).json({error:err.message});
         }
 
@@ -48,9 +54,13 @@ export const CreateBlog = (req, res) =>{
         try{
 
             const {authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript,   articleLink} =req.body;
+
+            if (!req.file) {
+              return res.status(400).json({ error: "No file uploaded" });
+            }
     
             const profilePhoto = {
-            url: `../uploads ${req.file.filename}`,
+            url: `/uploads ${req.file.filename}`,
     
             filename: req.file.originalname,
             mimetype:req.file.mimetype,
@@ -58,6 +68,10 @@ export const CreateBlog = (req, res) =>{
     
     
             }
+
+            console.log("form data received successfully", {...req.body, profilePhoto})
+
+
     
             
     
