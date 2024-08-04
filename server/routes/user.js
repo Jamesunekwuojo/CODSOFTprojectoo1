@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.post('/signup', CreateUser );
 router.post("/createblog", CreateBlog );
+router.get("/displayblog",  CreateBlog);
 
 export default router;
 
