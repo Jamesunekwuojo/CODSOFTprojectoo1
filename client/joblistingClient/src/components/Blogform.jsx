@@ -151,7 +151,7 @@ const BlogForm = () => {
         <Form.Control
           type="text"
           name="articleDescript"
-          value={formData.articleTitle}
+          value={formData.articleDescript}
           onChange={handleChange}
           required
         />

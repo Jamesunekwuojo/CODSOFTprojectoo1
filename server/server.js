@@ -6,6 +6,7 @@ import path from "path";
 dotenv.config();
 import { fileURLToPath } from 'url';
 import userRoutes from './routes/user.js'
+import blogRoutes from "./routes/blog.js";
 
 
 const app = express()
@@ -23,6 +24,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.use("/api", userRoutes);
+app.use ("/api", blogRoutes);
 
 
 

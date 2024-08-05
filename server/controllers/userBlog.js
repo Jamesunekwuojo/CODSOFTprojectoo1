@@ -81,8 +81,10 @@ export const CreateBlog = (req, res) =>{
             });
     
             await newBlog.save();
+            console.log("Blog registered successfully");
     
-            res.status (201).json(newBlog)
+            return res.status(201).json({ message: "Blog registered successfully", blog: newBlog });
+
     
     
         } catch(error) {
