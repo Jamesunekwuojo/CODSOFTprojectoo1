@@ -53,7 +53,7 @@ export const CreateBlog = (req, res) =>{
 
         try{
 
-            const {authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript,   articleLink} =req.body;
+            const {authorName, authorEmail, authorPhone,  articleTitle, articleDescript,   articleLink} =req.body;
 
             if (!req.file) {
               return res.status(400).json({ error: "No file uploaded" });
@@ -76,7 +76,7 @@ export const CreateBlog = (req, res) =>{
             
     
             const newBlog = new Blog({
-            authorName, authorEmail, authorPhone, websiteLink, articleTitle, articleDescript,  articleLink,
+            authorName, authorEmail, authorPhone,  articleTitle, articleDescript,  articleLink,
             profilePhoto 
             });
     
@@ -88,6 +88,8 @@ export const CreateBlog = (req, res) =>{
     
     
         } catch(error) {
+
+          console.log("Error saving blog:", error);
     
             res.status(500).json({error: error.message})
     

@@ -16,7 +16,7 @@ const BlogForm = () => {
     authorName: '',
     authorEmail: '',
     authorPhone: '',
-    websiteLink: '',
+    // websiteLink: '',
     profilePhoto: null,
     articleTitle: '',
     articleDescript: '',
@@ -60,9 +60,11 @@ const BlogForm = () => {
       }
     })
     .then((response) => {
+      alert("Form submitted successfully")
       console.log(response.data);
     })
     .catch(err =>{
+
       
       console.log(err.response ? err.response.data : err.message)
       setError('Error Submitting blog form!');
@@ -115,11 +117,11 @@ const BlogForm = () => {
       </Row>
 
       <Form.Group controlId="formWebsiteLink">
-        <Form.Label>Website Link*</Form.Label>
+        <Form.Label>Article Link*</Form.Label>
         <Form.Control
           type="text"
-          name="websiteLink"
-          value={formData.websiteLink}
+          name="articleLink"
+          value={formData.articleLink}
           onChange={handleChange}
           required
         />
