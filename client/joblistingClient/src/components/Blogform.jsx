@@ -9,6 +9,8 @@ import Axios from 'axios';
 import '../App.css'
 
 
+
+
 const BlogForm = () => {
   const [formData, setFormData] = useState({
     authorName: '',
@@ -22,6 +24,8 @@ const BlogForm = () => {
     // readTime: '5',
     articleLink: '',  
   });
+
+  const [error, setError] = useState('');
 
 
   
@@ -61,7 +65,7 @@ const BlogForm = () => {
     .catch(err =>{
       
       console.log(err.response ? err.response.data : err.message)
-      alert('Error Submitting blog form!');
+      setError('Error Submitting blog form!');
     });
     
     
@@ -69,6 +73,7 @@ const BlogForm = () => {
 
   return (
     <Container className="blogstyles p-3 ">
+    {error && <div className="alert alert-danger">{error}</div>}
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formAuthorName">
         <Form.Label>Author Name*</Form.Label>
