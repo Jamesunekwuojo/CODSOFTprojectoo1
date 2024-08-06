@@ -106,3 +106,22 @@ export const CreateBlog = (req, res) =>{
 
 
 }
+
+
+export const Getblogs = async (req, res) => {
+
+  try{
+
+    const blogs= await Blog.find();
+    return res.status(200).json(blogs)
+
+  } catch(error){
+
+    console.log("Error fetchong blog", error)
+
+  }
+
+  
+
+
+}
