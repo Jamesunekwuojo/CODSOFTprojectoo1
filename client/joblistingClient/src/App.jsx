@@ -11,8 +11,8 @@ import Candidatedashboard from './pages/Candidatedashboard.jsx';
 import Footer from "./components/Footer.jsx"
 
 // TESTING IMPORTS SOON TO BE REMOVED
-import Addblogpage from "./pages/Addblogpage.jsx";
-import Layout from "./components/Layout.jsx"
+// import Addblogpage from "./pages/Addblogpage.jsx";
+// import Layout from "./components/Layout.jsx"
 
 
 

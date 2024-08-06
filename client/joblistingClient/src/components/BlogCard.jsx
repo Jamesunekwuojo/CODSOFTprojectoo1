@@ -1,35 +1,55 @@
-// BlogCard.js
+import { useState, useEffect } from "react";
+import {Conatiner, Row, Col, Card, Button} from "react-bootstrap";
+import Axios from "axios";
 
-import { Card, Button } from 'react-bootstrap';
-import PropTypes from 'prop-types';
-import { FaClock } from 'react-icons/fa';
-// import Blogform from "./Blogform"
 
-const BlogCard = ({ imageSrc, date, readTime, title, author, articleLink }) => {
-  return (
-    <Card className="mb-4 shadow-sm">
-      <Card.Img variant="top" src={imageSrc} />
-      <Card.Body>
-        <Card.Text className="text-muted mb-1">
-          <span>{date}</span> <FaClock className="ml-2" /> {readTime} min read
-        </Card.Text>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>by {author}</Card.Text>
-        <Button variant="link" href={articleLink} className="p-0">
-          Read More →
-        </Button>
-      </Card.Body>
-    </Card>
+const Blogcard =() =>{
+
+  const[blogs, setBlogs] = useState([]);
+
+  useEffect(()=>{
+
+    Axios.get('http://localhost:5000/api/getblogs')
+    .then(response =>{
+      setBlogs(response.data);
+    }
+
+    )
+
+    .catch(err =>{
+
+      console.log("Error fetching blogs", err)
+      alert("Error fetching blogs");
+
+    })
+
+  }, []);
+
+
+  return(
+    <Conatiner>
+      <Row>
+       {blogs.map(blog => (
+          <Col md={4} key={blog._id} className="mb-4">
+            <Card>
+              <Card.Img variant="top" src={blog.profilePhoto.url} alt={blog.profilePhoto.filename} />
+              <Card.Body>
+                <Card.Title>{blog.articleTitle}</Card.Title>
+                <Card.Text>{blog.articleDescript}</Card.Text>
+                <Button variant="primary" href={blog.articleLink} target="_blank">Read More</Button>
+              </Card.Body>
+              <Card.Footer>
+                <small className="text-muted">By {blog.authorName} | {blog.authorEmail}</small>
+              </Card.Footer>
+            </Card>
+          </Col>
+        ))}
+
+        
+      </Row>
+    </Conatiner>
   );
-};
+}
+export default Blogcard;
 
-BlogCard.propTypes = {
-  imageSrc: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  readTime: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  articleLink: PropTypes.string.isRequired,
-};
 
-export default BlogCard;

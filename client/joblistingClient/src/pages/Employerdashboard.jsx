@@ -4,6 +4,7 @@ import {Routes, Route} from "react-router-dom"
 
 import EmployerSidebar from "../components/EmployerSidebar.jsx";
 import Addblogpage from "./Addblogpage.jsx";
+import Blogpage from "./Blogpage"
 
 
 
@@ -17,6 +18,8 @@ function Employerdashboard (){
           <Col md={10}>
             <Routes>
               <Route path="employerAddblog" element={<Addblogpage/>} />
+
+              <Route path="employerBlog" element={<Blogpage/>} />
            
             </Routes>
           </Col>

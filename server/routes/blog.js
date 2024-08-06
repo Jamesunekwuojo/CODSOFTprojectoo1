@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/createblog', CreateBlog );
 
-router.get('getblogs', Getblogs);
+router.get('/getblogs', Getblogs);
 
 
 export default router;

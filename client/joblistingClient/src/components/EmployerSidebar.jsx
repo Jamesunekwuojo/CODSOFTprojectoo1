@@ -9,14 +9,14 @@ function EmployerSidebar () {
       <Nav className="flex-column mt-4">
         <Nav.Item className="mb-3">
           
-            <Nav.Link as={Link} to='/home'>
+            <Nav.Link as={Link} to='dashboard'>
               <FaHome className="mr-2" /> Dashboard
             </Nav.Link>
          
         </Nav.Item>
         <Nav.Item className="mb-3">
         
-            <Nav.Link as={Link} to='/employees'>
+            <Nav.Link as={Link} to='employees'>
               <FaUsers className="mr-2" /> Employees
             </Nav.Link>
           
@@ -24,7 +24,7 @@ function EmployerSidebar () {
 
         <Nav.Item className="mb-3">
          
-            <Nav.Link as={Link} to='/employerAddnewjob'>
+            <Nav.Link as={Link} to='employerAddnewjob'>
               <FaChartBar className="mr-2" /> Add new job
             </Nav.Link>
          
@@ -32,7 +32,7 @@ function EmployerSidebar () {
 
         <Nav.Item className="mb-3">
           
-            <Nav.Link as={Link} to='/employerBlog'>
+            <Nav.Link as={Link} to='employerBlog'>
               <FaCog className="mr-2" /> Blogs
             </Nav.Link>
          
