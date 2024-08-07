@@ -3,6 +3,8 @@ import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import {authentication} from "../middleware/authentication.js"
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -100,24 +102,29 @@ export const CreateBlog = (req, res) =>{
     
 
     
-
-    
-
-
-
 }
 
 
-export const Getblogs = async (req, res) => {
+export const GetEmployerblogs = async (req, res) => {
 
   try{
 
-    const blogs= await Blog.find();
+    const email = req.user.email;
+   
+    const blogs= await Blog.find({authorEmail:email});
+
+    if(blogs.length ===0){
+      return res.status(404).json({message:"No blogs found for this email"});
+    }
+
+
     return res.status(200).json(blogs)
+
 
   } catch(error){
 
-    console.log("Error fetchong blog", error)
+    console.log("Error fetchong blog", error);
+    return res.status(500).json({erro:"Internal server error"});
 
   }
 

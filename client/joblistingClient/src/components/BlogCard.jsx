@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import {Conatiner, Row, Col, Card, Button} from "react-bootstrap";
-import Axios from "axios";
+import {Container, Row, Col, Card, Button} from "react-bootstrap";
+import axios from "axios";
 
 
-const Blogcard =() =>{
+const BlogCard =() =>{
 
   const[blogs, setBlogs] = useState([]);
 
   useEffect(()=>{
 
-    Axios.get('http://localhost:5000/api/getblogs')
+    axios.get('http://localhost:5000/api/getblogs')
     .then(response =>{
       setBlogs(response.data);
     }
@@ -27,7 +27,7 @@ const Blogcard =() =>{
 
 
   return(
-    <Conatiner>
+    <Container>
       <Row>
        {blogs.map(blog => (
           <Col md={4} key={blog._id} className="mb-4">
@@ -47,9 +47,9 @@ const Blogcard =() =>{
 
         
       </Row>
-    </Conatiner>
+    </Container>
   );
 }
-export default Blogcard;
+export default BlogCard;
 
 

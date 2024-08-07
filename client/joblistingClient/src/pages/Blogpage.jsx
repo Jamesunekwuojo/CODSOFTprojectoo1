@@ -1,4 +1,4 @@
-import Blogcard from "../components/Blogcard.jsx";
+import BlogCard from "../components/BlogCard.jsx";
 import {Container, Row} from "react-bootstrap";
 
 
@@ -7,7 +7,7 @@ function Blogpage(){
     return(
        <Container>
         <Row>
-            <Blogcard></Blogcard>
+            <BlogCard></BlogCard>
         </Row>
 
        </Container>
