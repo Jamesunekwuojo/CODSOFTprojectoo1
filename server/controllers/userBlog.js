@@ -61,6 +61,7 @@ export const CreateBlog = (req, res) =>{
             const {authorName, authorEmail, authorPhone,  articleTitle, articleDescript,   articleLink} =req.body;
 
             
+            if(!req.user || authorEmail !== req.user.email){}
 
             // if(!authorEmail === req.user.email) {
 

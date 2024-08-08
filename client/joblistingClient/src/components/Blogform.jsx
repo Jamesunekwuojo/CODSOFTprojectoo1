@@ -54,9 +54,12 @@ const BlogForm = () => {
     // data.append('readTime', formData.readTime );
     // data.append('date', formData.date);
 
+   localStorage.setItem('authToken', 'token');
+
     Axios.post('http://localhost:5000/api/createblog', data, {
       headers:{
         'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
       }
     })
     .then((response) => {
