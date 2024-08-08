@@ -55,7 +55,19 @@ export const CreateBlog = (req, res) =>{
 
         try{
 
+
+          console.log(req.user, ':req.user');
+
             const {authorName, authorEmail, authorPhone,  articleTitle, articleDescript,   articleLink} =req.body;
+
+            
+
+            // if(!authorEmail === req.user.email) {
+
+            //   console.log("Please use your signup email")
+            //   return res.status(400).json({error:"Please use ur profile email"});
+              
+            // }
 
             if (!req.file) {
               return res.status(400).json({ error: "No file uploaded" });
@@ -124,7 +136,7 @@ export const GetEmployerblogs = async (req, res) => {
   } catch(error){
 
     console.log("Error fetchong blog", error);
-    return res.status(500).json({erro:"Internal server error"});
+    return res.status(500).json({error:"Internal server error"});
 
   }
 
