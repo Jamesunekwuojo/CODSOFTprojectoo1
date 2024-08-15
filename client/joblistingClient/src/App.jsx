@@ -2,13 +2,13 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-import { BrowserRouter as Router, Route, Routes,   } from 'react-router-dom'; // Import BrowserRouter and Route
-import Mainnav from "./components/Navbar.jsx";
+import { BrowserRouter  as Router, Route, Routes,   } from 'react-router-dom'; // Import BrowserRouter and Route
+import Mainnav from "./components/Mainnav/Navbar.jsx";
 import Homepage from './pages/Homepage.jsx';
 import Employerdashboard from './pages/Employerdashboard.jsx';
 import Signupage from './pages/Signupage.jsx'
 import Candidatedashboard from './pages/Candidatedashboard.jsx';
-import Footer from "./components/Footer.jsx"
+import Footer from "./components/Footer/Footer.jsx"
 
 // TESTING IMPORTS SOON TO BE REMOVED
 // import Addblogpage from "./pages/Addblogpage.jsx";
@@ -17,6 +17,8 @@ import Footer from "./components/Footer.jsx"
 
 
 import './App.css';
+
+
 
 
 

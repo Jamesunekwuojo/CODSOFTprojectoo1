@@ -1,5 +1,5 @@
 import {Container, Row, Col} from "react-bootstrap"
-import Blogform from "../components/Blogform";
+import Blogform from "../components/BlogForm/Blogform";
 
 function Addblogpage() {
     return (

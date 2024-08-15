@@ -1,4 +1,4 @@
-import BlogCard from "../components/BlogCard.jsx";
+import BlogCard from "../components/BlogCard/BlogCard.jsx";
 import {Container, Row} from "react-bootstrap";
 
 

@@ -75,7 +75,7 @@ export const CreateBlog = (req, res) =>{
             }
     
             const profilePhoto = {
-            url: `/uploads ${req.file.filename}`,
+            url: `/uploads/ ${req.file.filename}`,
     
             filename: req.file.originalname,
             mimetype:req.file.mimetype,

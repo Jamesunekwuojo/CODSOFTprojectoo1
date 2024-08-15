@@ -1,47 +1,29 @@
 import jwt from "jsonwebtoken";
-import {User} from '../models/userModel.js';
+import { User } from '../models/userModel.js';
+import 'dotenv/config'; // Ensure your environment variables are loaded
 
-import 'dotenv'
+const JWTkey = process.env.JWT_key;
 
+export const authentication = async (req, res, next) => {
+    const token = req.header("Authorization")?.replace('Bearer ', '').trim(); // Trim any extra spaces
 
-const JWTkey= process.env.JWT_key;
-
-export const authentication = async(req, res, next) => {
-
-    const token = req.header("AuthoriZation")?.replace('Bearer', '');
-
-
-    if(!token) {
-        return res.status(401).send({error:'No token provided'});
-    
+    if (!token) {
         console.log("No token provided");
-    
+        return res.status(401).send({ error: 'No token provided' });
     }
 
-
-    try{
+    try {
         const decoded = jwt.verify(token, JWTkey);
 
-        const user = await User.findOne({_id:decoded._id})
+        const user = await User.findOne({ _id: decoded._id });
 
-
-        if(!user){
-            throw new Error();
+        if (!user) {
+            return res.status(401).send({ error: "User not found, please authenticate" });
         }
 
         req.user = user;
-
-    } catch(error) {
-
-        res.send(401).send({error: "Please authenticate"});
-
-
+        next(); // Move to the next middleware or route handler
+    } catch (error) {
+        return res.status(401).send({ error: "Please authenticate" });
     }
-
-
-
-
-
-
-
-}
+};

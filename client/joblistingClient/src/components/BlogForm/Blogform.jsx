@@ -54,7 +54,7 @@ const BlogForm = () => {
     // data.append('readTime', formData.readTime );
     // data.append('date', formData.date);
 
-   localStorage.setItem('authToken', 'token');
+  
 
     Axios.post('http://localhost:5000/api/createblog', data, {
       headers:{
@@ -65,6 +65,10 @@ const BlogForm = () => {
     .then((response) => {
       alert("Form submitted successfully")
       console.log(response.data);
+
+      if(response.data.token){
+        localStorage.setItem('authToken', response.data.token);
+      }
     })
     .catch(err =>{
 

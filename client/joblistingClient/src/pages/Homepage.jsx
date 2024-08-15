@@ -1,7 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import Searchdiv from "../components/Searchdiv";
-import ChooseUs from '../components/ChooseUs';
-import Sideimgdiv from '../components/Sideimgdiv';
+import Searchdiv from "../components/Searchdiv/Searchdiv.jsx";
+import ChooseUs from '../components/ChooseUs/ChooseUs.jsx';
+import Sideimgdiv from '../components/Sideimgdiv/Sideimgdiv.jsx';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
@@ -11,7 +11,7 @@ import { PersonCheck} from 'react-bootstrap-icons';
 // import Blogform from "../components/Blogform";
 // import BlogCard from "../components/BlogCard";
 
-import Blogform from '../components/Blogform.jsx';
+import Blogform from '../components/BlogForm/Blogform.jsx';
 
 
 

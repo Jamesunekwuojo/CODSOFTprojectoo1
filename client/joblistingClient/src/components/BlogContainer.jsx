@@ -1,7 +1,7 @@
 // BlogContainer.js
 import {useState, useEffect} from 'react';
-import Blogform from './Blogform';
-import BlogCard from './BlogCard';
+import Blogform from './BlogForm/Blogform';
+import BlogCard from './BlogCard/BlogCard';
 
 const BlogContainer = () => {
   const [blogs, setBlogs] = useState([]);
@@ -25,7 +25,7 @@ const BlogContainer = () => {
     <div>
       <Blogform onSubmit={addBlogPost} />
       <div className="mt-4">
-        {blogs.map((blog, index) => (
+        {blogs.map((blog, index) => (      
           <BlogCard
             key={index}
             imageSrc={blog.profilePhotoURL} // Assuming this is a URL to the uploaded image

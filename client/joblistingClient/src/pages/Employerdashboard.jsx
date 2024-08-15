@@ -2,7 +2,7 @@
 import{Container, Row, Col} from "react-bootstrap";
 import {Routes, Route} from "react-router-dom"
 
-import EmployerSidebar from "../components/EmployerSidebar.jsx";
+import EmployerSidebar from "../components/EmployerSidebar/EmployerSidebar.jsx";
 import Addblogpage from "./Addblogpage.jsx";
 import Blogpage from "./Blogpage"
 

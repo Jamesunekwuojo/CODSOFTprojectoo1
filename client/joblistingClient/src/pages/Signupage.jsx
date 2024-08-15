@@ -1,5 +1,5 @@
 
-import Signupform from '../components/Signupform.jsx'
+import Signupform from '../components/Signupform/Signupform.jsx'
 
 function Signupage(){
     return(
