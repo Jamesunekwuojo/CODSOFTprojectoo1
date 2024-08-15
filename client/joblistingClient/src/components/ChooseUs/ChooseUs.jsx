@@ -1,6 +1,6 @@
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import "../App.css"; // Make sure to add your styles in this file
+import "./ChooseUs.css"; // Make sure to add your styles in this file
 
 function ChooseUs() {
   return (

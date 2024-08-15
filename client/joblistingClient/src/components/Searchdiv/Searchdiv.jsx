@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, FormControl, Button, Container, Row, Col, DropdownButton, Dropdown } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
-import "../App.css"
+import "./Searchdiv.css"
 
 function Searchdiv() {
   // const [selectedLocation, setSelectedLocation] = useState('Location');

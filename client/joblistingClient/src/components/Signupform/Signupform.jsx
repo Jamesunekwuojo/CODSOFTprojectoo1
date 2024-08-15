@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form, Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
-
+import "./Signupform.css";
 function SignupForm() {
   const [formData, setFormData] = useState({
     name: '',

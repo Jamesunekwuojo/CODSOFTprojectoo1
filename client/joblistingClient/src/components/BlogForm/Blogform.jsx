@@ -6,7 +6,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import Axios from 'axios';
 
 
-import '../App.css'
+import './Blogform.css';
 
 
 

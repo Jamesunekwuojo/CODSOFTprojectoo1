@@ -11,7 +11,7 @@ import { PersonCheck} from 'react-bootstrap-icons';
 // import Blogform from "../components/Blogform";
 // import BlogCard from "../components/BlogCard";
 
-import Blogform from '../components/BlogForm/Blogform.jsx';
+
 
 
 
