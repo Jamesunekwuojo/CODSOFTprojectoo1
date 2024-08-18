@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt'
 
 const userSchema = new mongoose.Schema({
 
@@ -26,6 +27,7 @@ userSchema.pre( 'save', async function(next){
 
 });
 
+// static method for sign up
 userSchema.statics.signup( async function (name, email, password, role) {
 
     const exist = await this.findOne({email})
@@ -39,6 +41,30 @@ userSchema.statics.signup( async function (name, email, password, role) {
     return user
 })
 
+
+// static method for logging in 
+
+userSchema.statics.login( async function () {
+    const user = await this.findOne({email});
+
+    if(user) {
+
+        const auth = await bcrypt.compare(password, user.password)
+
+        if(auth) {
+            return user
+        } 
+
+        throw Error("Incorrect password")
+
+    }
+
+    throw Error('User not found, Incorrect email');
+
+
+
+    
+})
 
 
 const UserModel = mongoose.model('User', userSchema);
