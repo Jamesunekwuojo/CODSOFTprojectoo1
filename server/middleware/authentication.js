@@ -4,8 +4,8 @@ import 'dotenv/config'; // Ensure your environment variables are loaded
 
 const JWTkey = process.env.JWT_key;
 
-export const createToken = (id) => {
-    return jwt.sign(id,  JWTkey, {expiresIn:'3d'})
+export const createToken = (_id) => {
+    return jwt.sign({_id},  JWTkey, {expiresIn:'3d'})
 }
 
 // export const authentication = async (req, res, next) => {
