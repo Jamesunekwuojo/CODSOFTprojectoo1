@@ -2,11 +2,8 @@ import jwt from "jsonwebtoken";
 import { User } from '../models/userModel.js';
 import 'dotenv/config'; // Ensure your environment variables are loaded
 
-const JWTkey = process.env.JWT_key;
 
-export const createToken = (_id) => {
-    return jwt.sign({_id},  JWTkey, {expiresIn:'3d'})
-}
+
 
 // export const authentication = async (req, res, next) => {
 //     const token = req.header("Authorization")?.replace('Bearer ', '').trim(); // Trim any extra spaces
