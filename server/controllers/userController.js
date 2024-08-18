@@ -1,33 +1,20 @@
 import {User} from "../models/userModel.js";
 import bcrypt from "bcrypt";
 
+import {createToken} from '../utilis/utilis.js'
+
 export const CreateUser = async (req, res) =>{
 
     const{name, email, password, role} = req.body;
     console.log("Request received successfully", req.body);
 
     try{
-        const user= await User.findOne({email});
 
-        if(user){
-            console.log("User already exist ");
-            return res.status(400).json({message:"User already exist"})
-        }
+        const user = await User.signup(name, email, password, role);
 
-        const hashPassword = await bcrypt.hash(password, 10); 
-
-        const newUser = new User({
-            name,
-            email,
-            password:hashPassword,
-            role
-        }) 
-
-        await newUser.save();
-        console.log("User Registered Successfully");
-
-        return res.status(201).json({message:"User registerd successfully", role:newUser.role});
-
+        const token = createToken(user._id);
+        res.status.json("Token created succesflly", {user, token});
+        
 
 
     }catch(error){
