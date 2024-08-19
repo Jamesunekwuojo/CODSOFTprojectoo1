@@ -10,7 +10,7 @@ function SignupForm() {
     password: '',
     role: ''
   });
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -25,15 +25,23 @@ function SignupForm() {
         const role = response.data.role.toLowerCase(); // Convert role to lowercase
         if (role === "employer") {
           navigate('/employer-dashboard');
+
         } else if (role === "candidate") {
           navigate('/candidate-dashboard');
         } else {
           console.error('Invalid role received:', response.data.role);
         }
+
+       
+
+      
       })
-      .catch(err => {
-        console.log(err);
-        setError('Error signing up. Please try again.');
+      .catch(error => {
+        if(error){
+          alert(error.message)
+        }
+        console.log(error);
+        // setError('Error signing up. Please try again.');
       });
   };
 
@@ -44,7 +52,7 @@ function SignupForm() {
           <div className="d-flex justify-content-center mt-2">
             <h2>Sign Up</h2>
           </div>
-          {error && <div className="alert alert-danger">{error}</div>}
+          {/* {error && <div className="alert alert-danger">{error}</div>} */}
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName" className="m-2">

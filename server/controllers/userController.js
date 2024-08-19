@@ -11,8 +11,13 @@ export const signup_post = async (req, res) =>{
 
         const user = await User.signup(name, email, password, role);
 
+        console.log("User signed up succesfully");
+
         const token = createToken(user._id);
-        res.status(200).json("Token created succesflly", {user, token});
+
+        res.status(200).json( {user, token});
+
+        console.log("Token created successfully", token);
         
 
 
@@ -39,7 +44,8 @@ export const login_post =async(req, res) => {
 
         const token = createToken(user._id);
 
-        res.status(200).json({user, token})
+        res.status(200).json("user created successfully")
+        return res.status(200).json(user)
 
 
 
