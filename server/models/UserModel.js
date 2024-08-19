@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt'
+import { resolvePath } from 'react-router-dom';
 
 const userSchema = new mongoose.Schema({
 
@@ -28,7 +29,7 @@ userSchema.pre( 'save', async function(next){
 });
 
 // static method for sign up
-userSchema.statics.signup( async function (name, email, password, role) {
+userSchema.statics.signup = async function(name, email, password, role) {
 
     const exist = await this.findOne({email})
 
@@ -39,12 +40,12 @@ userSchema.statics.signup( async function (name, email, password, role) {
     const user = await this.create({name, email, password, role})
 
     return user
-})
+}
 
 
 // static method for logging in 
 
-userSchema.statics.login( async function () {
+userSchema.statics.login = async function (name, email, password, role) {
     const user = await this.findOne({email});
 
     if(user) {
@@ -64,7 +65,7 @@ userSchema.statics.login( async function () {
 
 
     
-})
+}
 
 
 const UserModel = mongoose.model('User', userSchema);

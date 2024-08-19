@@ -2,8 +2,7 @@ import {Blog} from "../models/blogModel.js";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
-
-import {authentication} from "../middleware/authentication.js"
+// import {authentication} from "../middleware/authMiddleware.js"
 
 
 const __filename = fileURLToPath(import.meta.url);
