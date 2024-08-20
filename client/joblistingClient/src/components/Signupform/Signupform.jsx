@@ -22,7 +22,7 @@ function SignupForm() {
     Axios.post("http://localhost:5000/api/signup", formData)
       .then(response => {
         console.log(response);
-        const role = response.data.role.toLowerCase(); // Convert role to lowercase
+        const role = response.data.user.role.toLowerCase(); // Convert role to lowercase
         if (role === "employer") {
           navigate('/employer-dashboard');
 

@@ -44,8 +44,8 @@ export const login_post =async(req, res) => {
 
         const token = createToken(user._id);
 
-        res.status(200).json("user created successfully")
-        return res.status(200).json(user)
+        
+        return res.status(200).json({name, email, role, token});
 
 
 
