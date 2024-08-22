@@ -55,19 +55,16 @@ export const CreateBlog = (req, res) =>{
         try{
 
 
-          console.log(req.user, ':req.user');
+          
 
             const {authorName, authorEmail, authorPhone,  articleTitle, articleDescript,   articleLink} =req.body;
 
             
-            if(!req.user || authorEmail !== req.user.email){}
+            if(!req.user || authorEmail !== req.user.email){
+              return res.status(400).json({error:"Please use signup email for creating the blog"});
+            }
 
-            // if(!authorEmail === req.user.email) {
-
-            //   console.log("Please use your signup email")
-            //   return res.status(400).json({error:"Please use ur profile email"});
-              
-            // }
+           
 
             if (!req.file) {
               return res.status(400).json({ error: "No file uploaded" });

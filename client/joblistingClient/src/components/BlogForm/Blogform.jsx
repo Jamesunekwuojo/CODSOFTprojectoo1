@@ -4,9 +4,8 @@ import  { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 import Axios from 'axios';
-
-
 import './Blogform.css';
+import Swal from 'sweetalert2'
 
 
 
@@ -25,7 +24,7 @@ const BlogForm = () => {
     articleLink: '',  
   });
 
-  const [error, setError] = useState('');
+
 
 
   
@@ -69,12 +68,42 @@ const BlogForm = () => {
       if(response.data.token){
         localStorage.setItem('authToken', response.data.token);
       }
+
+
+      Swal.fire({
+        title: 'Blog successfully created',
+        text: response.data.message,
+        icon: 'success',
+        confirmButtonText:'ok'
+      })
     })
-    .catch(err =>{
+
+   
+    .catch(error =>{
 
       
-      console.log(err.response ? err.response.data : err.message)
-      setError('Error Submitting blog form!');
+      console.log(error.response ? error.response.data : error.message)
+      if(error.response){
+
+        
+        Swal.fire({
+          title: 'Error!',
+          text: error.response.data.error,  // The error message from your backend
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+
+      } else {
+
+        Swal.fire({
+          title: 'Error!',
+          text: 'Something went wrong. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+      });
+
+      }
+      
     });
     
     
@@ -82,7 +111,7 @@ const BlogForm = () => {
 
   return (
     <Container className="blogstyles p-3 ">
-    {error && <div className="alert alert-danger">{error}</div>}
+   
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formAuthorName">
         <Form.Label>Author Name*</Form.Label>
