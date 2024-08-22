@@ -3,6 +3,7 @@ import { Form, Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import "./Signupform.css";
+import Swal from 'sweetalert2';
 function SignupForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -32,15 +33,40 @@ function SignupForm() {
           console.error('Invalid role received:', response.data.role);
         }
 
+
+        // If the blog is created successfully
+        Swal.fire({
+            title: 'Successfully signed up!',
+            text: response.data.message,
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+
        
 
       
       })
       .catch(error => {
-        if(error){
-          alert(error.message)
+        if(error.response){
+
+          Swal.fire({
+            title: 'Error!',
+            text: error.response.data.error,  // The error message from your backend
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
+
+        } else {
+
+          Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong. Please try again.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+
         }
-        console.log(error);
+
         // setError('Error signing up. Please try again.');
       });
   };
