@@ -9,8 +9,13 @@ const BlogCard =() =>{
   const[blogs, setBlogs] = useState([]);
 
   useEffect(()=>{
+    const token = localStorage.getItem('token');
 
-    axios.get('http://localhost:5000/api/blogs:byId')
+    axios.get('http://localhost:5000/api/blogs:byId' , {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      }
+    })
     .then(response =>{
       setBlogs(response.data);
     }
