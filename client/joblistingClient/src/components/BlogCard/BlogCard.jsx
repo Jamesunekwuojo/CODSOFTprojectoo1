@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {Container, Row, Col, Card, Button} from "react-bootstrap";
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 
 const BlogCard =() =>{
@@ -9,17 +10,24 @@ const BlogCard =() =>{
 
   useEffect(()=>{
 
-    axios.get('http://localhost:5000/api/getblogs')
+    axios.get('http://localhost:5000/api/blogs:byId')
     .then(response =>{
       setBlogs(response.data);
     }
 
     )
 
-    .catch(err =>{
+    .catch(error =>{
 
-      console.log("Error fetching blogs", err)
-      alert("Error fetching blogs");
+      console.log("Error fetching blogs", error)
+      // alert("Error fetching blogs");
+
+      Swal.fire({
+        title: 'Error! error fetching blogs',
+        text: error.response.data.error,  // The error message from your backend
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
 
     })
 

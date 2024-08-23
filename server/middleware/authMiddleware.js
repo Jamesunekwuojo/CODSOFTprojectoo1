@@ -1,30 +1,31 @@
 import jwt from "jsonwebtoken";
 import { User } from '../models/userModel.js';
-import 'dotenv/config'; // Ensure your environment variables are loaded
+import 'dotenv/config';
 
+export const protectAuth = async (req, res, next) => {
+    // To verify user is authenticated
+    const { authorization } = req.headers;
 
+    if (!authorization || !authorization.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Authorization token required' });
+    }
 
+    const token = authorization.split(' ')[1];
 
-// export const authentication = async (req, res, next) => {
-//     const token = req.header("Authorization")?.replace('Bearer ', '').trim(); // Trim any extra spaces
+    if (!token) {
+        return res.status(401).json({ error: 'Token missing from authorization header' });
+    }
 
-//     if (!token) {
-//         console.log("No token provided");
-//         return res.status(401).send({ error: 'No token provided' });
-//     }
+    try {
+        const { _id } = jwt.verify(token, process.env.JWT_KEY);
 
-//     try {
-//         const decoded = jwt.verify(token, JWTkey);
+        // Fetch the user with the email
+        req.user = await User.findOne({ _id }).select('_id email'); // Add email here
 
-//         const user = await User.findOne({ _id: decoded._id });
+        next();
 
-//         if (!user) {
-//             return res.status(401).send({ error: "User not found, please authenticate" });
-//         }
-
-//         req.user = user;
-//         next(); // Move to the next middleware or route handler
-//     } catch (error) {
-//         return res.status(401).send({ error: "Please authenticate" });
-//     }
-// };
+    } catch (error) {
+        console.log(error);
+        return res.status(401).json({ error: 'Request not authorized' });
+    }
+};

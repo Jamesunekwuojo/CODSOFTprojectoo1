@@ -1,3 +1,4 @@
+import { error } from "console";
 import {Blog} from "../models/blogModel.js";
 import multer from "multer";
 import path from "path";
@@ -61,6 +62,7 @@ export const CreateBlog = (req, res) =>{
 
             
             if(!req.user || authorEmail !== req.user.email){
+              console.log(error)
               return res.status(400).json({error:"Please use signup email for creating the blog"});
             }
 

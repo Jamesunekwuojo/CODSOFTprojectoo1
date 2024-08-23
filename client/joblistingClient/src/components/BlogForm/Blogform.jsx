@@ -53,21 +53,28 @@ const BlogForm = () => {
     // data.append('readTime', formData.readTime );
     // data.append('date', formData.date);
 
+    const token = localStorage.getItem('token');
+
   
 
     Axios.post('http://localhost:5000/api/createblog', data, {
       headers:{
         'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+
+        'Authorization': `Bearer ${token}`
+        
       }
     })
     .then((response) => {
-      alert("Form submitted successfully")
+    
       console.log(response.data);
 
-      if(response.data.token){
-        localStorage.setItem('authToken', response.data.token);
-      }
+      // const token = localStorage.setItem('token', response.data.token);
+
+      // if(response.data.token){
+      //   token;
+        
+      // }
 
 
       Swal.fire({
