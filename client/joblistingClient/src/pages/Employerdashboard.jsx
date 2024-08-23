@@ -4,7 +4,8 @@ import {Routes, Route} from "react-router-dom"
 
 import EmployerSidebar from "../components/EmployerSidebar/EmployerSidebar.jsx";
 import Addblogpage from "./Addblogpage.jsx";
-import Blogpage from "./Blogpage"
+import Blogpage from "./Blogpage";
+import JobPostpage from "./JobPostpage.jsx"
 
 
 
