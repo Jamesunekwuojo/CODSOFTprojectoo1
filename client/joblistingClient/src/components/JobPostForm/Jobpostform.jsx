@@ -1,9 +1,10 @@
 
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import "./Jobpostform.css"
 
 const JobPostForm = () => {
   return (
-    <Container>
+    <Container className='jobformcontainer'>
       <h2>Create a Job Post</h2>
       <Form>
         <Form.Group controlId="formJobTitle">
