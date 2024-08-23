@@ -12,17 +12,14 @@ const JobPostForm = () => {
           <Form.Control type="text" placeholder="Enter job title" />
         </Form.Group>
 
-        <Form.Group controlId="formJobDescription">
-          <Form.Label>Job Description</Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="Enter job description" />
-        </Form.Group>
+     
 
-        <Form.Group controlId="formJobLocation">
+        <Form.Group controlId="formJobLocation" className='mt-2'>
           <Form.Label>Job Location</Form.Label>
           <Form.Control type="text" placeholder="Enter job location" />
         </Form.Group>
 
-        <Form.Group controlId="formJobType">
+        <Form.Group controlId="formJobType" className='mt-2'>
           <Form.Label>Job Type</Form.Label>
           <Form.Control as="select">
             <option>Full-time</option>
@@ -31,7 +28,7 @@ const JobPostForm = () => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="formSalaryRange">
+        <Form.Group controlId="formSalaryRange" className='mt-2'>
           <Form.Label>Salary Range</Form.Label>
           <Row>
             <Col>
@@ -43,12 +40,17 @@ const JobPostForm = () => {
           </Row>
         </Form.Group>
 
-        <Form.Group controlId="formApplicationDeadline">
+        <Form.Group controlId="formApplicationDeadline" className='mt-2'>
           <Form.Label>Application Deadline</Form.Label>
           <Form.Control type="date" />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Form.Group controlId="formJobDescription" className="mt-2">
+          <Form.Label>Job Description</Form.Label>
+          <Form.Control as="textarea" rows={3} placeholder="Enter job description" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit" className="mt-2">
           Submit
         </Button>
       </Form>

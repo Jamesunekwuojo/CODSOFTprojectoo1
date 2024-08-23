@@ -1,5 +1,8 @@
 .jobformcontainer {
-    width: 30vw;
-    border: 1px solid black;
-    margin-top: 2rem;
+    width: 40vw;
+    
+    border: 1px solid #ddd;
+    border-radius:  15px;
+    margin-top: 1.5rem;
+    padding: 20px;
 }

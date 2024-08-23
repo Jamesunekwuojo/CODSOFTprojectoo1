@@ -24,7 +24,7 @@ function EmployerSidebar () {
 
         <Nav.Item className="mb-3">
          
-            <Nav.Link as={Link} to='employerAddnewjob'>
+            <Nav.Link as={Link} to='employerAddjob'>
               <FaChartBar className="mr-2" /> Add new job
             </Nav.Link>
          
