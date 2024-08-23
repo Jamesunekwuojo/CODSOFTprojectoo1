@@ -21,6 +21,8 @@ function Employerdashboard (){
               <Route path="employerAddblog" element={<Addblogpage/>} />
 
               <Route path="employerBlog" element={<Blogpage/>} />
+
+              <Route path="employerAddjob" element={<JobPostpage/>} />
            
             </Routes>
           </Col>
