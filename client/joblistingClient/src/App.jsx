@@ -7,6 +7,7 @@ import Mainnav from "./components/Mainnav/Navbar.jsx";
 import Homepage from './pages/Homepage.jsx';
 import Employerdashboard from './pages/Employerdashboard.jsx';
 import Signupage from './pages/Signupage.jsx'
+import Signinpage from './pages/Signinpage.jsx';
 import Candidatedashboard from './pages/Candidatedashboard.jsx';
 import Footer from "./components/Footer/Footer.jsx"
 
@@ -31,6 +32,8 @@ function App() {
           <Route path="/"  element={<Homepage/>}/>
 
           <Route path="/signup"  element={<Signupage/>}/>
+          
+          <Route path="/signin"  element={<Signinpage/>}/>
           
           <Route path="/candidate-dashboard"  element={<Candidatedashboard/>}/>
 
