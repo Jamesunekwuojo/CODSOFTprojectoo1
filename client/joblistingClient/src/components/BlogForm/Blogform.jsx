@@ -159,7 +159,7 @@ const BlogForm = () => {
         </Col>
       </Row>
 
-      <Form.Group controlId="formWebsiteLink">
+      <Form.Group controlId="formWebsiteLink" className='mt-2'>
         <Form.Label>Article Link*</Form.Label>
         <Form.Control
           type="text"
@@ -170,7 +170,7 @@ const BlogForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formProfilePhoto">
+      <Form.Group controlId="formProfilePhoto" className='mt-2'>
         <Form.Label>Upload Profile Photo* (1200 x 1200px, jpg or png file)</Form.Label>
         <Form.Control
           type="file"
@@ -180,7 +180,7 @@ const BlogForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formArticleTitle">
+      <Form.Group controlId="formArticleTitle" className='mt-2'>
         <Form.Label>Article Title*</Form.Label>
         <Form.Control
           type="text"
@@ -191,10 +191,10 @@ const BlogForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formArticleFile">
+      <Form.Group controlId="formArticleFile" className='mt-2'>
         <Form.Label>Article Description* (Write a brief description about your article)</Form.Label>
         <Form.Control
-          type="text"
+          as="textarea"
           name="articleDescript"
           value={formData.articleDescript}
           onChange={handleChange}

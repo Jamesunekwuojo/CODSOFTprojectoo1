@@ -13,7 +13,7 @@ function Employerdashboard (){
     return(
         <Container fluid>
         <Row>
-          <Col md={2}>
+          <Col md={2}> 
             <EmployerSidebar />
           </Col>
           <Col md={10}>
