@@ -117,7 +117,7 @@ const BlogForm = () => {
   };
 
   return (
-    <Container className="blogstyles p-3 ">
+    <Container className="blogform_container p-3 ">
    
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formAuthorName">
