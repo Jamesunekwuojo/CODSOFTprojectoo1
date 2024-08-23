@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form,  Button, Container, Row, Col,} from 'react-bootstrap';
-import { FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
+
 import "./Searchdiv.css"
 
 function Searchdiv() {
@@ -30,12 +30,14 @@ function Searchdiv() {
         </Form.Group>
 
         <Form.Group controlId="searchLocation" className="m-2">
-          <Form.Label>Location</Form.Label>
+          <Form.Label>Category</Form.Label>
           <Form.Control as="select" className="p-3 mb-4">
             <option>Select...</option>
-            <option>Location 1</option>
-            <option>Location 2</option>
-            <option>Location 3</option>
+            <option>Technology and IT</option>
+            <option>Human Resources</option>
+            <option>Education and Training</option>
+            <option>Engineering</option>
+            <option>Others...</option>
           </Form.Control>
         </Form.Group>
 
