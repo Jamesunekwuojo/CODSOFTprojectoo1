@@ -133,7 +133,7 @@ function SigninForm() {
                 required
                 className="p-2 mb-2"
               >
-                <option value="">Select role...</option>
+                <option value="">Sign in as ...</option>
                 <option value="employer">Employer</option>
                 <option value="candidate">Candidate</option>
               </Form.Control>
