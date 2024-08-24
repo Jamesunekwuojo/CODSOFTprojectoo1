@@ -33,7 +33,7 @@ export const signup_post = async (req, res) =>{
 
 }
 
-export const login_post =async(req, res) => {
+export const signin_post =async(req, res) => {
     const {name, email, password, role} = req.body;
 
     console.log("Data received succesfully")
