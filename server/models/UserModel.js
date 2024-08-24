@@ -56,6 +56,10 @@ userSchema.statics.login = async function (name, email, password, role) {
             throw Error('Incorrect name')
         }
 
+        if (user.role !==role) {
+            throw Error ('Please enter the correct role')
+        }
+
         if(auth) {
             return user
         } 
