@@ -51,9 +51,9 @@ export const signin_post =async(req, res) => {
 
     } catch(error) {
 
-        console.log("Error logging user in");
+        console.log(error);
 
-        res.status(200).json({error: error.message});
+        res.status(400).json({error: error.message});
 
     } 
 

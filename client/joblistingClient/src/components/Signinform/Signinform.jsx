@@ -20,7 +20,7 @@ function SigninForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000/api/signup", formData)
+    Axios.post("http://localhost:5000/api/signin", formData)
       .then(response => {
         console.log(response);
 
@@ -41,7 +41,7 @@ function SigninForm() {
 
         // If the blog is created successfully
         Swal.fire({
-            title: 'Successfully signed up!',
+            title: 'Successfully logged in!',
             text: response.data.message,
             icon: 'success',
             confirmButtonText: 'OK'
