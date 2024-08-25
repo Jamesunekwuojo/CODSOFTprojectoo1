@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt'
-import { resolvePath } from 'react-router-dom';
+
 
 const userSchema = new mongoose.Schema({
 

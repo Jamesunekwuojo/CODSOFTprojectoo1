@@ -1,0 +1,23 @@
+.side_bar {
+    display: flex;
+    align-items: center;
+    width: 250px;
+   
+
+
+} 
+
+
+@media (max-width:767px){
+
+    .side_bar {
+        display: flex;
+        align-items: center;
+        width: 100vw;
+       
+
+
+    } 
+
+}
+

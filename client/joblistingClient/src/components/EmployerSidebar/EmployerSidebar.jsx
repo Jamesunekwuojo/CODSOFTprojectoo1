@@ -2,10 +2,11 @@
 import { Nav } from 'react-bootstrap';
 import { FaHome, FaUsers, FaChartBar, FaCog } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
+import "./Employersidebar.css";
 
 function EmployerSidebar () {
   return (
-    <div className="d-flex flex-column vh-100 bg-light" style={{ width: '250px' }}>
+    <div className="d-flex  flex-column vh-100 bg-light side_bar" >
       <Nav className="flex-column mt-4">
         <Nav.Item className="mb-3">
           
