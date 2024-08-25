@@ -6,7 +6,7 @@ import "./Employersidebar.css";
 
 function EmployerSidebar () {
   return (
-    <div className="d-flex  flex-column vh-100 bg-light side_bar" >
+    <div className="d-flex  flex-column  bg-light side_bar" >
       <Nav className="flex-column mt-4">
         <Nav.Item className="mb-3">
           
