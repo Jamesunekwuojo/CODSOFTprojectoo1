@@ -1,8 +1,17 @@
 .jobformcontainer {
     width: 40vw;
-    
     border: 1px solid #ddd;
     border-radius:  15px;
     margin-top: 1.5rem;
     padding: 20px;
+}
+
+@media (max-width:767px){
+
+    .jobformcontainer {
+        width: 90vw;
+       
+    }
+
+
 }
