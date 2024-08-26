@@ -11,8 +11,14 @@
   .chooseusdivRow{
    margin-left: 9%;
   }
+  .chooseUstext{
+    margin-top: 30px;
+  }
 }
 
+@media (min-width:768px) and (max-width:991px) {
+
+}
 /*@media (min-width: 768px) {
     .chooseUsDiv:nth-child(2) {
       margin-left: 20%;
