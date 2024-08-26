@@ -5,17 +5,6 @@ import Sideimgdiv from '../components/Sideimgdiv/Sideimgdiv.jsx';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
-
-// TESTING IMPORTS SOON TO BE REMOVED
-
-// import Blogform from "../components/Blogform";
-// import BlogCard from "../components/BlogCard";
-
-
-
-
-
-
 import "../App.css"
 
 

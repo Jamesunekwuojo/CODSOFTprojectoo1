@@ -5,7 +5,7 @@ import "./ChooseUs.css"; // Make sure to add your styles in this file
 function ChooseUs() {
   return (
     <Container className="d-flex justify-content-center my-5">
-      <Row className="align-items-center">
+      <Row className="align-items-center chooseusdivRow">
         {/* Left Column with Images */}
         <Col xs={12} md={6} lg={6} className="d-flex flex-column">
           <div className='chooseUsDiv mb-4'>
