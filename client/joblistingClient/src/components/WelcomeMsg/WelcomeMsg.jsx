@@ -3,22 +3,41 @@ import { useState, useEffect } from 'react';
 
 function WelcomeMsg(){
 
-    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
+
+    const 
 
     useEffect(()=>{
 
         const token = localStorage.getItem('token')
 
-        axios.get('http://localhost:5000/api/signup', {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            }
+        const fetchUserData = () =>{
+            try {
 
-        })
-        .then(response =>{
-            console.log(response.data)
-            setName(response.data.user.name)
-        })
+                axios.get('http://localhost:5000/api/signin', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    }
+        
+                })
+                .then(response =>{
+                    console.log(response.data)
+                    setUsername(response.data.user.name)
+
+                    
+                })
+                
+            } catch (error) {
+                
+            }
+        }
+
+
+        fetchUserData();
+
+       
+
+      
 
     }, [])
 
@@ -26,6 +45,8 @@ function WelcomeMsg(){
 
     return (
         <>
+
+        <p ></p>
 
 
         </>
