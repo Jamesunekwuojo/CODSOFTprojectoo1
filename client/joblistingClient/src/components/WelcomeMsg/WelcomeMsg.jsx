@@ -7,7 +7,7 @@ function WelcomeMsg(){
 
     const [greeting, setGreeting] = useState('');
 
-    const [pregreeting, setPregreeting] = useState('');
+    const [pregreeting, setPregreeting] = useState('Welcome to JoBHUB');
 
 
 
@@ -29,9 +29,15 @@ function WelcomeMsg(){
                     console.log(response.data)
                     setUsername(response.data.name)
 
-                    const preMsg = 'Wecome to JOBHUB!';
+                    if(response.data.name){
+                        const  preMsg = `Welcome to JOBHUB, ${response.data.name}`
 
-                    setPregreeting(preMsg);
+                        setPregreeting(preMsg)
+                    }
+
+                    // const preMsg = 'Wecome to JOBHUB!';
+
+                    // setPregreeting(preMsg);
 
                     const currentTime = new Date().getHours();
 
@@ -74,7 +80,7 @@ function WelcomeMsg(){
         <>
 
         <div className='d-flex justify-content-center'>
-            <p> {pregreeting}</p>
+            <p> {pregreeting} </p>
             <p>{greeting}, {username}</p>
         
 
