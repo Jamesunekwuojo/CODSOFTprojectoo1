@@ -59,4 +59,21 @@ export const signin_post =async(req, res) => {
 
 } 
 
-expo
+export const get_user = async(req, res) => {
+
+    const user = await User.findById(req.user._id);
+
+    if(user) {
+        res.json(user)
+
+    } else {
+
+        res.status(404)
+        throw new Error('user not found');
+
+    }
+
+
+    
+
+}
