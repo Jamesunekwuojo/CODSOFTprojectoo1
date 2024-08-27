@@ -7,6 +7,11 @@ function WelcomeMsg(){
 
     const [greeting, setGreeting] = useState('');
 
+    const [pregreeting, setPregreeting] = useState('');
+
+
+
+
     useEffect(()=>{
 
         const token = localStorage.getItem('token')
@@ -23,6 +28,10 @@ function WelcomeMsg(){
                 .then(response =>{
                     console.log(response.data)
                     setUsername(response.data.name)
+
+                    const preMsg = 'Wecome to JOBHUB!';
+
+                    setPregreeting(preMsg);
 
                     const currentTime = new Date().getHours();
 
@@ -64,8 +73,10 @@ function WelcomeMsg(){
     return (
         <>
 
-        <div className='d-flex justify-start'>
-          <p> {greeting}, {username}</p>
+        <div className='d-flex justify-content-center'>
+            <p> {pregreeting}</p>
+            <p>{greeting}, {username}</p>
+        
 
         </div>
 
