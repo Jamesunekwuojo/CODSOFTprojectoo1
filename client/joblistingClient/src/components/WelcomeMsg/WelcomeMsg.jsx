@@ -5,7 +5,7 @@ function WelcomeMsg(){
 
     const [username, setUsername] = useState('');
 
-    const 
+    const [greeting, setGreeting] = useState('');
 
     useEffect(()=>{
 
@@ -24,16 +24,34 @@ function WelcomeMsg(){
                     console.log(response.data)
                     setUsername(response.data.user.name)
 
+                    const currentTime = new Date().getHours();
+
+                    let timeGreetings;
+
+                    if (currentTime < 12){
+
+                        timeGreetings = 'Good morining'
+
+                    } else if(currentTime < 18) {
+                        timeGreetings ='Good afternoon'
+                    } else {
+                        timeGreetings = 'Good evening'
+                    }
+
+                    setGreeting(timeGreetings)
+
                     
                 })
                 
             } catch (error) {
-                
+                console.log(error)
             }
         }
 
 
         fetchUserData();
+
+
 
        
 
@@ -46,7 +64,7 @@ function WelcomeMsg(){
     return (
         <>
 
-        <p ></p>
+        <p> {greeting}, {username}</p>
 
 
         </>
