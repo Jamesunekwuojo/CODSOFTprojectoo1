@@ -14,7 +14,7 @@ function WelcomeMsg(){
         const fetchUserData = () =>{
             try {
 
-                axios.get('http://localhost:5000/api/signin', {
+                axios.get('http://localhost:5000/api/profile', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     }
@@ -22,7 +22,7 @@ function WelcomeMsg(){
                 })
                 .then(response =>{
                     console.log(response.data)
-                    setUsername(response.data.user.name)
+                    setUsername(response.data.name)
 
                     const currentTime = new Date().getHours();
 
@@ -64,7 +64,12 @@ function WelcomeMsg(){
     return (
         <>
 
-        <p> {greeting}, {username}</p>
+        <div className='d-flex justify-start'>
+          <p> {greeting}, {username}</p>
+
+        </div>
+
+        
 
 
         </>

@@ -12,6 +12,7 @@ import Candidatedashboard from './pages/Candidatedashboard.jsx';
 import JobPostpage from './pages/JobPostpage.jsx';
 import Footer from "./components/Footer/Footer.jsx";
 import ProtectedRoute from './pages/ProtectedRoute.jsx';
+import WelcomeMsg from './components/WelcomeMsg/WelcomeMsg.jsx';
 
 
 import './App.css';
@@ -28,6 +29,7 @@ function App() {
     <Router> {/* Wrap my components with the Router component */}
       <div>
         <Mainnav />
+        <WelcomeMsg/>
         <Routes>
           <Route path="/"  element={<Homepage/>}/>
 

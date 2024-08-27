@@ -67,6 +67,8 @@ export const get_user = async(req, res) => {
         res.json(user)
 
     } else {
+        console.log(error);
+        
 
         res.status(404)
         throw new Error('user not found');
