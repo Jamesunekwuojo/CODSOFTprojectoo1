@@ -7,6 +7,8 @@ import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
 import "../App.css"
 
+import "./Homepage.css"
+
 
 
 function Homepage() {
@@ -108,7 +110,18 @@ function Homepage() {
 
         <Col xs={12}>
 
-          <div class>
+          <div className='grid-container'>
+          <div className="grid-item">AUL Hub</div>
+            <div className="grid-item">Technology and IT</div>
+            <div className="grid-item">Education and Training</div>
+            <div className="grid-item">Healthcare</div>
+            <div className="grid-item">Marketing and Sales</div>
+            <div className="grid-item">Engineering</div>
+            <div className="grid-item">Human Resources</div>
+            <div className="grid-item">Creative Arts and Design</div>
+            <div className="grid-item">Customer Service and Support</div>
+            <div className="grid-item">Finance and Accounting</div>
+
 
           </div>
        
@@ -116,81 +129,7 @@ function Homepage() {
         </Col>
 
 
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-        Technology and IT
-
-        </div>
         
-        </Col>
-
-
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-          Education and Training
-        </div>
-        
-        </Col>
-
-        <Col className="d-flex justify-content-center mb-3" >
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-          Healthcare
-
-        </div>
-        
-        </Col>
-
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">Marketing and Sales
-
-        </div>
-        
-        </Col>
-
-
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">Engineering
-
-        </div>
-        
-        </Col>
-        
-        
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-        Human Resources
-
-        </div>
-        
-        </Col>
-
-        
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-        Creative Arts and Design:
-
-        </div>
-        
-        </Col>
-
-        
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-        Customer Service and Support
-
-        </div>
-        
-        </Col>
-
-        
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
-          Finance and Accounting
-
-        </div>
-        
-        </Col>
-
       
 
       </Row>
