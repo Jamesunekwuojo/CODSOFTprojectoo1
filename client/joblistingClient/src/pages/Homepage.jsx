@@ -106,11 +106,12 @@ function Homepage() {
 
       <Row className="d-flex justify-content-center">
 
-        <Col className="d-flex justify-content-center mb-3">
-        <div className="box p-4 custom-box1 border rounded shadow-sm">
+        <Col xs={12}>
 
-        AUL Hub
-        </div>
+          <div class>
+
+          </div>
+       
         
         </Col>
 
