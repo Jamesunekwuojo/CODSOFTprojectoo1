@@ -1,8 +1,31 @@
 /* Custom grid styles for the categories section */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
+  }
+  
+  /* Large devices: 2 rows, 5 columns */
+  @media (min-width: 992px) {
+    .grid-container {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+    }
+  }
+  
+  /* Medium devices: 5 rows, 2 columns */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(5, auto);
+    }
+  }
+  
+  /* Small devices: 10 rows, 1 column */
+  @media (max-width: 767px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(10, auto);
+    }
   }
   
   .grid-item {
@@ -12,18 +35,23 @@
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 200px; /* Set the height to 300px */
   }
   
-  /* Adjust grid layout for smaller screens */
-  @media (max-width: 768px) {
-    .grid-container {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
+  /* Additional custom styles */
+  .searchdivIMG_wrapper {
+    margin-top: rem;
   }
   
-  @media (max-width: 576px) {
-    .grid-container {
-      grid-template-columns: 1fr;
-    }
+  .sideFormimg {
+    margin-top: 2rem;
+  }
+  
+  .box.custom-box {
+    max-width: 300px;
+  }
+  
+  .box.custom-box1 {
+    max-width: 200px;
   }
   
