@@ -2,6 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Searchdiv from "../components/Searchdiv/Searchdiv.jsx";
 import ChooseUs from '../components/ChooseUs/ChooseUs.jsx';
 import Sideimgdiv from '../components/Sideimgdiv/Sideimgdiv.jsx';
+import WelcomeMsg from '../components/WelcomeMsg/WelcomeMsg.jsx';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
@@ -14,6 +15,7 @@ import "./Homepage.css"
 function Homepage() {
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center min-vh-100">
+      <WelcomeMsg/>
       <Row className='searchdivIMG_wrapper'>
         <Col xs={12} md={8} lg={6}>
         <Searchdiv className="h-20"></Searchdiv>
