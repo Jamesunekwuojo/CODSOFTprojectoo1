@@ -17,6 +17,16 @@ const BlogCard =() =>{
       }
     })
     .then(response =>{
+     
+      if(response.data.message == "No blogs found for this email"){
+        Swal.fire({
+          title: 'Warning',
+          text: response.data.message,
+          icon: 'warning',
+          confirmButtonText:'OK'
+        })
+      }
+
       setBlogs(response.data);
     }
 
@@ -28,7 +38,7 @@ const BlogCard =() =>{
       // alert("Error fetching blogs");
 
       Swal.fire({
-        title: 'Error! error fetching blogs',
+        title: 'Error!',
         text: error.response.data.error,  // The error message from your backend
         icon: 'error',
         confirmButtonText: 'OK'
