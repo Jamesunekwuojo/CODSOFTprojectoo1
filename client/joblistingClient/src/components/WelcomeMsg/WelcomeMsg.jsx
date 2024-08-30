@@ -7,7 +7,7 @@ function WelcomeMsg(){
 
     const [greeting, setGreeting] = useState('');
 
-    const [pregreeting, setPregreeting] = useState('');
+    const [pregreeting, setPregreeting] = useState(' '); 
 
 
 

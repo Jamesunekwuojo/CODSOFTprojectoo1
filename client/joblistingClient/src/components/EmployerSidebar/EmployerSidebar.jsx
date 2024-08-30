@@ -46,6 +46,9 @@ function EmployerSidebar () {
           </Nav.Link>
        
         </Nav.Item>
+        <Nav.Item>
+          <p>Logout</p>
+        </Nav.Item>
       </Nav>
     </div>
   );
