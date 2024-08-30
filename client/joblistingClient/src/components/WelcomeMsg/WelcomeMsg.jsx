@@ -7,7 +7,7 @@ function WelcomeMsg(){
 
     const [greeting, setGreeting] = useState('');
 
-    const [pregreeting, setPregreeting] = useState(' '); 
+    const [pregreeting, setPregreeting] = useState(''); 
 
 
 
@@ -27,7 +27,8 @@ function WelcomeMsg(){
                 })
                 .then(response =>{
                     console.log(response.data)
-                    setUsername(response.data.name)
+                    const username = response.data.name;
+                    setUsername(username)
 
                     const preMsg = username ? `Welcome to JOBHUB, ${username}` : '';
 
@@ -70,7 +71,7 @@ function WelcomeMsg(){
 
       
 
-    }, [username])
+    }, [])
 
 
 
@@ -78,8 +79,8 @@ function WelcomeMsg(){
         <>
 
         <div className='d-flex  flex-column align-items-center'>
-            <p style={{margin:'0'}}>  {pregreeting}</p>
-            <p>{greeting}, {username}</p>
+            {pregreeting && <p style={{margin:'0'}}>  {pregreeting}</p>}
+            {username && <p>{greeting}, {username}</p>}
         
 
         </div>
