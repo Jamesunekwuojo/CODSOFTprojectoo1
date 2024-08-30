@@ -1,12 +1,14 @@
-
+import {useNavigate} from 'react';
 
 
 function Logout() {
+    const navigate = useNavigate();
 
 
 
     const handleLogout =()=>{
         localStorage.removeItem('token');
+        navigate('/signin')
         
        
     }
