@@ -2,6 +2,7 @@
 import { Nav } from 'react-bootstrap';
 import { FaHome, FaUsers, FaChartBar, FaCog } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
+import Logout from '../LogOut/Logout.jsx'
 import "./Employersidebar.css";
 
 function EmployerSidebar () {
@@ -47,7 +48,7 @@ function EmployerSidebar () {
        
         </Nav.Item>
         <Nav.Item>
-          <button>Logout</button>
+          <Logout></Logout>
         </Nav.Item>
       </Nav>
     </div>

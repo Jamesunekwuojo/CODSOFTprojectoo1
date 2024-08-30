@@ -1,10 +1,16 @@
 import  {useState} from 'react';
 
 function Logout() {
-    return(
-        <duv>
 
-        </duv>
+    const handleLogout =()=>{
+        localStorage.removeItem('token');
+        window.location.href('/signin');
+    }
+    return(
+        <div>
+            <button onClick={handleLogout}>Logout</button>
+
+        </div>
     )
 }
-e
+export default Logout;
