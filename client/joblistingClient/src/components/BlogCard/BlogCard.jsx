@@ -17,15 +17,7 @@ const BlogCard =() =>{
       }
     })
     .then(response =>{
-     
-      if(response.data.message == "No blogs found for this email"){
-        Swal.fire({
-          title: 'Warning',
-          text: response.data.message,
-          icon: 'warning',
-          confirmButtonText:'OK'
-        })
-      }
+
 
       setBlogs(response.data);
     }
@@ -36,13 +28,15 @@ const BlogCard =() =>{
 
       console.log("Error fetching blogs", error)
       // alert("Error fetching blogs");
-
       Swal.fire({
-        title: 'Error!',
-        text: error.response.data.error,  // The error message from your backend
-        icon: 'error',
-        confirmButtonText: 'OK'
+        title: 'Warning',
+        text: error.response.data.message|| error.response.data.error,
+        icon: 'warning',
+        confirmButtonText:'OK'
       })
+      
+
+   
 
     })
 
