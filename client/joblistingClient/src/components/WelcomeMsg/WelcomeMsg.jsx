@@ -29,13 +29,7 @@ function WelcomeMsg(){
                     console.log(response.data)
                     setUsername(response.data.name)
 
-                    let preMsg;
-
-                    if(response.data.name){
-                        preMsg = `Welcome to JOBHUB, ${response.data.name}`
-
-                        
-                    }
+                    const preMsg = username ? `Welcome to JOBHUB, ${username}` : '';
 
                     setPregreeting(preMsg)
 
@@ -76,7 +70,7 @@ function WelcomeMsg(){
 
       
 
-    }, [])
+    }, [username])
 
 
 
