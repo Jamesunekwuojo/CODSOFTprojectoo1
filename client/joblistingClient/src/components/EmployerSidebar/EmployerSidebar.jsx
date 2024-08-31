@@ -2,7 +2,7 @@
 import { Nav } from 'react-bootstrap';
 import { FaHome, FaUsers, FaChartBar, FaCog } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
-import Logout from '../LogOut/Logout.jsx'
+import Logout from '../Signout/Signout.jsx'
 import "./Employersidebar.css";
 
 function EmployerSidebar () {

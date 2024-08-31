@@ -13,7 +13,11 @@ import JobPostpage from './pages/JobPostpage.jsx';
 import Footer from "./components/Footer/Footer.jsx";
 import ProtectedRoute from './pages/ProtectedRoute.jsx';
 
+import { AuthProvider } from './context/AuthContext/AuthProvider.jsx';
 
+import ProtectedRoute2 from './components/ProtectedRoute2/ProtectedRoute2.jsx';
+
+import 
 
 import './App.css';
 

@@ -12,4 +12,4 @@ const ProtectedRoute2 = ({children}) => {
     return children;
 }
 
-export
+export default ProtectedRoute2;
