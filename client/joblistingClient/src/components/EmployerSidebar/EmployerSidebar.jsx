@@ -2,7 +2,7 @@
 import { Nav } from 'react-bootstrap';
 import { FaHome, FaUsers, FaChartBar, FaCog } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
-import Logout from '../Signout/Signout.jsx'
+import Signout from '../Signout/Signout.jsx'
 import "./Employersidebar.css";
 
 function EmployerSidebar () {
@@ -48,7 +48,7 @@ function EmployerSidebar () {
        
         </Nav.Item>
         <Nav.Item>
-          <Logout></Logout>
+          <Signout></Signout>
         </Nav.Item>
       </Nav>
     </div>

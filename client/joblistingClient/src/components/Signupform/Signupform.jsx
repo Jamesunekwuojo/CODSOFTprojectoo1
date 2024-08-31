@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import "./Signupform.css";
 import Swal from 'sweetalert2';
+import { useAuth } from "../../hooks/useAuthContext"
 function SignupForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,6 +14,7 @@ function SignupForm() {
   });
   // const [error, setError] = useState('');
   const navigate = useNavigate();
+  const {signin} = useAuth()  // destructing signin function from useAuth hook
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,9 +26,12 @@ function SignupForm() {
       .then(response => {
         console.log(response);
 
+        
+
 
           // Store the token in localStorage
         localStorage.setItem('token', response.data.token);
+        signin(response.data.token)
         
         const role = response.data.user.role.toLowerCase(); // Convert role to lowercase
         if (role === "employer") {
