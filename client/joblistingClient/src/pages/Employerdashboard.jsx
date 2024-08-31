@@ -8,6 +8,8 @@ import Blogpage from "./Blogpage";
 import JobPostpage from "./JobPostpage.jsx";
 
 
+import Signout from "./components/Signout/Signout.jsx";
+
 
 
 function Employerdashboard (){
@@ -24,6 +26,8 @@ function Employerdashboard (){
               <Route path="employerBlog" element={<Blogpage/>} />
 
               <Route path="employerAddjob" element={<JobPostpage/>} />
+
+              <Route path="signout" element={<Signout/>} />
            
             </Routes>
           </Col>

@@ -1,68 +1,70 @@
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-import { BrowserRouter  as Router, Route, Routes,   } from 'react-router-dom'; // Import BrowserRouter and Route
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import BrowserRouter and Route
 import Mainnav from "./components/Mainnav/Navbar.jsx";
-import Homepage from './pages/Homepage.jsx';
-import Employerdashboard from './pages/Employerdashboard.jsx';
-import Signupage from './pages/Signupage.jsx'
-import Signinpage from './pages/Signinpage.jsx';
-import Candidatedashboard from './pages/Candidatedashboard.jsx';
-import JobPostpage from './pages/JobPostpage.jsx';
+import Homepage from "./pages/Homepage.jsx";
+import Employerdashboard from "./pages/Employerdashboard.jsx";
+import Signupage from "./pages/Signupage.jsx";
+import Signinpage from "./pages/Signinpage.jsx";
+import Candidatedashboard from "./pages/Candidatedashboard.jsx";
+import JobPostpage from "./pages/JobPostpage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import ProtectedRoute from './pages/ProtectedRoute.jsx';
+import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
-import { AuthProvider } from './context/AuthContext/AuthProvider.jsx';
+import { AuthProvider } from "./context/AuthContext/AuthProvider.jsx";
 
-import ProtectedRoute2 from './components/ProtectedRoute2/ProtectedRoute2.jsx';
-
-import 
-
-import './App.css';
+import ProtectedRoute2 from "./components/ProtectedRoute2/ProtectedRoute2.jsx";
 
 
-
-
-
+import "./App.css";
 
 function App() {
-
- 
   return (
-    <Router> {/* Wrap my components with the Router component */}
-      <div>
-        <Mainnav />
-        
-        <Routes>
-          <Route path="/"  element={<Homepage/>}/>
+    <AuthProvider>
+      <Router>
+        {" "}
+        {/* Wrap my components with the Router component */}
+        <div>
+          <Mainnav />
 
-          <Route path="/signup"  element={<Signupage/>}/>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
 
-          <Route path="/signin"  element={<Signinpage/>}/>
-          
-          <Route path="/candidate-dashboard"  element={<Candidatedashboard/>}/>
+            <Route path="/signup" element={<Signupage />} />
 
-          <Route path="/post-job" element={<ProtectedRoute>
-            <JobPostpage/>
-          </ProtectedRoute>}/>
-        
+            <Route path="/signin" element={<Signinpage />} />
 
+            <Route
+              path="/candidate-dashboard"
+              element={<Candidatedashboard />}
+            />
 
-          {/* TESTING ROUTES */}
-          <Route path="/employer-dashboard/*" element={<Employerdashboard/>}/>
+            <Route
+              path="/post-job"
+              element={
+                <ProtectedRoute>
+                  <JobPostpage />
+                </ProtectedRoute>
+              }
+            />
 
-        
+            {/* TESTING ROUTES */}
+            <Route
+              path="/employer-dashboard/*"
+              element={
+                <ProtectedRoute2>
+                  <Employerdashboard />
+                </ProtectedRoute2>
+              
+            }
+            />
+          </Routes>
 
-
-
-        </Routes>
-      
-        <Footer></Footer>
-        
-       
-      </div>
-    </Router>
+          <Footer></Footer>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
