@@ -8,7 +8,7 @@ import Blogpage from "./Blogpage";
 import JobPostpage from "./JobPostpage.jsx";
 
 
-import Signout from "./components/Signout/Signout.jsx";
+import Signout from "../components/Signout/Signout.jsx";
 
 
 

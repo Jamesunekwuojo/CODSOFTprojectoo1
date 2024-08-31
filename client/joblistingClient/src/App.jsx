@@ -16,7 +16,6 @@ import { AuthProvider } from "./context/AuthContext/AuthProvider.jsx";
 
 import ProtectedRoute2 from "./components/ProtectedRoute2/ProtectedRoute2.jsx";
 
-
 import "./App.css";
 
 function App() {
@@ -25,44 +24,36 @@ function App() {
       <Router>
         {" "}
         {/* Wrap my components with the Router component */}
-        <div>
-          <Mainnav />
+        <Mainnav />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
 
-          <Routes>
-            <Route path="/" element={<Homepage />} />
+          <Route path="/signup" element={<Signupage />} />
 
-            <Route path="/signup" element={<Signupage />} />
+          <Route path="/signin" element={<Signinpage />} />
 
-            <Route path="/signin" element={<Signinpage />} />
+          <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
 
-            <Route
-              path="/candidate-dashboard"
-              element={<Candidatedashboard />}
-            />
-
-            <Route
-              path="/post-job"
-              element={
-                <ProtectedRoute>
-                  <JobPostpage />
-                </ProtectedRoute>
-              }
-            />
-
-            {/* TESTING ROUTES */}
-            <Route
-              path="/employer-dashboard/*"
-              element={
-                <ProtectedRoute2>
-                  <Employerdashboard />
-                </ProtectedRoute2>
-              
+          <Route
+            path="/post-job"
+            element={
+              <ProtectedRoute>
+                <JobPostpage />
+              </ProtectedRoute>
             }
-            />
-          </Routes>
+          />
 
-          <Footer></Footer>
-        </div>
+          {/* TESTING ROUTES */}
+          <Route
+            path="/employer-dashboard/*"
+            element={
+              <ProtectedRoute2>
+                <Employerdashboard />
+              </ProtectedRoute2>
+            }
+          />
+        </Routes>
+        <Footer></Footer>
       </Router>
     </AuthProvider>
   );
