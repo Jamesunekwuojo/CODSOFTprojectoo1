@@ -35,7 +35,7 @@ function Homepage() {
 
       <Row className="mt-5">
         <Col className="d-flex m-4 justify-content-center">
-        <Link to="/signup"><h3>Get Started</h3></Link>
+        <h3>Get Started</h3>
         </Col>
       </Row>
 
@@ -44,7 +44,7 @@ function Homepage() {
         <Col className="m-3 d-flex justify-content-center">
           <div className=" d-flex justify-content-center  align-items-center flex-column box custom-box p-4 border rounded shadow-sm mb-2">
             <PersonAdd size={32}/>
-            <p className='fw-bold'> Create Account</p>
+            <Link to="/signup"><p className='fw-bold'> Create Account</p></Link>
 
             
           
