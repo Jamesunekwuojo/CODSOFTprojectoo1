@@ -6,6 +6,7 @@ import WelcomeMsg from '../components/WelcomeMsg/WelcomeMsg.jsx';
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
+import {Link} from 'react-router-dom';
 import "../App.css"
 
 import "./Homepage.css"
@@ -34,7 +35,7 @@ function Homepage() {
 
       <Row className="mt-5">
         <Col className="d-flex m-4 justify-content-center">
-        <h3>Get Started</h3>
+        <Link to="/signup"><h3>Get Started</h3></Link>
         </Col>
       </Row>
 
