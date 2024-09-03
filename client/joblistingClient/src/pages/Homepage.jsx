@@ -3,6 +3,7 @@ import Searchdiv from "../components/Searchdiv/Searchdiv.jsx";
 import ChooseUs from '../components/ChooseUs/ChooseUs.jsx';
 import Sideimgdiv from '../components/Sideimgdiv/Sideimgdiv.jsx';
 import WelcomeMsg from '../components/WelcomeMsg/WelcomeMsg.jsx';
+import CompleteProfile from '../components/CompleteProfile/CompleteProfile.jsx'
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';
@@ -45,9 +46,6 @@ function Homepage() {
           <div className=" d-flex justify-content-center  align-items-center flex-column box custom-box p-4 border rounded shadow-sm mb-2">
             <PersonAdd size={32}/>
             <Link to="/signup"><p className='fw-bold'> Create Account</p></Link>
-
-            
-          
            
           </div>
         </Col>
@@ -55,7 +53,7 @@ function Homepage() {
         <Col className="m-3 d-flex justify-content-center">
           <div className="box custom-box p-4 border rounded shadow-sm d-flex justify-content-center align-items-center flex-column">
             <PersonCheck size={"32"}/>
-            <p className='fw-bold'>Complete Profile</p>
+            <Link to="/completeprofile"><p className='fw-bold'>Complete Profile</p></Link>
           
           </div>
           

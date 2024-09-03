@@ -15,6 +15,7 @@ import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 import { AuthProvider } from "./context/AuthContext/AuthProvider.jsx";
 
 import ProtectedRoute2 from "./components/ProtectedRoute2/ProtectedRoute2.jsx";
+import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
 
 import "./App.css";
 
@@ -31,6 +32,8 @@ function App() {
           <Route path="/signup" element={<Signupage />} />
 
           <Route path="/signin" element={<Signinpage />} />
+
+          <Route path="/completeprofile" element={<CompleteProfile />} />
 
           <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
 
