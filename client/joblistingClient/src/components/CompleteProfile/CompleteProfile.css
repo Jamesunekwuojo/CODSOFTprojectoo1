@@ -1,0 +1,14 @@
+.formContainer {
+    width:50vw;
+    
+    height: 40vh;
+}
+
+@media (max-width:768px) {
+    .formContainer {
+        width:90vw;
+        
+        height: 50vh;
+    }
+
+}

@@ -1,16 +1,25 @@
-import { Container, Form, Row,  } from "react-bootstrap";
-
+import { Container, Form, Row, Col } from "react-bootstrap";
+import "./CompleteProfile.css";
 function CompleteProfile() {
   return (
-    <Container>
+    <Container className="d-flex justify-content-center mt-4">
       <Row>
-        <Form>
-          <h1>Complete Profile</h1>
-          <Form.Group>
-            <Form.Label>Upload ur profile picture</Form.Label>
-            <Form.Control></Form.Control>
-          </Form.Group>
-        </Form>
+        <Col>
+          <div className="d-flex justify-content-center">
+            <h1>Complete Profile</h1>
+          </div>
+          <Form className="border rounded-5 p-4 border-secondary-subtle formContainer">
+            <Form.Group>
+              <Form.Label>Upload ur profile picture</Form.Label>
+              <Form.Control></Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Enter city name</Form.Label>
+              <Form.Control></Form.Control>
+            </Form.Group>
+          </Form>
+        </Col>
       </Row>
     </Container>
   );
