@@ -1,8 +1,23 @@
 
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import "./Jobpostform.css"
+import { useState } from 'react';
 
 const JobPostForm = () => {
+  const [currency, setCurrency] = useState('');
+
+
+  const handleChange = (e)=> {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+
+    if (value) {
+      setCurrency(`$${value}`);
+    }
+
+    setCurrency('');
+
+  }
+
   return (
     <Container className='jobformcontainer'>
       <h2>Create a Job Post</h2>
@@ -32,7 +47,7 @@ const JobPostForm = () => {
           <Form.Label>Salary Range</Form.Label>
           <Row>
             <Col>
-              <Form.Control type="number" name="MinimumSalary" placeholder="Minimum salary" />
+              <Form.Control type="number" name="MinimumSalary" value={currency} onChange={handleChange} placeholder="Minimum salary" />
             </Col>
             <Col>
               <Form.Control type="number"  name="MaximumSalary" placeholder="Maximum salary" />
