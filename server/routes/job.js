@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.post('/createjob',);
 router.get('/displaybyId');
-router.get('/dispalyJob',)
+router.get('/Jobs:byId',)
 
 export default router
