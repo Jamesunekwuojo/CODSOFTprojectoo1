@@ -9,19 +9,19 @@ const JobPostForm = () => {
       <Form>
         <Form.Group controlId="formJobTitle">
           <Form.Label>Job Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter job title" />
+          <Form.Control type="text" name='JobTitle' placeholder="Enter job title" />
         </Form.Group>
 
      
 
         <Form.Group controlId="formJobLocation" className='mt-2'>
           <Form.Label>Job Location</Form.Label>
-          <Form.Control type="text" placeholder="Enter job location" />
+          <Form.Control type="text" name="JobLocation" placeholder="Enter job location" />
         </Form.Group>
 
         <Form.Group controlId="formJobType" className='mt-2'>
           <Form.Label>Job Type</Form.Label>
-          <Form.Control as="select">
+          <Form.Control as="select" name="JobType">
             <option>Full-time</option>
             <option>Part-time</option>
             <option>Contract</option>
@@ -32,22 +32,22 @@ const JobPostForm = () => {
           <Form.Label>Salary Range</Form.Label>
           <Row>
             <Col>
-              <Form.Control type="number" placeholder="Minimum salary" />
+              <Form.Control type="number" name="MinimumSalary" placeholder="Minimum salary" />
             </Col>
             <Col>
-              <Form.Control type="number" placeholder="Maximum salary" />
+              <Form.Control type="number"  name="MaximumSalary" placeholder="Maximum salary" />
             </Col>
           </Row>
         </Form.Group>
 
         <Form.Group controlId="formApplicationDeadline" className='mt-2'>
           <Form.Label>Application Deadline</Form.Label>
-          <Form.Control type="date" />
+          <Form.Control name="ApplicationDeadline" type="date" />
         </Form.Group>
 
         <Form.Group controlId="formJobDescription" className="mt-2">
           <Form.Label>Job Description</Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="Enter job description" />
+          <Form.Control as="textarea" name="JobDescription" rows={3} placeholder="Enter job description" />
         </Form.Group>
 
         <Button variant="primary" type="submit" className="mt-2">
