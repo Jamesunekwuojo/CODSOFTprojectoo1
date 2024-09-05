@@ -4,17 +4,25 @@ import "./Jobpostform.css"
 import { useState } from 'react';
 
 const JobPostForm = () => {
-  const [currency, setCurrency] = useState('');
+  
+  const [value, setValue] = useState({
+    minCurrncy :'',
+    maxCurrency :'',
+
+  })
 
 
   const handleChange = (e)=> {
-    const value = e.target.value.replace(/[^0-9]/g, '');
+    const {name, value} = e.target
+    const numericValue = value.replace(/[^0-9]/g, '');
 
-    if (value) {
-      setCurrency(`$${value}`);
-    }
+    setValue((preValue) => ({
+      ...preValue,
+      [name] : numericValue ?  `$${numericValue}` : ''
+    }))
+  
 
-    setCurrency('');
+ 
 
   }
 
