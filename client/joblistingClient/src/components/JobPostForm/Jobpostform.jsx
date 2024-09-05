@@ -6,7 +6,7 @@ import { useState } from 'react';
 const JobPostForm = () => {
   
   const [value, setValue] = useState({
-    minCurrncy :'',
+    minCurrency :'',
     maxCurrency :'',
 
   })
@@ -55,10 +55,10 @@ const JobPostForm = () => {
           <Form.Label>Salary Range</Form.Label>
           <Row>
             <Col>
-              <Form.Control type="number" name="MinimumSalary" value={currency} onChange={handleChange} placeholder="Minimum salary" />
+              <Form.Control type="number" name="MinimumSalary" value={value.minCurrency} onChange={handleChange} placeholder="Minimum salary" />
             </Col>
             <Col>
-              <Form.Control type="number"  name="MaximumSalary" placeholder="Maximum salary" />
+              <Form.Control type="number"  name="MaximumSalary" onChange={handleChange} value={value.maxCurrency} placeholder="Maximum salary" />
             </Col>
           </Row>
         </Form.Group>
