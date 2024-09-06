@@ -5,4 +5,8 @@ export const useSignin = () => {
     const [isLoading, setIsLoading] = useState('');
 
     const {dispatch} = useAuthContext();
+
+    const signin = () =>{
+        
+    }
 }
