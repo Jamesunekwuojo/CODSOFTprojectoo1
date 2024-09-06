@@ -28,9 +28,20 @@ export const useSignin = () => {
             if(role === "employer") {
                 navigate("/employer-dashboard");
 
-            } else if (role === "candidate") [
-                navigate("/candidate-das")
-            ]
+            } else if (role === "candidate") {
+                navigate("/candidate-dashboard");
+            } else {
+                console.error("Invalid role received:", response.data.role);
+
+            }
+
+            Swal.fire({
+                title: "Successfully signed in",
+                text: response.data.message,
+                icon:'success',
+                timer: 2000,
+                confirmButtonText: 'OK'
+            });
 
 
 
@@ -39,6 +50,23 @@ export const useSignin = () => {
 
         )
         .catch(error => {
+            if(error.response) {
+                Swal.fire({
+                    title: "Error signing in",
+                    text:error.response.data.errror,
+                    icon:'error',
+                    confirmButtonText:'OK'
+                });
+
+            } else {
+                Swal.fire({
+                    title:'Error!',
+                    text: 'Failed to connect to server...Please try again',
+                    icon:'error',
+                    confirmButtonText: 'OK'
+                });
+
+            }
 
         })  
         
