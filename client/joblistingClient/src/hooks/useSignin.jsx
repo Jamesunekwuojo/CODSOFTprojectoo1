@@ -8,16 +8,18 @@ import { useNavigate } from 'react-router-dom';
 export const useSignin = () => {
     const [isLoading, setIsLoading] = useState('');
     const {dispatch} = useAuthContext();
-    const {signin} = useAuthContext();
+    const {signin} = useAuthContext(); // destructuring sigin function from useAuthContext
     const navigate = useNavigate();
 
     const signinUser = (formData) =>{
-        setIsLoading(true);
+        
 
 
         Axios.post("http://localhost:5000/api/signin", formData)
         .then(response => {
             console.log(response);
+            // state of app
+            setIsLoading(true);
 
             // Store the token in localStorage
             localStorage.setItem('token', response.data.token);
@@ -49,7 +51,7 @@ export const useSignin = () => {
         }
 
         )
-        .catch(error => {
+        .catch((error) => {
             if(error.response) {
                 Swal.fire({
                     title: "Error signing in",
@@ -67,6 +69,8 @@ export const useSignin = () => {
                 });
 
             }
+
+            setIsLoading(false);
 
         })  
         

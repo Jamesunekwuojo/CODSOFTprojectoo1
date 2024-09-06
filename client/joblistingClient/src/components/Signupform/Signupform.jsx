@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import "./Signupform.css";
 import Swal from 'sweetalert2';
-import { useAuth } from "../../hooks/useAuthContext"
+//import { useSignup } from '../../hooks/useSignup';
+
 function SignupForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,9 +13,12 @@ function SignupForm() {
     password: '',
     role: ''
   });
-  // const [error, setError] = useState('');
+
+  //const {isLoading, signinUser} = useSignin();
+
+
   const navigate = useNavigate();
-  const {signin} = useAuth()  // destructing signin function from useAuth hook
+ 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,6 +26,8 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signinUser(formData)// call signinuser function from the hook
+
     Axios.post("http://localhost:5000/api/signup", formData)
       .then(response => {
         console.log(response);
@@ -145,8 +151,9 @@ function SignupForm() {
 
             </Form.Group>
             <div className="d-flex justify-content-center">
-              <Button style={{ color: "black", backgroundColor: "#a8071a" }} type="submit">
-                Sign Up
+              <Button style={{ color: "black", backgroundColor: "#a8071a" }}
+              disabled={isLoading} type="submit">{isLoading?'Sign up ....' : 'Sign up'}
+                
               </Button>
             </div>
 

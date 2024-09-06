@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import "./Signinform.css";
 import Swal from 'sweetalert2';
-import {useAuth} from '../../hooks/useAuthContext'
+import { useSignin } from '../../hooks/useSignin';
+
 function SigninForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,9 +13,10 @@ function SigninForm() {
     password: '',
     role: ''
   });
-  // const [error, setError] = useState('');
-  const navigate = useNavigate();
-  const {signin} = useAuth()
+
+  const {signinUser, isLoading} = useSignin();
+
+ 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,7 +24,10 @@ function SigninForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000/api/signin", formData)
+    signinUser(formData)
+
+
+    {/* Axios.post("http://localhost:5000/api/signin", formData)
       .then(response => {
         console.log(response);
 
@@ -76,7 +81,7 @@ function SigninForm() {
         }
 
         // setError('Error signing up. Please try again.');
-      });
+      });*/}
   };
 
   return (
@@ -143,8 +148,8 @@ function SigninForm() {
 
             </Form.Group>
             <div className="d-flex justify-content-center">
-              <Button style={{ color: "black", backgroundColor: "#a8071a" }} type="submit">
-                Sign in
+              <Button style={{ color: "black", backgroundColor: "#a8071a" }} disabled={isLoading} type="submit"> {isLoading? 'Sign in ....':'Sign in'}
+                
               </Button>
             </div>
 
