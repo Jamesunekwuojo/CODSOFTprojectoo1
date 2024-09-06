@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {useAuthContext} from './useAuthContext.jsx';
 import Axios from 'axios';
 import Swal from "sweetalert2"
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 
 
 export const useSignin = () => {
@@ -45,6 +45,9 @@ export const useSignin = () => {
                 confirmButtonText: 'OK'
             });
 
+            dispatch({type:"SIGNIN", payload:json})
+
+
 
 
 
@@ -75,4 +78,6 @@ export const useSignin = () => {
         })  
         
     }
+
+    return {signinUser, isLoading}
 }
