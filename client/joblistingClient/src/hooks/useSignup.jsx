@@ -33,9 +33,39 @@ export const useSignup = () => {
             }
 
 
+            // Success message after signup
+            Swal.fire({
+                title:"",
+                text: "Signup successful",
+                icon: "success",
+                confirmButtonText: "OK"
+
+            })
+
+
 
         } catch (error){
 
+            if(error.response) {
+                Swal.fire({
+                    title:"Error signing up",
+                    text: error.response.data.error,
+                    icon:'error',
+                    confirmButtonText:"OK"
+                })
+            } else {
+
+                Swal.fire({
+                    title:"Error signing up",
+                    text:'Failed to connect to server ... please try again',
+                    icon:'error',
+                    confirmButtonText:"OK"
+
+                })
+            }
+
+        } finally {
+            setIsLoading(false);
         }
     }
 
