@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Form, Button, Col, Container, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import Axios from 'axios';
+import { Link} from 'react-router-dom';
 import "./Signupform.css";
-import Swal from 'sweetalert2';
+import { useSignup } from '../../hooks/useSignup';
+
 //import { useSignup } from '../../hooks/useSignup';
 
 function SignupForm() {
@@ -14,10 +14,9 @@ function SignupForm() {
     role: ''
   });
 
-  //const {isLoading, signinUser} = useSignin();
+  //const {isLoading, signupUser} = useSignup();
 
 
-  const navigate = useNavigate();
  
 
   const handleChange = (e) => {
@@ -26,9 +25,9 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signinUser(formData)// call signinuser function from the hook
+    signupUser(formData)// call signupuser function from the hook
 
-    Axios.post("http://localhost:5000/api/signup", formData)
+  {/*  Axios.post("http://localhost:5000/api/signup", formData)
       .then(response => {
         console.log(response);
 
@@ -84,7 +83,7 @@ function SignupForm() {
         }
 
         // setError('Error signing up. Please try again.');
-      });
+      });*/}
   };
 
   return (

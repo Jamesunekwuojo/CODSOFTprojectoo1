@@ -12,8 +12,6 @@ import JobPostpage from "./pages/JobPostpage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
-import { AuthProvider } from "./context/AuthContext/AuthProvider.jsx";
-
 import ProtectedRoute2 from "./components/ProtectedRoute2/ProtectedRoute2.jsx";
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
 
@@ -21,7 +19,7 @@ import "./App.css";
 
 function App() {
   return (
-    <AuthProvider>
+    
       <Router>
         {" "}
         {/* Wrap my components with the Router component */}
@@ -58,7 +56,7 @@ function App() {
         </Routes>
         <Footer></Footer>
       </Router>
-    </AuthProvider>
+    
   );
 }
 
