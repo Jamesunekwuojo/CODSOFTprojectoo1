@@ -25,7 +25,7 @@ function App() {
     <Router>
       <Mainnav />
       <Routes>
-        <Route path="/" element={user ? <Homepage /> : <Navigate to="/signin" />} />
+        <Route path="/" element={ <Homepage />  } />
         <Route path="/signup" element={!user ? <Signupage /> : <Navigate to="/" />} />
         <Route path="/signin" element={!user ? <Signinpage /> : <Navigate to="/" />} />
         <Route path="/completeprofile" element={<CompleteProfile />} />
