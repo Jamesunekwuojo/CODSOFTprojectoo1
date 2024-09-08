@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import "./CompleteProfile.css";
 import axios from "axios";
@@ -10,7 +10,9 @@ function CompleteProfile() {
 
   })
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token'); // retrieving token;
+  
+  const user = token.
 
   const handleChange = (e) => {
     // handle change event
@@ -24,10 +26,22 @@ function CompleteProfile() {
     
   }
 
+  useEffect(() => {
+
+    axios.get('http://localhost:5000/api/signin')
+    .then(response =>{
+
+    })
+    .catch(error){
+      console.log(error);
+    }
+
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const response = axios.post('http://localhost:5000/api/completeProfile', formData {
+    const response = axios.post('http://localhost:5000/api/completeProfile', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization' : `Bearer ${token}`
