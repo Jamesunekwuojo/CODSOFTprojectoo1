@@ -14,7 +14,7 @@ import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
 import { useAuthContext } from "./hooks/useAuthContext.jsx";
-import { AuthContextProvider } from "./context/AuthContext.jsx"; // Import AuthContextProvider
+
 
 import "./App.css";
 

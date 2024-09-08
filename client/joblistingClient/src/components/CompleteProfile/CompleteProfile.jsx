@@ -1,6 +1,11 @@
-import { Container, Form, Row, Col } from "react-bootstrap";
+import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import "./CompleteProfile.css";
 function CompleteProfile() {
+
+  const handleSubmit = () => {
+
+  }
+
   return (
     <Container className="d-flex justify-content-center mt-4">
       <Row>
@@ -17,6 +22,11 @@ function CompleteProfile() {
             <Form.Group>
               <Form.Label>Enter city name</Form.Label>
               <Form.Control></Form.Control>
+            </Form.Group>
+
+            <Form.Group className="d-flex justify-content-center mt-4">
+              <Button type='submit'>Submit</Button>
+
             </Form.Group>
           </Form>
         </Col>
