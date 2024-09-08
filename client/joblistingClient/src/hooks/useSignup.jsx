@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,  } from "react-router-dom";
 import { useAuthContext } from "./useAuthContext";
 import Swal   from "sweetalert2";
-import {json, useNavigate} from 'react-router-dom';
 import { useState } from "react";
 import Axios from "axios";
 
@@ -10,7 +9,7 @@ export const useSignup = () => {
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
 
-    const signinUser = async (FormData) => {
+    const signupUser = async (FormData) => {
         setIsLoading(true);
 
         try {
@@ -67,7 +66,9 @@ export const useSignup = () => {
         } finally {
             setIsLoading(false);
         }
-    }
+    };
+
+    return { signupUser, isLoading}
 
 
 

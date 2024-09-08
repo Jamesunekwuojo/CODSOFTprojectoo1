@@ -14,7 +14,7 @@ function SignupForm() {
     role: ''
   });
 
-  //const {isLoading, signupUser} = useSignup();
+  const {isLoading, signupUser} = useSignup();
 
 
  
