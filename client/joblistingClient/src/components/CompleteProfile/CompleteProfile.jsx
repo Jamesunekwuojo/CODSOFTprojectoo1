@@ -13,7 +13,7 @@ function CompleteProfile() {
           <div className="d-flex justify-content-center">
             <h1>Complete Profile</h1>
           </div>
-          <Form className="border rounded-5 p-4 border-secondary-subtle formContainer">
+          <Form className="border rounded-5 p-4 border-secondary-subtle formContainer" onSubmit={handleSubmit}>
             <Form.Group className="mt-4">
               <Form.Label>Upload ur profile picture</Form.Label>
               <Form.Control></Form.Control>
