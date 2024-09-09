@@ -10,9 +10,7 @@ function CompleteProfile() {
 
   })
 
-  const token = localStorage.getItem('token'); // retrieving token;
-  
-  const user = token.
+ 
 
   const handleChange = (e) => {
     // handle change event
@@ -26,15 +24,22 @@ function CompleteProfile() {
     
   }
 
+  
+
   useEffect(() => {
 
     axios.get('http://localhost:5000/api/signin')
     .then(response =>{
+      console.log(response.data);
+
 
     })
-    .catch(error){
-      console.log(error);
-    }
+    .catch(error =>{
+      
+      console.log(error)
+
+    })
+    
 
   }, []);
 

@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={ <Homepage />  } />
         <Route path="/signup" element={!user ? <Signupage /> : <Navigate to="/" />} />
         <Route path="/signin" element={!user ? <Signinpage /> : <Navigate to="/" />} />
-        <Route path="/completeprofile" element={<CompleteProfile />} />
+        <Route path="/completeprofile" element={user ?<CompleteProfile /> : <Navigate to ="/signin"/>} />
         <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
         <Route
           path="/post-job"
