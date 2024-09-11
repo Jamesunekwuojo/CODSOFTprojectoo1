@@ -3,7 +3,6 @@ import Searchdiv from "../components/Searchdiv/Searchdiv.jsx";
 import ChooseUs from '../components/ChooseUs/ChooseUs.jsx';
 import Sideimgdiv from '../components/Sideimgdiv/Sideimgdiv.jsx';
 import WelcomeMsg from '../components/WelcomeMsg/WelcomeMsg.jsx';
-import CompleteProfile from '../components/CompleteProfile/CompleteProfile.jsx'
 import { PersonAdd } from 'react-bootstrap-icons';
 import { Camera } from 'react-bootstrap-icons';
 import { PersonCheck} from 'react-bootstrap-icons';

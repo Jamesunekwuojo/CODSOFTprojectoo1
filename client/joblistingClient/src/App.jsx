@@ -1,7 +1,10 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 
+// built in react components imports  and bootstrap imports
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+
+// custom  components imports
 import Mainnav from "./components/Mainnav/Navbar.jsx";
 import Homepage from "./pages/Homepage.jsx";
 import Employerdashboard from "./pages/Employerdashboard.jsx";
@@ -17,8 +20,7 @@ import EmployApply from "./components/EmployApply/EmployApply.jsx";
 // context
 import { useAuthContext } from "./hooks/useAuthContext.jsx";
 
-
-
+// custom App css import 
 import "./App.css";
 
 function App() {
@@ -51,7 +53,7 @@ function App() {
         <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
         
         <Route path="/employer-dashboard/*" element={<Employerdashboard />} />
-        
+
         <Route path="/employ-apply" element={<EmployApply/>}/>
 
       </Routes>
