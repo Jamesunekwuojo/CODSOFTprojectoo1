@@ -62,7 +62,7 @@ function Homepage() {
         <Col className="m-3 d-flex justify-content-center align-items-center">
           <div className=" d-flex justify-content-center  align-items-center flex-column box p-4  custom-box border rounded shadow-sm">
             <Camera size={32}/>
-            <p className='fw-bold' >Employ or Apply for Jobs</p>
+            <Link to="/employ-apply"><p className='fw-bold' >Employ or Apply for Jobs</p></Link>
 
          
           

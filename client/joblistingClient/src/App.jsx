@@ -11,9 +11,12 @@ import Candidatedashboard from "./pages/Candidatedashboard.jsx";
 import JobPostpage from "./pages/JobPostpage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute.jsx";
-
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
+import EmployApply from "./components/EmployApply/EmployApply.jsx";
+
+// context
 import { useAuthContext } from "./hooks/useAuthContext.jsx";
+
 
 
 import "./App.css";
@@ -25,11 +28,14 @@ function App() {
     <Router>
       <Mainnav />
       <Routes>
+
+        {/* Main routes at the navbar*/}
         <Route path="/" element={ <Homepage />  } />
+
         <Route path="/signup" element={!user ? <Signupage /> : <Navigate to="/" />} />
+
         <Route path="/signin" element={!user ? <Signinpage /> : <Navigate to="/" />} />
-        <Route path="/completeprofile" element={<CompleteProfile />} />
-        <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
+
         <Route
           path="/post-job"
           element={
@@ -38,7 +44,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/*Elementary routes, embedded pages  routes*/}
+        <Route path="/completeprofile" element={<CompleteProfile />} />
+
+        <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
+        
         <Route path="/employer-dashboard/*" element={<Employerdashboard />} />
+        
+        <Route path="/employ-apply" element={<EmployApply/>}/>
+
       </Routes>
       <Footer />
     </Router>
