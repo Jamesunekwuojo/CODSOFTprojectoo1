@@ -16,7 +16,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
 import EmployApply from "./components/EmployApply/EmployApply.jsx";
-
+import AboutUs from "./components/AboutUs/AboutUs.jsx";
 // context
 import { useAuthContext } from "./hooks/useAuthContext.jsx";
 
@@ -37,6 +37,8 @@ function App() {
         <Route path="/signup" element={!user ? <Signupage /> : <Navigate to="/" />} />
 
         <Route path="/signin" element={!user ? <Signinpage /> : <Navigate to="/" />} />
+
+        <Route path="/about" element={<AboutUs/>}/>
 
         <Route
           path="/post-job"
