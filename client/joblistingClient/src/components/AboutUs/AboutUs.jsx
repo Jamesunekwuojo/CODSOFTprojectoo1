@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap"
 
+import "./AboutUs.css"
 
 const AboutUs = () => {
     return (
@@ -12,18 +13,24 @@ const AboutUs = () => {
                 
                 </Col>
             </Row>
-            <Row>
+            <Row className="img-row">
                 <Col className="d-flex justify-content-center">
-                <img src="/aboutus.png"/>
+                <img className="rounded-5 w-50" src="/aboutus.png"/>
                 
 
                 </Col>
             </Row>
-            <Row className="">
-                <Col className="d-flex justify-content-center">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut aliquid itaque consequatur quo perspiciatis fuga impedit. Quod optio illum id incidunt facere libero sit quis inventore, deleniti nisi repellendus nemo.</p>
+            <Row className="text-row">
+                <Col className="d-flex mw-25 justify-content-center">
+                <p>Welcome Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda asperiores quibusdam dolorem voluptatem? Facere ab nulla, reiciendis rem voluptatem fugit. Accusantium nihil fuga magni, facere sed repudiandae doloremque, nesciunt odit est dolore et dolorem? Reprehenderit dicta quos consequatur. Voluptatibus voluptatem minus veniam officia voluptate vero sapiente assumenda obcaecati officiis dignissimos.</p>
                 </Col>
 
+            </Row>
+
+            <Row className="explore-button">
+                <Col className="d-flex justify-content-center">
+                    <button className=" button btn btn-primary p-4 w-25 rounded-5 ">Explore now!</button>
+                </Col>
             </Row>
 
         

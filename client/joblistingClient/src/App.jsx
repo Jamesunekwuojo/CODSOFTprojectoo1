@@ -59,7 +59,12 @@ function App() {
         <Route path="/employ-apply" element={<EmployApply/>}/>
 
       </Routes>
-      <Footer />
+      
+      <footer>
+        <Footer />
+
+      </footer>
+      
     </Router>
   );
 }
