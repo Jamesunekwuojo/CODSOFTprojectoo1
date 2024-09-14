@@ -20,6 +20,7 @@
     font-weight: 300;
     animation: zoom 1.5s infinite;
     transform: transform 0.5 ease;
+    width: 25%
 
 
 }
@@ -39,5 +40,9 @@
 }
 
 @media (max-width:767px) {
+
+    .button {
+        width: 50%
+    }
 
 }

@@ -34,7 +34,7 @@ const AboutUs = () => {
 
       <Row className="explore-button">
         <Col className="d-flex justify-content-center">
-          <button className=" button btn btn-primary p-4 w-25 rounded-5 ">
+          <button className=" button btn btn-primary p-4  rounded-5 ">
             <Link className="button-link" to="/browse-job">Explore now!</Link>
           </button>
         </Col>

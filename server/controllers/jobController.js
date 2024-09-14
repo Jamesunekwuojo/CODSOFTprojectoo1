@@ -1,4 +1,4 @@
-import JobModel from "../models/jobModel";
+import {Job} from "../models/jobModel.js";
 
 export const CreateJob = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ export const CreateJob = async (req, res) => {
 
         // creating job by instanciating new object
 
-        const newJob = new Job({obTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, JobDescription
+        const newJob = new Job({JobTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, JobDescription
 
         })
 
