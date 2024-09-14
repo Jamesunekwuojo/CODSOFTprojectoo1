@@ -4,10 +4,10 @@ const jobSchema = new mongoose.Schema({
     JobTitle: {type:String},
     JobLocation : {type:String},
     JobType: {type:String},
-    MinimumSalary: {type:String},
-    MaximumSalary :{},
-    ApplicationDeadline: {},
-    JobDescription: {},
+    MinimumSalary: {type:Number},
+    MaximumSalary :{type:Number},
+    ApplicationDeadline: {type:String},
+    JobDescription: {type:String},
     
 });
 
