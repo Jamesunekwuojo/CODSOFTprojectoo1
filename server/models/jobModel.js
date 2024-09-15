@@ -8,6 +8,7 @@ const jobSchema = new mongoose.Schema({
     MaximumSalary :{type:Number},
     ApplicationDeadline: {type:String},
     JobDescription: {type:String},
+    EmployerEmail : {type:String}
     
 });
 

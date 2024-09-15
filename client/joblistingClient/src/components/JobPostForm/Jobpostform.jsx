@@ -68,6 +68,11 @@ const JobPostForm = () => {
           <Form.Control name="ApplicationDeadline" type="date" />
         </Form.Group>
 
+        <Form.Group>
+          <Form.Label>Your Email</Form.Label>
+          <Form.Control name="EmployerEmail" type="email"/>
+        </Form.Group>
+
         <Form.Group controlId="formJobDescription" className="mt-2">
           <Form.Label>Job Description</Form.Label>
           <Form.Control as="textarea" name="JobDescription" rows={3} placeholder="Enter job description" />
