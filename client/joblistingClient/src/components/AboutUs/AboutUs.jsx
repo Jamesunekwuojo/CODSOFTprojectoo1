@@ -15,7 +15,7 @@ const AboutUs = () => {
       </Row>
       <Row className="img-row">
         <Col className="d-flex justify-content-center">
-          <img className="rounded-5 w-50" src="/aboutus.png" />
+          <img className="image rounded-5 " src="/aboutus.png" />
         </Col>
       </Row>
       <Row className="text-row">

@@ -33,6 +33,10 @@
     margin-top: 50px;
 }
 
+.image {
+    width: 50%;
+}
+
 .button-link {
     text-decoration: none;
     color: white;
@@ -43,6 +47,10 @@
 
     .button {
         width: 50%
+    }
+
+    .image {
+        width: 75%;
     }
 
 }
