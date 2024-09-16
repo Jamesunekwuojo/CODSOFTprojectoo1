@@ -11,6 +11,6 @@ router.use(protectAuth)
 //routes
 router.post('/createjob', CreateJob);
 router.get('/displaybyId');
-router.get('/Jobs:byId',)
+router.get('/jobs:byId',)
 
 export default router

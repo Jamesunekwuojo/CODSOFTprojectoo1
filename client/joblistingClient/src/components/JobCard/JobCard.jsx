@@ -1,9 +1,44 @@
-import { useState } from "react";
-import { Container, Row, Col Card, Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Container, Row,  Col, Card, Button } from "react-bootstrap";
+import Axios from  'axios';
+import Swal from 'sweetalert2'
 
 const JobCard = () => {
 
-    const [jobs, setJobs] = useState([])
+    const [jobs, setJobs] = useState([]);
+
+    useEffect(()=>{
+
+        const token = localStorage.getItem('token');
+
+        Axios.get('http://localhost:5000/api/jobs:byId', {
+            headers: {
+                'Authorization' : `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            setJobs(jobs);
+            console.log('Jobs successfully fetched', response.data)
+
+
+           
+
+        })
+        .catch((error)=> {
+
+            console.error(error);
+            Swal.fire({
+                title:'error',
+                text: error.response.data.error,
+                icon:'error',
+                confirmButtonText:'Ok'
+
+            })
+
+        })
+
+    }, [jobs])
+
 
     return(
         <Container>
@@ -13,7 +48,20 @@ const JobCard = () => {
                     <Col key={job._id}>
                         <Card>
                             <Card.Body>
-                                <Card.Title>{job.title}</Card.Title>
+                                <Card.Title>{job.JobTitle}</Card.Title>
+
+                                <Card.Text>Location:{job.JobLocation}</Card.Text>
+
+                                <Card.Text>Deadline:{job.ApplicationDeadline}</Card.Text>
+
+                                <Card.Text>
+                                    <Button>Delete Job</Button>
+                                </Card.Text>
+
+                                <Card.Footer>
+                                    <small >By{job.EmployerEmail}</small>
+                                </Card.Footer>
+
                             </Card.Body>
                         </Card>
                     </Col>
