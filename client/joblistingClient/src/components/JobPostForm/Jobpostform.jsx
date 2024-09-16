@@ -2,6 +2,7 @@ import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import "./Jobpostform.css";
 import { useState } from 'react';
 import Axios from 'axios';
+import Swal from 'sweetalert2'
 
 const JobPostForm = () => {
 
@@ -46,9 +47,22 @@ const JobPostForm = () => {
     })
       .then((response) => {
         console.log(response.data); // Handle success
+        Swal.fire({
+          title: 'Success',
+          text: response.data.message,
+          icon:'success',
+          confirmButtonText:'Ok'
+
+        })
       })
       .catch((error) => {
         console.error(error); // Handle error
+        Swal.fire({
+          title: 'Error',
+          text: error.response.data.error,
+          icon:'error',
+          confirmButtonText: 'Ok'
+        })
       });
   };
 

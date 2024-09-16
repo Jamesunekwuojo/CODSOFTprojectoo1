@@ -81,7 +81,7 @@ const BlogForm = () => {
         title: 'Blog successfully created',
         text: response.data.message,
         icon: 'success',
-        confirmButtonText:'ok'
+        confirmButtonText:'Ok'
       })
     })
 

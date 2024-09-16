@@ -5,7 +5,7 @@ export const CreateJob = async (req, res) => {
 
         const {JobTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, EmployerEmail, JobDescription  } = req.body;
 
-        console.log("Job data received successfully," , ...req.body)
+        console.log("Job data received successfully," , req.body)
 
         // creating job by instanciating new object
 
