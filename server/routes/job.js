@@ -1,11 +1,11 @@
 import express from 'express';
 import { CreateJob } from '../controllers/jobController.js';
-// import  { protectAuth } from '../middleware/authMiddleware';
+import  { protectAuth } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
 //auth middleware
-// router.use(protectAuth)
+router.use(protectAuth)
 
 
 //routes

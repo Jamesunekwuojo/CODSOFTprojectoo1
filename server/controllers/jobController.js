@@ -25,7 +25,7 @@ export const CreateJob = async (req, res) => {
         
     } catch (error) {
 
-        console.log("Error creating blog:", error);
+        console.log("Error creating job:", error);
 
         res.status(500).json({error:error.message})
         

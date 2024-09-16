@@ -15,9 +15,7 @@ export const useSignup = () => {
     try {
       const response = await Axios.post(
         "http://localhost:5000/api/signup",
-        FormData, {
-            timeout:5000
-        }
+        FormData
       );
 
       localStorage.setItem("token", response.data.token);
