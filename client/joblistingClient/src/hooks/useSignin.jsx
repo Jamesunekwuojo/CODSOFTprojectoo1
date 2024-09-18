@@ -21,6 +21,7 @@ export const useSignin = () => {
       // Update auth context (Assuming this is the correct way to handle auth)
       dispatch({ type: "SIGNIN", payload: response.data });
 
+      
       // Navigate based on the user's role
       const role = response.data.user.role.toLowerCase(); // Convert role to lowercase
 

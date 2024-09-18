@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row,  Col, Card, Button } from "react-bootstrap";
-import Axios from  'axios';
+import axios from  'axios';
 import Swal from 'sweetalert2'
 
 const JobCard = () => {
@@ -11,12 +11,12 @@ const JobCard = () => {
 
         const token = localStorage.getItem('token');
 
-        Axios.get('http://localhost:5000/api/jobs:byId', {
+        axios.get('http://localhost:5000/api/jobsbyId', {
             headers: {
                 'Authorization' : `Bearer ${token}`
             }
         })
-        .then(response => {
+        .then((response) => {
             setJobs(jobs);
             console.log('Jobs successfully fetched', response.data)
 
@@ -26,7 +26,7 @@ const JobCard = () => {
         })
         .catch((error)=> {
 
-            console.error(error);
+            console.error(error.response.data.error);
             Swal.fire({
                 title:'error',
                 text: error.response.data.error,
