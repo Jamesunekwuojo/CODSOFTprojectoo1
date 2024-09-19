@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useAuthContext } from "../../hooks/useAuthContext";
+// import Swal from "sweetalert2";
+// import { useAuthContext } from "../../hooks/useAuthContext";
 
 function CompleteProfile() {
   const [formData, setFormData] = useState({
@@ -21,23 +21,23 @@ function CompleteProfile() {
   };
 
   const navigate = useNavigate();
-  const { user } = useAuthContext();
+ 
 
   useEffect(() => {
-    if (!user && !isAlertHandled) {
-      Swal.fire({
-        title: "Warning",
-        text: "You skipped a process, Sign in to continue",
-        icon: "warning",
-        confirmButtonText: "OK",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          setIsAlertHandled(true); // Set the alert as handled
-          navigate("/signin", { replace: true }); // Redirect after alert confirmation
-        }
-      });
-    }
-  }, [user, isAlertHandled, navigate]);
+    // if (!user && !isAlertHandled) {
+    //   Swal.fire({
+    //     title: "Warning",
+    //     text: "You skipped a process, Sign in to continue",
+    //     icon: "warning",
+    //     confirmButtonText: "OK",
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+    //       setIsAlertHandled(true); // Set the alert as handled
+    //       navigate("/signin", { replace: true }); // Redirect after alert confirmation
+    //     }
+    //   });
+    // }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Button, Col, Container, Row } from 'react-bootstrap';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import "./Signupform.css";
-import { useSignup } from '../../hooks/useSignup';
+// import { useSignup } from '../../hooks/useSignup';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import Loader from "../Loader/Loader.jsx";
+import { useSignupMutation } from '../../slices/usersApiSlice.js';
+import {setCredentials} from
+'../../slices/authSlice.js';
 
 //import { useSignup } from '../../hooks/useSignup';
 
@@ -14,7 +21,14 @@ function SignupForm() {
     role: ''
   });
 
-  const {isLoading, signupUser} = useSignup();
+  // const {isLoading, signupUser} = useSignup();
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const {userInfo} = useSelector((state) => state.auth)
+
+  const [signup, {isLoading}] = useSignupMutation()
 
 
  
@@ -23,9 +37,36 @@ function SignupForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  
+  useEffect(() => {
+
+    if(userInfo) {
+      navigate('/')
+    }
+
+  } , [navigate, userInfo])
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signupUser(formData)// call signupuser function from the hook
+
+    try {
+      const response = await signup(formData).unwrap();
+      dispatch(setCredentials({...response}));
+
+    } catch(error) {
+      console.log(error)
+      if(error.data?.message) {
+        toast.error(error.data.message)
+      } else {
+
+        toast.error('sopmething happen')
+
+      }
+    
+
+    }
+
+    // signupUser(formData)// call signupuser function from the hook
 
   {/*  Axios.post("http://localhost:5000/api/signup", formData)
       .then(response => {
@@ -149,6 +190,9 @@ function SignupForm() {
               </Form.Control>
 
             </Form.Group>
+
+            {isLoading && <Loader/>}
+
             <div className="d-flex justify-content-center">
               <Button style={{ color: "black", backgroundColor: "#a8071a" }}
               disabled={isLoading} type="submit">{isLoading?'Sign up ....' : 'Sign up'}

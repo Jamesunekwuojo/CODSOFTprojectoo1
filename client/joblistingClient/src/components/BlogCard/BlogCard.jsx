@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {Container, Row, Col, Card, Button} from "react-bootstrap";
-import axios from "axios";
-import Swal from 'sweetalert2'
+
 
 
 const BlogCard =() =>{
@@ -9,36 +8,36 @@ const BlogCard =() =>{
   const[blogs, setBlogs] = useState([]);
 
   useEffect(()=>{
-    const token = localStorage.getItem('token');
+    // const token = localStorage.getItem('token');
 
-    axios.get('http://localhost:5000/api/blogs:byId' , {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      }
-    })
-    .then(response =>{
+    // axios.get('http://localhost:5000/api/blogs:byId' , {
+    //   headers: {
+    //     'Authorization': `Bearer ${token}`,
+    //   }
+    // })
+    // .then(response =>{
 
 
-      setBlogs(response.data);
-    }
+    //   setBlogs(response.data);
+    // }
 
-    )
+    // )
 
-    .catch(error =>{
+    // .catch(error =>{
 
-      console.log("Error fetching blogs", error)
-      // alert("Error fetching blogs");
-      Swal.fire({
-        title: 'Warning',
-        text: error.response.data.message|| error.response.data.error,
-        icon: 'warning',
-        confirmButtonText:'OK'
-      })
+    //   console.log("Error fetching blogs", error)
+    //   // alert("Error fetching blogs");
+    //   Swal.fire({
+    //     title: 'Warning',
+    //     text: error.response.data.message|| error.response.data.error,
+    //     icon: 'warning',
+    //     confirmButtonText:'OK'
+    //   })
       
 
    
 
-    })
+    // })
 
   }, []);
 

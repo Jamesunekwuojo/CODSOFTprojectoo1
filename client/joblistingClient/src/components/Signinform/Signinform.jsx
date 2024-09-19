@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState,  } from 'react';
 import { Form, Button, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./Signinform.css";
-import { useSignin } from '../../hooks/useSignin';
+// import { useSignin } from '../../hooks/useSignin';
+
+//Testing stuffs
+import {useLoginMutation} from '../../slices/usersApiSlice.js';
+import {setCredentials} from '../../slices/authSlice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import {toast} from 'react-toastify'
+import Loader from '../Loader/Loader.jsx'
+
 
 function SigninForm() {
   const [formData, setFormData] = useState({
@@ -12,7 +20,20 @@ function SigninForm() {
     role: ''
   });
 
-  const {signinUser, isLoading} = useSignin();
+  // const {signinUser, isLoading} = useSignin();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [login, {isLoading}] = useLoginMutation();
+
+  const {userInfo} = useSelector ((state) => state.auth);
+
+  useEffect(()=>{
+    if (userInfo) {
+      navigate('/');
+    }
+  }, [navigate, userInfo]);
 
  
 
@@ -20,9 +41,26 @@ function SigninForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-     signinUser(formData)
+    //  signinUser(formData)
+
+    try {
+      const response = await login(formData).unwrap();
+      dispatch(setCredentials({...response}))
+
+    } catch (error) {
+      console.error(error.data.message || error.error);
+
+      if (error.data?.message) {
+
+        toast.error(error.data.message)
+
+      } else {
+        toast.error("something happen")
+      }
+      
+    }
 
 
     {/* Axios.post("http://localhost:5000/api/signin", formData)
@@ -143,6 +181,8 @@ function SigninForm() {
                 <option value="employer">Employer</option>
                 <option value="candidate">Candidate</option>
               </Form.Control>
+
+              {isLoading && <Loader/>}
 
             </Form.Group>
             <div className="d-flex justify-content-center">

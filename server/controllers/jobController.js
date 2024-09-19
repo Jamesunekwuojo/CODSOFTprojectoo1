@@ -25,7 +25,7 @@ export const CreateJob = async (req, res) => {
         
     } catch (error) {
 
-        console.log("Error creating job:", error);
+        console.log("Error creating job:", error.message);
 
         res.status(500).json({error:error.message})
         
@@ -40,7 +40,7 @@ export const GetEmployerjobs = async (req, res) => {
 
         const jobs = await Job.find({EmployerEmail:email})
 
-        if(jobs.lenght ===0) {
+        if(jobs.length ===0) {
             return res.status(404).json({message:"No Jobs found for this email"});
         }
 
@@ -49,7 +49,8 @@ export const GetEmployerjobs = async (req, res) => {
     } catch (error) {
 
         console.log("Error fetching job", error);
-        return res.status(500).json({error: "Internal server error"})
+        return res.status(500).json({error: error.message})
 
     }
 }
+

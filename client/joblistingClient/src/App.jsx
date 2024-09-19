@@ -2,7 +2,15 @@ import { useState } from "react";
 
 // built in react components imports  and bootstrap imports
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // custom  components imports
 import Mainnav from "./components/Mainnav/Navbar.jsx";
@@ -13,62 +21,67 @@ import Signinpage from "./pages/Signinpage.jsx";
 import Candidatedashboard from "./pages/Candidatedashboard.jsx";
 import JobPostpage from "./pages/JobPostpage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
 import EmployApply from "./components/EmployApply/EmployApply.jsx";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
-// context
-import { useAuthContext } from "./hooks/useAuthContext.jsx";
 
-// custom App css import 
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
+
+
+// custom App css import
 import "./App.css";
 
 function App() {
-  const { user } = useAuthContext();
+  
 
   return (
     <Router>
       <Mainnav />
-      <Routes>
+      <ToastContainer/>
+        <Routes>
+          {/* Main routes at the navbar*/}
+          <Route path="/" element={<Homepage />} />
 
-        {/* Main routes at the navbar*/}
-        <Route path="/" element={ <Homepage />  } />
+          <Route
+            path="/signup"
+            element={ <Signupage /> }
+          />
 
-        <Route path="/signup" element={!user ? <Signupage /> : <Navigate to="/" />} />
+          <Route
+            path="/signin"
+            element={ <Signinpage /> }
+          />
 
-        <Route path="/signin" element={!user ? <Signinpage /> : <Navigate to="/" />} />
+          <Route path="/about" element={<AboutUs />} />
 
-        <Route path="/about" element={<AboutUs/>}/>
+          <Route
+            path="/post-job"
+            element={
+                <JobPostpage />
+            }
+          />
 
-        <Route
-          path="/post-job"
-          element={
-            <ProtectedRoute>
-              <JobPostpage />
-            </ProtectedRoute>
-          }
-        />
+          {/*Elementary routes, embedded pages  routes*/}
+          <Route path="/completeprofile" element={<CompleteProfile />} />
 
-        {/*Elementary routes, embedded pages  routes*/}
-        <Route path="/completeprofile" element={<CompleteProfile />} />
+          <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
 
-        <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
-        
-        <Route path="/employer-dashboard/*" element={<Employerdashboard />} />
+          <Route path="/employer-dashboard/*" element={<Employerdashboard />} />
 
-        <Route path="/employ-apply" element={<EmployApply/>}/>
+          <Route path="/employ-apply" element={<EmployApply />} />
 
-      </Routes>
-      
+
+          {/* privateRoute */}
+
+        </Routes>
+      {/* </ToastContainer> */}
+
       <footer>
         <Footer />
-
       </footer>
-      
     </Router>
   );
 }
-
 
 export default App;
 

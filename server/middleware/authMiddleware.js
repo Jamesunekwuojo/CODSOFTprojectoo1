@@ -3,29 +3,33 @@ import { User } from '../models/userModel.js';
 import 'dotenv/config';
 
 export const protectAuth = async (req, res, next) => {
-    // To verify user is authenticated
-    const { authorization } = req.headers;
+    // To verify user is authenticated via token in cookies
+    const token = req.cookies.jwt; // Get the token from the cookies
 
-    if (!authorization || !authorization.startsWith('Bearer ')) {
+    if (!token) {
         return res.status(401).json({ error: 'Authorization token required' });
     }
 
-    const token = authorization.split(' ')[1];
-
-    if (!token) {
-        return res.status(401).json({ error: 'Token missing from authorization header' });
-    }
-
     try {
-        const { _id } = jwt.verify(token, process.env.JWT_KEY);
+        // Verify the token
+        const { userId } = jwt.verify(token, process.env.JWT_KEY);
 
-        // Fetch the user with the email
-        req.user = await User.findOne({ _id }).select('_id email'); // Add email here
+        // Fetch the user with the userId
+        req.user = await User.findOne({ _id: userId }).select('_id email'); // Add email to the user object
 
+        // If the user is found, proceed
         next();
 
     } catch (error) {
         console.log(error);
-        return res.status(401).json({ error: 'Request not authorized' });
+
+        // Handle specific JWT errors
+        if (error.name === 'TokenExpiredError') {
+            return res.status(401).json({ error: 'Token expired' });
+        } else if (error.name === 'JsonWebTokenError') {
+            return res.status(401).json({ error: 'Token malformed' });
+        } else {
+            return res.status(401).json({ error: 'Request not authorized' });
+        }
     }
 };
