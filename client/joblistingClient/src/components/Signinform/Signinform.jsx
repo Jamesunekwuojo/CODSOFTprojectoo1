@@ -1,25 +1,23 @@
-import { useEffect, useState,  } from 'react';
-import { Form, Button, Col, Container, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Form, Button, Col, Container, Row } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signinform.css";
 // import { useSignin } from '../../hooks/useSignin';
-
-
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 //Testing stuffs
-import {useLoginMutation} from '../../slices/usersApiSlice.js';
-import {setCredentials} from '../../slices/authSlice.js';
-import { useDispatch, useSelector } from 'react-redux';
-import {toast} from 'react-toastify'
-import Loader from '../Loader/Loader.jsx'
-
+import { useLoginMutation } from "../../slices/usersApiSlice.js";
+import { setCredentials } from "../../slices/authSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Loader/Loader.jsx";
 
 function SigninForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    role: ''
+    name: "",
+    email: "",
+    password: "",
+    role: "",
   });
 
   // const {signinUser, isLoading} = useSignin();
@@ -27,17 +25,21 @@ function SigninForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [login, {isLoading}] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
-  const {userInfo} = useSelector ((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (userInfo) {
-      navigate('/');
+      navigate("/");
+      Swal.fire({
+        title: "Welcome",
+        text: "You are already logged in",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
     }
   }, [navigate, userInfo]);
-
- 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,23 +51,26 @@ function SigninForm() {
 
     try {
       const response = await login(formData).unwrap();
-      dispatch(setCredentials({...response}))
+      // Thw unwrap is already bundling the whole response to be accessed via response not response.d
+      dispatch(setCredentials({ ...response }));
 
+      console.log(response);
+
+      if (response?.user?.role) {
+        console.log('Role from API:', response.user.role);
+    } else {
+        console.log('Role not found in API response');
+    }
     } catch (error) {
-      console.error(error.data.message || error.error);
-
-      if (error.data?.message) {
-
-        toast.error(error.data.message)
-
-      } else {
-        toast.error("something happen")
-      }
-      
+      // Extract the error message from backend response
+      alert(error);
+      const errorMessage = error?.data?.error;
+      console.error(errorMessage);
+      toast.error(errorMessage); // Display the error using toast
     }
 
-
-    {/* Axios.post("http://localhost:5000/api/signin", formData)
+    {
+      /* Axios.post("http://localhost:5000/api/signin", formData)
       .then(response => {
         console.log(response);
 
@@ -119,7 +124,8 @@ function SigninForm() {
         }
 
         // setError('Error signing up. Please try again.');
-      });*/}
+      });*/
+    }
   };
 
   return (
@@ -141,7 +147,6 @@ function SigninForm() {
                 onChange={handleChange}
                 required
                 className="p-2"
-
               />
             </Form.Group>
 
@@ -184,12 +189,14 @@ function SigninForm() {
                 <option value="candidate">Candidate</option>
               </Form.Control>
 
-              {isLoading && <Loader/>}
-
+              {isLoading && <Loader />}
             </Form.Group>
             <div className="d-flex justify-content-center">
-              <Button style={{ color: "black", backgroundColor: "#a8071a" }} disabled={isLoading} type="submit"> {isLoading? 'Sign in ....':'Sign in'}
-                
+              <Button
+                style={{ color: "black", backgroundColor: "#a8071a" }}
+                type="submit"
+              >
+                signin
               </Button>
             </div>
 

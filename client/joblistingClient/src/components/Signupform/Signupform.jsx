@@ -31,13 +31,13 @@ function SignupForm() {
     if (userInfo) {
       navigate('/');
       Swal.fire({
-        title: 'Warning',
+        title: 'Welcome',
         text: 'You are already logged in',
         icon: 'warning',
         confirmButtonText: 'Ok'
       });
     }
-  }, [navigate, userInfo]);
+  },[userInfo, navigate] );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,9 +47,14 @@ function SignupForm() {
       const response = await signup(formData).unwrap();
       dispatch(setCredentials({ ...response }));
 
-      // Check the role after successful signup
-      const role = response.user.role.toLowerCase(); // Adjust if necessary
+      if(!response.user.role) {
+        console.error('API response missing ')
+      }
 
+      // Check the role after successful signup
+      const role = response.data.user.role.toLowerCase(); 
+
+      
       if (role === 'employer') {
         // Redirect employer to employer dashboard
         navigate('/employer-dashboard');
