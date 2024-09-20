@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Form, Button, Col, Container, Row } from 'react-bootstrap';
-import { Link, useNavigate} from 'react-router-dom';
-import "./Signupform.css";
-// import { useSignup } from '../../hooks/useSignup';
-import Swal from 'sweetalert2'
-
+import { Link, useNavigate } from 'react-router-dom';
+import './Signupform.css';
+import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import Loader from "../Loader/Loader.jsx";
+import Loader from '../Loader/Loader.jsx';
 import { useSignupMutation } from '../../slices/usersApiSlice.js';
-import {setCredentials} from
-'../../slices/authSlice.js';
-
-//import { useSignup } from '../../hooks/useSignup';
+import { setCredentials } from '../../slices/authSlice.js';
 
 function SignupForm() {
   const [formData, setFormData] = useState({
@@ -22,134 +17,61 @@ function SignupForm() {
     role: ''
   });
 
-  // const {isLoading, signupUser} = useSignup();
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.auth);
 
-  const {userInfo} = useSelector((state) => state.auth)
-
-  const [signup, {isLoading}] = useSignupMutation()
-
-
- 
+  const [signup, { isLoading }] = useSignupMutation();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  
   useEffect(() => {
-
-    if(userInfo) {
-      navigate('/')
+    if (userInfo) {
+      navigate('/');
       Swal.fire({
-        title:'Warning',
-        text:'You are already logged  in',
-        icon:'warning',
-        confirmbuttonText:'Ok'
-      })
+        title: 'Warning',
+        text: 'You are already logged in',
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+      });
     }
-
-  } , [navigate, userInfo])
+  }, [navigate, userInfo]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
 
     try {
       const response = await signup(formData).unwrap();
-      dispatch(setCredentials({...response}));
+      dispatch(setCredentials({ ...response }));
 
-      const role = response.data.user.role.toLowercase();
+      // Check the role after successful signup
+      const role = response.user.role.toLowerCase(); // Adjust if necessary
 
-      if (role ==="employer") {
-        navigate("/employer-dashboard")
-
+      if (role === 'employer') {
+        // Redirect employer to employer dashboard
+        navigate('/employer-dashboard');
       } else if (role === 'candidate') {
         // Show success message and redirect candidate to homepage
         Swal.fire({
-            title: 'Success!',
-            text: 'You have successfully signed up as a candidate.',
-            icon: 'success',
-            confirmButtonText: 'OK'
+          title: 'Success!',
+          text: 'You have successfully signed up as a candidate.',
+          icon: 'success',
+          confirmButtonText: 'OK'
         }).then(() => {
-            navigate('/');
+          navigate('/');
         });
       }
-
-    } catch(error) {
-      console.log(error)
-      if(error.data?.message) {
-        toast.error(error.data.message)
+    } catch (error) {
+      console.log(error);
+      if (error.data?.message) {
+        toast.error(error.data.message);
       } else {
-
-        toast.error('sopmething happen')
-
+        toast.error('Something happened');
       }
-    
-
     }
-
-    // signupUser(formData)// call signupuser function from the hook
-
-  {/*  Axios.post("http://localhost:5000/api/signup", formData)
-      .then(response => {
-        console.log(response);
-
-        
-
-
-          // Store the token in localStorage
-        localStorage.setItem('token', response.data.token);
-        signin(response.data.token)
-        
-        const role = response.data.user.role.toLowerCase(); // Convert role to lowercase
-        if (role === "employer") {
-          navigate('/employer-dashboard');
-
-        } else if (role === "candidate") {
-          navigate('/candidate-dashboard');
-        } else {
-          console.error('Invalid role received:', response.data.role);
-        }
-
-
-        // If the blog is created successfully
-        Swal.fire({
-            title: 'Successfully signed up!',
-            text: response.data.message,
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-
-       
-
-      
-      })
-      .catch(error => {
-        if(error.response){
-
-          Swal.fire({
-            title: 'Error!',
-            text: error.response.data.error,  // The error message from your backend
-            icon: 'error',
-            confirmButtonText: 'OK'
-          });
-
-        } else {
-
-          Swal.fire({
-            title: 'Error!',
-            text: 'Something went wrong. Please try again.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-
-        }
-
-        // setError('Error signing up. Please try again.');
-      });*/}
   };
 
   return (
@@ -159,7 +81,6 @@ function SignupForm() {
           <div className="d-flex justify-content-center mt-2">
             <h2>Sign Up</h2>
           </div>
-          {/* {error && <div className="alert alert-danger">{error}</div>} */}
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName" className="m-2">
@@ -171,7 +92,6 @@ function SignupForm() {
                 onChange={handleChange}
                 required
                 className="p-2"
-
               />
             </Form.Group>
 
@@ -213,15 +133,16 @@ function SignupForm() {
                 <option value="employer">Employer</option>
                 <option value="candidate">Candidate</option>
               </Form.Control>
-
             </Form.Group>
 
-            {isLoading && <Loader/>}
+            {isLoading && <Loader />}
 
             <div className="d-flex justify-content-center">
-              <Button style={{ color: "black", backgroundColor: "#a8071a" }}
-               type="submit">Sign up
-                
+              <Button
+                style={{ color: 'black', backgroundColor: '#a8071a' }}
+                type="submit"
+              >
+                Sign up
               </Button>
             </div>
 
