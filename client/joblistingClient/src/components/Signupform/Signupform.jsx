@@ -3,6 +3,7 @@ import { Form, Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import "./Signupform.css";
 // import { useSignup } from '../../hooks/useSignup';
+import Swal from 'sweetalert2'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -42,16 +43,40 @@ function SignupForm() {
 
     if(userInfo) {
       navigate('/')
+      Swal.fire({
+        title:'Warning',
+        text:'You are already logged  in',
+        icon:'warning',
+        confirmbuttonText:'Ok'
+      })
     }
 
   } , [navigate, userInfo])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData)
 
     try {
       const response = await signup(formData).unwrap();
       dispatch(setCredentials({...response}));
+
+      const role = response.data.user.role.toLowercase();
+
+      if (role ==="employer") {
+        navigate("/employer-dashboard")
+
+      } else if (role === 'candidate') {
+        // Show success message and redirect candidate to homepage
+        Swal.fire({
+            title: 'Success!',
+            text: 'You have successfully signed up as a candidate.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            navigate('/');
+        });
+      }
 
     } catch(error) {
       console.log(error)
@@ -195,7 +220,7 @@ function SignupForm() {
 
             <div className="d-flex justify-content-center">
               <Button style={{ color: "black", backgroundColor: "#a8071a" }}
-              disabled={isLoading} type="submit">{isLoading?'Sign up ....' : 'Sign up'}
+               type="submit">Sign up
                 
               </Button>
             </div>

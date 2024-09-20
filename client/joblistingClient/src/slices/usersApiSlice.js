@@ -12,9 +12,20 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         }),
 
         signup: builder.mutation({
-            query: () => ({
+            query: (formData) => ({
                 url: `${USERS_URL}/signup`,
-                method: 'POST'
+                method: 'POST',
+                body:{
+                    name:formData.name,
+
+                    email:formData.email,
+
+                    password:formData.password,
+
+                    role: formData.role,
+
+                    
+                }
             })
         }),
 

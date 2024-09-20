@@ -27,12 +27,12 @@ export const signup_post = async (req, res) => {
 
 // User signin
 export const signin_post = async (req, res) => {
-    const { email, password } = req.body;
+    const { name,email, password, role } = req.body;
     console.log("Data received successfully");
 
     try {
         // Login user
-        const user = await User.login(email, password);
+        const user = await User.login(name, email, password, role);
         console.log("User logged in successfully");
 
         // Create token and send it as a cookie
