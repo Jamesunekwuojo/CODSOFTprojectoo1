@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
-const PrivateRoute = () => {
+const PrivateRoute = ({children}) => {
   const { userInfo } = useSelector((state) => state.auth);
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
@@ -24,10 +24,13 @@ const PrivateRoute = () => {
 
   if (shouldRedirect) {
     return <Navigate to="/signin" replace />;
+  } else {
+    return userInfo ? children : null;
+
   }
 
   // If user is authenticated, render the requested page
-  return userInfo ? <Outlet /> : null;
+
 };
 
 export default PrivateRoute;

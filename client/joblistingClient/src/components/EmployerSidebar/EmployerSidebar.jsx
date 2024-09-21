@@ -18,31 +18,31 @@ function EmployerSidebar() {
             </Nav.Item>
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/dashboard/employees">
+              <Nav.Link as={Link} to="/employer-dashboard/employees">
                 <FaUsers className="mr-2" /> Employees
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/dashboard/employerAddjob">
+              <Nav.Link as={Link} to="/employer-dashboard/addJobs">
                 <FaChartBar className="mr-2" /> Add Job
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/dashboard/employerJob">
+              <Nav.Link as={Link} to="/employer-dashboard/jobs">
                 <FaChartBar className="mr-2" /> Jobs
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/dashboard/employerBlog">
+              <Nav.Link as={Link} to="/employer-dashboard/blogs">
                 <FaCog className="mr-2" /> Blogs
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/dashboard/employerAddblog">
+              <Nav.Link as={Link} to="/employer-dashboard/addBlogs">
                 <FaCog className="mr-2" /> Add Blog
               </Nav.Link>
             </Nav.Item>

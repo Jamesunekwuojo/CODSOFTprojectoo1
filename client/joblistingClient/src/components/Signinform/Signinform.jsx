@@ -31,6 +31,7 @@ function SigninForm() {
 
   useEffect(() => {
     if (userInfo) {
+      console.log(userInfo.role)
       // Check the role from userInfo to handle redirection properly
       if (userInfo.role === "employer") {
         navigate("/employer-dashboard");

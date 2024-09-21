@@ -9,33 +9,7 @@ const JobCard = () => {
 
     useEffect(()=>{
 
-        const token = localStorage.getItem('token');
-
-        axios.get('http://localhost:5000/api/jobsbyId', {
-            headers: {
-                'Authorization' : `Bearer ${token}`
-            }
-        })
-        .then((response) => {
-            setJobs(jobs);
-            console.log('Jobs successfully fetched', response.data)
-
-
-           
-
-        })
-        .catch((error)=> {
-
-            console.error(error.response.data.error);
-            Swal.fire({
-                title:'error',
-                text: error.response.data.error,
-                icon:'error',
-                confirmButtonText:'Ok'
-
-            })
-
-        })
+  
 
     }, [jobs])
 

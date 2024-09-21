@@ -34,7 +34,6 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 // custom App css import
 import "./App.css";
-import BlogForm from "./components/BlogForm/Blogform.jsx";
 
 function App() {
   return (
@@ -51,63 +50,49 @@ function App() {
 
         <Route path="/about" element={<AboutUs />} />
 
-        {/*Elementary routes, embedded pages  routes*/}
-        <Route path="/completeprofile" element={<CompleteProfile />} />
-
-        <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
-
-        {/* <Route
-          path="/employer-dashboard/*"
-          element={
-            <PrivateRoute>
-              <Employerdashboard />
-            </PrivateRoute>
-          }
-        /> */}
-
         <Route
-          path="/employer-dashboard/*"
-          element={
-            <PrivateRoute>
-              <EmployerSidebar />
-            </PrivateRoute>
-          }
-        />
-
-
-        <Route path="/employer-dashboard" element={<PrivateRoute>
-          <EmployerSidebar />
-        </PrivateRoute>}>
-
-          <Route path="jobs" element={<Jobpage/>}/>
-          
-          <Route path="addJobs" element={<JobPostpage/>}/>
-
-          
-          <Route path="addBlogs" element={<BlogForm/>}/>
-
-          
-          <Route path="blogs" element={<Blogpage/>}/>
-
-          
-          {/* <Route path="employees" element={}/> */}
-
-        
-
-
-        </Route>
-
-        
-
-        {/* privateRoute */}
-        <Route
-          path="/"
+          path="/post-job"
           element={
             <PrivateRoute>
               <JobPostpage />
             </PrivateRoute>
           }
         />
+
+        {/*Elementary routes, embedded pages  routes*/}
+        <Route path="/completeprofile" element={<CompleteProfile />} />
+
+        {/* <Route
+          path="/employer-dashboard"
+          element={
+            <PrivateRoute>
+              <EmployerSidebar />
+            </PrivateRoute>
+          }
+        /> */}
+
+        <Route
+          path="/employer-dashboard"
+          element={
+            <PrivateRoute>
+              <EmployerSidebar />
+            </PrivateRoute>
+          }
+        >
+          <Route path="jobs" element={<Jobpage />} />
+          <Route path="addJobs" element={<JobPostpage />} />
+          <Route path="blogs" element={<Blogpage />} />
+          <Route path="addBlogs" element={<Addblogpage />} />
+        </Route>
+
+        {/* <Route
+          path="/employer-dashboard/*"
+          element={
+            <PrivateRoute>
+              <EmployerSidebar />
+            </PrivateRoute>
+          }
+        /> */}
       </Routes>
       {/* </ToastContainer> */}
 
