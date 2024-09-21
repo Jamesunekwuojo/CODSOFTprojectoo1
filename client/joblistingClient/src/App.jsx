@@ -24,11 +24,17 @@ import Footer from "./components/Footer/Footer.jsx";
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
 import EmployApply from "./components/EmployApply/EmployApply.jsx";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
+import Jobpage from "./pages/Jobpage.jsx";
+import Blogpage from "./pages/Blogpage.jsx";
+import Addblogpage from "./pages/Addblogpage.jsx";
+import Signout from "./components/Signout/Signout.jsx";
+import EmployerSidebar from "./components/EmployerSidebar/EmployerSidebar.jsx";
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 // custom App css import
 import "./App.css";
+import BlogForm from "./components/BlogForm/Blogform.jsx";
 
 function App() {
   return (
@@ -50,13 +56,52 @@ function App() {
 
         <Route path="/candidate-dashboard" element={<Candidatedashboard />} />
 
-        <Route path="/employer-dashboard/*" element={<Employerdashboard />} />
+        {/* <Route
+          path="/employer-dashboard/*"
+          element={
+            <PrivateRoute>
+              <Employerdashboard />
+            </PrivateRoute>
+          }
+        /> */}
 
-        <Route path="/employ-apply" element={<EmployApply />} />
+        <Route
+          path="/employer-dashboard/*"
+          element={
+            <PrivateRoute>
+              <EmployerSidebar />
+            </PrivateRoute>
+          }
+        />
+
+
+        <Route path="/employer-dashboard" element={<PrivateRoute>
+          <EmployerSidebar />
+        </PrivateRoute>}>
+
+          <Route path="jobs" element={<Jobpage/>}/>
+          
+          <Route path="addJobs" element={<JobPostpage/>}/>
+
+          
+          <Route path="addBlogs" element={<BlogForm/>}/>
+
+          
+          <Route path="blogs" element={<Blogpage/>}/>
+
+          
+          {/* <Route path="employees" element={}/> */}
+
+        
+
+
+        </Route>
+
+        
 
         {/* privateRoute */}
         <Route
-          path="/post-job"
+          path="/"
           element={
             <PrivateRoute>
               <JobPostpage />

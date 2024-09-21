@@ -9,6 +9,7 @@ import JobPostpage from "./JobPostpage.jsx";
 import Jobpage from "./Jobpage.jsx";
 
 import Signout from "../components/Signout/Signout.jsx";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute.jsx"
 
 
 
@@ -21,15 +22,7 @@ function Employerdashboard (){
           </Col>
           <Col md={10}>
             <Routes>
-              <Route path="employerAddblog" element={<Addblogpage/>} />
-
-              <Route path="employerBlog" element={<Blogpage/>} />
-
-              <Route path="employerAddjob" element={<JobPostpage/>} />
-
-              <Route path="signout" element={<Signout/>} />
-
-              <Route path="employerJob" element={<Jobpage/>} />
+              
            
             </Routes>
           </Col>
