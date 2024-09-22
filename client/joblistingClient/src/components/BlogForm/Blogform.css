@@ -2,5 +2,7 @@
 .blogform_container{
     border: 1px solid #ddd;
     border-radius: 15px;
+    display:flex;
+    
 
   }
