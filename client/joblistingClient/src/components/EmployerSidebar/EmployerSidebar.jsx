@@ -54,7 +54,7 @@ function EmployerSidebar() {
         </Col>
 
         {/* Main content area where nested routes will be rendered */}
-        <Col xs={12} md={9} lg={10} className="p-4">
+        <Col xs={12} md={9} lg={8} className="p-4">
           <Outlet />
         </Col>
       </Row>
