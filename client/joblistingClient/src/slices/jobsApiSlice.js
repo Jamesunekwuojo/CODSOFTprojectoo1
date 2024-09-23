@@ -18,7 +18,8 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
                     JobDescription:formData.JobDescription
 
 
-                }
+                },
+                credentials: 'include',
             })
         }),
 
@@ -33,3 +34,5 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
+
+export const {useCreatejobMutation, useGetjobsMutation} = jobsApiSlice;

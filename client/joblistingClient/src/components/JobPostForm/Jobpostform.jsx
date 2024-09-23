@@ -2,8 +2,18 @@ import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import "./Jobpostform.css";
 import { useState } from 'react';
 
+import {toast} from 'react-toastify';
+
+import {useCreatejobMutation} from "../../slices/jobsApiSlice.js"
+
+
+
+
 
 const JobPostForm = () => {
+
+  const [createjob, {isLoading}] = useCreatejobMutation();
+   
 
   const [formData, setFormData] = useState({
     JobTitle: '',
@@ -34,8 +44,36 @@ const JobPostForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+
+      const response = await createjob(formData).unwrap()
+      console.log("Job posted sucessfully", response)
+  
+      toast.success('Succesfully posted job')
+  
+      setFormData({
+        JobTitle: '',
+        JobLocation: '',
+        JobType: '',
+        MinimumSalary: '',
+        MaximumSalary: '',
+        ApplicationDeadline: '',
+        EmployerEmail: '',
+        JobDescription: ''
+      })
+
+    } catch (error) {
+      alert(error)
+      const errorMessage = error?.data?.error || "Please try again Something happenend";
+      console.log(errorMessage);
+      toast.error(errorMessage)
+
+
+    }
+
+
 
     // const token = localStorage.getItem('token');
 
