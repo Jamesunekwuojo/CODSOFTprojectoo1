@@ -1,14 +1,12 @@
 import jwt from "jsonwebtoken";
 import { User } from '../models/userModel.js';
-import 'dotenv/config';
 
 export const protectAuth = async (req, res, next) => {
     let token;
 
-    // Check if the token is in the Authorization header
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        // Extract token from Authorization header
-        token = req.headers.authorization.split(' ')[1]; // Remove 'Bearer' prefix and get the token
+    // Check if the token is in the cookies
+    if (req.cookies.jwt) {
+        token = req.cookies.jwt;
     }
 
     if (!token) {
@@ -20,7 +18,7 @@ export const protectAuth = async (req, res, next) => {
         const { userId } = jwt.verify(token, process.env.JWT_KEY);
 
         // Fetch the user with the userId
-        req.user = await User.findOne({ _id: userId }).select('_id email'); // Add email to the user object
+        req.user = await User.findById(userId).select('_id email');
 
         // If the user is found, proceed
         next();
