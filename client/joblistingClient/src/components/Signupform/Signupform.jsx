@@ -32,8 +32,8 @@ function SignupForm() {
       navigate('/');
       Swal.fire({
         title: 'Welcome',
-        text: 'You are already logged in',
-        icon: 'warning',
+        text: 'Successfully signed up',
+        icon: 'success',
         confirmButtonText: 'Ok'
       });
     }
@@ -47,28 +47,39 @@ function SignupForm() {
       const response = await signup(formData).unwrap();
       dispatch(setCredentials({ ...response }));
 
-      if(!response.user.role) {
-        console.error('API response missing ')
+
+      console.log(response);
+
+      if(response?.user?.role == 'employer'){
+        navigate("/employer-dashboard");
+        console.log('Role from API:', response.user.role);
+      } else if (response?.user?.role == 'candidate'){
+        console.log('Role not found in API response');
+        navigate("/")
       }
+
+      // if(!response.user.role) {
+      //   console.error('API response missing ')
+      // }
 
       // Check the role after successful signup
-      const role = response.data.user.role.toLowerCase(); 
+      // const role = response.data.user.role.toLowerCase(); 
 
       
-      if (role === 'employer') {
-        // Redirect employer to employer dashboard
-        navigate('/employer-dashboard');
-      } else if (role === 'candidate') {
-        // Show success message and redirect candidate to homepage
-        Swal.fire({
-          title: 'Success!',
-          text: 'You have successfully signed up as a candidate.',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        }).then(() => {
-          navigate('/');
-        });
-      }
+      // if (role === 'employer') {
+      //   // Redirect employer to employer dashboard
+      //   navigate('/employer-dashboard');
+      // } else if (role === 'candidate') {
+      //   // Show success message and redirect candidate to homepage
+      //   Swal.fire({
+      //     title: 'Success!',
+      //     text: 'You have successfully signed up as a candidate.',
+      //     icon: 'success',
+      //     confirmButtonText: 'OK'
+      //   }).then(() => {
+      //     navigate('/');
+      //   });
+      // }
     } catch (error) {
       console.log(error);
       if (error.data?.message) {

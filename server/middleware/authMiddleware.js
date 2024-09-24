@@ -3,8 +3,13 @@ import { User } from '../models/userModel.js';
 import 'dotenv/config';
 
 export const protectAuth = async (req, res, next) => {
-    // To verify user is authenticated via token in cookies
-    const token = req.cookies.jwt; // Get the token from the cookies
+    let token;
+
+    // Check if the token is in the Authorization header
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+        // Extract token from Authorization header
+        token = req.headers.authorization.split(' ')[1]; // Remove 'Bearer' prefix and get the token
+    }
 
     if (!token) {
         return res.status(401).json({ error: 'Authorization token required' });

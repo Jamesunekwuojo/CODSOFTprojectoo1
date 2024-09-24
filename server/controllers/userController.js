@@ -12,10 +12,12 @@ export const signup_post = async (req, res) => {
         console.log("User signed up successfully");
 
         // Create token and send it as a cookie
-        createToken(res, user._id); // No need to return token here, it's sent via cookie
+        const token = createToken( user._id); 
+        console.log("token created successfully", token)
+   
 
         // Send response with user details
-        res.status(200).json({ user });
+        res.status(200).json({ user, token });
 
         console.log("Token created and sent via cookie");
 
@@ -36,10 +38,11 @@ export const signin_post = async (req, res) => {
         console.log("User logged in successfully");
 
         // Create token and send it as a cookie
-        createToken(res, user._id); // No need to return token here, it's sent via cookie
+        const token = createToken(user._id); // No need to return token here, it's sent via cookie
+        console.log(token)
 
         // Send response with user details
-        return res.status(200).json({ user });
+        return res.status(200).json({ user, token });
 
     } catch (error) {
         console.log(error);
