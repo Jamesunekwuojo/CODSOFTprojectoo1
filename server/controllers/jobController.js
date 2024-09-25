@@ -54,3 +54,40 @@ export const GetEmployerjobs = async (req, res) => {
     }
 }
 
+
+// to get jobs by their category
+export const  GetJobsByCategory = async(req, res) => {
+  try {
+
+    const {JobCategory} = req.query;
+    if (!JobCategory) {
+        res.status(400).json({message:'Jobs category is required'})
+    }
+
+    const jobs = await Job.find({JobCategory:JobCategory});
+
+    if (jobs.lenght ===0) {
+        res.status(404).json({message:`No jobs found for this ${JobCategory}`});
+ 
+    }
+
+    return res.status(200).json(jobs);
+
+
+  } catch (error) {
+    console.log("Error fetching job", error);
+    return res.status(500).json({error:error.message});
+
+  }
+}
+
+// To get all jobs in database
+export const GetJobs = () => {
+    try {
+
+        const {} = 
+        
+    } catch (error) {
+        
+    }
+}

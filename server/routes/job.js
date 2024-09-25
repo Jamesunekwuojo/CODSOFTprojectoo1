@@ -1,5 +1,5 @@
 import express from 'express';
-import { CreateJob, GetEmployerjobs } from '../controllers/jobController.js';
+import { CreateJob, GetEmployerjobs , GetJobsByCategory, GetJobs} from '../controllers/jobController.js';
 import  { protectAuth } from '../middleware/authMiddleware.js';
 
 
@@ -13,7 +13,7 @@ router.use(protectAuth)
 //routes
 router.post('/createjob', CreateJob);
 router.get('/jobsbyId', GetEmployerjobs);
-router.get('/jobsbyCategory', GetJobsByID);
+router.get('/jobsbyCategory', GetJobsByCategory);
 router.get('/allJobs', GetJobs);
 
 

@@ -59,6 +59,7 @@ const JobPostForm = () => {
         JobTitle: '',
         JobLocation: '',
         JobType: '',
+        JobCategory:'',
         MinimumSalary: '',
         MaximumSalary: '',
         ApplicationDeadline: '',
@@ -162,6 +163,23 @@ const JobPostForm = () => {
             value={formData.EmployerEmail}
             onChange={handleChange}
           />
+        </Form.Group>
+
+        <Form.Group controlId="formJobCategory" className='mt-2'>
+          <Form.Label>Job Category</Form.Label>
+          <Form.Control
+            as="select"
+            name="JobCategory"
+            value={formData.JobCategory}
+            onChange={handleChange}
+          >
+            <option>Select...</option>
+            <option>Technology and IT</option>
+            <option>Human Resources</option>
+            <option>Education and Training</option>
+            <option>Engineering</option>
+            <option>Others...</option>
+          </Form.Control>
         </Form.Group>
 
         <Form.Group controlId="formJobDescription" className="mt-2">
