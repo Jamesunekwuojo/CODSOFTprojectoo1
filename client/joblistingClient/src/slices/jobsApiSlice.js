@@ -16,6 +16,10 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
             
         }),
 
+        get_employer_jobs: builder.query({
+            query: () => ({
+        })
+
         
 
         // getjobs : builder.query({

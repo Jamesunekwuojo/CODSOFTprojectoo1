@@ -44,6 +44,8 @@ export const GetEmployerjobs = async (req, res) => {
             return res.status(404).json({message:"No Jobs found for this email"});
         }
 
+        return res.status(200).json({Jobs:jobs})
+
 
 
     } catch (error) {
@@ -85,9 +87,18 @@ export const  GetJobsByCategory = async(req, res) => {
 export const GetJobs = () => {
     try {
 
-        const {} = 
+        const jobs = Job.find()
+
+        if (jobs.lenght === 0) {
+            res.status(400).json({message:"No Jobs found "})
+        }
+
+        res.status(200).json({message:"job successfully fetched", job})
         
     } catch (error) {
+
+        console.log("Error fetching job", error);
+        
         
     }
 }
