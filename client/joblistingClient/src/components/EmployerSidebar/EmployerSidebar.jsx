@@ -7,7 +7,7 @@ import "./Employersidebar.css";
 function EmployerSidebar() {
   return (
     <Container fluid>
-      <Row>
+      <Row className="" >
         {/* Sidebar */}
         <Col xs={12} md={3} lg={2} className="bg-light p-4 side_bar">
           <Nav className="flex-column mt-4">

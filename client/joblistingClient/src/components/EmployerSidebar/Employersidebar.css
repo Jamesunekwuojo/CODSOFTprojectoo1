@@ -1,13 +1,17 @@
-.side_bar {
+/* .side_bar {
     display: flex;
     width: 250px;
     height: 100vh;
    
 
 
-} 
+}  */
+/* 
+.sidebarRow {
+    height:100vh
+} */
 
-
+/* 
 @media (max-width:767px){
 
     .side_bar {
@@ -20,5 +24,7 @@
 
     } 
 
-}
+} */
+
+
 

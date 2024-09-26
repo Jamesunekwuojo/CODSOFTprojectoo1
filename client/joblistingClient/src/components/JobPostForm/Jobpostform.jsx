@@ -3,7 +3,7 @@ import "./Jobpostform.css";
 import { useState } from 'react';
 
 import {toast} from 'react-toastify';
-import { useCreatejobMutation } from '../../slices/jobsApiSlice.js';
+import { useCreateJobMutation } from '../../slices/jobsApiSlice.js';
 
 
 
@@ -14,7 +14,7 @@ import { useCreatejobMutation } from '../../slices/jobsApiSlice.js';
 const JobPostForm = () => {
 
 
-   const [createjob, {isLoading}] = useCreatejobMutation()
+   const [createJob, {isLoading}] = useCreateJobMutation()
    
 
   const [formData, setFormData] = useState({
@@ -50,7 +50,7 @@ const JobPostForm = () => {
     e.preventDefault();
     try {
 
-      const response = await createjob(formData).unwrap()
+      const response = await createJob(formData).unwrap()
       console.log("Job posted sucessfully", response)
   
       toast.success('Succesfully posted job')

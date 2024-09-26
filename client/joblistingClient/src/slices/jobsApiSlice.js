@@ -1,5 +1,5 @@
-import { apiSlice } from "./apiSlice";
-const JOBS_URL = '/api/jobs';
+import { apiSlice } from "./apiSlice.js";
+const JOBS_URL = '/api';
 
 export const jobsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -41,7 +41,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
 
 export const {
     useCreateJobMutation,
-    useGetEmployerJobsQuery,
-    useGetJobsByCategoryQuery,
-    useGetJobsQuery,
+    // useGetEmployerJobsQuery,
+    // useGetJobsByCategoryQuery,
+    // useGetJobsQuery,
 } = jobsApiSlice;
