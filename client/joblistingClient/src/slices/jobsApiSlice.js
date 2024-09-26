@@ -1,38 +1,47 @@
 import { apiSlice } from "./apiSlice";
-const USERS_URL = '/api';
+const JOBS_URL = '/api/jobs';
 
 export const jobsApiSlice = apiSlice.injectEndpoints({
-    
     endpoints: (builder) => ({
-        createjob: builder.mutation({
-            query:(formData) => ({
-                url:`${USERS_URL}/createjob`,
+        // Mutation to create a job
+        createJob: builder.mutation({
+            query: (formData) => ({
+                url: `${JOBS_URL}/createjob`,
                 method: 'POST',
-                body : formData,
-                 
-                
+                body: formData,
             }),
-
-            
         }),
 
-        get_employer_jobs: builder.query({
+        // Query to get jobs for a specific employer by their email
+        getEmployerJobs: builder.query({
             query: () => ({
-        })
+                url: `${JOBS_URL}/employerjobs`,
+                method: 'GET',
+            }),
+        }),
 
-        
+        // Query to get jobs by category
+        getJobsByCategory: builder.query({
+            query: (category) => ({
+                url: `${JOBS_URL}/category`,
+                method: 'GET',
+                params: { JobCategory: category },
+            }),
+        }),
 
-        // getjobs : builder.query({
-        //     query: (formData) => ({
-        //         url: `${USERS_URL}/getjobsByID`,
-        //         method: 'GET',
-                
+        // Query to get all jobs
+        getJobs: builder.query({
+            query: () => ({
+                url: `${JOBS_URL}/getjobs`,
+                method: 'GET',
+            }),
+        }),
+    }),
+});
 
-        //     })
-            
-        // })
-
-    })
-})
-
-export const {useCreatejobMutation } = jobsApiSlice;
+export const {
+    useCreateJobMutation,
+    useGetEmployerJobsQuery,
+    useGetJobsByCategoryQuery,
+    useGetJobsQuery,
+} = jobsApiSlice;
