@@ -31,17 +31,11 @@ function SigninForm() {
 
   useEffect(() => {
     if (userInfo) {
-      console.log(userInfo.role)
-      // Check the role from userInfo to handle redirection properly
-      if (userInfo.role === "employer") {
-        navigate("/employer-dashboard");
-      } else if (userInfo.role === "candidate") {
-        navigate("/");
-      } 
-  
+      navigate('/')
+   
       Swal.fire({
         title: "Welcome",
-        text: "You are already logged in",
+        text: "Successfully logged in",
         icon: "success",
         confirmButtonText: "Ok",
       });
@@ -63,13 +57,7 @@ function SigninForm() {
 
       console.log(response);
 
-      if(response?.user?.role == 'employer'){
-        navigate("/employer-dashboard");
-        console.log('Role from API:', response.user.role);
-      } else if (response?.user?.role == 'candidate'){
-        console.log('Role not found in API response');
-        navigate("/")
-      }
+    
 
   
     } catch (error) {

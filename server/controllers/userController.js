@@ -27,11 +27,11 @@ export const signup_post = async (req, res) => {
 
 // User signin
 export const signin_post = async (req, res) => {
-    const { email, password } = req.body;
+    const { name, email, password, role } = req.body;
 
     try {
         // Login user
-        const user = await User.login(email, password);
+        const user = await User.login(name, email, password, role);
 
         console.log("User created successfully", user);
 
@@ -49,7 +49,9 @@ export const signin_post = async (req, res) => {
 
         res.status(200).json({ user });
     } catch (error) {
+        console.log( "Error signing up", error.message)
         return res.status(400).json({ error: error.message });
+
     }
 };
 
