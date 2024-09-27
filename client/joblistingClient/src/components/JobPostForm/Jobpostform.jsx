@@ -115,6 +115,7 @@ const JobPostForm = () => {
             value={formData.JobType}
             onChange={handleChange}
           >
+            <option>Select...</option>
             <option>Full-time</option>
             <option>Part-time</option>
             <option>Contract</option>

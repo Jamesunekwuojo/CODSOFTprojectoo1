@@ -1,71 +1,53 @@
-import { useState, useEffect } from "react";
-import { Container, Row,  Col, Card, Button } from "react-bootstrap";
-import { toast } from "react-toastify";
-import { useGetEmployerJobsQuery } from "../../slices/jobsApiSlice";
+// JobCard.js
 
+
+import { useGetEmployerJobsQuery } from '../../slices/jobsApiSlice.js';
+import { Card, Button, Col, Row, Container } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 const JobCard = () => {
+  const { data: jobs, error, isLoading } = useGetEmployerJobsQuery();
 
-    const [getEmployerJobs, {isLoading}] = useGetEmployerJobsQuery()
+  if (isLoading) return <p>Loading jobs...</p>;
+  if (error) {
+    toast.error('Failed to fetch jobs');
+    return <p>Error fetching jobs</p>;
+  }
 
-    const [jobs, setJobs] = useState([]);
+  if (jobs.Jobs.length === 0) {
+    return <p>No jobs found for this employer.</p>;
+  }
 
-    useEffect(() => {
-        const handleResponse = async() => {
+  return (
+    <Container className="job-card-container">
+      <h2>Your Posted Jobs</h2>
+      <Row>
+        {jobs.Jobs.map((job) => (
+          <Col md={4} key={job._id} className="mb-3">
+            <Card>
+              <Card.Body>
+                <Card.Title>{job.JobTitle}</Card.Title>
+                <Card.Text>
+                  <strong>Location:</strong> {job.JobLocation} <br />
+                  <strong>Type:</strong> {job.JobType} <br />
+                  <strong>Salary Range:</strong> {job.MinimumSalary} - {job.MaximumSalary} <br />
+                  <strong>Deadline:</strong> {new Date(job.ApplicationDeadline).toLocaleDateString()} <br />
+                  <strong>Description:</strong> {job.JobDescription}
+                  <strong>By:{job.EmployerEmail}</strong>
+                </Card.Text>
+                <Button variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
+                  Edit
+                </Button>
+                <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
+                  Delete
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
+};
 
-            try {
-                const response = await getEmployerJobs();
-    
-                setJobs(response)
-    
-            } catch (error) {
-                console.log("error fetching blog", error.message)
-                toast.error(error.response.error)
-    
-            }
-    
-        }
-
-    }, [getEmployerJobs])
-
- 
-
-
-
-    return(
-        <Container>
-            <Row>
-
-                {jobs.map(job => (
-                    <Col key={job._id}>
-                        <Card>
-                            <Card.Body>
-                                <Card.Title>{job.JobTitle}</Card.Title>
-
-                                <Card.Text>Location:{job.JobLocation}</Card.Text>
-
-                                <Card.Text>Deadline:{job.ApplicationDeadline}</Card.Text>
-
-                                <Card.Text>
-                                    <Button>Delete Job</Button>
-                                </Card.Text>
-
-                                <Card.Footer>
-                                    <small >By{job.EmployerEmail}</small>
-                                </Card.Footer>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ) 
-
-                )}
-
-
-            </Row>
-
-        </Container>
-    )
-
-}
-export default JobCard
+export default JobCard;

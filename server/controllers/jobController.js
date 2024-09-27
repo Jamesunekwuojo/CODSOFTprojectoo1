@@ -36,7 +36,7 @@ export const CreateJob = async (req, res) => {
 export const GetEmployerjobs = async (req, res) => {
     try {
 
-        const email = req.user.email;
+        const email = req.email;
 
         const jobs = await Job.find({EmployerEmail:email})
 

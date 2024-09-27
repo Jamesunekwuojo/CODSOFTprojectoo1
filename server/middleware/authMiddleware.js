@@ -20,8 +20,15 @@ export const protectAuth = async (req, res, next) => {
         // Fetch the user with the userId
         req.user = await User.findById(userId).select('_id email');
 
-        // If the user is found, proceed
-        next();
+        if (req.user) {
+            req.email = req.user.email;
+            next()
+
+        } else {
+            return res.status(404).json({error:"user not found"})
+        }
+
+       
 
     } catch (error) {
         console.log(error);

@@ -15,8 +15,9 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         // Query to get jobs for a specific employer by their email
         getEmployerJobs: builder.query({
             query: () => ({
-                url: `${JOBS_URL}/employerjobs`,
+                url: `${JOBS_URL}/jobsbyId`,
                 method: 'GET',
+                
             }),
         }),
 
