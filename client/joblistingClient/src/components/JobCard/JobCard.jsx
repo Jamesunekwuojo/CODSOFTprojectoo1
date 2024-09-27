@@ -1,16 +1,35 @@
 import { useState, useEffect } from "react";
 import { Container, Row,  Col, Card, Button } from "react-bootstrap";
+import { toast } from "react-toastify";
+import { useGetEmployerJobsQuery } from "../../slices/jobsApiSlice";
 
 
 const JobCard = () => {
 
+    const [getEmployerJobs, {isLoading}] = useGetEmployerJobsQuery()
+
     const [jobs, setJobs] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
+        const handleResponse = async() => {
 
-  
+            try {
+                const response = await getEmployerJobs();
+    
+                setJobs(response)
+    
+            } catch (error) {
+                console.log("error fetching blog", error.message)
+                toast.error(error.response.error)
+    
+            }
+    
+        }
 
-    }, [jobs])
+    }, [getEmployerJobs])
+
+ 
+
 
 
     return(

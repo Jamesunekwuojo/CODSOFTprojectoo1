@@ -41,7 +41,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
 
 export const {
     useCreateJobMutation,
-    // useGetEmployerJobsQuery,
-    // useGetJobsByCategoryQuery,
-    // useGetJobsQuery,
+    useGetEmployerJobsQuery,
+    useGetJobsByCategoryQuery,
+    useGetJobsQuery,
 } = jobsApiSlice;
