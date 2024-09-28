@@ -29,6 +29,7 @@ import Blogpage from "./pages/Blogpage.jsx";
 import Addblogpage from "./pages/Addblogpage.jsx";
 import Signout from "./components/Signout/Signout.jsx";
 import EmployerSidebar from "./components/EmployerSidebar/EmployerSidebar.jsx";
+import AllJobPage from "./pages/AllJobPage.jsx";
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
