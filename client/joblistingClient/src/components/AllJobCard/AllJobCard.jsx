@@ -7,6 +7,7 @@ const AllJobCard = () => {
 
   if (isLoading) return <p>Loading jobs...</p>;
   if (error) {
+    console.log(error)
     toast.error("Error fetching jobs");
     return <p>Error fetching jobs</p>;
   }

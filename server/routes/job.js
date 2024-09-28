@@ -7,12 +7,12 @@ import  { protectAuth } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 //auth middleware
-router.use(protectAuth)
+
 
 
 //routes
-router.post('/createjob', CreateJob);
-router.get('/jobsbyId', GetEmployerjobs);
+router.post('/createjob', protectAuth, CreateJob);
+router.get('/jobsbyId', protectAuth, GetEmployerjobs);
 router.get('/jobsbyCategory', GetJobsByCategory);
 router.get('/allJobs', GetJobs);
 

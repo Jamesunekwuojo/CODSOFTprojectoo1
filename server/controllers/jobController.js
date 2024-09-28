@@ -84,16 +84,16 @@ export const  GetJobsByCategory = async(req, res) => {
 }
 
 // To get all jobs in database
-export const GetJobs = () => {
+export const GetJobs = async(req, res) => {
     try {
 
-        const jobs = Job.find()
+        const jobs = await Job.find()
 
-        if (jobs.lenght === 0) {
+        if (jobs.length === 0) {
             res.status(400).json({message:"No Jobs found "})
         }
 
-        res.status(200).json({message:"job successfully fetched", job})
+        res.status(200).json({message:"job successfully fetched", jobs})
         
     } catch (error) {
 

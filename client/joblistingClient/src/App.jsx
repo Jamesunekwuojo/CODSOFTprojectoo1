@@ -60,8 +60,13 @@ function App() {
           }
         />
 
+        <Route path="/browse-job" element={<AllJobPage/>}/>
+
         {/*Elementary routes, embedded pages  routes*/}
         <Route path="/completeprofile" element={<CompleteProfile />} />
+
+
+
 
         {/* <Route
           path="/employer-dashboard"
