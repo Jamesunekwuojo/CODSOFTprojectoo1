@@ -33,7 +33,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         // Query to get all jobs
         getJobs: builder.query({
             query: () => ({
-                url: `${JOBS_URL}/getjobs`,
+                url: `${JOBS_URL}/allJobs`,
                 method: 'GET',
             }),
         }),
