@@ -1,19 +1,27 @@
-import { useGetJobsQuery } from "../../slices/jobsApiSlice";
-import { Card, Button, Col, Row, Container } from "react-bootstrap";
+import { useGetJobsQuery } from "../../slices/getjobsSlice.js";
+import { Card, Col, Row, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const AllJobCard = () => {
   const { data: jobs, error, isLoading } = useGetJobsQuery();
 
+  // Show the error toast inside a useEffect to avoid the warning
+  useEffect(() => {
+    if (error) {
+      toast.error("Error fetching jobs");
+      console.log(error)
+    }
+  }, [error]);
+
   if (isLoading) return <p>Loading jobs...</p>;
+
   if (error) {
-    console.log(error)
-    toast.error("Error fetching jobs");
     return <p>Error fetching jobs</p>;
   }
 
   if (jobs.Jobs.length === 0) {
-    return <p>No jobs found for this employer </p>;
+    return <p>No jobs found for this employer</p>;
   }
 
   return (
@@ -34,20 +42,9 @@ const AllJobCard = () => {
                   {new Date(job.ApplicationDeadline).toLocaleDateString()}{" "}
                   <br />
                   <strong>Description:</strong> {job.JobDescription}
-                  <strong>By:{job.EmployerEmail}</strong>
+                  <br />
+                  <strong>By:</strong> {job.EmployerEmail}
                 </Card.Text>
-                {/* <Button
-                  variant="primary"
-                  onClick={() => console.log(`Edit job ${job.JobTitle}`)}
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="danger"
-                  onClick={() => console.log(`Delete job ${job.JobTitle}`)}
-                >
-                  Delete
-                </Button> */}
               </Card.Body>
             </Card>
           </Col>

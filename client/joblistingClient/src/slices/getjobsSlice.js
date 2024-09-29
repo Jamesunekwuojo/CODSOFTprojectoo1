@@ -1,7 +1,7 @@
-import { pubicapiSlice } from "./publicapiSlice";
+import { publicapiSlice } from "./publicapiSlice";
 const URL = '/api'
 
-export const getjobsSlice = pubicapiSlice.injectEndpoints({
+export const getjobsSlice = publicapiSlice.injectEndpoints({
     endpoints: (builder)=> ({
         getJobs: builder.query({
             query: () => ({
@@ -11,3 +11,7 @@ export const getjobsSlice = pubicapiSlice.injectEndpoints({
         }),
     })
 }) 
+
+export  const {
+    useGetJobsQuery,
+} = getjobsSlice

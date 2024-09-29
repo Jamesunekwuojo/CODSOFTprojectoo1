@@ -87,7 +87,8 @@ export const  GetJobsByCategory = async(req, res) => {
 export const GetJobs = async(req, res) => {
     try {
 
-        const jobs = await Job.find()
+        const jobs = await Job.find();
+        console.log("processing request ....")
 
         if (jobs.length === 0) {
             res.status(400).json({message:"No Jobs found "})
@@ -98,6 +99,7 @@ export const GetJobs = async(req, res) => {
     } catch (error) {
 
         console.log("Error fetching job", error);
+        return res.status(500).json({error:error.message});
         
         
     }
