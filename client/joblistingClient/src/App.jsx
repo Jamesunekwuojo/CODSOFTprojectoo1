@@ -27,9 +27,9 @@ import AboutUs from "./components/AboutUs/AboutUs.jsx";
 import Jobpage from "./pages/Jobpage.jsx";
 import Blogpage from "./pages/Blogpage.jsx";
 import Addblogpage from "./pages/Addblogpage.jsx";
-import Signout from "./components/Signout/Signout.jsx";
+import AllJobPage from "./components/AllJobCard/AlljobCard.jsx"
 import EmployerSidebar from "./components/EmployerSidebar/EmployerSidebar.jsx";
-import AllJobPage from "./pages/AllJobPage.jsx";
+
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 

@@ -62,9 +62,9 @@ function SigninForm() {
   
     } catch (error) {
       // Extract the error message from backend response
-      alert(error);
+      // alert(error);
       const errorMessage = error?.data?.error;
-      console.error(errorMessage);
+      console.log(errorMessage);
       toast.error(errorMessage); // Display the error using toast
     }
 

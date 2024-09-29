@@ -1,4 +1,4 @@
-import AllJobCard from "../components/AllJobCard/AllJobCard";
+import AlljobCard from "../components/AllJobCard/AlljobCard"
 import { Container, Row } from "react-bootstrap";
 
 
@@ -6,7 +6,7 @@ const AllJobPage = () => {
     return (
         <Container>
             <Row>
-                <AllJobCard></AllJobCard>
+                <AlljobCard></AlljobCard>
             </Row>
         </Container>
 

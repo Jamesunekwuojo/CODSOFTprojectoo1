@@ -3,6 +3,10 @@ import { User } from '../models/userModel.js';
 
 export const protectAuth = async (req, res, next) => {
     let token;
+    console.log('Incoming request to:', req.originalUrl);
+    console.log('Cookies:', req.cookies);
+
+
 
     // Check if the token is in the cookies
     if (req.cookies.jwt) {

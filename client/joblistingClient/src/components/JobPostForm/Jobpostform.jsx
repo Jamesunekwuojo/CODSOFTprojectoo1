@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import {toast} from 'react-toastify';
 import { useCreateJobMutation } from '../../slices/jobsApiSlice.js';
+import {useSelector} from  "react-redux"
 
 
 
@@ -12,6 +13,7 @@ import { useCreateJobMutation } from '../../slices/jobsApiSlice.js';
 
 
 const JobPostForm = () => {
+  const { userInfo } = useSelector((state) => state.auth);
 
 
    const [createJob, {isLoading}] = useCreateJobMutation()
@@ -24,7 +26,7 @@ const JobPostForm = () => {
     MinimumSalary: '',
     MaximumSalary: '',
     ApplicationDeadline: '',
-    EmployerEmail: '',
+    EmployerEmail: userInfo.user.email,
     JobDescription: ''
   });
 
@@ -63,7 +65,7 @@ const JobPostForm = () => {
         MinimumSalary: '',
         MaximumSalary: '',
         ApplicationDeadline: '',
-        EmployerEmail: '',
+        EmployerEmail: userInfo.user.email,
         JobDescription: ''
       })
 
@@ -114,8 +116,10 @@ const JobPostForm = () => {
             name="JobType"
             value={formData.JobType}
             onChange={handleChange}
+            required
+            placeholder='Select...'
           >
-            <option>Select...</option>
+            <option value="">Select...</option>
             <option>Full-time</option>
             <option>Part-time</option>
             <option>Contract</option>
@@ -162,7 +166,9 @@ const JobPostForm = () => {
             name="EmployerEmail"
             type="email"
             value={formData.EmployerEmail}
+            readOnly
             onChange={handleChange}
+            required
           />
         </Form.Group>
 

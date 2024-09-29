@@ -49,7 +49,7 @@ export const signin_post = async (req, res) => {
 
         res.status(200).json({ user });
     } catch (error) {
-        console.log( "Error signing up", error.message)
+        console.log( "Error signing in", error.message)
         return res.status(400).json({ error: error.message });
 
     }

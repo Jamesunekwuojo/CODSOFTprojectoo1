@@ -22,13 +22,13 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         }),
 
         // Query to get jobs by category
-        getJobsByCategory: builder.query({
-            query: (category) => ({
-                url: `${JOBS_URL}/category`,
-                method: 'GET',
-                params: { JobCategory: category },
-            }),
-        }),
+        // getJobsByCategory: builder.query({
+        //     query: (category) => ({
+        //         url: `${JOBS_URL}/category`,
+        //         method: 'GET',
+        //         params: { JobCategory: category },
+        //     }),
+        // }),
 
         // Query to get all jobs
         getJobs: builder.query({
@@ -44,5 +44,5 @@ export const {
     useCreateJobMutation,
     useGetEmployerJobsQuery,
     // useGetJobsByCategoryQuery,
-    // useGetJobsQuery,
+    useGetJobsQuery,
 } = jobsApiSlice;

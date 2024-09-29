@@ -41,6 +41,7 @@ export const GetEmployerjobs = async (req, res) => {
         const jobs = await Job.find({EmployerEmail:email})
 
         if(jobs.length ===0) {
+            console.log("No jobs found for this email")
             return res.status(404).json({message:"No Jobs found for this email"});
         }
 
@@ -91,10 +92,11 @@ export const GetJobs = async(req, res) => {
         console.log("processing request ....")
 
         if (jobs.length === 0) {
+            console.log("No jobs found for this email")
             res.status(400).json({message:"No Jobs found "})
         }
 
-        res.status(200).json({message:"job successfully fetched", jobs})
+        res.status(200).json({message:"job successfully fetched", Jobs:jobs})
         
     } catch (error) {
 
