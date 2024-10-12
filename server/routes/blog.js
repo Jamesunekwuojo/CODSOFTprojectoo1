@@ -1,5 +1,5 @@
 import express from "express";
-import { CreateBlog, GetEmployerblogs  } from "../controllers/blogController.js";
+import { uploadProfilePhoto, CreateBlog, GetEmployerblogs  } from "../controllers/blogController.js";
 
 import { protectAuth } from "../middleware/authMiddleware.js";
 
@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.use(protectAuth);
 
-router.post('/createblog',  CreateBlog );
+router.post('/createblog', uploadProfilePhoto,  CreateBlog );
 router.get('/blogs:byId', GetEmployerblogs );
 
 

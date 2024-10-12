@@ -1,20 +1,15 @@
-import { error } from "console";
-import {Blog} from "../models/blogModel.js";
-// import multer from "multer";
-// import path from "path";
-// import { fileURLToPath } from "url";
+import { Blog } from "../models/blogModel.js";
+import multer from "multer";
+import cloudinary from "./cloudinary.js";
 
-import cloudinary from 'cloudinary';
+// Set up Multer to use memory storage (no need to save files locally)
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-// Configure Cloudinary (add this part at the top or in a separate file)
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// Middleware to handle single file upload
+export const uploadProfilePhoto = upload.single('profilePhoto');
 
-// ...
-
+// CreateBlog function
 export const CreateBlog = async (req, res) => {
     try {
         // Check if the user is authenticated
@@ -23,23 +18,35 @@ export const CreateBlog = async (req, res) => {
         }
 
         // Check if the file is provided
-        if (!req.files || !req.files.profilePhoto) {
+        if (!req.file) {
             return res.status(400).json({ error: "No file uploaded" });
         }
 
         // Upload the file to Cloudinary
-        const result = await cloudinary.v2.uploader.upload(req.files.profilePhoto.tempFilePath, {
-            // folder: 'blog_uploads', // Optional: specify a folder in Cloudinary
-            use_filename: true,
-            unique_filename: false,
-        });
+        const result = await cloudinary.uploader.upload_stream(
+            {
+                folder: 'profilepics', // Optional: specify a folder in Cloudinary
+                use_filename: true,
+                unique_filename: false,
+            },
+            (error, result) => {
+                if (error) {
+                    throw new Error('Cloudinary upload failed');
+                }
+                return result;
+            }
+        );
+
+        // Stream file data to Cloudinary
+        const uploadStream = cloudinary.uploader.upload_stream;
+        uploadStream(req.file.buffer);
 
         // Create profilePhoto object
         const profilePhoto = {
             url: result.secure_url,
             filename: result.public_id,
-            mimetype: req.files.profilePhoto.mimetype,
-            size: req.files.profilePhoto.size,
+            mimetype: req.file.mimetype,
+            size: req.file.size,
         };
 
         // Get blog details from request body
@@ -66,33 +73,20 @@ export const CreateBlog = async (req, res) => {
     }
 };
 
-
-
+// Fetch blogs for an employer
 export const GetEmployerblogs = async (req, res) => {
+    try {
+        const email = req.user.email;
+        const blogs = await Blog.find({ authorEmail: email });
 
-  try{
+        if (blogs.length === 0) {
+            return res.status(404).json({ message: "No blogs found for this email" });
+        }
 
-    const email = req.user.email;
-   
-    const blogs= await Blog.find({authorEmail:email});
+        return res.status(200).json({ blogs });
 
-    if(blogs.length ===0){
-      return res.status(404).json({message:"No blogs found for this email"});
+    } catch (error) {
+        console.log("Error fetching blog", error);
+        return res.status(500).json({ error: "Internal server error" });
     }
-
-
-    return res.status(200).json({Blogs: blogs})
-
-
-  } catch(error){
-
-    console.log("Error fetchong blog", error);
-    return res.status(500).json({error:"Internal server error"});
-
-  }
-
-  
-
-
-}
-
+};
