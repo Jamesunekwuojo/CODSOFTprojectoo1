@@ -1,13 +1,25 @@
 import { useState, useEffect } from "react";
 import {Container, Row, Col, Card, Button} from "react-bootstrap";
+import { useGetEmployerBlogsQuery } from "../../slices/blogsApiSlice";
+import { toast } from "react-toastify";
 
 
 
 const BlogCard =() =>{
 
-  const[blogs, setBlogs] = useState([]);
+  const {data: blogs, error, isLoading} = useGetEmployerBlogsQuery();
 
-  useEffect(()=>{
+
+  if(isLoading) return <p> Loading blogs...</p>
+
+  if(error) {
+    toast.error('Failed to fetch blogs');
+    return  <p> Error fetching blogs</p>
+
+  }
+
+
+  // useEffect(()=>{
     // const token = localStorage.getItem('token');
 
     // axios.get('http://localhost:5000/api/blogs:byId' , {
@@ -39,7 +51,7 @@ const BlogCard =() =>{
 
     // })
 
-  }, []);
+  // }, []);
 
 
   return(
