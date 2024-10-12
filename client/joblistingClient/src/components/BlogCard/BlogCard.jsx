@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 
 
+
 const BlogCard =() =>{
 
   const {data: blogs, error, isLoading} = useGetEmployerBlogsQuery();
@@ -16,6 +17,10 @@ const BlogCard =() =>{
     toast.error('Failed to fetch blogs');
     return  <p> Error fetching blogs</p>
 
+  }
+
+  if (blogs.Blogs.length ==0) {
+    return <p> No Blog found found for this employer</p>
   }
 
 
@@ -56,8 +61,9 @@ const BlogCard =() =>{
 
   return(
     <Container>
+      <h2> Your Blog</h2>
       <Row>
-       {blogs.map(blog => (
+       {blogs.Blogs.map(blog => (
           <Col md={4} key={blog._id} className="mb-4">
             <Card>
               <Card.Img variant="top" src={blog.profilePhoto.url} alt={blog.profilePhoto.filename} />
