@@ -1,6 +1,4 @@
 // JobCard.js
-
-
 import { useGetJobsQuery } from '../../slices/jobsApiSlice.js';
 import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
@@ -11,6 +9,7 @@ const JobCard = () => {
   if (isLoading) return <p>Loading jobs...</p>;
   if (error) {
     toast.error('Failed to fetch jobs');
+    console.log(error)
     return <p>Error fetching jobs</p>;
   }
 

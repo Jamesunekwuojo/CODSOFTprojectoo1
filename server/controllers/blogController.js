@@ -1,119 +1,71 @@
 import { error } from "console";
 import {Blog} from "../models/blogModel.js";
-import multer from "multer";
-import path from "path";
-import { fileURLToPath } from "url";
-// import {authentication} from "../middleware/authMiddleware.js"
+// import multer from "multer";
+// import path from "path";
+// import { fileURLToPath } from "url";
 
+import cloudinary from 'cloudinary';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
-// Configure Multer storage and file naming
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, 'uploads')); // Ensure this folder exists or create it
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      cb(null, uniqueSuffix + path.extname(file.originalname));
-    }
+// Configure Cloudinary (add this part at the top or in a separate file)
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-  
-  // Filter to only accept certain file types (e.g., images)
-const fileFilter = (req, file, cb) => {
-    const filetypes = /jpeg|jpg|png/;
-    const mimetype = filetypes.test(file.mimetype);
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  
-    if (mimetype && extname) {
-      return cb(null, true);
+// ...
+
+export const CreateBlog = async (req, res) => {
+    try {
+        // Check if the user is authenticated
+        if (!req.user || req.body.authorEmail !== req.user.email) {
+            return res.status(400).json({ error: "Please use signup email for creating the blog" });
+        }
+
+        // Check if the file is provided
+        if (!req.files || !req.files.profilePhoto) {
+            return res.status(400).json({ error: "No file uploaded" });
+        }
+
+        // Upload the file to Cloudinary
+        const result = await cloudinary.v2.uploader.upload(req.files.profilePhoto.tempFilePath, {
+            // folder: 'blog_uploads', // Optional: specify a folder in Cloudinary
+            use_filename: true,
+            unique_filename: false,
+        });
+
+        // Create profilePhoto object
+        const profilePhoto = {
+            url: result.secure_url,
+            filename: result.public_id,
+            mimetype: req.files.profilePhoto.mimetype,
+            size: req.files.profilePhoto.size,
+        };
+
+        // Get blog details from request body
+        const { authorName, authorEmail, authorPhone, articleTitle, articleDescript, articleLink } = req.body;
+
+        // Create a new blog instance
+        const newBlog = new Blog({
+            authorName,
+            authorEmail,
+            authorPhone,
+            articleTitle,
+            articleDescript,
+            articleLink,
+            profilePhoto,
+        });
+
+        // Save the blog to the database
+        await newBlog.save();
+        return res.status(201).json({ message: "Blog registered successfully", blog: newBlog });
+
+    } catch (error) {
+        console.log("Error saving blog:", error);
+        return res.status(500).json({ error: error.message });
     }
-    cb(new Error("Error: File upload only supports the following filetypes - " + filetypes));
 };
 
-  
-  // Initialize upload middleware with limits
-  
-const upload = multer({
-    storage: storage,
-    limits: { fileSize: 1024 * 1024 * 5 }, // 5MB file size limit
-    fileFilter: fileFilter
-}).single('profilePhoto'); // Use 'single' for a single file field
-  
-
-export const CreateBlog = (req, res) =>{
-
-    upload(req, res, async (err) =>{
-        if (err) {
-           console.log("Multer error", err)
-            return res.status(400).json({error:err.message});
-        }
-
-
-        try{
-
-
-          
-
-            const {authorName, authorEmail, authorPhone,  articleTitle, articleDescript,   articleLink} =req.body;
-
-            
-            if(!req.user || authorEmail !== req.user.email){
-              console.log(error)
-              return res.status(400).json({error:"Please use signup email for creating the blog"});
-            }
-
-           
-
-            if (!req.file) {
-              return res.status(400).json({ error: "No file uploaded" });
-            }
-    
-            const profilePhoto = {
-            url: `/uploads/ ${req.file.filename}`,
-    
-            filename: req.file.originalname,
-            mimetype:req.file.mimetype,
-            size:req.file.size
-    
-    
-            }
-
-            console.log("form data received successfully", {...req.body, profilePhoto})
-
-
-    
-            
-    
-            const newBlog = new Blog({
-            authorName, authorEmail, authorPhone,  articleTitle, articleDescript,  articleLink,
-            profilePhoto 
-            });
-    
-            await newBlog.save();
-            console.log("Blog registered successfully");
-    
-            return res.status(201).json({ message: "Blog registered successfully", blog: newBlog });
-
-    
-    
-        } catch(error) {
-
-          console.log("Error saving blog:", error);
-    
-            res.status(500).json({error: error.message})
-    
-    
-    
-        }
-    });
-    
-
-    
-}
 
 
 export const GetEmployerblogs = async (req, res) => {

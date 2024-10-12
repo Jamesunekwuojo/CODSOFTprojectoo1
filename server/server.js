@@ -32,9 +32,10 @@ const __dirname = path.dirname(__filename);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API  responding to client side requests and responses
+app.use("/api", jobRoutes);
 app.use("/api", userRoutes);
 app.use ("/api", blogRoutes);
-app.use("/api", jobRoutes);
+
 
 
 
