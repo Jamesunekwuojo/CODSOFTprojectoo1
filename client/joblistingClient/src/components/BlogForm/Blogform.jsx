@@ -59,12 +59,14 @@ const BlogForm = () => {
     try {
 
       
-    const response =  await createBlog(formData).unwrap()
+    const response =  await createBlog(data).unwrap()
     console.log("Blog posted successfully", response)
 
     toast.success('successfully posted blog')
 
     } catch (error) {
+
+      toast.error('Error creating blog', error.message)
 
       console.log(error)
 

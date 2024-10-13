@@ -8,10 +8,6 @@ import {useSelector} from  "react-redux"
 
 
 
-
-
-
-
 const JobPostForm = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
