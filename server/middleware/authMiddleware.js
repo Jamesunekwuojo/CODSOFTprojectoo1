@@ -46,4 +46,6 @@ export const protectAuth = async (req, res, next) => {
             return res.status(401).json({ error: 'Request not authorized' });
         }
     }
+
+    
 };

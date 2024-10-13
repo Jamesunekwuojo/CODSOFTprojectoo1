@@ -3,28 +3,56 @@ import multer from "multer";
 import cloudinary from "./cloudinary.js";
 
 // Set up Multer to use memory storage (no need to save files locally)
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB file size limit
+}).single('profilePhoto');
 
 // Middleware to handle single file upload
-export const uploadProfilePhoto = upload.single("profilePhoto");
+export const uploadProfilePhoto = (req, res, next) => {
+  console.log("Multer middleware file upload starting");
+  console.log(req.file)
+
+  // Use the Multer upload method and handle the callback
+  upload(req, res, (err) => {
+    if (err instanceof multer.MulterError) {
+      // Handle Multer-specific errors (e.g., file size limit exceeded)
+      console.log("Multer error:", err);
+      return res.status(400).json({ error: err.message });
+    } else if (err) {
+      // Handle any other errors
+      console.log("File upload error:", err);
+      return res.status(500).json({ error: "File upload failed" });
+    }
+
+    // If no file is uploaded, handle this case
+    if (!req.file) {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
+
+    // Proceed to the next middleware if file is uploaded successfully
+    next();
+  });
+};
+  
 
 // CreateBlog function
 export const CreateBlog = async (req, res) => {
   try {
     // Check if the user is authenticated
-    if (!req.user || req.body.authorEmail !== req.user.email) {
-      console.log("Unauthorized email, please use signup email");
-      return res
-        .status(400)
-        .json({ error: "Please use signup email for creating the blog" });
-    }
+    // if (!req.user || req.body.authorEmail !== req.user.email) {
+    //   console.log("Unauthorized email, please use signup email");
+    //   return res
+    //     .status(400)
+    //     .json({ error: "Please use signup email for creating the blog" });
+    // }
 
     // Check if the file is provided
-    if (!req.file) {
-      console.log("No file uploaded");
-      return res.status(400).json({ error: "No file uploaded" });
-    }
+    // if (!req.file) {
+    //   console.log("No file uploaded");
+    //   return res.status(400).json({ error: "No file uploaded" });
+    // }
 
     // Upload the file to Cloudinary using upload_stream
     const uploadStream = cloudinary.uploader.upload_stream(
@@ -86,6 +114,7 @@ export const CreateBlog = async (req, res) => {
 
     // Write the file buffer to the Cloudinary upload stream
     uploadStream.end(req.file.buffer);
+
   } catch (error) {
     console.log("Error creating blog:", error);
     return res.status(500).json({ error: error.message });

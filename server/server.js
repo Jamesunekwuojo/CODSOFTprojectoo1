@@ -2,9 +2,9 @@ import './dbconnection.js'
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import path from "path";
+// import path from "path";
 dotenv.config();
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 import userRoutes from './routes/user.js'
 import blogRoutes from "./routes/blog.js";
 import jobRoutes from "./routes/job.js";
@@ -25,11 +25,11 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 // Serve static files from the 'uploads' directory
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API  responding to client side requests and responses
 app.use("/api", jobRoutes);
