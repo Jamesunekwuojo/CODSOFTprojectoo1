@@ -2,15 +2,19 @@
 import  { useState } from 'react';
 // import  PropTypes  from 'prop-types';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-
-import Axios from 'axios';
 import './Blogform.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import  {useCreateBlogMutation} from "../../slices/blogsApiSlice";
+import { toast } from 'react-toastify';
 
 
 
 
 const BlogForm = () => {
+
+  const [createBlog, {isLoading}] = useCreateBlogMutation()
+
+
   const [formData, setFormData] = useState({
     authorName: '',
     authorEmail: '',
@@ -37,7 +41,7 @@ const BlogForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = new FormData();
@@ -45,75 +49,32 @@ const BlogForm = () => {
     data.append('authorName', formData.authorName);
     data.append('authorEmail', formData.authorEmail);
     data.append('authorPhone', formData.authorPhone);
-    data.append('websiteLink', formData.websiteLink);
+   
     data.append('profilePhoto', formData.profilePhoto);
     data.append('articleLink', formData.articleLink);
     data.append('articleTitle', formData.articleTitle);
     data.append('articleDescript', formData.articleDescript);
-    // data.append('readTime', formData.readTime );
-    // data.append('date', formData.date);
-
-    const token = localStorage.getItem('token');
-
-  
-
-    Axios.post('http://localhost:5000/api/createblog', data, {
-      headers:{
-        'Content-Type': 'multipart/form-data',
-
-        'Authorization': `Bearer ${token}`
-        
-      }
-    })
-    .then((response) => {
-    
-      console.log(response.data);
-
-      // const token = localStorage.setItem('token', response.data.token);
-
-      // if(response.data.token){
-      //   token;
-        
-      // }
 
 
-      Swal.fire({
-        title: 'Blog successfully created',
-        text: response.data.message,
-        icon: 'success',
-        confirmButtonText:'Ok'
-      })
-    })
+    try {
+
+      
+    const response =  await createBlog(formData).unwrap()
+    console.log("Blog posted successfully", response)
+
+    toast.success('successfully posted blog')
+
+    } catch (error) {
+
+      console.log(error)
+
+    }
+
+
+ 
 
    
-    .catch(error =>{
-
-      
-      console.log(error.response ? error.response.data : error.message)
-      if(error.response){
-
-        
-        Swal.fire({
-          title: 'Error!',
-          text: error.response.data.error,  // The error message from your backend
-          icon: 'error',
-          confirmButtonText: 'OK'
-        });
-
-      } else {
-
-        Swal.fire({
-          title: 'Error!',
-          text: 'Something went wrong. Please try again.',
-          icon: 'error',
-          confirmButtonText: 'OK'
-      });
-
-      }
-      
-    });
-    
-    
+ 
   };
 
   return (
