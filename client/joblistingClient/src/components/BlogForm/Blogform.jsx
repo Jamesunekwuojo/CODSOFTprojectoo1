@@ -45,7 +45,7 @@ const BlogForm = () => {
     if (fileInputRef.current && fileInputRef.current.files[0]) {
       data.append('profilePhoto', fileInputRef.current.files[0]);
     } else {
-      toast.error("Please upload a profile photo");
+      toast.error("Please upload a profile photo", error.error);
       return;
     }
 
