@@ -45,8 +45,12 @@ const BlogForm = () => {
     if (fileInputRef.current && fileInputRef.current.files[0]) {
       data.append('profilePhoto', fileInputRef.current.files[0]);
     } else {
-      toast.error("Please upload a profile photo", error.error);
+      toast.error("Please upload a profile photo", );
       return;
+    }
+
+    for (let pair of data.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
     }
 
     try {
@@ -61,7 +65,7 @@ const BlogForm = () => {
 
   return (
     <Container className="blogform_container p-3">
-      <Form onSubmit={handleSubmit} encType="multipart/form-data">
+      <Form onSubmit={handleSubmit} >
         <Form.Group controlId="formAuthorName">
           <Form.Label>Author Name*</Form.Label>
           <Form.Control
