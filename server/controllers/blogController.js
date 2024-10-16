@@ -40,19 +40,7 @@ export const uploadProfilePhoto = (req, res, next) => {
 // CreateBlog function
 export const CreateBlog = async (req, res) => {
   try {
-    // Check if the user is authenticated
-    // if (!req.user || req.body.authorEmail !== req.user.email) {
-    //   console.log("Unauthorized email, please use signup email");
-    //   return res
-    //     .status(400)
-    //     .json({ error: "Please use signup email for creating the blog" });
-    // }
-
-    // Check if the file is provided
-    // if (!req.file) {
-    //   console.log("No file uploaded");
-    //   return res.status(400).json({ error: "No file uploaded" });
-    // }
+    
 
     // Upload the file to Cloudinary using upload_stream
     const uploadStream = cloudinary.uploader.upload_stream(
