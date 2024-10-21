@@ -125,3 +125,7 @@ export const GetEmployerblogs = async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 };
+
+
+
+// Rest of blog  controllers here 
