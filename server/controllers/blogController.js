@@ -96,6 +96,7 @@ export const CreateBlog = async (req, res) => {
   }
 };
 
+
 // Fetch blogs for an employer
 export const GetEmployerblogs = async (req, res) => {
   try {
