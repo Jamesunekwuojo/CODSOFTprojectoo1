@@ -60,3 +60,5 @@ export const signout = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 }); // Clear the cookie
     res.status(200).json({ message: 'User logged out successfully' });
 };
+
+// Rest of user controllers functionality here
