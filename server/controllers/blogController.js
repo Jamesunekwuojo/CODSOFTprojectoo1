@@ -96,8 +96,7 @@ export const CreateBlog = async (req, res) => {
   }
 };
 
-
-// Fetch blogs for an employer
+// Employer blog fetch
 export const GetEmployerblogs = async (req, res) => {
   try {
     const email = req.user.email;
@@ -113,3 +112,7 @@ export const GetEmployerblogs = async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 };
+
+
+
+// Rest of blog  controllers here 
