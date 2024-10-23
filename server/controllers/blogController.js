@@ -109,7 +109,7 @@ export const CreateBlog = async (req, res) => {
   }
 };
 
-// Fetch blogs for an employer
+// Employer blog fetch
 export const GetEmployerblogs = async (req, res) => {
   try {
     const email = req.user.email;
