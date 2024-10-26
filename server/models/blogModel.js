@@ -10,8 +10,7 @@ const blogSchema = new mongoose.Schema ({
 
     articleTitle: {type:String, required:true},
     articleDescript: {type:String,  required:true},
-    // date: {type:String, required:true},
-    // readTime:{type:String, required:true},
+   
     articleLink: {type:String, required:true},
 
     profilePhoto:{
