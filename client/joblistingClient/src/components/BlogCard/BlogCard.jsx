@@ -10,7 +10,6 @@ const BlogCard =() =>{
 
   const {data: blogs, error, isLoading} = useGetEmployerBlogsQuery();
 
-
   if(isLoading) return <p> Loading blogs...</p>
 
   if(error) {
