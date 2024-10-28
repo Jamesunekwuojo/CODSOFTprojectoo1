@@ -5,6 +5,7 @@ export const protectAuth = async (req, res, next) => {
     let token;
     console.log('Incoming request to:', req.originalUrl);
     console.log('Cookies:', req.cookies);
+    console.log(process.env.JWT_KEY);
 
 
 
