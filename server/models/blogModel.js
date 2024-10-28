@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const blogSchema = new mongoose.Schema ({
 
     authorName:{type:String, required:true},
-    authorEmail:{type:String, required:true, },
+    authorEmail:{type:String,  },
     authorPhone: {type:String, required:true},
     // websiteLink: {type:String, required:true}
 
