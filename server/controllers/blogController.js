@@ -120,7 +120,7 @@ export const GetBlogs = async (req, res) => {
   try {
 
     const blogs = await Blog.find();
-    console.log("processing request...")
+    console.log("processing request in controller...")
 
     if(blogs.length === 0) {
       console.log("No blog found for this email")
@@ -128,8 +128,11 @@ export const GetBlogs = async (req, res) => {
     }
 
     res.status(200).json({message:"Blog successfully fetched"})
+    console.log("Blog successfully fetched")
 
   } catch(error) {
+    console.log("Error fetching blogs", error);
+    return res.status(500).json({error:error.message})
 
   }
 }

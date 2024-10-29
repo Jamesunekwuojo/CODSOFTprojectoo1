@@ -16,7 +16,7 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
         getEmployerBlogs: builder.query({
 
             query: () => ({
-                url: '/api/blogsbyId',
+                url: '/api/blogs:byId',
                 method: 'GET',
 
             })
