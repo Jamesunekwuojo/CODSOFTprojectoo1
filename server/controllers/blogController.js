@@ -106,7 +106,7 @@ export const GetEmployerblogs = async (req, res) => {
       return res.status(404).json({ message: "No blogs found for this email" });
     }
 
-    return res.status(200).json({ blogs });
+    return res.status(200).json({ Blogs:blogs });
   } catch (error) {
     console.log("Error fetching blog", error);
     return res.status(500).json({ error: "Internal server error" });
