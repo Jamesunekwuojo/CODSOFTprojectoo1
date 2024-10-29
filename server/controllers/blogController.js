@@ -121,6 +121,14 @@ export const GetBlogs = async (req, res) => {
 
     const blogs = await Blog.find();
     console.log("processing request...")
+
+    if(blogs.length === 0) {
+      console.log("No blog found for this email")
+      res.status(204).json({message:"No blogs found"})
+    }
+
+    res.status(200).json({message:"Blog successfully fetched"})
+
   } catch(error) {
 
   }
