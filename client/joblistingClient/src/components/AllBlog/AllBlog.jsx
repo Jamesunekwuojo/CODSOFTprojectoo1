@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import {Container, Row, Col, Card, Button} from "react-bootstrap";
-import { useGetEmployerBlogsQuery } from "../../slices/blogsApiSlice";
+import { useGetAllBlogsQuery} from "../../slices/blogsApiSlice";
 import { toast } from "react-toastify";
 
 
 
 
-const BlogCard =() =>{
+const AllBlog =() =>{
 
-  const {data: blogs, error, isLoading} = useGetEmployerBlogsQuery();
+  const {data: blogs, error, isLoading} = useGetAllBlogsQuery();
 
   if(isLoading) return <p> Loading blogs...</p>
 
@@ -51,6 +51,6 @@ const BlogCard =() =>{
     </Container>
   );
 }
-export default BlogCard;
+export default AllBlog;
 
 
