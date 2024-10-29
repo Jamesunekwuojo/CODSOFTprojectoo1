@@ -1,5 +1,9 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import { FaHome, FaUsers, FaChartBar, FaCog } from "react-icons/fa";
+import { FaHome, FaUsers, FaBriefcase, FaBlog, FaChartBar,  FaCog } from "react-icons/fa";
+import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { MdOutlineAddBusiness } from 'react-icons/md';
+
+
 import { Link, Outlet } from "react-router-dom";
 import Signout from "../Signout/Signout.jsx";
 import "./Employersidebar.css";
@@ -25,25 +29,25 @@ function EmployerSidebar() {
 
             <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/addJobs">
-                <FaChartBar className="mr-2" /> Add Job
+                <MdOutlineAddBusiness  className="mr-2" /> Add Job
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/jobs">
-                <FaChartBar className="mr-2" /> Jobs
+                <FaBriefcase className="mr-2" /> Jobs
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/blogs">
-                <FaCog className="mr-2" /> Blogs
+                <FaBlog className="mr-2" /> Blogs
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/addBlogs">
-                <FaCog className="mr-2" /> Add Blog
+                <AiOutlinePlusCircle className="mr-2" /> Add Blog
               </Nav.Link>
             </Nav.Item>
 
