@@ -96,7 +96,7 @@ export const CreateBlog = async (req, res) => {
   }
 };
 
-// Employer blog fetch
+// Employer blog fetch to 
 export const GetEmployerblogs = async (req, res) => {
   try {
     const email = req.user.email;
@@ -115,4 +115,13 @@ export const GetEmployerblogs = async (req, res) => {
 
 
 
-// Rest of blog  controllers here 
+// To get all blog in database
+export const GetBlogs = async (req, res) => {
+  try {
+
+    const blogs = await Blog.find();
+    console.log("processing request...")
+  } catch(error) {
+
+  }
+}
