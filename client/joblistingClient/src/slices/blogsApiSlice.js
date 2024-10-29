@@ -27,7 +27,7 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
         getAllBlogs: builder.query({
 
             query: () => ({
-                url: '/api/blogs:allBlogs',
+                url: '/api/allBlogs',
                 method: 'GET',
 
             })
@@ -42,6 +42,6 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
 export const {
     useCreateBlogMutation,
     useGetEmployerBlogsQuery,
-    useGetAllBlogsQuery,
+    // useGetAllBlogsQuery,
 
 } = blogsApiSlice

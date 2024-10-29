@@ -11,7 +11,7 @@ const router = express.Router();
 
 // router.use(protectAuth);
 
-router.get('/blogs:allBlogs', GetBlogs)
+router.get('/allBlogs', GetBlogs);
 router.post( '/createblog', protectAuth, uploadProfilePhoto,   CreateBlog );
 
 router.get('/blogs:byId', protectAuth, GetEmployerblogs );
