@@ -127,8 +127,12 @@ export const GetBlogs = async (req, res) => {
       res.status(204).json({message:"No blogs found"})
     }
 
-    res.status(200).json({message:"Blog successfully fetched"})
     console.log("Blog successfully fetched")
+    return res.status(200).json({ Blogs:blogs });
+   
+
+    // res.status(200).json({message:"Blog successfully fetched"})
+   
 
   } catch(error) {
     console.log("Error fetching blogs", error);
