@@ -2,11 +2,11 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 import { FaHome, FaUsers, FaBriefcase, FaBlog,  } from "react-icons/fa";
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { MdOutlineAddBusiness } from 'react-icons/md';
-
+import "./CandidateSidebar.css"
 
 import { Link, Outlet } from "react-router-dom";
 import Signout from "../Signout/Signout.jsx";
-import "./Employersidebar.css";
+
 
 function EmployerSidebar() {
   return (
@@ -21,11 +21,11 @@ function EmployerSidebar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/employer-dashboard/employees">
+            {/* <Nav.Item className="mb-3">
+              <Nav.Link as={Link} to="/candidate-dashboard/employees">
                 <FaUsers className="mr-2" /> Employees
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
 
             {/* <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/addJobs">
@@ -34,13 +34,13 @@ function EmployerSidebar() {
             </Nav.Item> */}
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/employer-dashboard/jobs">
+              <Nav.Link as={Link} to="/candidate-dashboard/alljob">
                 <FaBriefcase className="mr-2" /> Jobs
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/employer-dashboard/blogs">
+              <Nav.Link as={Link} to="/candidate-dashboard/allblogs">
                 <FaBlog className="mr-2" /> Blogs
               </Nav.Link>
             </Nav.Item>
