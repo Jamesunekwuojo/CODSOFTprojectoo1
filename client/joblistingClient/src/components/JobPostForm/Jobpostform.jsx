@@ -11,6 +11,12 @@ import {useSelector} from  "react-redux"
 const JobPostForm = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
+  // const role = userInfo?.user?.role;
+
+
+
+  
+
 
    const [createJob, {isLoading}] = useCreateJobMutation()
    

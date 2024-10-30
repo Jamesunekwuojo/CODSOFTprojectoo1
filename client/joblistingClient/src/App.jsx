@@ -69,6 +69,7 @@ function App() {
         <Route path="/completeprofile" element={<CompleteProfile />} />
 
 
+        {/* Candidate Routes */}
         <Route path="/candidate-dashboard" element={<CandidateSidebar />}>
          
 
@@ -89,14 +90,7 @@ function App() {
           <Route path="addBlogs" element={<Addblogpage />} />
         </Route>
 
-        {/* <Route
-          path="/employer-dashboard/*"
-          element={
-            <PrivateRoute>
-              <EmployerSidebar />
-            </PrivateRoute>
-          }
-        /> */}
+      
       </Routes>
       {/* </ToastContainer> */}
 
