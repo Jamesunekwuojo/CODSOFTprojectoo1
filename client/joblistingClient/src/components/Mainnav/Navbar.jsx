@@ -18,6 +18,12 @@ function Mainnav() {
 
   const { userInfo } = useSelector((state) => state.auth);
 
+  // const role = userInfo.user.role;
+  const info = localStorage.getItem('userInfo');
+
+  const role =  JSON.parse(info).user.role;
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -67,7 +73,7 @@ function Mainnav() {
             {userInfo? (
               <>
               <NavDropdown title={userInfo?.user?.name}>
-                <NavDropdown.Item as={Link} to="/employer-dashboard">Profile</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={role == 'candidate' ? "/candidate-dashboard" : "/employer-dashboard"}>Profile</NavDropdown.Item>
 
                 
                 <NavDropdown.Item as={Link} onClick={handleLogout} > Logout

@@ -60,6 +60,8 @@ function App() {
           }
         />
 
+        
+
         <Route path="/browse-job" element={<AllJobPage/>}/>
 
         {/*Elementary routes, embedded pages  routes*/}
@@ -76,6 +78,8 @@ function App() {
             </PrivateRoute>
           }
         /> */}
+
+        <Route path="/candidate-dashboard" element={<EmployerSidebar/>}/>
 
         <Route
           path="/employer-dashboard"

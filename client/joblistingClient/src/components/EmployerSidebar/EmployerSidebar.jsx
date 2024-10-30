@@ -1,5 +1,5 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import { FaHome, FaUsers, FaBriefcase, FaBlog, FaChartBar,  FaCog } from "react-icons/fa";
+import { FaHome, FaUsers, FaBriefcase, FaBlog,  } from "react-icons/fa";
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { MdOutlineAddBusiness } from 'react-icons/md';
 
