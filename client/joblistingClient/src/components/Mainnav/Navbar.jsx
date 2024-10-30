@@ -18,10 +18,12 @@ function Mainnav() {
 
   const { userInfo } = useSelector((state) => state.auth);
 
-  // const role = userInfo.user.role;
-  const info = localStorage.getItem('userInfo');
+  const role = userInfo?.user?.role;
 
-  const role =  JSON.parse(info).user.role;
+  // const role = userInfo.user.role;
+  // const info = localStorage.getItem('userInfo');
+
+  // const role =  JSON.parse(info).user.role;
 
 
   const dispatch = useDispatch();
