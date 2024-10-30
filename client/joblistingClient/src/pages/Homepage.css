@@ -1,8 +1,20 @@
 /* Custom grid styles for the categories section */
 .grid-container {
-    display: grid;
-    gap: 1rem;
-  }
+  display: grid;
+  gap: 1rem;
+}
+
+
+
+.startedButton {
+  border: 1px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.startedLink {
+  text-decoration: none;
+}
   
   /* Large devices: 2 rows, 5 columns */
   @media (min-width: 992px) {

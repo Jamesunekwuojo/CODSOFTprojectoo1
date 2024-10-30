@@ -37,13 +37,14 @@ function Homepage() {
 
       <Row className="mt-5">
         <Col className="d-flex m-4 justify-content-center">
-        <h3>Get Started</h3>
+        
+        <button className='startedButton'>    <Link className='startedLink' to="/signup"> Get Started</Link></button>
         </Col>
       </Row>
 
       <Row className="d-flex justify-content-center">
         
-        <Col className="m-3 d-flex justify-content-center">
+        {/* <Col className="m-3 d-flex justify-content-center">
           <div className=" d-flex justify-content-center  align-items-center flex-column box custom-box p-4 border rounded shadow-sm mb-2">
             <PersonAdd size={32}/>
             <Link to="/signup"><p className='fw-bold'> Create Account</p></Link>
@@ -69,7 +70,7 @@ function Homepage() {
           
           </div>
           
-        </Col>
+        </Col> */}
 
        
       </Row>
