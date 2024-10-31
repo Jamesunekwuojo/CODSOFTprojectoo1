@@ -3,7 +3,7 @@ import { useGetJobsQuery } from '../../slices/jobsApiSlice.js';
 import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-const JobCard = () => {
+const AllJobCard = () => {
   const { data: jobs, error, isLoading } = useGetJobsQuery();
 
   if (isLoading) return <p>Loading jobs...</p>;
@@ -49,4 +49,4 @@ const JobCard = () => {
   );
 };
 
-export default JobCard;
+export default AllJobCard;

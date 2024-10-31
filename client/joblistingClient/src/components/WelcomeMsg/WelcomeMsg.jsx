@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 
@@ -11,11 +11,10 @@ const WelcomeMsg = () => {
 
     return (
         <Container>
-
-            
-
+            <Row>
             <h1>Welcome , {username} to Jobhub</h1>
 
+            </Row>
 
         </Container>
     )

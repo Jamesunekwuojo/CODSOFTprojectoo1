@@ -22,12 +22,13 @@ import Candidatedashboard from "./pages/Candidatedashboard.jsx";
 import JobPostpage from "./pages/JobPostpage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import CompleteProfile from "./components/CompleteProfile/CompleteProfile.jsx";
-import EmployApply from "./components/EmployApply/EmployApply.jsx";
+
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
 import Jobpage from "./pages/Jobpage.jsx";
 import Blogpage from "./pages/Blogpage.jsx";
 import Addblogpage from "./pages/Addblogpage.jsx";
-import AllJobPage from "./components/AllJobCard/AlljobCard.jsx";
+
+import AllJobPage from "./pages/AllJobPage.jsx";
 import EmployerSidebar from "./components/EmployerSidebar/EmployerSidebar.jsx";
 import CandidateSidebar from "./components/CandidateSidebar/CandidateSidebar.jsx";
 
