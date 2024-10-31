@@ -34,7 +34,9 @@ import CandidateSidebar from "./components/CandidateSidebar/CandidateSidebar.jsx
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
-// import AllBlog from "./components/AllBlog/AllBlog.jsx";
+import AllBlog from "./components/AllBlog/AllBlog.jsx";
+
+import WelcomeMsg from "./components/WelcomeMsg/WelcomeMsg.jsx";
 
 
 // custom App css import
@@ -72,9 +74,12 @@ function App() {
 
         {/* Candidate Routes */}
         <Route path="/candidate-dashboard" element={<CandidateSidebar />}>
-         
+
+          <Route path="dashboard" element={<WelcomeMsg/>} /> 
 
           <Route path="alljob" element={<AllJobPage />} /> 
+
+
         </Route>
 
         <Route

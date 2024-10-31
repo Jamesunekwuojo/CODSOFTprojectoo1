@@ -16,7 +16,7 @@ function EmployerSidebar() {
         <Col xs={12} md={3} lg={2} className="bg-light p-4 side_bar">
           <Nav className="flex-column mt-4">
             <Nav.Item className="mb-3">
-              <Nav.Link as={Link} to="/employer-dashboard/dashboard">
+              <Nav.Link as={Link} to="/candidate-dashboard/dashboard">
                 <FaHome className="mr-2" /> Dashboard
               </Nav.Link>
             </Nav.Item>
