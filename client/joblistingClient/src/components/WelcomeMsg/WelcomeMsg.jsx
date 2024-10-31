@@ -1,45 +1,23 @@
-
-import { useState, useEffect } from 'react';
-
-
-function WelcomeMsg(){
-
-    const [username, setUsername] = useState('');
-
-    const [greeting, setGreeting] = useState('');
-
-    const [pregreeting, setPregreeting] = useState(''); 
+import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 
 
+const WelcomeMsg = () => {
 
-    useEffect(()=>{
+    const {userInfo} = useSelector((state) => state.auth)
 
-
-
-
-       
-
-      
-
-    }, [])
-
-
+    const username = userInfo?.user?.name
 
     return (
-        <>
+        <Container>
 
-        <div className='d-flex  flex-column align-items-center'>
-            {pregreeting && <p style={{margin:'0'}}>  {pregreeting}</p>}
-            {username && <p>{greeting}, {username}</p>}
-        
+            
 
-        </div>
-
-        
+            <h1>Welcome , {username} to Jobhub</h1>
 
 
-        </>
+        </Container>
     )
 
 }
