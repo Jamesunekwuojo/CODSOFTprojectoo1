@@ -10,10 +10,17 @@
   border: 1px;
   padding: 20px;
   border-radius: 15px;
+  background-color: blue;
+  color: white;
+  animation: zoom 1.5s infinite;
+  transform: transform 0.5 ease;
 }
+
+
 
 .startedLink {
   text-decoration: none;
+  color:white;
 }
   
   /* Large devices: 2 rows, 5 columns */
