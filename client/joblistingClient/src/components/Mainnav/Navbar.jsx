@@ -9,6 +9,8 @@ import { logout } from '../../slices/authSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';  // Import SweetAlert
 
+import "./Navbar.css"
+
 function Mainnav() {
   const [signout] = useLogoutMutation();
   const { userInfo } = useSelector((state) => state.auth);
@@ -45,7 +47,7 @@ function Mainnav() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary mb-2">
+    <Navbar expand="lg" className="bg-body-tertiary mb-2 mainNav">
       <Container>
         <Navbar.Brand as={Link} to="/">JOBHUB</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
