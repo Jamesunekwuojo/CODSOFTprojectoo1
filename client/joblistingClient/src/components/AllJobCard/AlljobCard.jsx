@@ -2,6 +2,7 @@
 import { useGetJobsQuery } from '../../slices/jobsApiSlice.js';
 import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import "./AllJobCard.css"
 
 const AllJobCard = () => {
   const { data: jobs, error, isLoading } = useGetJobsQuery();
@@ -23,8 +24,8 @@ const AllJobCard = () => {
       <Row>
         {jobs.Jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">
-            <Card>
-              <Card.Body>
+            <Card className='job-card'>
+              <Card.Body className='job-card-body'>
                 <Card.Title>{job.JobTitle}</Card.Title>
                 <Card.Text>
                   <strong>Location:</strong> {job.JobLocation} <br />
@@ -34,11 +35,14 @@ const AllJobCard = () => {
                   <strong>Description:</strong> {job.JobDescription}
                   <strong>By:{job.EmployerEmail}</strong>
                 </Card.Text>
-                <Button variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
+                {/* <Button variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
                   Edit
                 </Button>
                 <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
                   Delete
+                </Button> */}
+                <Button className='d-flex align-items-center' variant='primary'>
+                  Apply
                 </Button>
               </Card.Body>
             </Card>

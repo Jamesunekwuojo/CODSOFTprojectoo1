@@ -1,0 +1,14 @@
+.job-card {
+    height: 300px; /* Fixed height */
+    min-width: 260px; /* Minimum width */
+    width: 100%; /* Allow responsive width */
+    overflow: hidden; /* Hide overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .job-card-body {
+    overflow-y: auto; /* Scrollable body */
+  }
+  
