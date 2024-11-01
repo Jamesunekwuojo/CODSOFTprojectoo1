@@ -28,7 +28,7 @@ const AllBlog =() =>{
 
   return(
     <Container>
-      <h2> Your Blog</h2>
+      <h2 className="text-center"> Popular Blogs Available</h2>
       <Row>
        {blogs.Blogs.map(blog => (
           <Col md={4} key={blog._id} className="mb-4">
