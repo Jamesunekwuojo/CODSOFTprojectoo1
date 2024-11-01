@@ -1,15 +1,14 @@
-.job-card {
-    height: 300px; /* Fixed height */
-    min-width: 260px; /* Minimum width */
-    width: 100%; /* Allow responsive width */
-    overflow: hidden; /* Hide overflow */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* margin: 10px; */
+.circular-image {
+    width:50%;  /* 20% of the card */
+    height: auto;  /* Maintain aspect ratio */
+    border-radius: 50%;  /* Make it circular */
+    object-fit: cover;  /* Ensure the image covers the container */
   }
   
-  .job-card-body {
-    overflow-y: auto; /* Scrollable body */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
   }
   
