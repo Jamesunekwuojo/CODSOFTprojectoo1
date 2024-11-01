@@ -3,6 +3,8 @@ import {Container, Row, Col, Card, Button} from "react-bootstrap";
 import { useGetAllBlogsQuery} from "../../slices/blogsApiSlice";
 import { toast } from "react-toastify";
 
+import "./AllBlog.css"
+
 
 
 
@@ -32,9 +34,9 @@ const AllBlog =() =>{
       <Row>
        {blogs.Blogs.map(blog => (
           <Col md={4} key={blog._id} className="mb-4">
-            <Card>
+            <Card className="job-card ">
               <Card.Img variant="top" src={blog.profilePhoto.url} alt={blog.profilePhoto.filename} />
-              <Card.Body>
+              <Card.Body className="job-card-body">
                 <Card.Title>{blog.articleTitle}</Card.Title>
                 <Card.Text>{blog.articleDescript}</Card.Text>
                 <Button variant="primary" href={blog.articleLink} target="_blank">Read More</Button>

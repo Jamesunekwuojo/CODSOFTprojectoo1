@@ -20,7 +20,7 @@ const AllJobCard = () => {
 
   return (
     <Container className="job-card-container">
-      <h2 className='text-center'>Financial Jobs Available</h2>
+      <h2 className='text-center'>Financial  Jobs Available</h2>
       <Row>
         {jobs.Jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">
@@ -41,7 +41,8 @@ const AllJobCard = () => {
                 <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
                   Delete
                 </Button> */}
-                <Button className='d-flex align-items-center' variant='primary'>
+               
+                <Button className='d-flex justify-content-center' variant='primary'>
                   Apply
                 </Button>
               </Card.Body>
