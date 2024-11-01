@@ -12,7 +12,7 @@ const WelcomeMsg = () => {
     return (
         <Container>
             <Row>
-            <h1>Welcome , {username} to Jobhub</h1>
+            <h1 className="text-center">Welcome , {username} to Jobhub</h1>
 
             </Row>
 
