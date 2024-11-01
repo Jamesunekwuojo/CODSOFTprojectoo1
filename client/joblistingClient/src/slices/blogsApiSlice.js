@@ -42,6 +42,6 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
 export const {
     useCreateBlogMutation,
     useGetEmployerBlogsQuery,
-    // useGetAllBlogsQuery,
+    useGetAllBlogsQuery,
 
 } = blogsApiSlice
