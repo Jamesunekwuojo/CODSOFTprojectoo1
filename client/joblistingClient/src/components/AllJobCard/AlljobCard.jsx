@@ -19,7 +19,7 @@ const AllJobCard = () => {
 
   return (
     <Container className="job-card-container">
-      <h2>Your Posted Jobs</h2>
+      <h2 className='text-center'>Financial Jobs Available</h2>
       <Row>
         {jobs.Jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">

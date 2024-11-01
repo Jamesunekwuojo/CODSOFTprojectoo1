@@ -34,7 +34,7 @@ import CandidateSidebar from "./components/CandidateSidebar/CandidateSidebar.jsx
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
-import AllBlog from "./components/AllBlog/AllBlog.jsx";
+// import AllBlog from "./components/AllBlog/AllBlog.jsx";
 
 import WelcomeMsg from "./components/WelcomeMsg/WelcomeMsg.jsx";
 
