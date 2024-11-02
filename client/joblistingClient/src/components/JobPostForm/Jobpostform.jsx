@@ -29,7 +29,8 @@ const JobPostForm = () => {
     MaximumSalary: '',
     ApplicationDeadline: '',
     EmployerEmail: userInfo.user.email,
-    JobDescription: ''
+    JobDescription: '',
+    JobCategory:'',
   });
 
   const handleChange = (e) => {

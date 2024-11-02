@@ -29,6 +29,8 @@ const JobCard = () => {
                 <Card.Title>{job.JobTitle}</Card.Title>
                 <Card.Text>
                   <strong>Location:</strong> {job.JobLocation} <br />
+
+                  <strong>Category:</strong> {job.JobCategory} <br />
                   <strong>Type:</strong> {job.JobType} <br />
                   <strong>Salary Range:</strong> {job.MinimumSalary} - {job.MaximumSalary} <br />
                   <strong>Deadline:</strong> {new Date(job.ApplicationDeadline).toLocaleDateString()} <br />

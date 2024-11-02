@@ -3,13 +3,13 @@ import {Job} from "../models/jobModel.js";
 export const CreateJob = async (req, res) => {
     try {
 
-        const {JobTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, EmployerEmail, JobDescription  } = req.body;
+        const {JobTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, EmployerEmail, JobDescription, JobCategory,  } = req.body;
 
         console.log("Job data received successfully," , req.body)
 
         // creating job by instanciating new object
 
-        const newJob = new Job({JobTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, EmployerEmail, JobDescription
+        const newJob = new Job({JobTitle, JobLocation, JobType, MinimumSalary, MaximumSalary, ApplicationDeadline, EmployerEmail, JobDescription, JobCategory
 
         })
 
