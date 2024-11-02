@@ -20,7 +20,7 @@ const JobCard = () => {
 
   return (
     <Container className="job-card-container">
-      <h2>Your Posted Jobs</h2>
+      <h2 className='text-center'>Your Posted Jobs</h2>
       <Row>
         {jobs.Jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">
@@ -35,7 +35,7 @@ const JobCard = () => {
                   <strong>Description:</strong> {job.JobDescription}
                   <strong>By:{job.EmployerEmail}</strong>
                 </Card.Text>
-                <Button variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
+                <Button className='mx-2' variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
                   Edit
                 </Button>
                 <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
