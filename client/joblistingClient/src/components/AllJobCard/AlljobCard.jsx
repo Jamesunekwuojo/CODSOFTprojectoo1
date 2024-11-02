@@ -1,16 +1,16 @@
 // JobCard.js
-import { useGetJobsQuery } from '../../slices/jobsApiSlice.js';
-import { Card, Button, Col, Row, Container } from 'react-bootstrap';
-import { toast } from 'react-toastify';
-import "./AllJobCard.css"
+import { useGetJobsQuery } from "../../slices/jobsApiSlice.js";
+import { Card, Button, Col, Row, Container } from "react-bootstrap";
+import { toast } from "react-toastify";
+import "./AllJobCard.css";
 
 const AllJobCard = () => {
   const { data: jobs, error, isLoading } = useGetJobsQuery();
 
   if (isLoading) return <p>Loading jobs...</p>;
   if (error) {
-    toast.error('Failed to fetch jobs');
-    console.log(error)
+    toast.error("Failed to fetch jobs");
+    console.log(error);
     return <p>Error fetching jobs</p>;
   }
 
@@ -20,18 +20,22 @@ const AllJobCard = () => {
 
   return (
     <Container className="job-card-container">
-      <h2 className='text-center'>Financial  Jobs Available</h2>
+      <h2 className="text-center">Financial Jobs Available</h2>
       <Row>
         {jobs.Jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">
-            <Card className='job-card'>
-              <Card.Body className='job-card-body'>
+            <Card className="job-card">
+              <Card.Body className="job-card-body">
                 <Card.Title>{job.JobTitle}</Card.Title>
                 <Card.Text>
+                  <strong>Category:</strong> {job.JobCategory} <br />
                   <strong>Location:</strong> {job.JobLocation} <br />
                   <strong>Type:</strong> {job.JobType} <br />
-                  <strong>Salary Range:</strong> {job.MinimumSalary} - {job.MaximumSalary} <br />
-                  <strong>Deadline:</strong> {new Date(job.ApplicationDeadline).toLocaleDateString()} <br />
+                  <strong>Salary Range:</strong> {job.MinimumSalary} -{" "}
+                  {job.MaximumSalary} <br />
+                  <strong>Deadline:</strong>{" "}
+                  {new Date(job.ApplicationDeadline).toLocaleDateString()}{" "}
+                  <br />
                   <strong>Description:</strong> {job.JobDescription}
                   <strong>By:{job.EmployerEmail}</strong>
                 </Card.Text>
@@ -41,8 +45,11 @@ const AllJobCard = () => {
                 <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
                   Delete
                 </Button> */}
-               
-                <Button className='d-flex justify-content-center' variant='primary'>
+
+                <Button
+                  className="d-flex justify-content-center"
+                  variant="primary"
+                >
                   Apply
                 </Button>
               </Card.Body>
