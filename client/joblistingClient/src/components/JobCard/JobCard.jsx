@@ -24,8 +24,8 @@ const JobCard = () => {
       <Row>
         {jobs.Jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">
-            <Card>
-              <Card.Body>
+            <Card className='job-card'>
+              <Card.Body className="job-card-body">
                 <Card.Title>{job.JobTitle}</Card.Title>
                 <Card.Text>
                   <strong>Location:</strong> {job.JobLocation} <br />
