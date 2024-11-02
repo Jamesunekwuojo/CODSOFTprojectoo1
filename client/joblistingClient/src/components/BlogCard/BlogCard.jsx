@@ -28,7 +28,7 @@ const BlogCard =() =>{
 
   return(
     <Container>
-      <h2> Your Blog</h2>
+      <h2 className="text-center"> Your Blog</h2>
       <Row>
        {blogs.Blogs.map(blog => (
           <Col md={4} key={blog._id} className="mb-4">
@@ -37,7 +37,9 @@ const BlogCard =() =>{
               <Card.Body>
                 <Card.Title>{blog.articleTitle}</Card.Title>
                 <Card.Text>{blog.articleDescript}</Card.Text>
-                <Button variant="primary" href={blog.articleLink} target="_blank">Read More</Button>
+                <Button className="m-2" variant="primary" href={blog.articleLink} target="_blank">Edit</Button>
+
+                <Button variant="primary" href={blog.articleLink} target="_blank">Delete</Button>
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">By {blog.authorName} | {blog.authorEmail}</small>
