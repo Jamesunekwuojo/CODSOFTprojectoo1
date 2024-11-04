@@ -99,8 +99,15 @@ export const CreateBlog = async (req, res) => {
 // Employer blog fetch to 
 export const GetEmployerblogs = async (req, res) => {
   try {
+
+    const page = parseInt(req.query.page) || 1;
+
+    const limit = parseInt(req.query.linit) || 6;
+
+    const skip =  (page -1 ) * limit;
     const email = req.user.email;
-    const blogs = await Blog.find({ authorEmail: email });
+    const blogs = await Blog.find({ authorEmail: email }).skip(skip).limit(limit);
+    const totalBlogs = await Blog.countDocuments({ authorEmail: email });
 
     if (blogs.length === 0) {
       return res.status(404).json({ message: "No blogs found for this email" });
@@ -108,7 +115,8 @@ export const GetEmployerblogs = async (req, res) => {
 
     console.log("employer blog successfully fetched");
 
-    return res.status(200).json({ Blogs:blogs });
+    return res.status(200).json({ Blogs:blogs, currentPage:page, totalPages:Math.ceil(totalBlogs / limit), totalBlogs:totalBlogs});
+    
   } catch (error) {
     console.log("Error fetching blog", error);
     return res.status(500).json({ error: "Internal server error" });
