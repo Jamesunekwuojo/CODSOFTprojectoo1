@@ -26,8 +26,8 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
 
         getAllBlogs: builder.query({
 
-            query: () => ({
-                url: '/api/allBlogs',
+            query: ({ page = 1, limit = 6 }) => ({
+                url:`/api/allBlogs?page=${page}&limit=${limit}`,
                 method: 'GET',
 
             })

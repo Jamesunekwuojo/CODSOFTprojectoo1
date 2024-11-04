@@ -121,8 +121,14 @@ export const GetEmployerblogs = async (req, res) => {
 export const GetBlogs = async (req, res) => {
   try {
 
-    const blogs = await Blog.find();
+
+    const page = parseInt(req.query.page) || 1; // Default to page 1 if no query provided
+    const limit = parseInt(req.query.limit) || 6; // Default limit of 10 blogs per page
+    const skip = (page - 1) * limit;
+
+    const blogs = await Blog.find().skip(skip).limit(limit);
     console.log("processing request in controller...")
+    const totalBlogs = await Blog.countDocuments();
 
     if(blogs.length === 0) {
       console.log("No blog found for this email")
@@ -130,7 +136,9 @@ export const GetBlogs = async (req, res) => {
     }
 
     console.log("Blog successfully fetched")
-    return res.status(200).json({ Blogs:blogs });
+    return res.status(200).json({ Blogs:blogs, currentPage: page,
+      totalPages: Math.ceil(totalBlogs / limit),
+      totalBlogs: totalBlogs });
    
 
     // res.status(200).json({message:"Blog successfully fetched"})
