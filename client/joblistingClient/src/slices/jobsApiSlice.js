@@ -14,8 +14,8 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
 
         // Query to get jobs for a specific employer by their email
         getEmployerJobs: builder.query({
-            query: () => ({
-                url: `${JOBS_URL}/jobsbyId`,
+            query: ({page = 1, limit=6}) => ({
+                url: `${JOBS_URL}/jobsbyId?page=${page}&limit=${limit}`,
                 method: 'GET',
                 
             }),
@@ -32,8 +32,8 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
 
         // Query to get all jobs
         getJobs: builder.query({
-            query: () => ({
-                url: `${JOBS_URL}/allJobs`,
+            query: ({page = 1, limit=6 }) => ({
+                url: `${JOBS_URL}/allJobs?page=${page}&limit=${limit}`,
                 method: 'GET',
             }),
         }),

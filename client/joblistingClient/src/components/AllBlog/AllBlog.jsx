@@ -28,7 +28,7 @@ const AllBlog = () => {
     if (page < blogs.totalPages) setPage(page + 1);
   };
 
-  return (
+  return ( 
     <Container>
       <h2 className="text-center">Popular Blogs Available</h2>
       <Row>

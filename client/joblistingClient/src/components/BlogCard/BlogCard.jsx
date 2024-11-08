@@ -20,6 +20,7 @@ const BlogCard = () => {
     return <p> No Blog found found for this employer</p>;
   }
 
+  
   const handlePreviousPage = () => {
     if (page > 1) setPage(page - 1);
   };

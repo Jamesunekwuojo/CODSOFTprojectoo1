@@ -3,9 +3,12 @@ import { useGetJobsQuery } from "../../slices/jobsApiSlice.js";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "./AllJobCard.css";
+import { useState } from "react";
 
 const AllJobCard = () => {
-  const { data: jobs, error, isLoading } = useGetJobsQuery();
+  const [page, setPage] = useState(1);
+  const [limit] = useState(6)
+  const { data: jobs, error, isLoading } = useGetJobsQuery({page, limit});
 
   if (isLoading) return <p>Loading jobs...</p>;
   if (error) {
@@ -17,6 +20,15 @@ const AllJobCard = () => {
   if (jobs.Jobs.length === 0) {
     return <p>No jobs found for this employer.</p>;
   }
+
+
+  const handlePreviousPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
+
+  const handleNextPage = () => {
+    if (page < jobs.totalPages) setPage(page + 1);
+  };
 
   return (
     <Container className="job-card-container">
@@ -57,6 +69,28 @@ const AllJobCard = () => {
           </Col>
         ))}
       </Row>
+
+
+      {/* jobs && jobs.totalPages > 1 && (  // Added check for pagination visibility */}
+        <div className="pagination-controls text-center">
+          <Button
+            variant="secondary"
+            onClick={handlePreviousPage}
+            disabled={page === 1}
+          >
+            Previous
+          </Button>
+          <span className="mx-2">
+            Page {page} of {jobs.totalPages}
+          </span>
+          <Button
+            variant="secondary"
+            onClick={handleNextPage}
+            disabled={page === jobs.totalPages}
+          >
+            Next
+          </Button>
+        </div>
     </Container>
   );
 };
