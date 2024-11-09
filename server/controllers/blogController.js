@@ -158,3 +158,63 @@ export const GetBlogs = async (req, res) => {
 
   }
 }
+
+
+// UpdateBlog function
+export const UpdateBlog = async (req, res) => {
+  try {
+    const { id } = req.params; // Blog ID from URL
+    const { authorName, authorEmail, authorPhone, articleTitle, articleDescript, articleLink } = req.body;
+
+    const blog = await Blog.findById(id);
+    if (!blog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    // Optionally, update the profile photo if a new one is uploaded
+    if (req.file) {
+      const uploadToCloudinary = new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          {
+            folder: "profilepics", 
+            use_filename: true,
+            unique_filename: false,
+          },
+          (error, result) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(result);
+            }
+          }
+        );
+        uploadStream.end(req.file.buffer);
+      });
+
+      const result = await uploadToCloudinary;
+      blog.profilePhoto = {
+        url: result.secure_url,
+        filename: result.public_id,
+        mimetype: req.file.mimetype,
+        size: req.file.size,
+      };
+    }
+
+    blog.authorName = authorName || blog.authorName;
+    blog.authorEmail = authorEmail || blog.authorEmail;
+    blog.authorPhone = authorPhone || blog.authorPhone;
+    blog.articleTitle = articleTitle || blog.articleTitle;
+    blog.articleDescript = articleDescript || blog.articleDescript;
+    blog.articleLink = articleLink || blog.articleLink;
+
+    await blog.save();
+
+    return res.status(200).json({
+      message: "Blog updated successfully",
+      blog,
+    });
+  } catch (error) {
+    console.error("Error updating blog:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};

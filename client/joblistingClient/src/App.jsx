@@ -38,7 +38,6 @@ import AllBlog from "./components/AllBlog/AllBlog.jsx";
 
 import WelcomeMsg from "./components/WelcomeMsg/WelcomeMsg.jsx";
 
-
 // custom App css import
 import "./App.css";
 
@@ -71,17 +70,16 @@ function App() {
         {/*Elementary routes, embedded pages  routes*/}
         <Route path="/completeprofile" element={<CompleteProfile />} />
 
-
         {/* Candidate Routes */}
         <Route path="/candidate-dashboard" element={<CandidateSidebar />}>
+          {/* 
+          <Route path="dashboard" element={<WelcomeMsg/>} />  */}
 
-          <Route path="dashboard" element={<WelcomeMsg/>} /> 
+          <Route index element={<WelcomeMsg />} />
 
-          <Route path="alljob" element={<AllJobPage />} /> 
+          <Route path="alljob" element={<AllJobPage />} />
 
-          <Route path="allblogs" element={<AllBlog/>} /> 
-
-
+          <Route path="allblogs" element={<AllBlog />} />
         </Route>
 
         <Route
@@ -92,13 +90,12 @@ function App() {
             </PrivateRoute>
           }
         >
+          <Route index element={<WelcomeMsg />} />
           <Route path="jobs" element={<Jobpage />} />
           <Route path="addJobs" element={<JobPostpage />} />
           <Route path="blogs" element={<Blogpage />} />
           <Route path="addBlogs" element={<Addblogpage />} />
         </Route>
-
-      
       </Routes>
       {/* </ToastContainer> */}
 
@@ -110,5 +107,3 @@ function App() {
 }
 
 export default App;
-
-
