@@ -13,9 +13,9 @@ const router = express.Router();
 
 router.get('/allBlogs', GetBlogs);
 
-router.put('/api/blog/:id', uploadProfilePhoto, UpdateBlog);
+router.put('/blog/:id',  protectAuth,  UpdateBlog);
 
-router.delete('/api/blog/:id', DeleteBlog);
+router.delete('/blog/:id', DeleteBlog);
 
 router.post( '/createblog', protectAuth, uploadProfilePhoto,   CreateBlog );
 

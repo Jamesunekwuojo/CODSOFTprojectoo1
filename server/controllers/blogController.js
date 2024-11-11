@@ -163,7 +163,10 @@ export const GetBlogs = async (req, res) => {
 // UpdateBlog function
 export const UpdateBlog = async (req, res) => {
   try {
+    console.log("update controller processing")
     const { id } = req.params; // Blog ID from URL
+    console.log("Request body:", req.body);
+
     const { authorName, authorEmail, authorPhone, articleTitle, articleDescript, articleLink } = req.body;
 
     const blog = await Blog.findById(id);
@@ -208,11 +211,15 @@ export const UpdateBlog = async (req, res) => {
     blog.articleLink = articleLink || blog.articleLink;
 
     await blog.save();
+    console.log("successful blog update", blog);
 
     return res.status(200).json({
       message: "Blog updated successfully",
       blog,
     });
+
+   
+
   } catch (error) {
     console.error("Error updating blog:", error);
     return res.status(500).json({ error: "Internal server error" });

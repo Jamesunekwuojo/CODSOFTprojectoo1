@@ -3,15 +3,15 @@ import mongoose from "mongoose";
 
 const blogSchema = new mongoose.Schema ({
 
-    authorName:{type:String, required:true},
+    authorName:{type:String},
     authorEmail:{type:String  },
-    authorPhone: {type:String, required:true},
+    authorPhone: {type:String, },
     // websiteLink: {type:String, required:true
 
-    articleTitle: {type:String, required:true},
+    articleTitle: {type:String, },
     articleDescript: {type:String,  required:true},
    
-    articleLink: {type:String, required:true},
+    articleLink: {type:String, },
 
     profilePhoto:{
         url: String,
