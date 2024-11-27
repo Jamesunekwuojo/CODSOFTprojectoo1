@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get('/allBlogs', GetBlogs);
 
-router.put('/blog/:id',  protectAuth,  UpdateBlog);
+router.put('/blog/:id',  protectAuth, uploadProfilePhoto, UpdateBlog);
 
 router.delete('/blog/:id', DeleteBlog);
 

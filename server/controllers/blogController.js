@@ -205,7 +205,10 @@ export const UpdateBlog = async (req, res) => {
       };
     }
 
+
+
     blog.authorName = authorName || blog.authorName;
+    console.log(blog.authorName)
     blog.authorEmail = authorEmail || blog.authorEmail;
     blog.authorPhone = authorPhone || blog.authorPhone;
     blog.articleTitle = articleTitle || blog.articleTitle;

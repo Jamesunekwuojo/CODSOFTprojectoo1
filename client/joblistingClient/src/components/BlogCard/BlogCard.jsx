@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const BlogCard = () => {
   const [page, setPage] = useState(1);
   const [limit] = useState(6); // Set the limit for blogs per page
-  const { data: blogs, error, isLoading } = useGetEmployerBlogsQuery({ page, limit });
+  const { data: blogs, error, isLoading,   refetch, } = useGetEmployerBlogsQuery({ page, limit });
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [editBlog, setEditBlog] = useState(null); // Store the blog being edited
@@ -60,6 +60,8 @@ const BlogCard = () => {
         id: editBlog._id,
         formData,
       }).unwrap();
+
+      refetch()
   
       console.log("Updated blog:", update);
       toast.success("Blog updated successfully!");
