@@ -165,9 +165,11 @@ export const UpdateBlog = async (req, res) => {
   try {
     console.log("update controller processing")
     const id = req.params.id; // Blog ID from URL
-    console.log("Request body:", req.body);
+    
 
     const { authorName, authorEmail, authorPhone, articleTitle, articleDescript, articleLink } = req.body;
+
+    console.log("Request body:", req.body);
 
     const blog = await Blog.findById(id);
     if (!blog) {

@@ -34,35 +34,50 @@ const BlogCard = () => {
 
   // Handle saving the edited blog
   const handleSave = async () => {
+    // Update editBlog state synchronously to ensure no stale values
+    setEditBlog((prev) => ({ ...prev }));
+  
+    // Construct FormData after ensuring state is updated
+    const formData = new FormData();
+    formData.append("authorName", editBlog.authorName);
+    formData.append("authorEmail", editBlog.authorEmail);
+    formData.append("authorPhone", editBlog.authorPhone);
+    formData.append("articleTitle", editBlog.articleTitle);
+    formData.append("articleDescript", editBlog.articleDescript);
+    formData.append("articleLink", editBlog.articleLink);
+  
+    if (updatedFile) {
+      formData.append("profilePhoto", updatedFile);
+    }
+  
     try {
-      const formData = new FormData();
-      formData.append("authorName", editBlog.authorName);
-      formData.append("authorEmail", editBlog.authorEmail);
-      formData.append("authorPhone", editBlog.authorPhone);
-      formData.append("articleTitle", editBlog.articleTitle);
-      formData.append("articleDescript", editBlog.articleDescript);
-      formData.append("articleLink", editBlog.articleLink);
-
-      if (updatedFile) {
-        formData.append("profilePhoto", updatedFile);
-      }
-
-      // Send PUT request to update the blog using RTK Query
-      await updateBlog({
-        id: editBlog._id, // Pass the blog ID
-        data: formData, // Send updated data including the image
-      }).unwrap(); // Unwrap the response for error handling
+      // Debugging before sending the request
+      console.log("Form Data Entries:");
+      formData.forEach((value, key) => console.log(key, value));
+  
+      // Send update request
+      const update = await updateBlog({
+        id: editBlog._id,
+        formData,
+      }).unwrap();
+  
+      console.log("Updated blog:", update);
       toast.success("Blog updated successfully!");
-      setShowEditModal(false); // Close modal on success
+      setShowEditModal(false);
     } catch (error) {
+      console.error("Error updating blog:", error);
       toast.error("Failed to update blog");
     }
   };
+  
 
   // Handle input changes inside the modal
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditBlog({ ...editBlog, [name]: value });
+    setEditBlog((prev) => ({
+      ...prev,
+      [name]: value, // Update only the specific field
+    }));
   };
 
   // Handle file input for profile photo

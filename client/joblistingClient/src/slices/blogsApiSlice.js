@@ -36,7 +36,7 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
         body: formData,
       }),
       // Invalidate the cached data related to blogs after update
-      invalidatesTags: [{ type: 'Blogs', id: 'LIST' }], // Invalidates the list of blogs so they are refetched
+      invalidatesTags: ['Blog'], // Invalidates the list of blogs so they are refetched
     }),
 
     deleteBlog: builder.mutation({
