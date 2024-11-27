@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Container, Row, Col, Card, Button, Modal, Form } from "react-bootstrap";
-import { useGetEmployerBlogsQuery, useUpdateBlogMutation } from "../../slices/blogsApiSlice";
+import { useGetEmployerBlogsQuery, useUpdateBlogMutation, useDeleteBlogMutation } from "../../slices/blogsApiSlice";
 import { toast } from "react-toastify";
+
+import Swal from "sweetalert2";
 
 const BlogCard = () => {
   const [page, setPage] = useState(1);
@@ -13,6 +15,8 @@ const BlogCard = () => {
   const [updatedFile, setUpdatedFile] = useState(null); // Store the new file for the profile photo
 
   const [updateBlog, { isLoading: isUpdating }] = useUpdateBlogMutation(); // Hook for updating a blog
+
+  const [deleteBlog] = useDeleteBlogMutation();
 
   if (isLoading) return <p>Loading blogs...</p>;
 
@@ -87,6 +91,36 @@ const BlogCard = () => {
     setUpdatedFile(e.target.files[0]);
   };
 
+
+  const handleDelete = async (id, articleTitle ) => {
+
+    const result = await Swal.fire({
+      title: `Are you sure you want to delete "${articleTitle}"?`,
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+      icon: "warning",
+    });
+
+    if (result.isConfirmed) {
+      try {
+
+        await deleteBlog(id).unwrap();
+
+        toast.success('Blog deleted successfully')
+
+        refetch()
+        
+      } catch (error) {
+        console.log(error);
+        toast.error('Failed to delete blog')
+
+        
+      }
+    }
+
+  }
+
   return (
     <Container>
       <h2 className="text-center">Your Blog</h2>
@@ -105,7 +139,7 @@ const BlogCard = () => {
                 <Button className="m-2" variant="primary" onClick={() => handleEdit(blog)}>
                   Edit
                 </Button>
-                <Button variant="danger" href={`/delete-blog/${blog._id}`}>
+                <Button variant="danger" onClick={() => handleDelete(blog._id, blog.articleTitle)}>
                   Delete
                 </Button>
               </Card.Body>

@@ -237,8 +237,8 @@ export const DeleteBlog = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const blog = await Blog.findByIdAndDelete(id);
-    if (!blog) {
+    const deleteBlog = await Blog.findByIdAndDelete(id);
+    if (!deleteBlog) {
       return res.status(404).json({ message: "Blog not found" });
     }
 

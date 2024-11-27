@@ -15,7 +15,7 @@ router.get('/allBlogs', GetBlogs);
 
 router.put('/blog/:id',  protectAuth, uploadProfilePhoto, UpdateBlog);
 
-router.delete('/blog/:id', DeleteBlog);
+router.delete('/blog/:id', protectAuth,  DeleteBlog);
 
 router.post( '/createblog', protectAuth, uploadProfilePhoto,   CreateBlog );
 

@@ -45,7 +45,7 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
         method: "DELETE",
       }),
       // Invalidate the cached data after deletion to trigger a refetch
-      invalidatesTags: [{ type: 'Blogs', id: 'LIST' }],
+      invalidatesTags: ['Blog'],
     }),
   }),
 });
