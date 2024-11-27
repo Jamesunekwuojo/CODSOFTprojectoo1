@@ -30,7 +30,8 @@ export const uploadProfilePhoto = (req, res, next) => {
     next(); // Proceed to the next middleware
   });
 };
-  
+
+
 
 // CreateBlog function
 export const CreateBlog = async (req, res) => {
@@ -157,7 +158,10 @@ export const GetBlogs = async (req, res) => {
     return res.status(500).json({error:error.message})
 
   }
-}
+};
+
+
+
 
 
 // UpdateBlog function

@@ -1,6 +1,18 @@
 import { useState } from "react";
-import { Container, Row, Col, Card, Button, Modal, Form } from "react-bootstrap";
-import { useGetEmployerBlogsQuery, useUpdateBlogMutation, useDeleteBlogMutation } from "../../slices/blogsApiSlice";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+  Modal,
+  Form,
+} from "react-bootstrap";
+import {
+  useGetEmployerBlogsQuery,
+  useUpdateBlogMutation,
+  useDeleteBlogMutation,
+} from "../../slices/blogsApiSlice";
 import { toast } from "react-toastify";
 
 import Swal from "sweetalert2";
@@ -8,7 +20,12 @@ import Swal from "sweetalert2";
 const BlogCard = () => {
   const [page, setPage] = useState(1);
   const [limit] = useState(6); // Set the limit for blogs per page
-  const { data: blogs, error, isLoading,   refetch, } = useGetEmployerBlogsQuery({ page, limit });
+  const {
+    data: blogs,
+    error,
+    isLoading,
+    refetch,
+  } = useGetEmployerBlogsQuery({ page, limit });
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [editBlog, setEditBlog] = useState(null); // Store the blog being edited
@@ -40,7 +57,7 @@ const BlogCard = () => {
   const handleSave = async () => {
     // Update editBlog state synchronously to ensure no stale values
     setEditBlog((prev) => ({ ...prev }));
-  
+
     // Construct FormData after ensuring state is updated
     const formData = new FormData();
     formData.append("authorName", editBlog.authorName);
@@ -49,24 +66,24 @@ const BlogCard = () => {
     formData.append("articleTitle", editBlog.articleTitle);
     formData.append("articleDescript", editBlog.articleDescript);
     formData.append("articleLink", editBlog.articleLink);
-  
+
     if (updatedFile) {
       formData.append("profilePhoto", updatedFile);
     }
-  
+
     try {
       // Debugging before sending the request
       console.log("Form Data Entries:");
       formData.forEach((value, key) => console.log(key, value));
-  
+
       // Send update request
       const update = await updateBlog({
         id: editBlog._id,
         formData,
       }).unwrap();
 
-      refetch()
-  
+      refetch();
+
       console.log("Updated blog:", update);
       toast.success("Blog updated successfully!");
       setShowEditModal(false);
@@ -75,7 +92,6 @@ const BlogCard = () => {
       toast.error("Failed to update blog");
     }
   };
-  
 
   // Handle input changes inside the modal
   const handleInputChange = (e) => {
@@ -91,9 +107,7 @@ const BlogCard = () => {
     setUpdatedFile(e.target.files[0]);
   };
 
-
-  const handleDelete = async (id, articleTitle ) => {
-
+  const handleDelete = async (id, articleTitle) => {
     const result = await Swal.fire({
       title: `Are you sure you want to delete "${articleTitle}"?`,
       showCancelButton: true,
@@ -104,22 +118,17 @@ const BlogCard = () => {
 
     if (result.isConfirmed) {
       try {
-
         await deleteBlog(id).unwrap();
 
-        toast.success('Blog deleted successfully')
+        toast.success("Blog deleted successfully");
 
-        refetch()
-        
+        refetch();
       } catch (error) {
         console.log(error);
-        toast.error('Failed to delete blog')
-
-        
+        toast.error("Failed to delete blog");
       }
     }
-
-  }
+  };
 
   return (
     <Container>
@@ -136,15 +145,24 @@ const BlogCard = () => {
               <Card.Body>
                 <Card.Title>{blog.articleTitle}</Card.Title>
                 <Card.Text>{blog.articleDescript}</Card.Text>
-                <Button className="m-2" variant="primary" onClick={() => handleEdit(blog)}>
+                <Button
+                  className="m-2"
+                  variant="primary"
+                  onClick={() => handleEdit(blog)}
+                >
                   Edit
                 </Button>
-                <Button variant="danger" onClick={() => handleDelete(blog._id, blog.articleTitle)}>
+                <Button
+                  variant="danger"
+                  onClick={() => handleDelete(blog._id, blog.articleTitle)}
+                >
                   Delete
                 </Button>
               </Card.Body>
               <Card.Footer>
-                <small className="text-muted">By {blog.authorName} | {blog.authorEmail}</small>
+                <small className="text-muted">
+                  By {blog.authorName} | {blog.authorEmail}
+                </small>
               </Card.Footer>
             </Card>
           </Col>
@@ -153,11 +171,21 @@ const BlogCard = () => {
 
       {/* Pagination Controls */}
       <div className="pagination-controls text-center">
-        <Button variant="secondary" onClick={() => setPage(page - 1)} disabled={page === 1}>
+        <Button
+          variant="secondary"
+          onClick={() => setPage(page - 1)}
+          disabled={page === 1}
+        >
           Previous
         </Button>
-        <span className="mx-2">Page {page} of {blogs.totalPages}</span>
-        <Button variant="secondary" onClick={() => setPage(page + 1)} disabled={page === blogs.totalPages}>
+        <span className="mx-2">
+          Page {page} of {blogs.totalPages}
+        </span>
+        <Button
+          variant="secondary"
+          onClick={() => setPage(page + 1)}
+          disabled={page === blogs.totalPages}
+        >
           Next
         </Button>
       </div>
@@ -186,6 +214,7 @@ const BlogCard = () => {
                   name="authorEmail"
                   value={editBlog.authorEmail}
                   onChange={handleInputChange}
+                  readOnly
                 />
               </Form.Group>
               <Form.Group controlId="formAuthorPhone">
@@ -227,6 +256,23 @@ const BlogCard = () => {
               </Form.Group>
               <Form.Group controlId="formProfilePhoto">
                 <Form.Label>Profile Photo</Form.Label>
+                {/* Show current photo as a preview */}
+                {editBlog.profilePhoto && (
+                  <div className="mb-2">
+                    <img
+                      src={editBlog.profilePhoto.url}
+                      alt="Current profile"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
+                    <p>Current photo</p>
+                  </div>
+                )}
+                {/* File input to upload a new photo */}
                 <Form.Control
                   type="file"
                   name="profilePhoto"

@@ -62,7 +62,7 @@ const AllJobCard = () => {
                   className="d-flex justify-content-center"
                   variant="primary"
                 >
-                  Apply
+                  Application Link
                 </Button>
               </Card.Body>
             </Card>
