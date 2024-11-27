@@ -37,6 +37,18 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
+
+
+    // Mutation to update job
+      // Mutation to update a job
+      updateJob: builder.mutation({
+        query: ({ jobId, formData }) => ({
+          url: `${JOBS_URL}/updatejob/${jobId}`,
+          method: "PUT",
+          body: formData,
+        }),
+      }),
+
    
   }),
 });
@@ -46,5 +58,6 @@ export const {
   useGetEmployerJobsQuery,
   // useGetJobsByCategoryQuery,
   useGetJobsQuery,
+  useUpdateJobMutation,
 
 } = jobsApiSlice;

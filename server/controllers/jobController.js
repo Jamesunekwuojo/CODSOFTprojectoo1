@@ -122,3 +122,41 @@ export const GetJobs = async (req, res) => {
     return res.status(500).json({ error: error.message });  // Added return
   }
 };
+
+
+// controller for updating job
+
+export const UpdateJob = async (req, res) => {
+  try {
+    console.log("Incoming request to update job");
+    const { jobId } = req.params;
+
+    console.log(`${jobId} is the job id`);
+
+    const updatedData = req.body;
+
+    console.log(updatedData)
+
+    const job = await Job.findByIdAndUpdate(jobId, updatedData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!job) {
+      return res.status(404).json({ message: "Job not found" });
+    }
+
+
+    console.log(`updated job is ${job}`)
+
+    return res
+      .status(200)
+      .json({ message: "Job updated successfully", Job: job });
+  } catch (error) {
+    console.log("Error updating job:", error);
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+
+
