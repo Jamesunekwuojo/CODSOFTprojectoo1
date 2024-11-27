@@ -49,6 +49,17 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         }),
       }),
 
+      deleteJob: builder.mutation({
+        query: (jobId) => ({
+          url: `${JOBS_URL}/deletejob/${jobId}`,
+          method: "DELETE",
+        }),
+      }),
+
+      
+
+      
+
    
   }),
 });
@@ -59,5 +70,6 @@ export const {
   // useGetJobsByCategoryQuery,
   useGetJobsQuery,
   useUpdateJobMutation,
+  useDeleteJobMutation, 
 
 } = jobsApiSlice;

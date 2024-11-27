@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2"; // Added SweetAlert2 for deletion confirmation
 import { useUpdateJobMutation } from "../../slices/jobsApiSlice.js";
 import { Modal, Form } from "react-bootstrap";
+import { useDeleteJobMutation } from "../../slices/jobsApiSlice.js";
 
 const JobCard = () => {
   const [page, setPage] = useState(1);
@@ -16,6 +17,8 @@ const JobCard = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   const [formData, setFormData] = useState({});
   const [updateJob] = useUpdateJobMutation();
+
+  const [deleteJob] = useDeleteJobMutation();
 
   const {
     data: jobs,
@@ -43,18 +46,18 @@ const JobCard = () => {
     if (page < jobs.totalPages) setPage(page + 1);
   };
 
-  const handleDeleteJob = (jobTitle) => {
-    Swal.fire({
-      title: `Are you sure you want to delete ${jobTitle}?`,
-      showCancelButton: true,
-      confirmButtonText: "Delete",
-      cancelButtonText: "Cancel",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        console.log(`Delete job ${jobTitle}`);
-      }
-    });
-  };
+  // const handleDeleteJob = (jobTitle) => {
+  //   Swal.fire({
+  //     title: `Are you sure you want to delete ${jobTitle}?`,
+  //     showCancelButton: true,
+  //     confirmButtonText: "Delete",
+  //     cancelButtonText: "Cancel",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       console.log(`Delete job ${jobTitle}`);
+  //     }
+  //   });
+  // };
 
   const handleEditJob = (job) => {
     setSelectedJob(job);
@@ -81,14 +84,35 @@ const JobCard = () => {
       await updateJob({ jobId: selectedJob._id, formData }).unwrap();
       toast.success("Job updated successfully");
 
-
-         // Trigger a refetch to update the UI
+      // Trigger a refetch to update the UI
       refetch();
-
 
       setShowEditModal(false);
     } catch (error) {
       toast.error("Failed to update job");
+    }
+  };
+
+  // handle delete function
+  const handleDeleteJob = async (jobId, jobTitle) => {
+    const result = await Swal.fire({
+      title: `Are you sure you want to delete "${jobTitle}"?`,
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+      icon: "warning",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await deleteJob(jobId).unwrap();
+
+        toast.success("Job deleted successfully!");
+
+        refetch(); // Refetch the updated jobs list
+      } catch (error) {
+        toast.error("Failed to delete job");
+      }
     }
   };
 
@@ -125,7 +149,7 @@ const JobCard = () => {
 
                 <Button
                   variant="danger"
-                  onClick={() => handleDeleteJob(job.JobTitle)}
+                  onClick={() => handleDeleteJob(job._id, job.JobTitle)}
                 >
                   Delete
                 </Button>

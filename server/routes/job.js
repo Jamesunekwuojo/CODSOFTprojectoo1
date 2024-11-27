@@ -1,5 +1,5 @@
 import express from 'express';
-import { CreateJob, GetEmployerjobs , GetJobsByCategory, GetJobs, UpdateJob} from '../controllers/jobController.js';
+import { CreateJob, GetEmployerjobs , GetJobsByCategory, GetJobs, UpdateJob, DeleteJob} from '../controllers/jobController.js';
 import  { protectAuth } from '../middleware/authMiddleware.js';
 
 
@@ -17,6 +17,8 @@ router.get('/jobsbyId', protectAuth, GetEmployerjobs);
 router.get('/jobsbyCategory', GetJobsByCategory);
 
 router.put('/updatejob/:jobId', protectAuth, UpdateJob)
+
+router.delete("/deletejob/:id", protectAuth, DeleteJob);
 
 
 
