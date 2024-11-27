@@ -38,6 +38,8 @@ import AllBlog from "./components/AllBlog/AllBlog.jsx";
 
 import WelcomeMsg from "./components/WelcomeMsg/WelcomeMsg.jsx";
 
+import ScrollToTop from "./ScrollTop.jsx";
+
 // custom App css import
 import "./App.css";
 
@@ -46,6 +48,7 @@ function App() {
     <Router>
       <Mainnav />
       <ToastContainer />
+      <ScrollToTop/>
       <Routes>
         {/* Main routes at the navbar*/}
         <Route path="/" element={<Homepage />} />
