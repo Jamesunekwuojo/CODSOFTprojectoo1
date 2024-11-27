@@ -21,6 +21,7 @@ const JobCard = () => {
     data: jobs,
     error,
     isLoading,
+    refetch,
   } = useGetEmployerJobsQuery({ page, limit });
 
   if (isLoading) return <p>Loading jobs...</p>;
@@ -79,6 +80,12 @@ const JobCard = () => {
     try {
       await updateJob({ jobId: selectedJob._id, formData }).unwrap();
       toast.success("Job updated successfully");
+
+
+         // Trigger a refetch to update the UI
+      refetch();
+
+
       setShowEditModal(false);
     } catch (error) {
       toast.error("Failed to update job");
@@ -107,7 +114,7 @@ const JobCard = () => {
                   {/* Added <br /> */}
                   <strong>By:</strong> {job.EmployerEmail}
                 </Card.Text>
-                
+
                 <Button
                   className="mx-2"
                   variant="primary"
