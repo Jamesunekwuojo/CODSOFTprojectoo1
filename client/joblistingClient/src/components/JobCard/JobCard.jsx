@@ -70,6 +70,7 @@ const JobCard = () => {
       ApplicationDeadline: job.ApplicationDeadline,
       JobDescription: job.JobDescription,
       JobCategory: job.JobCategory,
+      JobLink: job.JobLink,
     });
     setShowEditModal(true);
   };
@@ -258,6 +259,16 @@ const JobCard = () => {
                 type="text"
                 name="JobCategory"
                 value={formData.JobCategory}
+                onChange={handleFormChange}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Job Application Link</Form.Label>
+              <Form.Control
+                type="text"
+                name="JobLink"
+                value={formData.JobLink}
                 onChange={handleFormChange}
               />
             </Form.Group>

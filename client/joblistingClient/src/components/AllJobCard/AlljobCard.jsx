@@ -60,9 +60,10 @@ const AllJobCard = () => {
 
                 <Button
                   className="d-flex justify-content-center"
-                  variant="primary"
+                  variant="secondary"
                 >
-                  Application Link
+                  <a href="`${job.JobLink}`" target="blank">  Application Link</a>
+                
                 </Button>
               </Card.Body>
             </Card>

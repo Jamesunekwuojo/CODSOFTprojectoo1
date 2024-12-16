@@ -13,6 +13,7 @@ export const CreateJob = async (req, res) => {
       EmployerEmail,
       JobDescription,
       JobCategory,
+      JobLink,
     } = req.body;
 
     console.log("Job data received successfully,", req.body);
@@ -27,6 +28,7 @@ export const CreateJob = async (req, res) => {
       EmployerEmail,
       JobDescription,
       JobCategory,
+      JobLink,
     });
 
     await newJob.save();
@@ -38,7 +40,7 @@ export const CreateJob = async (req, res) => {
       .json({ message: "Job created successfully", Job: newJob });
   } catch (error) {
     console.log("Error creating job:", error.message);
-    return res.status(500).json({ error: error.message });  // Added return
+    return res.status(500).json({ error: error.message }); // Added return
   }
 };
 
@@ -57,7 +59,7 @@ export const GetEmployerjobs = async (req, res) => {
 
     if (jobs.length === 0) {
       console.log("No jobs found for this email");
-      return res.status(404).json({ message: "No Jobs found for this email" });  // Added return
+      return res.status(404).json({ message: "No Jobs found for this email" }); // Added return
     }
 
     console.log(jobs);
@@ -65,12 +67,12 @@ export const GetEmployerjobs = async (req, res) => {
     return res.status(200).json({
       Jobs: jobs,
       currentPage: page,
-      totalPages: Math.ceil(totalJobs / limit),  // Fixed totalJobs typo
+      totalPages: Math.ceil(totalJobs / limit), // Fixed totalJobs typo
       totalJobs: totalJobs,
     });
   } catch (error) {
     console.log("Error fetching job", error);
-    return res.status(500).json({ error: error.message });  // Added return
+    return res.status(500).json({ error: error.message }); // Added return
   }
 };
 
@@ -78,21 +80,22 @@ export const GetJobsByCategory = async (req, res) => {
   try {
     const { JobCategory } = req.query;
     if (!JobCategory) {
-      return res.status(400).json({ message: "Jobs category is required" });  // Added return
+      return res.status(400).json({ message: "Jobs category is required" }); // Added return
     }
 
     const jobs = await Job.find({ JobCategory: JobCategory });
 
-    if (jobs.length === 0) {  // Fixed typo 'lenght'
+    if (jobs.length === 0) {
+      // Fixed typo 'lenght'
       return res
         .status(404)
-        .json({ message: `No jobs found for this ${JobCategory}` });  // Added return
+        .json({ message: `No jobs found for this ${JobCategory}` }); // Added return
     }
 
     return res.status(200).json(jobs);
   } catch (error) {
     console.log("Error fetching job", error);
-    return res.status(500).json({ error: error.message });  // Added return
+    return res.status(500).json({ error: error.message }); // Added return
   }
 };
 
@@ -109,7 +112,7 @@ export const GetJobs = async (req, res) => {
 
     if (jobs.length === 0) {
       console.log("No jobs found");
-      return res.status(400).json({ message: "No Jobs found" });  // Added return
+      return res.status(400).json({ message: "No Jobs found" }); // Added return
     }
 
     return res.status(200).json({
@@ -121,10 +124,9 @@ export const GetJobs = async (req, res) => {
     });
   } catch (error) {
     console.log("Error fetching job", error);
-    return res.status(500).json({ error: error.message });  // Added return
+    return res.status(500).json({ error: error.message }); // Added return
   }
 };
-
 
 // controller for updating job
 
@@ -137,7 +139,7 @@ export const UpdateJob = async (req, res) => {
 
     const updatedData = req.body;
 
-    console.log(updatedData)
+    console.log(updatedData);
 
     const job = await Job.findByIdAndUpdate(jobId, updatedData, {
       new: true,
@@ -148,8 +150,7 @@ export const UpdateJob = async (req, res) => {
       return res.status(404).json({ message: "Job not found" });
     }
 
-
-    console.log(`updated job is ${job}`)
+    console.log(`updated job is ${job}`);
 
     return res
       .status(200)
@@ -170,12 +171,11 @@ export const DeleteJob = async (req, res) => {
       return res.status(404).json({ message: "Job not found" });
     }
 
-    return res.status(200).json({ message: "Job deleted successfully", Job: deletedJob });
+    return res
+      .status(200)
+      .json({ message: "Job deleted successfully", Job: deletedJob });
   } catch (error) {
     console.log("Error deleting job:", error.message);
     return res.status(500).json({ error: error.message });
   }
 };
-
-
-

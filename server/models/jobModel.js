@@ -9,7 +9,8 @@ const jobSchema = new mongoose.Schema({
     ApplicationDeadline: {type:String},
     JobCategory:{type:String},
     JobDescription: {type:String},
-    EmployerEmail : {type:String}
+    EmployerEmail : {type:String},
+    JobLink:{type:String}
     
 });
 

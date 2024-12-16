@@ -1,52 +1,45 @@
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import "./Jobpostform.css";
-import { useState } from 'react';
+import { useState } from "react";
 
-import {toast} from 'react-toastify';
-import { useCreateJobMutation } from '../../slices/jobsApiSlice.js';
-import {useSelector} from  "react-redux"
-
-
+import { toast } from "react-toastify";
+import { useCreateJobMutation } from "../../slices/jobsApiSlice.js";
+import { useSelector } from "react-redux";
 
 const JobPostForm = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
   // const role = userInfo?.user?.role;
 
-
-
-  
-
-
-   const [createJob, {isLoading}] = useCreateJobMutation()
-   
+  const [createJob, { isLoading }] = useCreateJobMutation();
 
   const [formData, setFormData] = useState({
-    JobTitle: '',
-    JobLocation: '',
-    JobType: '',
-    MinimumSalary: '',
-    MaximumSalary: '',
-    ApplicationDeadline: '',
+    JobTitle: "",
+    JobLocation: "",
+    JobType: "",
+    MinimumSalary: "",
+    MaximumSalary: "",
+    ApplicationDeadline: "",
     EmployerEmail: userInfo.user.email,
-    JobDescription: '',
-    JobCategory:'',
+    JobDescription: "",
+    JobCategory: "",
+    JobLink: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Handling salary inputs specifically to add the dollar sign
-    if (name === 'MinimumSalary' || name === 'MaximumSalary') {
-      const numericValue = value.replace(/[^0-9]/g, '');
-      setFormData(prevData => ({
+    if (name === "MinimumSalary" || name === "MaximumSalary") {
+      const numericValue = value.replace(/[^0-9]/g, "");
+      setFormData((prevData) => ({
         ...prevData,
-        [name]: numericValue ? `$${numericValue}` : ''
+        [name]: numericValue ? `$${numericValue}` : "",
       }));
     } else {
-      setFormData(prevData => ({
+      setFormData((prevData) => ({
         ...prevData,
-        [name]: value
+        [name]: value,
       }));
     }
   };
@@ -54,54 +47,49 @@ const JobPostForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const response = await createJob(formData).unwrap();
+      console.log("Job posted sucessfully", response);
 
-      const response = await createJob(formData).unwrap()
-      console.log("Job posted sucessfully", response)
-  
-      toast.success('Succesfully posted job')
-  
+      toast.success("Succesfully posted job");
+
       setFormData({
-        JobTitle: '',
-        JobLocation: '',
-        JobType: '',
-        JobCategory:'',
-        MinimumSalary: '',
-        MaximumSalary: '',
-        ApplicationDeadline: '',
+        JobTitle: "",
+        JobLocation: "",
+        JobType: "",
+        JobCategory: "",
+        MinimumSalary: "",
+        MaximumSalary: "",
+        ApplicationDeadline: "",
         EmployerEmail: userInfo.user.email,
-        JobDescription: ''
-      })
-
+        JobDescription: "",
+        JobLink: "",
+      });
     } catch (error) {
-      
-      const errorMessage = error.data?.message || error.error || "Please try again. Something happened";
+      const errorMessage =
+        error.data?.message ||
+        error.error ||
+        "Please try again. Something happened";
       console.error("Error posting job:", errorMessage);
-      toast.error(errorMessage)
-
-
+      toast.error(errorMessage);
     }
-
-
-
-  
   };
 
   return (
-    <Container className='jobformcontainer'>
+    <Container className="jobformcontainer">
       <h2>Create a Job Post</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formJobTitle">
           <Form.Label>Job Title</Form.Label>
           <Form.Control
             type="text"
-            name='JobTitle'
+            name="JobTitle"
             value={formData.JobTitle}
             onChange={handleChange}
             placeholder="Enter job title"
           />
         </Form.Group>
 
-        <Form.Group controlId="formJobLocation" className='mt-2'>
+        <Form.Group controlId="formJobLocation" className="mt-2">
           <Form.Label>Job Location</Form.Label>
           <Form.Control
             type="text"
@@ -112,7 +100,7 @@ const JobPostForm = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formJobType" className='mt-2'>
+        <Form.Group controlId="formJobType" className="mt-2">
           <Form.Label>Job Type</Form.Label>
           <Form.Control
             as="select"
@@ -120,7 +108,7 @@ const JobPostForm = () => {
             value={formData.JobType}
             onChange={handleChange}
             required
-            placeholder='Select...'
+            placeholder="Select..."
           >
             <option value="">Select...</option>
             <option>Full-time</option>
@@ -129,7 +117,7 @@ const JobPostForm = () => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="formSalaryRange" className='mt-2'>
+        <Form.Group controlId="formSalaryRange" className="mt-2">
           <Form.Label>Salary Range</Form.Label>
           <Row>
             <Col>
@@ -153,7 +141,7 @@ const JobPostForm = () => {
           </Row>
         </Form.Group>
 
-        <Form.Group controlId="formApplicationDeadline" className='mt-2'>
+        <Form.Group controlId="formApplicationDeadline" className="mt-2">
           <Form.Label>Application Deadline</Form.Label>
           <Form.Control
             name="ApplicationDeadline"
@@ -175,7 +163,7 @@ const JobPostForm = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formJobCategory" className='mt-2'>
+        <Form.Group controlId="formJobCategory" className="mt-2">
           <Form.Label>Job Category</Form.Label>
           <Form.Control
             as="select"
@@ -206,9 +194,26 @@ const JobPostForm = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mt-2">
-          Submit
-        </Button>
+        <Form.Group controlId="formJobDescription" className="mt-2">
+          <Form.Label>Job Application Link</Form.Label>
+          <Form.Control
+            name="JobLink"
+            rows={3}
+            value={formData.JobLink}
+            onChange={handleChange}
+            placeholder="Enter job application link"
+          />
+        </Form.Group>
+
+        <div className="d-flex justify-content-center">
+          <Button
+            variant="primary"
+            type="submit"
+            className="mt-2 "
+          >
+            Submit
+          </Button>
+        </div>
       </Form>
     </Container>
   );
