@@ -182,6 +182,8 @@ const JobPostForm = () => {
             name="JobCategory"
             value={formData.JobCategory}
             onChange={handleChange}
+            required
+            defaultValue=""
           >
             <option>Select...</option>
             <option>Technology and IT</option>

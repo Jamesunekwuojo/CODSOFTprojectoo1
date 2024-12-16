@@ -60,6 +60,8 @@ export const GetEmployerjobs = async (req, res) => {
       return res.status(404).json({ message: "No Jobs found for this email" });  // Added return
     }
 
+    console.log(jobs);
+
     return res.status(200).json({
       Jobs: jobs,
       currentPage: page,
