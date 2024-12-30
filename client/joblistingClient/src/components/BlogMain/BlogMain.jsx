@@ -1,11 +1,37 @@
 import { Container, Row, Col } from "react-bootstrap"
+import { useGetBlogidQuery } from "../../slices/blogsApiSlice"
 
 const BlogMain = () => {
+
+    const { data: blog, isLoading, isError, error } = useGetBlogidQuery()
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Row>
+                    <p>Loading.....</p>
+                </Row>
+            </Container>
+        )
+    }
+
+    if (isError) {
+        return (
+            <Container>
+                <Row>
+                {error?.data?.message || "Blog not found!"}
+                </Row>
+            </Container>
+        )
+    }
 
     return (
         <Container>
             <Row>
-                <Col></Col>
+                <Col>
+                <h1>{blog.title}</h1>
+                <p>{blog.content}</p>
+                </Col>
             </Row>
         </Container>
 
