@@ -118,7 +118,7 @@ const BlogForm = () => {
         </Form.Group>
 
         <Form.Group controlId="formProfilePhoto" className='mt-2'>
-          <Form.Label>Upload Profile Photo* (1200 x 1200px, jpg or png file)</Form.Label>
+          <Form.Label>Upload blog background picture (1200 x 1200px, jpg or png file)</Form.Label>
           <Form.Control
             type="file"
             name="profilePhoto"
