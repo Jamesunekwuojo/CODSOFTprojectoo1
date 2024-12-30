@@ -16,6 +16,7 @@ import {
 import { toast } from "react-toastify";
 
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const BlogCard = () => {
   const [page, setPage] = useState(1);
@@ -130,45 +131,70 @@ const BlogCard = () => {
     }
   };
 
+  const truncateBlog = (bodyText, worldLimit) => {
+    const words = bodyText.split(" ");
+
+    if (words.length > worldLimit) {
+      return { truncated: words.slice(0, worldLimit).join(" "), full: true };
+    }
+    return { truncated: bodyText, full: false };
+  };
+
   return (
     <Container>
       <h2 className="text-center">Your Blog</h2>
       <Row>
-        {blogs.Blogs.map((blog) => (
-          <Col md={4} key={blog._id} className="mb-4">
-            <Card>
-              <Card.Img
-                variant="top"
-                src={blog.profilePhoto.url}
-                alt={blog.profilePhoto.filename}
-              />
-              <a className="mx-4" href="">Read more</a>
-              <Card.Body>
-                <Card.Title>{blog.articleTitle}</Card.Title>
-                <Card.Text>{blog.articleDescript}</Card.Text>
+        {blogs.Blogs.map((blog) => {
+          const { truncated, full } = truncateBlog(blog.articleDescript, 6);
 
-                <Button
-                  className="m-2"
-                  variant="primary"
-                  onClick={() => handleEdit(blog)}
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="danger"
-                  onClick={() => handleDelete(blog._id, blog.articleTitle)}
-                >
-                  Delete
-                </Button>
-              </Card.Body>
-              <Card.Footer>
-                <small className="text-muted">
-                  By {blog.authorName} | {blog.authorEmail}
-                </small>
-              </Card.Footer>
-            </Card>
-          </Col>
-        ))}
+          return (
+            <Col md={4} key={blog._id} className="mb-4">
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src={blog.profilePhoto.url}
+                  alt={blog.profilePhoto.filename}
+                />
+
+                {full &&
+                  (
+
+                    <Link className="mx-4" to={`/blogs${blog._id}`}>
+                    Read more
+                  </Link>
+
+                  )
+                }
+
+               
+
+                <Card.Body>
+                  <Card.Title>{blog.articleTitle}</Card.Title>
+                  <Card.Text>{truncated}</Card.Text>
+
+                  <Button
+                    className="m-2"
+                    variant="primary"
+                    onClick={() => handleEdit(blog)}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleDelete(blog._id, blog.articleTitle)}
+                  >
+                    Delete
+                  </Button>
+                </Card.Body>
+                <Card.Footer>
+                  <small className="text-muted">
+                    By {blog.authorName} | {blog.authorEmail}
+                  </small>
+                </Card.Footer>
+              </Card>
+            </Col>
+          );
+        })}
       </Row>
 
       {/* Pagination Controls */}
