@@ -156,7 +156,14 @@ const BlogCard = () => {
                   alt={blog.profilePhoto.filename}
                 />
 
-                {full &&
+                
+               
+
+                <Card.Body>
+                  <Card.Title>{blog.articleTitle}</Card.Title>
+                  
+                  <Card.Text>{truncated}
+                  {full &&
                   (
 
                     <Link className="mx-4" to={`/blogs${blog._id}`}>
@@ -166,11 +173,7 @@ const BlogCard = () => {
                   )
                 }
 
-               
-
-                <Card.Body>
-                  <Card.Title>{blog.articleTitle}</Card.Title>
-                  <Card.Text>{truncated}</Card.Text>
+                  </Card.Text>
 
                   <Button
                     className="m-2"

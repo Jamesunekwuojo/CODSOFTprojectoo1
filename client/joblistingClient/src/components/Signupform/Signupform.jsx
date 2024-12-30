@@ -170,7 +170,7 @@ function SignupForm() {
               </Col>
               <Col className="text-right">
                 <Form.Text>
-                  Have an account? <Link to="/login">Login</Link>
+                  Have an account? <Link to="/signin">Login</Link>
                 </Form.Text>
               </Col>
             </Row>
