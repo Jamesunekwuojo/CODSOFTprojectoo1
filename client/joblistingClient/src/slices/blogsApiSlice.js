@@ -39,6 +39,15 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: ['Blog'], // Invalidates the list of blogs so they are refetched
     }),
 
+    getBlogid: builder.query({
+
+      query: (id) => ({
+        url: `/api/blog/${id}`,
+        method: 'GET'
+      })
+
+    }),
+
     deleteBlog: builder.mutation({
       query: (id) => ({
         url: `/api/blog/${id}`,
@@ -56,4 +65,5 @@ export const {
   useGetAllBlogsQuery,
   useUpdateBlogMutation,
   useDeleteBlogMutation,
+  useGetBlogidQuery,
 } = blogsApiSlice;
