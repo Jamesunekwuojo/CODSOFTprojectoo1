@@ -142,9 +142,11 @@ const BlogCard = () => {
                 src={blog.profilePhoto.url}
                 alt={blog.profilePhoto.filename}
               />
+              <a className="mx-4" href="">Read more</a>
               <Card.Body>
                 <Card.Title>{blog.articleTitle}</Card.Title>
                 <Card.Text>{blog.articleDescript}</Card.Text>
+
                 <Button
                   className="m-2"
                   variant="primary"
