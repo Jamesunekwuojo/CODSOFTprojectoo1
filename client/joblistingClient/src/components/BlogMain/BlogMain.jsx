@@ -29,8 +29,8 @@ const BlogMain = () => {
         <Container>
             <Row>
                 <Col>
-                <h1>{blog.title}</h1>
-                <p>{blog.content}</p>
+                <h1>{blog.  articleTitle}</h1>
+                <p>{blog.    articleDescript}</p>
                 </Col>
             </Row>
         </Container>
