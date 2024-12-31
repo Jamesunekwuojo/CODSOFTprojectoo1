@@ -271,7 +271,7 @@ export const getblogID = async (req, res) => {
       return res.status(404).json({ message: "Blog not found" });
     }
 
-    console.log("Blog  by Ud fetched succcessfully", blog)
+    console.log("Blog  by Id fetched succcessfully", blog)
     
   } catch (error) {
 
