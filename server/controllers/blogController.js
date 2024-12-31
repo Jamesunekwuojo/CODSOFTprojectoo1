@@ -274,6 +274,10 @@ export const getblogID = async (req, res) => {
     console.log("Blog  by Ud fetched succcessfully", blog)
     
   } catch (error) {
+
+    console.log("Error fetching blog", error)
+
+    res.status(500).json({message:"Internal server error", error:error.message})
     
   }
 }
