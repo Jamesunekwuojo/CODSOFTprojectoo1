@@ -265,6 +265,13 @@ export const getblogID = async (req, res) => {
     const {id} = req.params;
 
     const blog = await Blog.findById(id);
+
+    if(blog.length == 0 ) {
+      console.log("No blog found in database")
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    console.log("Blog  by Ud fetched succcessfully", blog)
     
   } catch (error) {
     
