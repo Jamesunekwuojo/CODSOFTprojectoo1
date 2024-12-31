@@ -40,6 +40,7 @@ import WelcomeMsg from "./components/WelcomeMsg/WelcomeMsg.jsx";
 
 import ScrollToTop from "./ScrollTop.jsx";
 
+import BlogMain from "./components/BlogMain/BlogMain.jsx";
 // custom App css import
 import "./App.css";
 
@@ -58,6 +59,8 @@ function App() {
         <Route path="/signin" element={<Signinpage />} />
 
         <Route path="/about" element={<AboutUs />} />
+
+        <Route path="/blogs/:id" element={<BlogMain/>}/>
 
         <Route
           path="/post-job"

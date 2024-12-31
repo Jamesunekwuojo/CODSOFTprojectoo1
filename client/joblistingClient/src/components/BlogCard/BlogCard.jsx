@@ -166,7 +166,7 @@ const BlogCard = () => {
                   {full &&
                   (
 
-                    <Link className="mx-4" to={`/blogs${blog._id}`}>
+                    <Link className="mx-4" to={`/blogs/${blog._id}`}>
                     Read more
                   </Link>
 
