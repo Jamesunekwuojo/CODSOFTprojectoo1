@@ -1,9 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap"
 import { useGetBlogidQuery } from "../../slices/blogsApiSlice"
+import { useParams } from "react-router-dom"
 
 const BlogMain = () => {
 
-    const { data: blog, isLoading, isError, error } = useGetBlogidQuery()
+    const {id} = useParams()
+
+    const { data: blog, isLoading, isError, error } = useGetBlogidQuery(id)
+
+ 
 
     if (isLoading) {
         return (

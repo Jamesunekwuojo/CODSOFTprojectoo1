@@ -253,3 +253,20 @@ export const DeleteBlog = async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 };
+
+
+// controller  for fetching a single blog object
+
+export const getblogID = async (req, res) => {
+  try {
+
+    console.log("Incoming request to info ID controller")
+
+    const {id} = req.params;
+
+    const blog = await Blog.findById(id);
+    
+  } catch (error) {
+    
+  }
+}
