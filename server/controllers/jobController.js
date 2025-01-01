@@ -180,6 +180,6 @@ export const DeleteJob = async (req, res) => {
   }
 };
 
-export const CategoryJob = (req, res) => {
+export const SearchJob = (req, res) => {
 
 }

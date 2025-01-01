@@ -1,9 +1,11 @@
 import express from "express";
-import { uploadProfilePhoto, CreateBlog, GetEmployerblogs, GetBlogs, UpdateBlog, DeleteBlog, getblogID  } from "../controllers/blogController.js";
+import { uploadProfilePhoto, CreateBlog, GetEmployerblogs, GetBlogs, UpdateBlog, DeleteBlog, getblogID,    } from "../controllers/blogController.js";
 
 import { updateProfilepics } from "../middleware/updateprofile.js";
 
 import { protectAuth } from "../middleware/authMiddleware.js";
+
+
 
 
 
@@ -22,6 +24,7 @@ router.delete('/blog/:id', protectAuth,  DeleteBlog);
 router.post( '/createblog', protectAuth, uploadProfilePhoto,   CreateBlog );
 
 router.get('/blogs:byId', protectAuth, GetEmployerblogs );
+
 
 
 
