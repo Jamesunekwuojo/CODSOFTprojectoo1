@@ -38,7 +38,7 @@ const BlogMain = () => {
         <Container>
             <Row>
                 <Col>
-                <h1>{blog.  articleTitle}</h1>
+                <h1 className="text-center">{blog.  articleTitle}</h1>
                 <p>{blog.    articleDescript}</p>
                 </Col>
             </Row>
