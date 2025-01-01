@@ -60,7 +60,7 @@ function App() {
 
         <Route path="/about" element={<AboutUs />} />
 
-        <Route path="/blogs/:id" element={<BlogMain/>}/>
+        <Route path="/blog/:id" element={<BlogMain/>}/>
 
         <Route
           path="/post-job"

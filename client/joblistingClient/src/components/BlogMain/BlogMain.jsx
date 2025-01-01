@@ -6,7 +6,11 @@ const BlogMain = () => {
 
     const {id} = useParams()
 
-    const { data: blog, isLoading, isError, error } = useGetBlogidQuery(id)
+    const { data, isLoading, isError, error } = useGetBlogidQuery(id)
+
+    const blog = data?.blog
+
+    console.log(blog)
 
  
 

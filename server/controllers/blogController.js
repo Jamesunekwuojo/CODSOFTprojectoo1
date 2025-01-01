@@ -272,6 +272,10 @@ export const getblogID = async (req, res) => {
     }
 
     console.log("Blog  by Id fetched succcessfully", blog)
+
+    return res.status(200).json({ message: "Blog fetched successfully", blog });
+
+
     
   } catch (error) {
 
