@@ -105,7 +105,7 @@ const BlogForm = () => {
             </Form.Group>
           </Col>
         </Row>
-
+{/* 
         <Form.Group controlId="formWebsiteLink" className='mt-2'>
           <Form.Label>Article Link*</Form.Label>
           <Form.Control
@@ -115,7 +115,7 @@ const BlogForm = () => {
             onChange={handleChange}
             required
           />
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group controlId="formProfilePhoto" className='mt-2'>
           <Form.Label>Upload blog background picture (1200 x 1200px, jpg or png file)</Form.Label>
@@ -139,7 +139,7 @@ const BlogForm = () => {
         </Form.Group>
 
         <Form.Group controlId="formArticleFile" className='mt-2'>
-          <Form.Label>Article Description* (Write a brief description about your article)</Form.Label>
+          <Form.Label>Write article (external links to other pages can also be included)</Form.Label>
           <Form.Control
             as="textarea"
             name="articleDescript"

@@ -21,11 +21,11 @@ function EmployerSidebar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="mb-3">
+            {/* <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/employees">
                 <FaUsers className="mr-2" /> Employees
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
 
             <Nav.Item className="mb-3">
               <Nav.Link as={Link} to="/employer-dashboard/addJobs">
