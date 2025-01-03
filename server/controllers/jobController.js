@@ -182,4 +182,7 @@ export const DeleteJob = async (req, res) => {
 
 export const SearchJob = (req, res) => {
 
+  // Querying parameter from frontend
+  const {JobCategory, JobType} = req.query;
+
 }
