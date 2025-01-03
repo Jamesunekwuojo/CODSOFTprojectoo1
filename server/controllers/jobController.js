@@ -187,16 +187,19 @@ export const SearchJob = (req, res) => {
 
 
   // Querying parameter from frontend
-  const {JobCategory, JobType} = req.query;
+  const {KeyWords, JobCategory, JobType} = req.query;
 
   try {
 
-    if(!JobCategory && !JobType){ 
-      return res.status(400).json({message: "Please provide JobCategory or JobType"});
+    if(!JobCategory && !JobType){
+      
+      console.log("Please provide JobCategory, JobType and Keyword") 
+      return res.status(400).json({message: "Please provide JobCategory, JobType and Keyword"});
     }
   
     // Building query filter
     const filter = {};
+    if(KeyWords) filter.JobTitle = {$regex: KeyWords, $options: "i"}
     if(JobCategory) {
       filter.JobCategory = JobCategory;
     }
