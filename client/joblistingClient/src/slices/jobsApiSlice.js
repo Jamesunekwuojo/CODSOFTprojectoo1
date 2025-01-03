@@ -96,5 +96,7 @@ export const {
   useGetJobsQuery,
   useUpdateJobMutation,
   useDeleteJobMutation, 
+  useSearchJobQuery
+  
 
 } = jobsApiSlice;
