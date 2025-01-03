@@ -182,7 +182,45 @@ export const DeleteJob = async (req, res) => {
 
 export const SearchJob = (req, res) => {
 
+  console.log("Incoming requests to Search Job controller")
+
+
   // Querying parameter from frontend
   const {JobCategory, JobType} = req.query;
 
+  try {
+
+    if(!JobCategory && !JobType){ 
+      return res.status(400).json({message: "Please provide JobCategory or JobType"});
+    }
+  
+    // Building query filter
+    const filter = {};
+    if(JobCategory) {
+      filter.JobCategory = JobCategory;
+    }
+    if(JobType) {
+      filter.JobType = JobType;
+    }
+  
+    const jobs = Job.find(filter)
+  
+    if(filter.length == 0) {
+      console.log('No Job found matching the category and type');
+  
+      return res.status(404).json({message:'No Job found matching the category and type'})
+    }
+  
+    console.log("Job filtered successfully, and fetched by category and type")
+  
+    return res.status(200).json({message: "Jobs fetched successfully  ", Job:jobs})
+  
+    
+  } catch (error) {
+    console.log("Error searching job:", error.message);
+    return res.status(500).json({error:error.message })
+    
+  }
+
+ 
 }
