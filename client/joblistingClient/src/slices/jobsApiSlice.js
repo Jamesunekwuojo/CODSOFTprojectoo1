@@ -62,12 +62,14 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
     // })
 
     searchJob: builder.query({
-      query: ({ JobCategory, JobType }) => {
+      query: ({ KeyWords, JobCategory, JobType }) => {
         const params = new URLSearchParams();
+
+        if(KeyWords) params.append("KeyWords", KeyWords);
 
         if(JobCategory) params.append('JobCategory', JobCategory);
 
-        if(JobType) params.append('JobType',  JobType)
+        if(JobType) params.append('JobType',  JobType);
 
         return {
           url: `/api/job/search?${params.toString()}`,
