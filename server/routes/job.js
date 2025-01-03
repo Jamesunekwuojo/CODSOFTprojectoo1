@@ -20,7 +20,7 @@ router.put('/updatejob/:jobId', protectAuth, UpdateJob)
 
 router.delete("/deletejob/:id", protectAuth, DeleteJob);
 
-router.get('/jobs', SearchJob)
+router.get('/jobs/search', SearchJob)
 
 
 

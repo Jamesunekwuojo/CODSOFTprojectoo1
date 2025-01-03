@@ -6,7 +6,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
     // Mutation to create a job
     createJob: builder.mutation({
       query: (formData) => ({
-        url: `${JOBS_URL}/createjob`,
+        url: '/api/createjob',
         method: "POST",
         body: formData,
       }),
@@ -15,7 +15,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
     // Query to get jobs for a specific employer by their email
     getEmployerJobs: builder.query({
       query: ({ page = 1, limit = 6 }) => ({
-        url: `${JOBS_URL}/jobsbyId?page=${page}&limit=${limit}`,
+        url: `/api/jobsbyId?page=${page}&limit=${limit}`,
         method: "GET",
       }),
     }),
@@ -25,7 +25,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
     // Query to get all jobs
     getJobs: builder.query({
       query: ({ page = 1, limit = 6 }) => ({
-        url: `${JOBS_URL}/allJobs?page=${page}&limit=${limit}`,
+        url: `$/api/allJobs?page=${page}&limit=${limit}`,
         method: "GET",
       }),
     }),
@@ -36,7 +36,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
       // Mutation to update a job
       updateJob: builder.mutation({
         query: ({ jobId, formData }) => ({
-          url: `${JOBS_URL}/updatejob/${jobId}`,
+          url: `$/api/updatejob/${jobId}`,
           method: "PUT",
           body: formData,
         }),
@@ -44,12 +44,40 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
 
       deleteJob: builder.mutation({
         query: (jobId) => ({
-          url: `${JOBS_URL}/deletejob/${jobId}`,
+          url: `$/api/deletejob/${jobId}`,
           method: "DELETE",
         }),
       }),
 
     // Query for searching job
+
+    // searchJob: builder.query({
+    //   query: ({ JobCategory, JobType }) => {
+    //     const params = new URLSearchParams();
+
+    //     if(JobCategory)
+    //   }
+
+      
+    // })
+
+    searchJob: builder.query({
+      query: ({ JobCategory, JobType }) => {
+        const params = new URLSearchParams();
+
+        if(JobCategory) params.append('JobCategory', JobCategory);
+
+        if(JobType) params.append('JobType',  JobType)
+
+        return {
+          url: `/api/job/search?${params.toString()}`,
+
+          method: 'GET',
+        }
+
+        
+      }
+    })
 
       
 
