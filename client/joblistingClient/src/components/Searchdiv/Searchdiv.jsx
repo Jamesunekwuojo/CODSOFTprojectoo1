@@ -4,17 +4,16 @@ import { Form,  Button, Container, Row, Col,} from 'react-bootstrap';
 import "./Searchdiv.css"
 
 function Searchdiv() {
-  // const [selectedLocation, setSelectedLocation] = useState('Location');
-  // const [selectedCategory, setSelectedCategory] = useState('Category');
+  const [keywords, setKeywords] = useState("");
+  const [category, setCategory] = useState("");
+  const [jobType, setJobType] = useState("");
 
-  // const handleLocationSelect = (e) => {
-  //   setSelectedLocation(e);
+  const handleSearch (e) => {
+    e.preventDefault();
     
-  // };
 
-  // const handleCategorySelect = (e) => {
-  //   setSelectedCategory(e);
-  // };
+  }
+
 
   return (
     <Container className="mt-5 ">
