@@ -180,6 +180,7 @@ export const DeleteJob = async (req, res) => {
   }
 };
 
+
 export const SearchJob = (req, res) => {
 
   console.log("Incoming requests to Search Job controller")
