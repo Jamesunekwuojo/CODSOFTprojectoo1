@@ -41,6 +41,8 @@ import WelcomeMsg from "./components/WelcomeMsg/WelcomeMsg.jsx";
 import ScrollToTop from "./ScrollTop.jsx";
 
 import BlogMain from "./components/BlogMain/BlogMain.jsx";
+
+import JobSearchList from "./components/JobSearchList/JobSearchList.jsx";
 // custom App css import
 import "./App.css";
 
@@ -61,6 +63,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
 
         <Route path="/blog/:id" element={<BlogMain/>}/>
+        {/* <Route path="/jobs/search" element={<JobSearchList/>}/> */}
 
         <Route
           path="/post-job"

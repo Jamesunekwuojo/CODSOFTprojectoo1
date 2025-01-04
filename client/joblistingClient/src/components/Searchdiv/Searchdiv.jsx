@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import PropTypes from "prop-types";  // Import PropTypes
 
 import "./Searchdiv.css";
 
@@ -10,12 +11,16 @@ function Searchdiv({ onSearchResults }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
-    onSearchResults({
-      KeyWords: keywords,
-      JobCategory: category,
-      JobType: jobType,
-    });
+    // Ensure onSearchResults is passed and invoke it
+    if (onSearchResults) {
+      onSearchResults({
+        KeyWords: keywords,
+        JobCategory: category,
+        JobType: jobType,
+      });
+    } else {
+      console.error("onSearchResults prop is not passed or undefined");
+    }
   };
 
   return (
@@ -41,7 +46,12 @@ function Searchdiv({ onSearchResults }) {
 
             <Form.Group controlId="searchLocation" className="m-2">
               <Form.Label>Category</Form.Label>
-              <Form.Control as="select" value={category} onChange={(e) => setCategory(e.target.value)} className="p-3 mb-4">
+              <Form.Control
+                as="select"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="p-3 mb-4"
+              >
                 <option>Select...</option>
                 <option>Technology and IT</option>
                 <option>Human Resources</option>
@@ -54,8 +64,12 @@ function Searchdiv({ onSearchResults }) {
             <Form.Group controlId="searchJobType" className="m-2">
               <Form.Label>Job Type</Form.Label>
 
-              <Form.Control as="select" value={jobType} className="p-3 mb-4" onChange={(e) => setJobType(e.target.value)}>
-                
+              <Form.Control
+                as="select"
+                value={jobType}
+                className="p-3 mb-4"
+                onChange={(e) => setJobType(e.target.value)}
+              >
                 <option>Select...</option>
                 <option>Full-Time</option>
                 <option>Part-Time</option>
@@ -72,5 +86,10 @@ function Searchdiv({ onSearchResults }) {
     </Container>
   );
 }
+
+// Define prop types for the component
+Searchdiv.propTypes = {
+  onSearchResults: PropTypes.func.isRequired,  // Ensure onSearchResults is a function
+};
 
 export default Searchdiv;
