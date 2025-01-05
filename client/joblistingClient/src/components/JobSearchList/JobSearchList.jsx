@@ -20,6 +20,7 @@ const JobSearchList = () => {
 
   // Define the handleSearch function
   const handleSearch = (params) => {
+    console.log("Search params:", params)
     setSearchParams(params); // updating the search params
   };
 
