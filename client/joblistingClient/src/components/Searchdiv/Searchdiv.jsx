@@ -5,18 +5,31 @@ import PropTypes from "prop-types";  // Import PropTypes
 import "./Searchdiv.css";
 
 function Searchdiv({ onSearchResults }) {
-  const [keywords, setKeywords] = useState("");
-  const [category, setCategory] = useState("");
-  const [jobType, setJobType] = useState("");
+  // const [keywords, setKeywords] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [jobType, setJobType] = useState("");
+
+  const [formData, setFormData] = useState({
+    KeyWords: "",
+    JobCategory: "",
+    JobType:"",
+    
+  })
+
+  const handleChange = (e) => {
+    setFormData((prevFormData) => {
+      return { ...prevFormData, [e.target.name]: e.target.value };
+    })
+  }
 
   const handleSearch = (e) => {
     e.preventDefault();
     // Ensure onSearchResults is passed and invoke it
     if (onSearchResults) {
       onSearchResults({
-        KeyWords: keywords,
-        JobCategory: category,
-        JobType: jobType,
+        KeyWords: formData.KeyWords,
+        JobCategory: formData.JobCategory,
+        JobType: formData.JobType,
       });
     } else {
       console.error("onSearchResults prop is not passed or undefined");
@@ -38,8 +51,8 @@ function Searchdiv({ onSearchResults }) {
               <Form.Control
                 type="text"
                 placeholder="Search your Keywords"
-                value={keywords}
-                onChange={(e) => setKeywords(e.target.value)}
+                value={formData.KeyWords}
+                onChange={handleChange}
                 className="p-3 mb-4"
               />
             </Form.Group>
@@ -48,8 +61,8 @@ function Searchdiv({ onSearchResults }) {
               <Form.Label>Category</Form.Label>
               <Form.Control
                 as="select"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                value={formData.JobCategory}
+                onChange={handleChange}
                 className="p-3 mb-4"
               >
                 <option>Select...</option>
@@ -66,9 +79,9 @@ function Searchdiv({ onSearchResults }) {
 
               <Form.Control
                 as="select"
-                value={jobType}
+                value={formData.JobType}
                 className="p-3 mb-4"
-                onChange={(e) => setJobType(e.target.value)}
+                onChange={handleChange}
               >
                 <option>Select...</option>
                 <option>Full-Time</option>
