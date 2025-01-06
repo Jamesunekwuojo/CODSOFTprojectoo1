@@ -4,10 +4,8 @@ import PropTypes from "prop-types";  // Import PropTypes
 
 import "./Searchdiv.css";
 
-function Searchdiv({ onSearchResults }) {
-  // const [keywords, setKeywords] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [jobType, setJobType] = useState("");
+function Searchdiv() {
+  
 
   const [formData, setFormData] = useState({
     KeyWords: "",
@@ -24,16 +22,8 @@ function Searchdiv({ onSearchResults }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Ensure onSearchResults is passed and invoke it
-    if (onSearchResults) {
-      onSearchResults({
-        KeyWords: formData.KeyWords,
-        JobCategory: formData.JobCategory,
-        JobType: formData.JobType,
-      });
-    } else {
-      console.error("onSearchResults prop is not passed or undefined");
-    }
+
+    
   };
 
   return (
@@ -50,6 +40,7 @@ function Searchdiv({ onSearchResults }) {
               <Form.Label>Search</Form.Label>
               <Form.Control
                 type="text"
+                name="KeyWords"
                 placeholder="Search your Keywords"
                 value={formData.KeyWords}
                 onChange={handleChange}
@@ -61,6 +52,7 @@ function Searchdiv({ onSearchResults }) {
               <Form.Label>Category</Form.Label>
               <Form.Control
                 as="select"
+                name="JobCategory"
                 value={formData.JobCategory}
                 onChange={handleChange}
                 className="p-3 mb-4"
@@ -79,6 +71,7 @@ function Searchdiv({ onSearchResults }) {
 
               <Form.Control
                 as="select"
+                name="JobType"
                 value={formData.JobType}
                 className="p-3 mb-4"
                 onChange={handleChange}
