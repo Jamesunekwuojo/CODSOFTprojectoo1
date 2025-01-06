@@ -3,31 +3,31 @@ import { Container, Row, Col, Card, Alert } from "react-bootstrap";
 import { useSearchJobQuery } from "../../slices/jobsApiSlice";
 import Searchdiv from "../Searchdiv/Searchdiv";
 
-const JobSearchList = () => {
-  const [searchParams, setSearchParams] = useState({});
+const JobSearchList = ({jobs}) => {
+  // const [searchParams, setSearchParams] = useState({});
 
-  const {
-    data: jobs,
-    isLoading,
-    isError,
-    error,
-  } = useSearchJobQuery(searchParams, {
-    skip:
-      !searchParams.JobCategory &&
-      !searchParams.JobType &&
-      !searchParams.KeyWords, // to skip initial fetch
-  });
+  // const {
+  //   data: jobs,
+  //   isLoading,
+  //   isError,
+  //   error,
+  // } = useSearchJobQuery(searchParams, {
+  //   skip:
+  //     !searchParams.JobCategory &&
+  //     !searchParams.JobType &&
+  //     !searchParams.KeyWords, // to skip initial fetch
+  // });
 
   // Define the handleSearch function
-  const handleSearch = (params) => {
-    console.log("Search params:", params)
-    setSearchParams(params); // updating the search params
-  };
+//  // const handleSearch = (params) => {
+//     console.log("Search params:", params)
+//     setSearchParams(params); // updating the search params
+//   };
 
   return (
     <div>
       {/* Pass the handleSearch function as onSearchResults */}
-      <Searchdiv onSearchResults={handleSearch} />
+      {/* <Searchdiv onSearchResults={handleSearch} /> */}
 
       {isLoading && <div>Loading...</div>}
 

@@ -1,29 +1,29 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import PropTypes from "prop-types";  // Import PropTypes
+
+import JobSearchList from "../JobSearchList/JobSearchList.jsx";
+
+import { useSearchJobQuery } from "../../slices/jobsApiSlice.js";
 
 import "./Searchdiv.css";
 
 function Searchdiv() {
-  
+  const { data: jobs, isError, error,  isLoading } = useSearchJobQuery();
 
   const [formData, setFormData] = useState({
     KeyWords: "",
     JobCategory: "",
-    JobType:"",
-    
-  })
+    JobType: "",
+  });
 
   const handleChange = (e) => {
     setFormData((prevFormData) => {
       return { ...prevFormData, [e.target.name]: e.target.value };
-    })
-  }
+    });
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
-
-    
   };
 
   return (
@@ -86,16 +86,15 @@ function Searchdiv() {
             <Button variant="success" type="submit" className="mb-4">
               Search
             </Button>
+
+            {isLoading && <p>Loading...</p>}
+            {isError && <p>Error: {error.message}</p>}
+            {jobs && <JobSearchList jobs={jobs} />}
           </Form>
         </Col>
       </Row>
     </Container>
   );
 }
-
-// Define prop types for the component
-Searchdiv.propTypes = {
-  onSearchResults: PropTypes.func.isRequired,  // Ensure onSearchResults is a function
-};
 
 export default Searchdiv;
