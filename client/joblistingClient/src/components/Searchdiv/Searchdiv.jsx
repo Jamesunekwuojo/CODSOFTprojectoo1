@@ -6,6 +6,8 @@ import JobSearchList from "../JobSearchList/JobSearchList.jsx";
 import { useSearchJobMutation } from "../../slices/jobsApiSlice.js";
 import { useNavigate } from "react-router-dom";
 
+import Swal from "sweetalert2"
+
 import "./Searchdiv.css";
 
 function Searchdiv() {
@@ -26,14 +28,20 @@ function Searchdiv() {
     });
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     try {
       e.preventDefault();
-      const result = searchJob(formData).unwrap;
-      navigate('/jobsearch-results',  { state: { jobs: result } })
-      
+      const result = await searchJob(formData).unwrap();
+      navigate('/jobsearch-results', { state: { jobs: result } });
     } catch (error) {
       console.log("Failed to search job",error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+    
+
+      })
       
     }
 

@@ -181,13 +181,14 @@ export const DeleteJob = async (req, res) => {
 };
 
 
-export const SearchJob = (req, res) => {
+export const SearchJob = async (req, res) => {
 
   console.log("Incoming requests to Search Job controller")
 
 
   // Querying parameter from frontend
   const {KeyWords, JobCategory, JobType} = req.body;
+  console.log("Incoming objects:", req.body)
 
   try {
 
@@ -207,7 +208,8 @@ export const SearchJob = (req, res) => {
       filter.JobType = JobType;
     }
   
-    const jobs = Job.find(filter)
+    const jobs = await Job.find(filter)
+    console.log(jobs)
   
     if(filter.length == 0) {
       console.log('No Job found matching the category and type');
@@ -215,7 +217,7 @@ export const SearchJob = (req, res) => {
       return res.status(404).json({message:'No Job found matching the category and type'})
     }
   
-    console.log("Job filtered successfully, and fetched by category and type")
+    console.log("Job filtered successfully, and fetched by category and type", jobs)
   
     return res.status(200).json({message: "Jobs fetched successfully  ", Job:jobs})
   
