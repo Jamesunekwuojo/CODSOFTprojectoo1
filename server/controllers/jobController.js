@@ -219,7 +219,7 @@ export const SearchJob = async (req, res) => {
   
     console.log("Job filtered successfully, and fetched by category and type", jobs)
   
-    return res.status(200).json({message: "Jobs fetched successfully  ", Job:jobs})
+    return res.status(200).json({message: "Jobs fetched successfully  ", Jobs:jobs})
   
     
   } catch (error) {

@@ -24,7 +24,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
     // Query to get all jobs
     getJobs: builder.query({
       query: ({ page = 1, limit = 6 }) => ({
-        url: `$/api/allJobs?page=${page}&limit=${limit}`,
+        url: `/api/allJobs?page=${page}&limit=${limit}`,
         method: "GET",
       }),
     }),
@@ -35,7 +35,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
       // Mutation to update a job
       updateJob: builder.mutation({
         query: ({ jobId, formData }) => ({
-          url: `$/api/updatejob/${jobId}`,
+          url: `/api/updatejob/${jobId}`,
           method: "PUT",
           body: formData,
         }),
@@ -43,7 +43,7 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
 
       deleteJob: builder.mutation({
         query: (jobId) => ({
-          url: `$/api/deletejob/${jobId}`,
+          url: `/api/deletejob/${jobId}`,
           method: "DELETE",
         }),
       }),
