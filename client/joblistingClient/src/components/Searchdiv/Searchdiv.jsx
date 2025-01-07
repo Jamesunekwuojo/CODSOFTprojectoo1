@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "./Searchdiv.css";
 
 function Searchdiv() {
+  const [searchJob] = useSearchJobMutation()
   // const { data: jobs, isError, error,  isLoading } = useSearchJobQuery();
 
   const navigate = useNavigate();
@@ -26,8 +27,16 @@ function Searchdiv() {
   };
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    navigate('jobsearch-results', {state: formData})
+    try {
+      e.preventDefault();
+      const result = searchJob(formData).unwrap;
+      navigate('/jobsearch-results',  { state: { jobs: result } })
+      
+    } catch (error) {
+      console.log("Failed to search job",error)
+      
+    }
+
   };
 
   return (
@@ -91,9 +100,7 @@ function Searchdiv() {
               Search
             </Button>
 
-            {isLoading && <p>Loading...</p>}
-            {isError && <p>Error: {error.message}</p>}
-            {jobs && <JobSearchList jobs={jobs} />}
+           
           </Form>
         </Col>
       </Row>

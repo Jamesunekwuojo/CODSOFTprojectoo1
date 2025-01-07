@@ -1,24 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Alert } from "react-bootstrap";
 import { useSearchJobQuery } from "../../slices/jobsApiSlice";
-import Searchdiv from "../Searchdiv/Searchdiv";
+
+
 import { useLocation } from "react-router-dom";
 
-const JobSearchList = ({jobs}) => {
+const JobSearchList = () => {
+
+  const {state:formData} = useLocation()
+
+  const [searchJob, {data: jobs, error, isLoading}] = useSearchJobQuery()
+
+  useEffect (() => {
+
+    if(formData) {
+      searchJob(formData)
+    }
+
+  }, [formData, searchJob]);
+
+  if  (isLoading) return <p>Loading ...</p>
+
+  if (error) return <Alert variant="danger">Error {error.message}</Alert>
   
 
 
   return (
     <div>
      
-      {isLoading && <div>Loading...</div>}
-
-      {isError && (
-        <Alert variant="danger">
-          {" "}
-          Error: {error.data?.message || "Something went wrong"}
-        </Alert>
-      )}
+      
 
       <Container>
         <Row>

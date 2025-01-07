@@ -187,7 +187,7 @@ export const SearchJob = (req, res) => {
 
 
   // Querying parameter from frontend
-  const {KeyWords, JobCategory, JobType} = req.query;
+  const {KeyWords, JobCategory, JobType} = req.body;
 
   try {
 
