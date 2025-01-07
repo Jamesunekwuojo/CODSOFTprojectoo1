@@ -3,12 +3,15 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 import JobSearchList from "../JobSearchList/JobSearchList.jsx";
 
-import { useSearchJobQuery } from "../../slices/jobsApiSlice.js";
+import { useSearchJobMutation } from "../../slices/jobsApiSlice.js";
+import { useNavigate } from "react-router-dom";
 
 import "./Searchdiv.css";
 
 function Searchdiv() {
-  const { data: jobs, isError, error,  isLoading } = useSearchJobQuery();
+  // const { data: jobs, isError, error,  isLoading } = useSearchJobQuery();
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     KeyWords: "",
@@ -24,6 +27,7 @@ function Searchdiv() {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    navigate('jobsearch-results', {state: formData})
   };
 
   return (

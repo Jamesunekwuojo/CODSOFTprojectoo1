@@ -48,6 +48,16 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         }),
       }),
 
+
+      searchJob: builder.mutation({
+        query: (formData) => ({
+          url: '/api/job/search',
+          method: 'POST',
+          body: formData,
+        }),
+      }),
+      
+
     // Query for searching job
 
     // searchJob: builder.query({
@@ -60,25 +70,25 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
       
     // })
 
-    searchJob: builder.query({
-      query: ({ KeyWords, JobCategory, JobType }) => {
-        const params = new URLSearchParams();
+    // searchJob: builder.query({
+    //   query: ({ KeyWords, JobCategory, JobType }) => {
+    //     const params = new URLSearchParams();
 
-        if(KeyWords) params.append("KeyWords", KeyWords);
+    //     if(KeyWords) params.append("KeyWords", KeyWords);
 
-        if(JobCategory) params.append('JobCategory', JobCategory);
+    //     if(JobCategory) params.append('JobCategory', JobCategory);
 
-        if(JobType) params.append('JobType',  JobType);
+    //     if(JobType) params.append('JobType',  JobType);
 
-        return {
-          url: `/api/job/search?${params.toString()}`,
+    //     return {
+    //       url: `/api/job/search?${params.toString()}`,
 
-          method: 'GET',
-        }
+    //       method: 'GET',
+    //     }
 
         
-      }
-    })
+    //   }
+    // })
 
       
 
@@ -95,7 +105,7 @@ export const {
   useGetJobsQuery,
   useUpdateJobMutation,
   useDeleteJobMutation, 
-  useSearchJobQuery
+  useSearchJobMutation
   
 
 } = jobsApiSlice;
