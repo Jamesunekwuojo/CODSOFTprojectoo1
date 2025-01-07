@@ -38,7 +38,7 @@ function Searchdiv() {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: error?.message,
     
 
       })
@@ -98,7 +98,7 @@ function Searchdiv() {
                 onChange={handleChange}
               >
                 <option>Select...</option>
-                <option>Full-Time</option>
+                <option>Full-time</option>
                 <option>Part-Time</option>
                 <option>Internship</option>
               </Form.Control>

@@ -207,11 +207,12 @@ export const SearchJob = async (req, res) => {
     if(JobType) {
       filter.JobType = JobType;
     }
+    console.log(filter);
   
     const jobs = await Job.find(filter)
     console.log(jobs)
   
-    if(filter.length == 0) {
+    if(jobs.length === 0) {
       console.log('No Job found matching the category and type');
   
       return res.status(404).json({message:'No Job found matching the category and type'})
@@ -219,7 +220,7 @@ export const SearchJob = async (req, res) => {
   
     console.log("Job filtered successfully, and fetched by category and type", jobs)
   
-    return res.status(200).json({message: "Jobs fetched successfully  ", Jobs:jobs})
+    return res.status(200).json({message: "Jobs fetched successfully  ", jobs:jobs})
   
     
   } catch (error) {

@@ -2,7 +2,7 @@ import { Container, Row, Col, Card, Alert } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
 const JobSearchList = () => {
-  const { state: { Jobs: jobs } = {} } = useLocation();
+  const { state: { jobs } = {} } = useLocation();
 
   if (!jobs || jobs.length === 0) {
     return <Alert variant="info">No jobs found.</Alert>;
@@ -11,7 +11,7 @@ const JobSearchList = () => {
   return (
     <Container>
       <Row>
-        {jobs.map((job) => (
+        {jobs?.jobs?.map((job) => (
           <Col key={job.id} md={4}>
             <Card>
               <Card.Body>
