@@ -91,7 +91,7 @@ function Homepage() {
             </div>
 
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=Technology and IT`}}>Technology and IT</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Technology and IT`}}>Technology and IT</Link>
             </div>
             <div className="grid-item">
               <Link to={{pathname: '/explore-category', search: `?category=Education and Training`}}>Education and Training</Link>

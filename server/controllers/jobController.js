@@ -77,6 +77,7 @@ export const GetEmployerjobs = async (req, res) => {
 };
 
 export const GetJobsByCategory = async (req, res) => {
+  console.log("Incoming request to get jobs by category controller")
   try {
     const { JobCategory } = req.query;
     if (!JobCategory) {

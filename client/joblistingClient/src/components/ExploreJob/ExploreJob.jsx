@@ -6,8 +6,11 @@ const ExploreJob = () => {
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
+  console.log(params)
 
-  const category = params.get("category");
+  const category = params.get("JobCategory");
+
+  console.log(category)
 
   const { data: jobs, error, isLoading } = useExploreJobQuery(category);
 

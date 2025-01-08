@@ -58,8 +58,8 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
       }),
 
       exploreJob: builder.query({
-        query: ({category}) => ({
-          url: `/api/explorejob?category=${encodeURIComponent(category)}`,
+        query: (category) => ({
+          url: `/api/explorejob?JobCategory=${encodeURIComponent(category)}`,
           method: 'GET',
           
         })
