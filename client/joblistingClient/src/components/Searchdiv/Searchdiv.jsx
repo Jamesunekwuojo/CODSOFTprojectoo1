@@ -4,12 +4,12 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useSearchJobMutation } from "../../slices/jobsApiSlice.js";
 import { useNavigate } from "react-router-dom";
 
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 
 import "./Searchdiv.css";
 
 function Searchdiv() {
-  const [searchJob] = useSearchJobMutation()
+  const [searchJob] = useSearchJobMutation();
   // const { data: jobs, isError, error,  isLoading } = useSearchJobQuery();
 
   const navigate = useNavigate();
@@ -30,20 +30,38 @@ function Searchdiv() {
     try {
       e.preventDefault();
       const result = await searchJob(formData).unwrap();
-      navigate('/jobsearch-results', { state: { jobs: result } });
+      navigate("/jobsearch-results", { state: { jobs: result } });
+
+      // if (result?.status === 404) {
+      //   Swal.fire({
+      //     title: 'No Jobs Found',
+      //     icon: 'Warning',
+      //     text: 'No jobs found matching your search criteria',
+      //   })
+      // }
     } catch (error) {
-      console.log("Failed to search job",error)
-      
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: error?.data?.message,
+      console.log("Failed to search job", error);
+
+      if (error?.status == 404) {
+        console.log("No Job found")
+        Swal.fire({
+          icon: "warning",
+          title: "Sorry!",
+          text: "No jobs found matching your search criteria check keywords and criteria.",
+          confirmButtonText:'OK'
+        });
+      } else {
+
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error?.data?.message,
+        });
+
+      }
+
     
-
-      })
-      
     }
-
   };
 
   return (
@@ -106,8 +124,6 @@ function Searchdiv() {
             <Button variant="success" type="submit" className="mb-4">
               Search
             </Button>
-
-           
           </Form>
         </Col>
       </Row>
