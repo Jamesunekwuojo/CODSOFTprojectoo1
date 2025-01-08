@@ -14,13 +14,7 @@ import { useState } from "react";
 import "./Homepage.css";
 
 function Homepage() {
-  const [clicked, setClicked] = useState(false);
-
-  // const handleClick = () => {
-  //   setClicked(!clicked);
-
-  //   //  Make a post request to fetch job
-  // };
+ 
 
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center min-vh-100">
@@ -94,28 +88,28 @@ function Homepage() {
               <Link to={{pathname: '/explore-category', search: `?JobCategory=Technology and IT`}}>Technology and IT</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=Education and Training`}}>Education and Training</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Education and Training`}}>Education and Training</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=Healthcare`}}>Healthcare</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Healthcare`}}>Healthcare</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=Marketing and Sales`}}>Marketing and Sales</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Marketing and Sales`}}>Marketing and Sales</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=Engineering`}}>Engineering</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Engineering`}}>Engineering</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=Human Resources`}}>Human Resources</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Human Resources`}}>Human Resources</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=AUL Hub`}}>Creative Arts and Design</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Creative Arts and Design`}}>Creative Arts and Design</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=AUL Hub`}}> Customer Service and Support</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Customer Service and Support`}}> Customer Service and Support</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?category=AUL Hub`}}>Finance and Accounting</Link>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Finance and Accounting`}}>Finance and Accounting</Link>
             </div>
           </div>
         </Col>

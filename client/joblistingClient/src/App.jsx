@@ -42,7 +42,6 @@ import ScrollToTop from "./ScrollTop.jsx";
 
 import BlogMain from "./components/BlogMain/BlogMain.jsx";
 
-
 import JobSearchList from "./components/JobSearchList/JobSearchList.jsx";
 
 import ExploreJob from "./components/ExploreJob/ExploreJob.jsx";
@@ -53,9 +52,10 @@ import "./App.css";
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Mainnav />
       <ToastContainer />
-      <ScrollToTop/>
+
       <Routes>
         {/* Main routes at the navbar*/}
         <Route path="/" element={<Homepage />} />
@@ -66,12 +66,12 @@ function App() {
 
         <Route path="/about" element={<AboutUs />} />
 
-        <Route path="/blog/:id" element={<BlogMain/>}/>
-        
+        <Route path="/blog/:id" element={<BlogMain />} />
+
         <Route path="/jobsearch-results" element={<JobSearchList />} />
         {/* <Route path="/jobs/search" element={<JobSearchList/>}/> */}
 
-        <Route path="/explore-category" element={<ExploreJob/>}/>
+        <Route path="/explore-category" element={<ExploreJob />} />
 
         <Route
           path="/post-job"

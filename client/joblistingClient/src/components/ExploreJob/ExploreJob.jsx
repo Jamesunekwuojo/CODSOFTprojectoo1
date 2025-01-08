@@ -20,7 +20,7 @@ const ExploreJob = () => {
   return (
     <Container>
       <Row>
-        <h1>Jobs in {category}</h1>
+        <h1 className="text-center">Jobs in {category}</h1>
         {jobs.map((job) => (
           <Col md={4} key={job._id} className="mb-3">
             <Card className="job-card">
@@ -38,12 +38,7 @@ const ExploreJob = () => {
                   <strong>Description:</strong> {job.JobDescription}
                   <strong>By:{job.EmployerEmail}</strong>
                 </Card.Text>
-                {/* <Button variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
-                  Edit
-                </Button>
-                <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
-                  Delete
-                </Button> */}
+             
 
                 <Button
                   className="d-flex justify-content-center"
