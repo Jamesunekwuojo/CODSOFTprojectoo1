@@ -45,6 +45,8 @@ import BlogMain from "./components/BlogMain/BlogMain.jsx";
 
 import JobSearchList from "./components/JobSearchList/JobSearchList.jsx";
 
+import ExploreJob from "./components/ExploreJob/ExploreJob.jsx";
+
 // custom App css import
 import "./App.css";
 
@@ -68,6 +70,8 @@ function App() {
         
         <Route path="/jobsearch-results" element={<JobSearchList />} />
         {/* <Route path="/jobs/search" element={<JobSearchList/>}/> */}
+
+        <Route path="/explore-category" element={<ExploreJob/>}/>
 
         <Route
           path="/post-job"

@@ -13,9 +13,12 @@ const router = express.Router();
 //routes
 router.get('/allJobs', GetJobs);
 router.post('/job/search', SearchJob);
+router.get('/explorejob', GetJobsByCategory);
+
 router.post('/createjob', protectAuth, CreateJob);
 router.get('/jobsbyId', protectAuth, GetEmployerjobs);
-router.get('/jobsbyCategory', GetJobsByCategory);
+
+
 
 router.put('/updatejob/:jobId', protectAuth, UpdateJob)
 

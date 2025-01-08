@@ -32,13 +32,6 @@ function Searchdiv() {
       const result = await searchJob(formData).unwrap();
       navigate("/jobsearch-results", { state: { jobs: result } });
 
-      // if (result?.status === 404) {
-      //   Swal.fire({
-      //     title: 'No Jobs Found',
-      //     icon: 'Warning',
-      //     text: 'No jobs found matching your search criteria',
-      //   })
-      // }
     } catch (error) {
       console.log("Failed to search job", error);
 
