@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Alert } from "react-bootstrap";
+import { Container, Row, Col, Card, Alert, Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
 const JobSearchList = () => {
@@ -27,6 +27,15 @@ const JobSearchList = () => {
                   <strong>Description:</strong> {job.JobDescription} <br />
                   <strong>By:</strong> {job.EmployerEmail}
                 </Card.Text>
+
+
+                <Button
+                  className="d-flex justify-content-center"
+                  variant="secondary"
+                >
+                  <a href={job.JobLink} target="blank">  Application Link</a>
+                
+                </Button>
               </Card.Body>
             </Card>
           </Col>

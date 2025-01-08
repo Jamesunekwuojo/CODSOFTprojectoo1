@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
-import JobSearchList from "../JobSearchList/JobSearchList.jsx";
-
 import { useSearchJobMutation } from "../../slices/jobsApiSlice.js";
 import { useNavigate } from "react-router-dom";
 
@@ -35,10 +33,11 @@ function Searchdiv() {
       navigate('/jobsearch-results', { state: { jobs: result } });
     } catch (error) {
       console.log("Failed to search job",error)
+      
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: error?.message,
+        text: error?.data?.message,
     
 
       })
@@ -97,8 +96,8 @@ function Searchdiv() {
                 className="p-3 mb-4"
                 onChange={handleChange}
               >
-                <option>Select...</option>
-                <option>Full-time</option>
+                <option value="">Select...</option>
+                <option>Full-Time</option>
                 <option>Part-Time</option>
                 <option>Internship</option>
               </Form.Control>
