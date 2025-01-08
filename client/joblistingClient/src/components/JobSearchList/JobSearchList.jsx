@@ -11,23 +11,29 @@ const JobSearchList = () => {
   return (
     <Container>
       <Row>
-        {jobs?.jobs?.map((job) => (
-          <Col key={job.id} md={4}>
-            <Card>
-              <Card.Body>
+      {jobs.Jobs.map((job) => (
+          <Col md={4} key={job._id} className="mb-3">
+            <Card className="job-card">
+              <Card.Body className="job-card-body">
                 <Card.Title>{job.JobTitle}</Card.Title>
                 <Card.Text>
-                  <strong>Location:</strong> {job.JobLocation} <br />
                   <strong>Category:</strong> {job.JobCategory} <br />
+                  <strong>Location:</strong> {job.JobLocation} <br />
                   <strong>Type:</strong> {job.JobType} <br />
                   <strong>Salary Range:</strong> {job.MinimumSalary} -{" "}
                   {job.MaximumSalary} <br />
                   <strong>Deadline:</strong>{" "}
-                  {new Date(job.ApplicationDeadline).toLocaleDateString()} <br />
-                  <strong>Description:</strong> {job.JobDescription} <br />
-                  <strong>By:</strong> {job.EmployerEmail}
+                  {new Date(job.ApplicationDeadline).toLocaleDateString()}{" "}
+                  <br />
+                  <strong>Description:</strong> {job.JobDescription}
+                  <strong>By:{job.EmployerEmail}</strong>
                 </Card.Text>
-
+                {/* <Button variant="primary" onClick={() => console.log(`Edit job ${job.JobTitle}`)}>
+                  Edit
+                </Button>
+                <Button variant="danger" onClick={() => console.log(`Delete job ${job.JobTitle}`)}>
+                  Delete
+                </Button> */}
 
                 <Button
                   className="d-flex justify-content-center"
