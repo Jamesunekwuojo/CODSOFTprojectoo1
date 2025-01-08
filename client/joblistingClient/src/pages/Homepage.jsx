@@ -106,11 +106,7 @@ function Homepage() {
               <Link to={{pathname: '/explore-category', search: `?JobCategory=Creative Arts and Design`}}>Creative Arts and Design</Link>
             </div>
             <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?JobCategory=Customer Service and Support`}}> Customer Service and Support</Link>
-            </div>
-            <div className="grid-item">
-              <Link to={{pathname: '/explore-category', search: `?JobCategory=Finance and Accounting`}}>Finance and Accounting</Link>
-            </div>
+              <Link to={{pathname: '/explore-category', search: `?JobCategory=Customer Service and Support`}}> Customer Service and Support</Link> </div>
           </div>
         </Col>
       </Row>
