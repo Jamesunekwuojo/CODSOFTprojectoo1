@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Alert } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useExploreJobQuery } from "../../slices/jobsApiSlice";
 
@@ -6,16 +6,34 @@ const ExploreJob = () => {
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
-  console.log(params)
+  console.log(params);
 
   const category = params.get("JobCategory");
 
-  console.log(category)
+  console.log(category);
 
-  const { data: jobs, error, isLoading } = useExploreJobQuery(category);
+  const {
+    data: jobs,
+    isError,
+    error,
+    isLoading,
+  } = useExploreJobQuery(category);
+
+  const errorMessage = error?.data?.message;
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching jobs</div>;
+  if (isError) {
+    console.log(errorMessage);
+    return (
+      <div>
+        {" "}
+        <Alert variant="danger">
+          {error?.data?.message} 
+        </Alert>
+        {/* {error?.data?.message}{" "} */}
+      </div>
+    );
+  }
 
   return (
     <Container>
@@ -38,14 +56,15 @@ const ExploreJob = () => {
                   <strong>Description:</strong> {job.JobDescription}
                   <strong>By:{job.EmployerEmail}</strong>
                 </Card.Text>
-             
 
                 <Button
                   className="d-flex justify-content-center"
                   variant="secondary"
                 >
-                  <a href={job.JobLink} target="blank">  Application Link</a>
-                
+                  <a href={job.JobLink} target="blank">
+                    {" "}
+                    Application Link
+                  </a>
                 </Button>
               </Card.Body>
             </Card>
