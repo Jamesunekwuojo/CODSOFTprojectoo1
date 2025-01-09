@@ -1,6 +1,7 @@
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import "./ChooseUs.css"; // Make sure to add your styles in this file
+import { Link } from 'react-router-dom';
 
 function ChooseUs() {
   return (
@@ -35,7 +36,8 @@ function ChooseUs() {
               <li>Our Talented & Experienced Marketing Agency</li>
               <li>Create your own skin to match your brand</li>
             </ul>
-            <Button variant="success">Contact us</Button>
+            <Link to="/contact"><Button variant="success">Contact us</Button>
+            </Link>
           </div>
         </Col>
       </Row>

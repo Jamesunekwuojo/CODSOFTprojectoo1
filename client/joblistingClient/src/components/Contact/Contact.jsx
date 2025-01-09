@@ -18,11 +18,30 @@ const Contact = () => {
       <Row>
         <Col className="d-flex justify-content-center">
           {" "}
-          <FontAwesomeIcon icon={faFacebook} size="2x" className="mx-2"/>
-          <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-2"  />
-          <FontAwesomeIcon icon={faInstagram} size="2x" className="mx-2"/>
-          <FontAwesomeIcon icon={faXTwitter} size="2x" className="mx-2" />
-          <FontAwesomeIcon icon={faYoutube} size="2x" className="mx-2"/>
+          <a href="">
+            <FontAwesomeIcon icon={faFacebook} size="2x" className="mx-2" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/unekwuojo-james-b2511225b/"
+            target="_blank"
+          >
+            <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-2" />
+          </a>
+          <a href="">
+            <FontAwesomeIcon icon={faInstagram} size="2x" className="mx-2" />
+          </a>
+          <a href="https://x.com/james_unekwuojo">
+            {" "}
+            <FontAwesomeIcon
+              icon={faXTwitter}
+              size="2x"
+              className="mx-2"
+            />{" "}
+          </a>
+          <a href="">
+            <FontAwesomeIcon icon={faYoutube} size="2x" className="mx-2" />
+          </a>
+          
         </Col>
       </Row>
     </Container>
