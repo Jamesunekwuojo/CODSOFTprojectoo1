@@ -46,6 +46,8 @@ import JobSearchList from "./components/JobSearchList/JobSearchList.jsx";
 
 import ExploreJob from "./components/ExploreJob/ExploreJob.jsx";
 
+import Contact from "./components/Contact/Contact.jsx";
+
 // custom App css import
 import "./App.css";
 
@@ -72,6 +74,8 @@ function App() {
         {/* <Route path="/jobs/search" element={<JobSearchList/>}/> */}
 
         <Route path="/explore-category" element={<ExploreJob />} />
+
+        <Route path="/contact" element={<Contact/>}/>
 
         <Route
           path="/post-job"
