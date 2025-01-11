@@ -9,6 +9,8 @@ import userRoutes from './routes/user.js'
 import blogRoutes from "./routes/blog.js";
 import jobRoutes from "./routes/job.js";
 
+
+
 import cookieParser from 'cookie-parser';
 
 const app = express()
