@@ -66,7 +66,7 @@ function Footer() {
           </Col>
           <Col md={6} className="text-center">
             <h5>SUBSCRIBE</h5>
-            <Form inline="true">
+            <Form inline="true" onSubmit={handleSubmit}>
               <Form.Control type="email" placeholder="Email" className="mr-2" />
               <Button variant="primary" className="mt-2">SUBSCRIBE</Button>
             </Form>
