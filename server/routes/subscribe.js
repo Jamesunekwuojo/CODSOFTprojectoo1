@@ -2,7 +2,7 @@
 
 
 import express from "express";
-import { subscribePost } from "../controllers/subscribeController";
+import { subscribePost } from "../controllers/subscribeController.js";
 
 const router = express.Router();
 
