@@ -9,6 +9,7 @@ import userRoutes from './routes/user.js'
 import blogRoutes from "./routes/blog.js";
 import jobRoutes from "./routes/job.js";
 
+import subscribeRoutes from "./routes/subscribe.js"
 
 
 import cookieParser from 'cookie-parser';
@@ -37,6 +38,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use("/api", jobRoutes);
 app.use("/api", userRoutes);
 app.use ("/api", blogRoutes);
+app.use("/api", subscribeRoutes)
 
 
 
