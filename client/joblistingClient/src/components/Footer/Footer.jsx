@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 function Footer() {
   const [email, setEmail] = useState("");
 
-  const [subscribe, { isLoading }] = useSubscribeMutation();
+  const [subscribe, { isLoading, }] = useSubscribeMutation();
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -27,7 +27,11 @@ function Footer() {
     } catch (error) {
       console.log("Error subscribing", error);
 
-      toast.error(error?.data?.message);
+      const errMessage = error?.data?.error;
+
+      toast.error(errMessage)
+
+      // toast.error(error?.data?.message);
     }
   };
 
