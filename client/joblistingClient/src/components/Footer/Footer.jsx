@@ -5,6 +5,9 @@ import { Facebook, Twitter, Instagram, Youtube } from "react-bootstrap-icons";
 import { useSubscribeMutation } from "../../slices/subscribeApiSlice";
 import { toast } from "react-toastify";
 
+
+
+
 function Footer() {
   const [email, setEmail] = useState("");
 
@@ -126,7 +129,7 @@ function Footer() {
         <Row className="mt-3">
           <Col className="text-center">
             <p className="mb-0">
-              &copy; 2024 Unekwuojos Tech. All rights reserved.
+              &copy; {new Date().getFullYear()} Unekwuojos Tech. All rights reserved.
             </p>
           </Col>
         </Row>
