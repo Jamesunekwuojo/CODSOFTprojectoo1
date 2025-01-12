@@ -4,12 +4,12 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Facebook, Twitter, Instagram, Youtube } from 'react-bootstrap-icons';
 // import './Footer.css'; // Assuming you have some custom styles
 import { useSubscribeMutation } from '../../slices/subscribeApiSlice';
-
+import { toast } from 'react-toastify';
 
 function Footer() {
   const [email, setEmail] = useState("");
 
-  const {data:subscribe, isLoading, error} = useSubscribeMutation(email);
+  const [subscribe, {isLoading} ] = useSubscribeMutation(email);
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -22,8 +22,15 @@ function Footer() {
     try {
       const response =  await subscribe(email).unwrap();
       console.log("Subscribed successful",response);
+
+      toast.success("Subscribed successful")
+
+      setEmail("");
       
     } catch (error) {
+      console.log("Error subscribing", error);
+
+      toast.error(error?.data?.message)
       
     }
   }
@@ -92,7 +99,10 @@ function Footer() {
           <Col md={6} className="text-center">
             <h5>SUBSCRIBE</h5>
             <Form inline="true" onSubmit={handleSubmit}>
-              <Form.Control type="email" placeholder="Email" className="mr-2" />
+              <Form.Control onChange={handleChange}  type="email" 
+              value={email}
+              name="email" placeholder="Email" 
+              className="mr-2" />
               <Button variant="primary" className="mt-2">SUBSCRIBE</Button>
             </Form>
           </Col>

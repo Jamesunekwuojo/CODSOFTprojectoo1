@@ -1,8 +1,17 @@
-POST http://localhost:5001/api/job/search
+# POST http://localhost:5001/api/job/search
+# Content-Type: application/json
+
+# {
+#   "KeyWords": "Data Engineer",
+#   "JobCategory": "Technology and IT",
+#   "JobType" : "Full-time"
+# }
+
+
+POST http://localhost:5001/api/subscribe
 Content-Type: application/json
 
 {
-  "KeyWords": "Data Engineer",
-  "JobCategory": "Technology and IT",
-  "JobType" : "Full-time"
+  "email": "unekwuojoabah4@gmail.com",
+ 
 }
