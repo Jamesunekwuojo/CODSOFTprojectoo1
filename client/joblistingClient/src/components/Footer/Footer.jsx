@@ -3,10 +3,32 @@ import { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Facebook, Twitter, Instagram, Youtube } from 'react-bootstrap-icons';
 // import './Footer.css'; // Assuming you have some custom styles
-
+import { useSubscribeMutation } from '../../slices/subscribeApiSlice';
 
 
 function Footer() {
+  const [email, setEmail] = useState("");
+
+  const {data:subscribe, isLoading, error} = useSubscribeMutation(email);
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response =  await subscribe(email).unwrap();
+      console.log("Subscribed successful",response);
+      
+    } catch (error) {
+      
+    }
+  }
+
+
   return (
     <footer className="footer mt-5 py-3 bg-dark text-white">
       <Container>
