@@ -32,9 +32,9 @@ function Footer() {
 
       const errMessage = error?.data?.error;
 
-      toast.error(errMessage)
+      toast.error(errMessage || "Error subscribing")
 
-      // toast.error(error?.data?.message);
+  
     }
   };
 
