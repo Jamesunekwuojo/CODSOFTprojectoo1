@@ -2,6 +2,7 @@ import { Subscriber } from "../models/subscribeModel.js";
 
 export const subscribePost = async (req, res) => {
   const { email } = req.body;
+  console.log("Subscribe Objects from frontend",req.body)
 
   if (!email) {
     console.log("Please enter your email");
