@@ -12,3 +12,8 @@ export const subscribeApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
+
+export const  {
+    useSubscribeMutation
+
+} = subscribeApiSlice.endpoints; 

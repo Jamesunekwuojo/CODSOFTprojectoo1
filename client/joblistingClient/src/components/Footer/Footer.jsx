@@ -1,7 +1,10 @@
 
+import { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Facebook, Twitter, Instagram, Youtube } from 'react-bootstrap-icons';
 // import './Footer.css'; // Assuming you have some custom styles
+
+
 
 function Footer() {
   return (
