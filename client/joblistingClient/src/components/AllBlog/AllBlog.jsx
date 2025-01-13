@@ -34,16 +34,17 @@ const AllBlog = () => {
       <Row>
         {blogs.Blogs.map((blog) => (
           <Col md={4} key={blog._id} className="mb-4">
-            <Card className="job-card">
-              <div className="image-container">
+            <Card className="job-card" style={{ width: '18rem', height: '24rem' }}>
+              <div className="image-container" style={{ height: '150px', overflow: 'hidden' }}>
                 <Card.Img
                   variant="top"
                   src={blog.profilePhoto.url}
                   alt={blog.profilePhoto.filename}
                   className="circular-image"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
-              <Card.Body className="job-card-body">
+              <Card.Body className="job-card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <Card.Title>{blog.articleTitle}</Card.Title>
                 <Card.Text>{blog.articleDescript}</Card.Text>
                 <Button variant="primary" href={blog.articleLink} target="_blank">

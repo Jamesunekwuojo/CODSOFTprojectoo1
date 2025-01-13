@@ -148,46 +148,54 @@ const BlogCard = () => {
           const { truncated, full } = truncateBlog(blog.articleDescript, 6);
 
           return (
-            <Col md={4} key={blog._id} className="mb-4">
-              <Card>
-                <Card.Img
-                  variant="top"
-                  src={blog.profilePhoto.url}
-                  alt={blog.profilePhoto.filename}
-                />
+            <Col md={4} key={blog._id} className="mb-4 ">
+              <Card style={{ width: "17rem", height: "24rem" }}>
+                <div style={{ height: "150px", overflow: "hidden" }}>
+                  <Card.Img
+                    variant="top"
+                    src={blog.profilePhoto.url}
+                    alt={blog.profilePhoto.filename}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
 
-                
-               
-
-                <Card.Body>
+                <Card.Body
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
                   <Card.Title>{blog.articleTitle}</Card.Title>
-                  
-                  <Card.Text>{truncated}
-                  {full &&
-                  (
 
-                    <Link className="mx-4" to={`/blog/${blog._id}`}>
-                    Read more
-                  </Link>
-
-                  )
-                }
-
+                  <Card.Text>
+                    {truncated}
+                    {full && (
+                      <Link className="mx-4" to={`/blog/${blog._id}`}>
+                        Read more
+                      </Link>
+                    )}
                   </Card.Text>
 
-                  <Button
-                    className="m-2"
-                    variant="primary"
-                    onClick={() => handleEdit(blog)}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    variant="danger"
-                    onClick={() => handleDelete(blog._id, blog.articleTitle)}
-                  >
-                    Delete
-                  </Button>
+                  <div className="d-flex flex-direction-row justify-content-center">
+                    <Button
+                      className="mx-2"
+                      variant="primary"
+                      onClick={() => handleEdit(blog)}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDelete(blog._id, blog.articleTitle)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
                 </Card.Body>
                 <Card.Footer>
                   <small className="text-muted">
