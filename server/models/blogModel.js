@@ -21,15 +21,9 @@ const blogSchema = new mongoose.Schema ({
 
     },
 
-    timeStamps:true
 
-
-
- 
-
-
-
-
+},{
+    timestamps:true,
 });
 
 const blogModel = mongoose.model("Blog", blogSchema);

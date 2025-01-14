@@ -165,6 +165,11 @@ export const GetBlogByTime = async (req, res) => {
   try {
     const latestBlog = await Blog.find().sort({ createdAt: -1 }).limit(4);
 
+    if(!latestBlog) {
+      console.log("No blog found")
+      return res.status(204).json({message:"No blogs found"})
+    }
+
     console.log("Latest blogs fetched successfully", latestBlog);
 
     return res.status(200).json({message:"Latest blogs fetched successfully", Blogs:latestBlog})

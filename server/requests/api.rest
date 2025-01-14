@@ -8,10 +8,12 @@
 # }
 
 
-POST http://localhost:5001/api/subscribe
-Content-Type: application/json
+# POST http://localhost:5001/api/subscribe
+# Content-Type: application/json
 
-{
-  "email": "unekwuojoabah4@gmail.com"
+# {
+#   "email": "unekwuojoabah4@gmail.com"
  
-}
+# }
+
+GET  http://localhost:5001/api/blogs
