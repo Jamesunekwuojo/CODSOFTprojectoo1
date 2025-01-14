@@ -21,6 +21,10 @@ const blogSchema = new mongoose.Schema ({
 
     },
 
+    timeStamps:true
+
+
+
  
 
 

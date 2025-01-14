@@ -160,6 +160,23 @@ export const GetBlogs = async (req, res) => {
   }
 };
 
+export const GetBlogByTime = async (req, res) => {
+
+  try {
+    const latestBlog = await Blog.find().sort({ createdAt: -1 }).limit(4);
+
+    console.log("Latest blogs fetched successfully", latestBlog);
+
+    return res.status(200).json({message:"Latest blogs fetched successfully", Blogs:latestBlog})
+
+  } catch (error) {
+    console.log("Error fetching latest blogs", error);
+
+    return res.status(500).json({error: "Internal server error! error fetching latest blogs"})
+  }
+
+}
+
 
 
 
