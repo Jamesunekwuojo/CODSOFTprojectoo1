@@ -56,6 +56,13 @@ export const blogsApiSlice = apiSlice.injectEndpoints({
       // Invalidate the cached data after deletion to trigger a refetch
       invalidatesTags: ['Blog'],
     }),
+
+    latestBlogs: builder.query({
+      query: () => ({
+        url: '/api/blogs',
+        method: "GET",
+      })
+    })
   }),
 });
 
@@ -66,6 +73,7 @@ export const {
   useUpdateBlogMutation,
   useDeleteBlogMutation,
   useGetBlogidQuery,
+  useLatestBlogsQuery
 } = blogsApiSlice;
 
 

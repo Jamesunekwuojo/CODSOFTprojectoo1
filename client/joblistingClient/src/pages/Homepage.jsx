@@ -8,6 +8,7 @@ import { Camera } from "react-bootstrap-icons";
 import { PersonCheck } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import "../App.css";
+import Latestblogs from "../components/Latestblogs/Latestblogs.jsx";
 
 import { useState } from "react";
 
@@ -122,7 +123,8 @@ function Homepage() {
       <Row>
         <Col className="d-flex justify-content-center">
           <div className="mt-4">
-            <h4>Latest Blogs</h4>
+            {/* <h4>Latest Blogs</h4> */}
+            <Latestblogs/>
           </div>
         </Col>
       </Row>
