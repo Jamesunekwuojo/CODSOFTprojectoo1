@@ -163,7 +163,7 @@ export const GetBlogs = async (req, res) => {
 export const GetBlogByTime = async (req, res) => {
 
   try {
-    const latestBlog = await Blog.find().sort({ createdAt: -1 }).limit(4);
+    const latestBlog = await Blog.find().sort({ createdAt: -1 }).limit(6);
 
     if(!latestBlog) {
       console.log("No blog found")
