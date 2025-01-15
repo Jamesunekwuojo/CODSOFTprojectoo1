@@ -114,7 +114,7 @@ export const GetEmployerblogs = async (req, res) => {
       return res.status(404).json({ message: "No blogs found for this email" });
     }
 
-    console.log("employer blog successfully fetched");
+    console.log("employer blog successfully fetched", blogs);
 
     return res.status(200).json({ Blogs:blogs, currentPage:page, totalPages:Math.ceil(totalBlogs / limit), totalBlogs:totalBlogs});
     

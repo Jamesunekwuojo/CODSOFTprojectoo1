@@ -18,29 +18,8 @@ const Latestblogs = () => {
 
 
 
-//   const [page, setPage] = useState(1);
-//   const [limit] = useState(6); // Set the limit for blogs per page
 
-//   const { data: blogs, error, isLoading } = useGetAllBlogsQuery({ page, limit });
 
-//   if (isLoading) return <p>Loading blogs...</p>;
-
-//   if (error) {
-//     toast.error("Failed to fetch blogs");
-//     return <p>Error fetching blogs</p>;
-//   }
-
-//   if (blogs.Blogs.length === 0) {
-//     return <p>No Blog found</p>;
-//   }
-
-//   const handlePreviousPage = () => {
-//     if (page > 1) setPage(page - 1);
-//   };
-
-//   const handleNextPage = () => {
-//     if (page < blogs.totalPages) setPage(page + 1);
-//   };
 
   return ( 
     <Container>
@@ -55,7 +34,7 @@ const Latestblogs = () => {
                   src={blog.profilePhoto.url}
                   alt={blog.profilePhoto.filename}
                   className="circular-image"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  // style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               <Card.Body className="job-card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
