@@ -40,9 +40,15 @@ export const protectAuth = async (req, res, next) => {
 
         // Handle specific JWT errors
         if (error.name === 'TokenExpiredError') {
+
+            res.clearCookie('jwt')
             return res.status(401).json({ error: 'Token expired' });
+
         } else if (error.name === 'JsonWebTokenError') {
+
+            res.clearCookie('jwt')
             return res.status(401).json({ error: 'Token malformed' });
+            
         } else {
             return res.status(401).json({ error: 'Request not authorized' });
         }
