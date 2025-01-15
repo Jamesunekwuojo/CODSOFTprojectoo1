@@ -90,7 +90,7 @@ export const GetJobsByCategory = async (req, res) => {
       // Fixed typo 'lenght'
       return res
         .status(404)
-        .json({ message: `No jobs found for this ${JobCategory}` }); // Added return
+        .json({ message: `No jobs found for  ${JobCategory}` }); // Added return
     }
 
     return res.status(200).json(jobs);

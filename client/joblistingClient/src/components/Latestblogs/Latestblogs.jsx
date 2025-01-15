@@ -10,7 +10,7 @@ const Latestblogs = () => {
     if(isLoading) return <p>Loading...</p>
 
     if(error) {
-        toast.error("Error fetching latest blogs");
+        // toast.error("Error fetching latest blogs");
         console.log(error?.data?.error || "Error fetching latest blogs")
 
         return <p>Failed to fetch latest blogs...</p>
