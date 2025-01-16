@@ -16,8 +16,13 @@ const Latestblogs = () => {
         return <p>Failed to fetch latest blogs...</p>
     }
 
+    const truncateBlog = (bodyText, wordLimit) => {
+      const words = bodyText.split("");
 
-
+      if(words.length > wordLimit){
+        return {truncated: words.slice(0, wordLimit)}
+      }
+    }
 
 
 

@@ -131,11 +131,11 @@ const BlogCard = () => {
     }
   };
 
-  const truncateBlog = (bodyText, worldLimit) => {
+  const truncateBlog = (bodyText, wordLimit) => {
     const words = bodyText.split(" ");
 
-    if (words.length > worldLimit) {
-      return { truncated: words.slice(0, worldLimit).join(" "), full: true };
+    if (words.length > wordLimit) {
+      return { truncated: words.slice(0, wordLimit).join(" "), full: true };
     }
     return { truncated: bodyText, full: false };
   };
