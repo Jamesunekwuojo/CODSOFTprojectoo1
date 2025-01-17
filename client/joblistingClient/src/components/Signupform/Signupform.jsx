@@ -11,7 +11,7 @@ import { setCredentials } from '../../slices/authSlice.js';
 
 function SignupForm() {
   const [formData, setFormData] = useState({
-    name: '',
+   
     email: '',
     password: '',
     role: ''
@@ -58,28 +58,7 @@ function SignupForm() {
         navigate("/")
       }
 
-      // if(!response.user.role) {
-      //   console.error('API response missing ')
-      // }
-
-      // Check the role after successful signup
-      // const role = response.data.user.role.toLowerCase(); 
-
       
-      // if (role === 'employer') {
-      //   // Redirect employer to employer dashboard
-      //   navigate('/employer-dashboard');
-      // } else if (role === 'candidate') {
-      //   // Show success message and redirect candidate to homepage
-      //   Swal.fire({
-      //     title: 'Success!',
-      //     text: 'You have successfully signed up as a candidate.',
-      //     icon: 'success',
-      //     confirmButtonText: 'OK'
-      //   }).then(() => {
-      //     navigate('/');
-      //   });
-      // }
     } catch (error) {
       console.log(error);
       if (error.data?.message) {
@@ -99,7 +78,7 @@ function SignupForm() {
           </div>
 
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName" className="m-2">
+            {/* <Form.Group controlId="formName" className="m-2">
               <Form.Label>Name:</Form.Label>
               <Form.Control
                 type="text"
@@ -109,7 +88,7 @@ function SignupForm() {
                 required
                 className="p-2"
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="formEmail" className="m-2">
               <Form.Label>Email Address:</Form.Label>

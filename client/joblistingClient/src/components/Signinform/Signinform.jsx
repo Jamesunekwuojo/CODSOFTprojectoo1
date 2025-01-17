@@ -14,7 +14,7 @@ import Loader from "../Loader/Loader.jsx";
 
 function SigninForm() {
   const [formData, setFormData] = useState({
-    name: "",
+
     email: "",
     password: "",
     role: "",
@@ -68,63 +68,7 @@ function SigninForm() {
       toast.error(errorMessage); // Display the error using toast
     }
 
-    {
-      /* Axios.post("http://localhost:5000/api/signin", formData)
-      .then(response => {
-        console.log(response);
-
-
-          // Store the token in localStorage
-        localStorage.setItem('token', response.data.token);
-        signin(response.data.token);
-        
-        const role = response.data.user.role.toLowerCase(); // Convert role to lowercase
-        if (role === "employer") {
-          navigate('/employer-dashboard');
-
-        } else if (role === "candidate") {
-          navigate('/candidate-dashboard');
-        } else {
-          console.error('Invalid role received:', response.data.role);
-        }
-
-
-        // If the blog is created successfully
-        Swal.fire({
-            title: 'Successfully logged in!',
-            text: response.data.message,
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-
-       
-
-      
-      })
-      .catch(error => {
-        if(error.response){
-
-          Swal.fire({
-            title: 'Error!',
-            text: error.response.data.error,  // The error message from your backend
-            icon: 'error',
-            confirmButtonText: 'OK'
-          });
-
-        } else {
-
-          Swal.fire({
-            title: 'Error!',
-            text: 'Something went wrong. Please try again.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-
-        }
-
-        // setError('Error signing up. Please try again.');
-      });*/
-    }
+    
   };
 
   return (
@@ -137,7 +81,7 @@ function SigninForm() {
           {/* {error && <div className="alert alert-danger">{error}</div>} */}
 
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName" className="m-2">
+            {/* <Form.Group controlId="formName" className="m-2">
               <Form.Label>Name:</Form.Label>
               <Form.Control
                 type="text"
@@ -147,7 +91,7 @@ function SigninForm() {
                 required
                 className="p-2"
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="formEmail" className="m-2">
               <Form.Label>Email Address:</Form.Label>

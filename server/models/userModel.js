@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 const userSchema = new mongoose.Schema({
 
-    name:{type:String, required:true},
+    // name:{type:String, required:true},
 
     email:{type:String, required:true, unique:true},
     
@@ -29,7 +29,7 @@ userSchema.pre( 'save', async function(next){
 });
 
 // static method for sign up
-userSchema.statics.signup = async function(name, email, password, role) {
+userSchema.statics.signup = async function( email, password, role) {
 
     const exist = await this.findOne({email})
 
@@ -37,7 +37,7 @@ userSchema.statics.signup = async function(name, email, password, role) {
         throw new Error('Email already in use')
     }
 
-    const user = await this.create({name, email, password, role})
+    const user = await this.create({ email, password, role})
 
     return user
 }
@@ -45,16 +45,16 @@ userSchema.statics.signup = async function(name, email, password, role) {
 
 // static method for logging in 
 
-userSchema.statics.login = async function (name, email, password, role) {
+userSchema.statics.login = async function ( email, password, role) {
     const user = await this.findOne({email});
 
     if(user) {
 
         const auth = await bcrypt.compare(password, user.password)
 
-        if(user.name !==name){
-            throw Error('Incorrect name')
-        }
+        // if(user.name !==name){
+        //     throw Error('Incorrect name')
+        // }
 
         if (user.role !==role) {
             throw Error ('Please enter the correct role')

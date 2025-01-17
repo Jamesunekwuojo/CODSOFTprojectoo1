@@ -8,7 +8,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 url: `${USERS_URL}/signin`,
                 method: 'POST',
                 body: {
-                    name:formData.name,
+                 
                     email: formData.email,
                     password:formData.password,
                     role: formData.role,
@@ -23,7 +23,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 url: `${USERS_URL}/signup`,
                 method: 'POST',
                 body:{
-                    name:formData.name,
+                 
 
                     email:formData.email,
 

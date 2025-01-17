@@ -111,6 +111,7 @@ export const GetEmployerblogs = async (req, res) => {
     const totalBlogs = await Blog.countDocuments({ authorEmail: email });
 
     if (blogs.length === 0) {
+      console.log("No blogs found for this email")
       return res.status(404).json({ message: "No blogs found for this email" });
     }
 

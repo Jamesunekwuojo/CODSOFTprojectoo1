@@ -3,11 +3,11 @@ import createToken from '../utilis/utilis.js';
 
 // User signup
 export const signup_post = async (req, res) => {
-    const { name, email, password, role } = req.body;
+    const { email, password, role } = req.body;
 
     try {
         // Signup user
-        const user = await User.signup(name, email, password, role);
+        const user = await User.signup(email, password, role);
 
         // Create token
         const token = createToken(user._id);
@@ -27,11 +27,11 @@ export const signup_post = async (req, res) => {
 
 // User signin
 export const signin_post = async (req, res) => {
-    const { name, email, password, role } = req.body;
+    const {  email, password, role } = req.body;
 
     try {
         // Login user
-        const user = await User.login(name, email, password, role);
+        const user = await User.login( email, password, role);
 
         console.log("User created successfully", user);
 

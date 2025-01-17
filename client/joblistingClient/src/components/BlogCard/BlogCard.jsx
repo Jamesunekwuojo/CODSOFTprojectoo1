@@ -7,6 +7,7 @@ import {
   Button,
   Modal,
   Form,
+  Alert,
 } from "react-bootstrap";
 import {
   useGetEmployerBlogsQuery,
@@ -40,7 +41,12 @@ const BlogCard = () => {
 
   if (error) {
     toast.error("Failed to fetch blogs");
-    return <p>Error fetching blogs</p>;
+    return (
+      <>
+        <p>Error fetching blogs</p>
+        <Alert variant="danger">{error?.data?.message}</Alert>
+      </>
+    );
   }
 
   if (blogs.Blogs.length === 0) {
