@@ -27,7 +27,7 @@ const ExploreJob = () => {
     return (
       <div>
         {" "}
-        <Alert variant="danger">
+        <Alert className="mx-4" variant="danger">
           {error?.data?.message} 
         </Alert>
         {/* {error?.data?.message}{" "} */}
