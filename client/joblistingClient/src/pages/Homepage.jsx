@@ -47,7 +47,7 @@ function Homepage() {
       <Row className="mt-4">
         <Col className="d-flex justify-content-center">
           <div className="mt-4">
-            <h4>Why Choose Us?</h4>
+            <h2 className="fw-bold">Why Choose Us?</h2>
           </div>
         </Col>
       </Row>
@@ -63,7 +63,7 @@ function Homepage() {
       <Row classsName="m-4">
         <Col className="d-flex justify-content-center">
           <div className="m-4">
-            <h4>Explore Categories</h4>
+            <h2 className="fw-bold">Explore Categories</h2>
           </div>
         </Col>
       </Row>
@@ -112,13 +112,14 @@ function Homepage() {
         </Col>
       </Row>
 
-      <Row>
+      {/* <Row>
         <Col className="d-flex justify-content-center">
           <div className="mt-4">
             <h4>Top Searched Jobs</h4>
           </div>
         </Col>
-      </Row>
+      </Row> */}
+      <Row className="mt-4">{" "}</Row>
 
       <Row>
         <Col className="d-flex justify-content-center">

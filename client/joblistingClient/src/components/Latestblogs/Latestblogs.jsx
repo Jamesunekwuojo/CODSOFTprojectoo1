@@ -28,7 +28,7 @@ const Latestblogs = () => {
 
   return (
     <Container>
-      <h2 className="text-center">Latest Blogs</h2>
+      <h2 className="text-center fw-bold">Latest Blogs</h2>
       <Row>
         {blogs.Blogs.map((blog) => {
           const { truncated, full } = truncateBlog(blog.articleDescript, 10);
@@ -56,7 +56,7 @@ const Latestblogs = () => {
                     
                   }}
                 >
-                  <Card.Title>{blog.articleTitle}</Card.Title>
+                  <Card.Title className="fw-bold">{blog.articleTitle}</Card.Title>
 
                   <Card.Text>
                     {truncated}
