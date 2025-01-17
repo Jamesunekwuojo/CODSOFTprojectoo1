@@ -31,7 +31,7 @@ const Latestblogs = () => {
       <h2 className="text-center">Latest Blogs</h2>
       <Row>
         {blogs.Blogs.map((blog) => {
-          const { truncated, full } = truncateBlog(blog.articleDescript, 6);
+          const { truncated, full } = truncateBlog(blog.articleDescript, 10);
 
           return (
             <Col md={4} key={blog._id} className="mb-4 ">
@@ -53,7 +53,7 @@ const Latestblogs = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "space-between",
+                    
                   }}
                 >
                   <Card.Title>{blog.articleTitle}</Card.Title>
