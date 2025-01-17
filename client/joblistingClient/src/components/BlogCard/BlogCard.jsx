@@ -40,11 +40,11 @@ const BlogCard = () => {
   if (isLoading) return <p>Loading blogs...</p>;
 
   if (error) {
-    toast.error("Failed to fetch blogs");
+ 
     return (
       <>
-        <p>Error fetching blogs</p>
-        <Alert variant="danger">{error?.data?.message}</Alert>
+        
+        <Alert variant="danger">{error?.data?.message || "Error fetching blogs"}</Alert>
       </>
     );
   }

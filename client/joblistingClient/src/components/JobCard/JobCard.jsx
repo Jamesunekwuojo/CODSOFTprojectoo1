@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useGetEmployerJobsQuery } from "../../slices/jobsApiSlice.js";
-import { Card, Button, Col, Row, Container } from "react-bootstrap";
+import { Card, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2"; // Added SweetAlert2 for deletion confirmation
 import { useUpdateJobMutation } from "../../slices/jobsApiSlice.js";
@@ -29,8 +29,13 @@ const JobCard = () => {
 
   if (isLoading) return <p>Loading jobs...</p>;
   if (error) {
-    toast.error("Failed to fetch jobs");
-    return <p>Error fetching jobs</p>;
+    // toast.error("Failed to fetch jobs");
+    return (
+      <>
+        <p>Error fetching jobs</p>
+        <Alert variant="danger">{error?.data?.message|| "Error fetching jobs"}</Alert>
+      </>
+    );
   }
 
   if (!jobs || jobs.Jobs.length === 0) {
