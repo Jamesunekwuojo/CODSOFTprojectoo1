@@ -78,7 +78,7 @@ function Homepage() {
               <Link
                 to={{
                   pathname: "/explore-category",
-                  search: `?category=AUL Hub`,
+                  search: `?JobCategory=AUL Hub`,
                 }}
               >
                 AUL Hub
