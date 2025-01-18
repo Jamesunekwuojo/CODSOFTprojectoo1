@@ -27,7 +27,7 @@ export const signup_post = async (req, res) => {
 
 // User signin
 export const signin_post = async (req, res) => {
-    const {  email, password, role } = req.body;
+    const { email, password, role } = req.body;
 
     try {
         // Login user

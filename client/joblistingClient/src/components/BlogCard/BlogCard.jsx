@@ -300,7 +300,7 @@ const BlogCard = () => {
                 />
               </Form.Group>
               <Form.Group controlId="formProfilePhoto">
-                <Form.Label>Profile Photo</Form.Label>
+                <Form.Label>Background pics</Form.Label>
                 {/* Show current photo as a preview */}
                 {editBlog.profilePhoto && (
                   <div className="mb-2">
@@ -311,10 +311,10 @@ const BlogCard = () => {
                         width: "100px",
                         height: "100px",
                         objectFit: "cover",
-                        borderRadius: "50%",
+                       
                       }}
                     />
-                    <p>Current photo</p>
+               
                   </div>
                 )}
                 {/* File input to upload a new photo */}

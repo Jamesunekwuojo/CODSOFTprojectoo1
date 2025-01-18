@@ -29,10 +29,10 @@ const JobCard = () => {
 
   if (isLoading) return <p>Loading jobs...</p>;
   if (error) {
-    // toast.error("Failed to fetch jobs");
+
     return (
       <>
-        <p>Error fetching jobs</p>
+     
         <Alert variant="danger">{error?.data?.message|| "Error fetching jobs"}</Alert>
       </>
     );
