@@ -79,11 +79,7 @@ function Mainnav() {
                   title={
                     <>
                       <PersonCircle className="user-icon fs-4" />
-                      {/* {userInfo?.user?.name && (
-                        <span className="user-name ms-2">
-                          {userInfo.user.name}
-                        </span>
-                      )} */}
+                 
                     </>
                   }
                 >
