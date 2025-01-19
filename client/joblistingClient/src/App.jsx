@@ -48,6 +48,8 @@ import ExploreJob from "./components/ExploreJob/ExploreJob.jsx";
 
 import Contact from "./components/Contact/Contact.jsx";
 
+import ForgotPassword from "./components/Forgotpassword/Forgotpassword.jsx";
+
 // custom App css import
 import "./App.css";
 
@@ -76,6 +78,8 @@ function App() {
         <Route path="/explore-category" element={<ExploreJob />} />
 
         <Route path="/contact" element={<Contact/>}/>
+
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
 
         <Route
           path="/post-job"

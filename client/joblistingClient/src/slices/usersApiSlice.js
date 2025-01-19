@@ -1,11 +1,11 @@
 import {apiSlice} from './apiSlice.js';
-const USERS_URL = '/api';
+
 
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
             query:(formData) => ({
-                url: `${USERS_URL}/signin`,
+                url: '/api/signin',
                 method: 'POST',
                 body: {
                  
@@ -20,7 +20,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
 
         signup: builder.mutation({
             query: (formData) => ({
-                url: `${USERS_URL}/signup`,
+                url: '/api/signup ',
                 method: 'POST',
                 body:{
                  
@@ -38,11 +38,37 @@ export const usersApiSlice = apiSlice.injectEndpoints({
 
         logout: builder.mutation({
             query: () => ({
-                url: `${USERS_URL}/signout`,
+                url: '/api/signout',
                 method: 'POST'
             })
-        })
+        }),
+
+
+        forgotPassword: builder.mutation({
+            query: (email) => ({
+                url:'/api/users/forgot-password',
+                method: 'POST',
+                body:email
+
+                // body: {
+                //     email: formData.email
+                // }
+
+            })
+        }),
+
+        resetPassword: builder.mutation({
+            query: (formData) => ({
+                url:'/api/users/reset-password',
+                method: 'POST',
+                body:formData,
+                // body: {
+                //     email: formData.newPassword
+                // }
+
+            })
+        }) 
     })
 });
 
-export const {useLoginMutation, useLogoutMutation, useSignupMutation} = usersApiSlice;
+export const {useLoginMutation, useLogoutMutation, useSignupMutation, useForgotPasswordMutation,useResetPasswordMutation} = usersApiSlice;

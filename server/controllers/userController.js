@@ -1,5 +1,6 @@
 import { User } from "../models/userModel.js";
 import createToken from '../utilis/utilis.js';
+import bcrypt from "bcrypt";
 
 // User signup
 export const signup_post = async (req, res) => {

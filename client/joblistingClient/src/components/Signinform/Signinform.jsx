@@ -146,7 +146,7 @@ function SigninForm() {
             <Row className="mt-3">
               <Col>
                 <Form.Text>
-                  <Link to="#forgot-password">Forgot Password?</Link>
+                  <Link to="/forgot-password">Forgot Password?</Link>
                 </Form.Text>
               </Col>
               <Col className="text-right">
