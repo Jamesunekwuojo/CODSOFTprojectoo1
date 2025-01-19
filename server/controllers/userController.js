@@ -2,6 +2,8 @@ import { User } from "../models/userModel.js";
 import createToken from '../utilis/utilis.js';
 import bcrypt from "bcrypt";
 
+import {sendEmail} from "../utilis/emailService.js"
+
 // User signup
 export const signup_post = async (req, res) => {
     const { email, password, role } = req.body;
@@ -89,7 +91,7 @@ export const sendOTP = async (req, res) => {
   
       await user.save()
   
-      await sendEmail(email, "Password Reset OTP", `Your OTP is ${otp}`);
+      await sendEmail(email, "JOB-HUB Password Reset OTP", `Hello your OTP is ${otp}`);
       
       return res.status(200).json({message:"OTP sent successfully"})
   
@@ -111,6 +113,8 @@ export const sendOTP = async (req, res) => {
   
   export const resetPassword = async(req, res) => {
     const {email,  otp, newPassword } = req.body;
+    console.log(req.body)
+
     console.log(req.body)
   
   
@@ -146,7 +150,7 @@ export const sendOTP = async (req, res) => {
       return res.status(200).json({message: "Password reset successfully"});
       
     } catch (error) {
-      console.error("Failed to reset password:", error.message)
+      console.error("Failed to reset password:", error)
   
       return res.status(500).json({error: "Failed to reset password"});
   

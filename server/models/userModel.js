@@ -12,6 +12,9 @@ const userSchema = new mongoose.Schema({
 
     role:{type:String, enum:['employer', 'candidate'], required:true},
 
+    otp:String,
+    otpExpiry:Date,
+
 
 })
 

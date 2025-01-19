@@ -57,7 +57,7 @@ const ForgotPassword = () => {
         icon: "success",
       });
 
-      setFormData("")
+      setFormData(" ");
 
     
     } catch (error) {
