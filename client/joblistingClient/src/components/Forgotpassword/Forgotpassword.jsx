@@ -94,7 +94,7 @@ const ForgotPassword = () => {
       ) : (
         <Form onSubmit={handleResetPassword}>
           <Form.Group controlId="formEmail">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
               type="email"
               name="email"

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Col, Container, Row } from "react-bootstrap";
+import { Form, Button, Col, Container, Row, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signinform.css";
 // import { useSignin } from '../../hooks/useSignin';
@@ -12,15 +12,16 @@ import { setCredentials } from "../../slices/authSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader.jsx";
 
+import { Eye, EyeSlash } from "react-bootstrap-icons";
+
 function SigninForm() {
   const [formData, setFormData] = useState({
-
     email: "",
     password: "",
     role: "",
   });
 
-
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ function SigninForm() {
 
   useEffect(() => {
     if (userInfo) {
-      navigate('/')
-   
+      navigate("/");
+
       Swal.fire({
         title: "Welcome",
         text: "Successfully logged in",
@@ -56,10 +57,6 @@ function SigninForm() {
       dispatch(setCredentials({ ...response }));
 
       console.log(response);
-
-    
-
-  
     } catch (error) {
       // Extract the error message from backend response
       // alert(error);
@@ -67,8 +64,6 @@ function SigninForm() {
       console.log(errorMessage);
       toast.error(errorMessage); // Display the error using toast
     }
-
-    
   };
 
   return (
@@ -81,18 +76,6 @@ function SigninForm() {
           {/* {error && <div className="alert alert-danger">{error}</div>} */}
 
           <Form onSubmit={handleSubmit}>
-            {/* <Form.Group controlId="formName" className="m-2">
-              <Form.Label>Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="p-2"
-              />
-            </Form.Group> */}
-
             <Form.Group controlId="formEmail" className="m-2">
               <Form.Label>Email Address:</Form.Label>
               <Form.Control
@@ -107,14 +90,31 @@ function SigninForm() {
 
             <Form.Group controlId="formPassword" className="m-2">
               <Form.Label>Password:</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                className="p-2 mb-3"
-              />
+
+              <InputGroup>
+                <Form.Control
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  className="p-2 mb-3"
+                />
+
+                <InputGroup.Text
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{ cursor: "pointer",  height: "calc(1.6em + 0.75rem + 5px)", padding: "0.375rem 0.75rem" }}
+                >
+                  {showPassword ? (
+                    <EyeSlash
+                      className=""
+                      style={{ width: "1.25rem", height: "1.25rem" }}
+                    />
+                  ) : (
+                    <Eye style={{ width: "1.25rem", height: "1.25rem" }} />
+                  )}
+                </InputGroup.Text>
+              </InputGroup>
             </Form.Group>
 
             <Form.Group controlId="formRole" className="m-2">

@@ -1,21 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Form, Button, Col, Container, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import './Signupform.css';
-import Swal from 'sweetalert2';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import Loader from '../Loader/Loader.jsx';
-import { useSignupMutation } from '../../slices/usersApiSlice.js';
-import { setCredentials } from '../../slices/authSlice.js';
+import { useEffect, useState } from "react";
+import { Form, Button, Col, Container, Row, InputGroup } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import "./Signupform.css";
+import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import Loader from "../Loader/Loader.jsx";
+import { useSignupMutation } from "../../slices/usersApiSlice.js";
+import { setCredentials } from "../../slices/authSlice.js";
+import { Eye, EyeSlash } from "react-bootstrap-icons";
 
 function SignupForm() {
   const [formData, setFormData] = useState({
-   
-    email: '',
-    password: '',
-    role: ''
+    email: "",
+    password: "",
+    role: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -29,15 +31,15 @@ function SignupForm() {
 
   useEffect(() => {
     if (userInfo) {
-      navigate('/');
+      navigate("/");
       Swal.fire({
-        title: 'Welcome',
-        text: 'Successfully signed up',
-        icon: 'success',
-        confirmButtonText: 'Ok'
+        title: "Welcome",
+        text: "Successfully signed up",
+        icon: "success",
+        confirmButtonText: "Ok",
       });
     }
-  },[userInfo, navigate] );
+  }, [userInfo, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,24 +49,21 @@ function SignupForm() {
       const response = await signup(formData).unwrap();
       dispatch(setCredentials({ ...response }));
 
-
       console.log(response);
 
-      if(response?.user?.role == 'employer'){
+      if (response?.user?.role == "employer") {
         navigate("/employer-dashboard");
-        console.log('Role from API:', response.user.role);
-      } else if (response?.user?.role == 'candidate'){
-        console.log('Role not found in API response');
-        navigate("/")
+        console.log("Role from API:", response.user.role);
+      } else if (response?.user?.role == "candidate") {
+        console.log("Role not found in API response");
+        navigate("/");
       }
-
-      
     } catch (error) {
       console.log(error);
       if (error.data?.message) {
         toast.error(error.data.message);
       } else {
-        toast.error('Something happened');
+        toast.error("Something happened");
       }
     }
   };
@@ -78,18 +77,6 @@ function SignupForm() {
           </div>
 
           <Form onSubmit={handleSubmit}>
-            {/* <Form.Group controlId="formName" className="m-2">
-              <Form.Label>Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="p-2"
-              />
-            </Form.Group> */}
-
             <Form.Group controlId="formEmail" className="m-2">
               <Form.Label>Email Address:</Form.Label>
               <Form.Control
@@ -104,14 +91,31 @@ function SignupForm() {
 
             <Form.Group controlId="formPassword" className="m-2">
               <Form.Label>Password:</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                className="p-2 mb-3"
-              />
+
+              <InputGroup>
+                <Form.Control
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  className="p-2 mb-3"
+                />
+                <InputGroup.Text
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    cursor: "pointer",
+                    height: "calc(1.6em + 0.75rem + 5px)",
+                    padding: "0.375rem 0.75rem",
+                  }}
+                >
+                  {showPassword ? (
+                    <EyeSlash style={{ width: "1.25rem", height: "1.25rem" }} />
+                  ) : (
+                    <Eye style={{ width: "1.25rem", height: "1.25rem" }} />
+                  )}
+                </InputGroup.Text>
+              </InputGroup>
             </Form.Group>
 
             <Form.Group controlId="formRole" className="m-2">
@@ -134,7 +138,7 @@ function SignupForm() {
 
             <div className="d-flex justify-content-center">
               <Button
-                style={{ color: 'black', backgroundColor: '#a8071a' }}
+                style={{ color: "black", backgroundColor: "#a8071a" }}
                 type="submit"
               >
                 Sign up
