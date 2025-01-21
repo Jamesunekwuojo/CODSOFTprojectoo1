@@ -63,28 +63,42 @@ function EmployerSidebar() {
             to="/employer-dashboard/addJobs"
             onClick={handleLinkClick}
           >
-            <MdOutlineAddBusiness className="mr-2" />     
+            <MdOutlineAddBusiness className="me-2" />
             {!collapsed && "Add Job"}
-       
           </Nav.Link>
 
-          <Nav.Link as={Link} to="/employer-dashboard/jobs" onClick={handleLinkClick}>
-            <FaBriefcase className="mr-2" /> {!collapsed && "Jobs"}
+          <Nav.Link
+            as={Link}
+            to="/employer-dashboard/jobs"
+            onClick={handleLinkClick}
+          >
+            <FaBriefcase className="me-2" /> {!collapsed && "Jobs"}
           </Nav.Link>
 
-          <Nav.Link as={Link} to="/employer-dashboard/blogs">
-            <FaBlog className="mr-2" /> Blogs
+          <Nav.Link
+            as={Link}
+            to="/employer-dashboard/blogs"
+            onClick={handleLinkClick}
+          >
+            <FaBlog className="me-2" /> {!collapsed && "Blogs"}
           </Nav.Link>
 
-          <Nav.Link as={Link} to="/employer-dashboard/addBlogs">
-            <AiOutlinePlusCircle className="mr-2" /> Add Blog
+          <Nav.Link
+            as={Link}
+            to="/employer-dashboard/addBlogs"
+            onClick={handleLinkClick}
+          >
+            <AiOutlinePlusCircle className="me-2" />
+            {!collapsed && "Add Blog"}
           </Nav.Link>
 
-          <Nav.Item>
-            <Signout />
+          <Nav.Item onClick={handleLinkClick}>
+            <Signout collapsed={collapsed} />
           </Nav.Item>
         </Nav>
         <Button
+        className="mt-4"
+          variant="outline-light"
           onClick={toggleSidebar}
           style={{
             transform: collapsed ? "rotate(180deg)" : "rotate(0)",
@@ -93,17 +107,9 @@ function EmployerSidebar() {
         >
           <FiChevronLeft />
         </Button>
-        {/* <Nav.Item className="mb-3" > */}
-
-        {/* </Nav.Item> */}
-
-        {/* <Nav.Item className="mb-3"></Nav.Item>
-
-        <Nav.Item className="mb-3"></Nav.Item>
-
-        <Nav.Item className="mb-3"></Nav.Item> */}
+  
       </Navbar>
-      {/* </Col> */}
+ 
 
       {((isMobile && collapsed) || !isMobile) && (
         <div className="flex-grow-1">
@@ -115,10 +121,7 @@ function EmployerSidebar() {
         </div>
       )}
 
-      {/* Main content area where nested routes will be rendered */}
-      {/* <Col xs={12} md={9} lg={8} className="p-4">
-          <Outlet />
-        </Col> */}
+      
     </div>
   );
 }
