@@ -102,7 +102,7 @@ function EmployerSidebar() {
           onClick={toggleSidebar}
           style={{
             transform: collapsed ? "rotate(180deg)" : "rotate(0)",
-            transition: "transform 0.6s ease",
+            transition: "transform 0.3s ease",
           }}
         >
           <FiChevronLeft />
