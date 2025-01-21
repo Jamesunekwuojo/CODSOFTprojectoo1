@@ -1,11 +1,13 @@
 import JobPostForm from "../components/JobPostForm/Jobpostform";
-
-function JobPostpage () {
-    return (
-        <div>
-            <JobPostForm />
-        </div>
-    )
+import { Container, Row } from "react-bootstrap";
+function JobPostpage() {
+  return (
+    <Container>
+      <Row>
+        <JobPostForm />
+      </Row>
+    </Container>
+  );
 }
 
-export default JobPostpage
+export default JobPostpage;
