@@ -7,7 +7,11 @@ const WelcomeMsg = () => {
 
     const {userInfo} = useSelector((state) => state.auth)
 
-    const username = userInfo?.user?.name
+    const email = userInfo?.user?.email
+
+    let parts = email.split('@');
+
+    const username = parts[0]
 
     return (
         <Container>
