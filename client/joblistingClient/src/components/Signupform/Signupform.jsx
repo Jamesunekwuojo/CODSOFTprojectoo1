@@ -71,7 +71,7 @@ function SignupForm() {
   return (
     <Container>
       <Row className="justify-content-md-center">
-        <Col md={4} xs={12} className="signupForm-container mt-3 p-2">
+        <Col lg={4} md={12} xs={12} className="signupForm-container mt-3 p-2">
           <div className="d-flex justify-content-center mt-2">
             <h2>Sign Up</h2>
           </div>
