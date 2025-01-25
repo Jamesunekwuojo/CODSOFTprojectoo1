@@ -52,7 +52,6 @@ import ForgotPassword from "./components/Forgotpassword/Forgotpassword.jsx";
 
 // custom App css import
 import "./App.css";
-
 function App() {
   return (
     <Router>
@@ -60,75 +59,60 @@ function App() {
       <Mainnav />
       <ToastContainer />
 
-      <Routes>
-        {/* Main routes at the navbar*/}
-        <Route path="/" element={<Homepage />} />
+      {/* Content Wrapper */}
+      <div id="content">
+        <Routes>
+          {/* Main routes at the navbar */}
+          <Route path="/" element={<Homepage />} />
+          <Route path="/signup" element={<Signupage />} />
+          <Route path="/signin" element={<Signinpage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/blog/:id" element={<BlogMain />} />
+          <Route path="/jobsearch-results" element={<JobSearchList />} />
+          <Route path="/explore-category" element={<ExploreJob />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route
+            path="/post-job"
+            element={
+              <PrivateRoute>
+                <JobPostpage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/browse-job" element={<AllJobPage />} />
+          <Route path="/completeprofile" element={<CompleteProfile />} />
 
-        <Route path="/signup" element={<Signupage />} />
+          {/* Candidate Routes */}
+          <Route path="/candidate-dashboard" element={<CandidateSidebar />}>
+            <Route index element={<WelcomeMsg />} />
+            <Route path="alljob" element={<AllJobPage />} />
+            <Route path="allblogs" element={<AllBlog />} />
+          </Route>
 
-        <Route path="/signin" element={<Signinpage />} />
+          {/* Employer Routes */}
+          <Route
+            path="/employer-dashboard"
+            element={
+              <PrivateRoute>
+                <EmployerSidebar />
+              </PrivateRoute>
+            }
+          >
+            <Route index element={<WelcomeMsg />} />
+            <Route path="jobs" element={<Jobpage />} />
+            <Route path="addJobs" element={<JobPostpage />} />
+            <Route path="blogs" element={<Blogpage />} />
+            <Route path="addBlogs" element={<Addblogpage />} />
+          </Route>
+        </Routes>
+      </div>
 
-        <Route path="/about" element={<AboutUs />} />
-
-        <Route path="/blog/:id" element={<BlogMain />} />
-
-        <Route path="/jobsearch-results" element={<JobSearchList />} />
-        {/* <Route path="/jobs/search" element={<JobSearchList/>}/> */}
-
-        <Route path="/explore-category" element={<ExploreJob />} />
-
-        <Route path="/contact" element={<Contact/>}/>
-
-        <Route path="/forgot-password" element={<ForgotPassword/>}/>
-
-        <Route
-          path="/post-job"
-          element={
-            <PrivateRoute>
-              <JobPostpage />
-            </PrivateRoute>
-          }
-        />
-
-        <Route path="/browse-job" element={<AllJobPage />} />
-
-        {/*Elementary routes, embedded pages  routes*/}
-        <Route path="/completeprofile" element={<CompleteProfile />} />
-
-        {/* Candidate Routes */}
-        <Route path="/candidate-dashboard" element={<CandidateSidebar />}>
-          {/* 
-          <Route path="dashboard" element={<WelcomeMsg/>} />  */}
-
-          <Route index element={<WelcomeMsg />} />
-
-          <Route path="alljob" element={<AllJobPage />} />
-
-          <Route path="allblogs" element={<AllBlog />} />
-        </Route>
-
-        <Route
-          path="/employer-dashboard"
-          element={
-            <PrivateRoute>
-              <EmployerSidebar />
-            </PrivateRoute>
-          }
-        >
-          <Route index element={<WelcomeMsg />} />
-          <Route path="jobs" element={<Jobpage />} />
-          <Route path="addJobs" element={<JobPostpage />} />
-          <Route path="blogs" element={<Blogpage />} />
-          <Route path="addBlogs" element={<Addblogpage />} />
-        </Route>
-      </Routes>
-      {/* </ToastContainer> */}
-
-      <footer>
-        <Footer />
-      </footer>
+      {/* Footer */}
+      <Footer />
     </Router>
   );
 }
 
 export default App;
+

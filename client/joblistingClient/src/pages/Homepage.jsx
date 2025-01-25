@@ -73,17 +73,7 @@ function Homepage() {
       <Row className="d-flex justify-content-center">
         <Col xs={12}>
           <div className="grid-container">
-            <div className="grid-item">
-              {" "}
-              <Link
-                to={{
-                  pathname: "/explore-category",
-                  search: `?JobCategory=AUL Hub`,
-                }}
-              >
-                AUL Hub
-              </Link>
-            </div>
+         
 
             <div className="grid-item">
               <Link to={{pathname: '/explore-category', search: `?JobCategory=Technology and IT`}}>Technology and IT</Link>
@@ -108,6 +98,32 @@ function Homepage() {
             </div>
             <div className="grid-item">
               <Link to={{pathname: '/explore-category', search: `?JobCategory=Customer Service and Support`}}> Customer Service and Support</Link> </div>
+
+              <div className="grid-item">
+              {" "}
+              <Link
+                to={{
+                  pathname: "/explore-category",
+                  search: `?JobCategory=AUL Hub`,
+                }}
+              >
+                AUL Hub
+              </Link>
+
+              
+            </div>
+
+            <div className="grid-item">
+              {" "}
+              <Link
+                to={{
+                  pathname: "/explore-category",
+                  search: `?JobCategory=Others`,
+                }}
+              >
+                Others
+              </Link>
+            </div>
           </div>
         </Col>
       </Row>
