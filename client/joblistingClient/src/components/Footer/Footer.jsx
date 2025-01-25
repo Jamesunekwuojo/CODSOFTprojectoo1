@@ -1,17 +1,13 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Facebook, Twitter, Instagram, Youtube } from "react-bootstrap-icons";
-// import './Footer.css'; // Assuming you have some custom styles
 import { useSubscribeMutation } from "../../slices/subscribeApiSlice";
 import { toast } from "react-toastify";
-
-
-
 
 function Footer() {
   const [email, setEmail] = useState("");
 
-  const [subscribe, { isLoading, }] = useSubscribeMutation();
+  const [subscribe, { isLoading }] = useSubscribeMutation();
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -21,74 +17,23 @@ function Footer() {
     e.preventDefault();
 
     try {
-      const response = await subscribe({email}).unwrap();
-      console.log("Subscribed successful", response);
+      const response = await subscribe({ email }).unwrap();
+      console.log("Subscribed successfully", response);
 
-      toast.success("Subscribed successful");
-
+      toast.success("Subscribed successfully");
       setEmail("");
     } catch (error) {
       console.log("Error subscribing", error);
 
       const errMessage = error?.data?.error;
-
-      toast.error(errMessage || "Error subscribing")
-
-  
+      toast.error(errMessage || "Error subscribing");
     }
   };
 
   return (
     <footer className="footer mt-5 py-3 bg-dark text-white">
       <Container>
-        <Row className="mb-3">
-          <Col md={3}>
-            <h5>LIST TITLE</h5>
-            <ul className="list-unstyled">
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-            </ul>
-          </Col>
-          <Col md={3}>
-            <h5>LIST TITLE</h5>
-            <ul className="list-unstyled">
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-            </ul>
-          </Col>
-          <Col md={3}>
-            <h5>LIST TITLE</h5>
-            <ul className="list-unstyled">
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-            </ul>
-          </Col>
-          <Col md={3}>
-            <h5>LIST TITLE</h5>
-            <ul className="list-unstyled">
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-            </ul>
-          </Col>
-        </Row>
-        <Row className="align-items-center">
-          <Col md={3}>
-            <h5>LIST TITLE</h5>
-            <ul className="list-unstyled">
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-              <li>List Item</li>
-            </ul>
-          </Col>
+        <Row className="d-flex justify-content-between align-items-center">
           <Col md={3} className="text-center">
             <h5>FOLLOW US</h5>
             <div className="d-flex justify-content-center">
@@ -108,28 +53,32 @@ function Footer() {
           </Col>
           <Col md={6} className="text-center">
             <h5>SUBSCRIBE</h5>
-            <Form inline="true" onSubmit={handleSubmit}>
-              <Form.Group>
-                <Form.Control
-                  onChange={handleChange}
-                  type="email"
-                  value={email}
-                  name="email"
-                  placeholder="Email"
-                  className="mr-2"
-                  required
-                />
-                <Button variant="primary" type="submit" className="mt-2" disabled={isLoading}>
-                  {isLoading ? 'submitting...': 'submit'}
-                </Button>
-              </Form.Group>
+            <Form onSubmit={handleSubmit} className="d-flex align-items-center">
+              <Form.Control
+                onChange={handleChange}
+                type="email"
+                value={email}
+                name="email"
+                placeholder="Email"
+                className="mx-2 flex-grow-1"
+                required
+              />
+              <Button
+                variant="primary"
+                type="submit"
+                className=""
+                disabled={isLoading}
+              >
+                {isLoading ? "Submitting..." : "Submit"}
+              </Button>
             </Form>
           </Col>
         </Row>
         <Row className="mt-3">
           <Col className="text-center">
             <p className="mb-0">
-              &copy; {new Date().getFullYear()} Unekwuojos Tech. All rights reserved.
+              &copy; {new Date().getFullYear()} Unekwuojos Tech. All rights
+              reserved.
             </p>
           </Col>
         </Row>

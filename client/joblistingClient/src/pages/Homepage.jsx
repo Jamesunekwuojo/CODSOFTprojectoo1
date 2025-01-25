@@ -19,7 +19,7 @@ function Homepage() {
 
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center min-vh-100">
-      <WelcomeMsg />
+      {/* <WelcomeMsg /> */}
       <Row className="searchdivIMG_wrapper">
         <Col xs={12} md={8} lg={6}>
           <Searchdiv className="h-20"></Searchdiv>
