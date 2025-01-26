@@ -28,13 +28,13 @@ const Latestblogs = () => {
 
   return (
     <Container>
-      <h2 className="text-center fw-bold">Latest Blogs</h2>
-      <Row>
+      <h2 className="text-center fw-bold ">Latest Blogs</h2>
+      <Row className="d-flex justify-content-center">
         {blogs.Blogs.map((blog) => {
           const { truncated, full } = truncateBlog(blog.articleDescript, 10);
 
           return (
-            <Col md={4} key={blog._id} className="mb-4 ">
+            <Col md={4} key={blog._id} className="mb-4 d-flex align-tems-center justify-content-center">
               <Card style={{ width: "17rem", height: "24rem" }}>
                 <div style={{ height: "150px", overflow: "hidden" }}>
                   <Card.Img

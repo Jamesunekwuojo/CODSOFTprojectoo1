@@ -61,7 +61,7 @@ function Homepage() {
       </Row>
 
       <Row classsName="m-4">
-        <Col className="d-flex justify-content-center">
+        <Col className="d-flex justify-content-center align-items-center">
           <div className="m-4">
             <h2 className="fw-bold">Explore Categories</h2>
           </div>
@@ -70,7 +70,7 @@ function Homepage() {
 
       {/* Categories div*/}
 
-      <Row className="d-flex justify-content-center">
+      <Row className="d-flex justify-content-center align-items-center">
         <Col xs={12}>
           <div className="grid-container">
          
@@ -138,7 +138,7 @@ function Homepage() {
       <Row className="mt-4">{" "}</Row>
 
       <Row>
-        <Col className="d-flex justify-content-center">
+        <Col className="d-flex justify-content-center align-items-center">
           <div className="mt-4">
             {/* <h4>Latest Blogs</h4> */}
             <Latestblogs/>

@@ -35,7 +35,7 @@ const AllJobCard = () => {
       <h2 className="text-center">Financial Jobs Available</h2>
       <Row>
         {jobs.Jobs.map((job) => (
-          <Col md={4} key={job._id} className="mb-3">
+          <Col md={4} key={job._id} className="m-3">
             <Card className="job-card">
               <Card.Body className="job-card-body">
                 <Card.Title>{job.JobTitle}</Card.Title>
