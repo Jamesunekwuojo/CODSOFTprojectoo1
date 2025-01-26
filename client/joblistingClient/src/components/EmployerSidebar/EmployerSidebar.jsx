@@ -63,7 +63,7 @@ function EmployerSidebar() {
             to="/employer-dashboard/addJobs"
             onClick={handleLinkClick}
           >
-            <MdOutlineAddBusiness className="me-2" />
+            <MdOutlineAddBusiness className="me-2  fs-4" />
             {!collapsed && "Add Job"}
           </Nav.Link>
 
@@ -72,7 +72,7 @@ function EmployerSidebar() {
             to="/employer-dashboard/jobs"
             onClick={handleLinkClick}
           >
-            <FaBriefcase className="me-2" /> {!collapsed && "Jobs"}
+            <FaBriefcase className="me-2 fs-4" /> {!collapsed && "Jobs"}
           </Nav.Link>
 
           <Nav.Link
@@ -80,7 +80,7 @@ function EmployerSidebar() {
             to="/employer-dashboard/blogs"
             onClick={handleLinkClick}
           >
-            <FaBlog className="me-2" /> {!collapsed && "Blogs"}
+            <FaBlog className="me-2 fs-4" /> {!collapsed && "Blogs"}
           </Nav.Link>
 
           <Nav.Link
@@ -88,7 +88,7 @@ function EmployerSidebar() {
             to="/employer-dashboard/addBlogs"
             onClick={handleLinkClick}
           >
-            <AiOutlinePlusCircle className="me-2" />
+            <AiOutlinePlusCircle className="me-2 fs-4" />
             {!collapsed && "Add Blog"}
           </Nav.Link>
 
@@ -105,7 +105,7 @@ function EmployerSidebar() {
             transition: "transform 0.3s ease",
           }}
         >
-          <FiChevronLeft />
+          <FiChevronLeft className="fs-4"/>
         </Button>
   
       </Navbar>
