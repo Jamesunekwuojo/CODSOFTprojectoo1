@@ -58,7 +58,7 @@ function Searchdiv() {
   };
 
   return (
-    <Container className="mt-5 ">
+    <Container  className="mt-5 ">
       <Row className="justify-content-left">
         <Col className="form-container ">
           <h2>Find Your Expected Job</h2>

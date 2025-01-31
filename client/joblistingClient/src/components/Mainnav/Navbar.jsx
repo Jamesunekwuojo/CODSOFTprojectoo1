@@ -65,9 +65,18 @@ function Mainnav() {
             <Nav.Link as={Link} to="/about" className="ms-3">
               About us
             </Nav.Link>
-            <Nav.Link onClick={handlePostJob} className="ms-3">
+            {userInfo ? (
+              <>
+                <Nav.Link onClick={handlePostJob} className="ms-3">
+                  Post Job
+                </Nav.Link>
+              </>
+            ) : (
+              <></>
+            )}
+            {/* <Nav.Link onClick={handlePostJob} className="ms-3">
               Post Job
-            </Nav.Link>{" "}
+            </Nav.Link>{" "} */}
             {/* Conditional Post Job */}
             <Nav.Link as={Link} to="/browse-job" className="ms-3">
               Browse Job
@@ -79,7 +88,6 @@ function Mainnav() {
                   title={
                     <>
                       <PersonCircle className="user-icon fs-4" />
-                 
                     </>
                   }
                 >
