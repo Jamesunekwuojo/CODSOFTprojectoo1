@@ -67,15 +67,15 @@ function SigninForm() {
   };
 
   return (
-    <Container>
+    <Container fluid>
       <Row className="justify-content-md-center">
-        <Col lg={4} md={12} xs={12} className="signupForm-container mt-3 p-2">
-          <div className="d-flex justify-content-center mt-2">
+        <Col lg={4} md={12} xs={12} className="signupForm-container mx-4 mt-4 p-2  formCol ">
+          <div className="d-flex justify-content-center mt-2 ">
             <h2>Sign in</h2>
           </div>
           {/* {error && <div className="alert alert-danger">{error}</div>} */}
 
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="">
             <Form.Group controlId="formEmail" className="m-2">
               <Form.Label>Email Address:</Form.Label>
               <Form.Control

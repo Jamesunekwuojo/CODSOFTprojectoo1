@@ -1,6 +1,10 @@
 .signupForm-container{
-    border: 1px solid #ddd;
-    border-radius:  15px;
+  border: 1px solid #ddd;
+  border-radius:  15px;
   
   
-  }
+}
+
+.formCol {
+  max-width: 90%;
+}

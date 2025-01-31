@@ -58,16 +58,16 @@ function Mainnav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className="ms-3">
+            <Nav.Link as={Link} to="/" className="ms-3 navItem">
               Home
             </Nav.Link>{" "}
             {/* Link to the Homepage */}
-            <Nav.Link as={Link} to="/about" className="ms-3">
+            <Nav.Link as={Link} to="/about" className="ms-3 navItem">
               About us
             </Nav.Link>
             {userInfo ? (
               <>
-                <Nav.Link onClick={handlePostJob} className="ms-3">
+                <Nav.Link onClick={handlePostJob} className="ms-3 navItem">
                   Post Job
                 </Nav.Link>
               </>
@@ -78,7 +78,7 @@ function Mainnav() {
               Post Job
             </Nav.Link>{" "} */}
             {/* Conditional Post Job */}
-            <Nav.Link as={Link} to="/browse-job" className="ms-3">
+            <Nav.Link as={Link} to="/browse-job" className="ms-3 navItem">
               Browse Job
             </Nav.Link>{" "}
             {/* Link to Browse Job Page */}
@@ -87,7 +87,7 @@ function Mainnav() {
                 <NavDropdown
                   title={
                     <>
-                      <PersonCircle className="user-icon fs-4" />
+                      <PersonCircle className="user-icon fs-4 navItem" />
                     </>
                   }
                 >
@@ -98,20 +98,21 @@ function Mainnav() {
                         ? "/candidate-dashboard"
                         : "/employer-dashboard"
                     }
+                  
                   >
                     Profile
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} onClick={handleLogout}>
+                  <NavDropdown.Item as={Link} onClick={handleLogout} className="navItem">
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
               </>
             ) : (
               <>
-                <Nav.Link as={Link} to="/signin" className="ms-3">
+                <Nav.Link as={Link} to="/signin" className="ms-3 navItem">
                   Sign in
                 </Nav.Link>
-                <Nav.Link as={Link} to="/signup" className="ms-3">
+                <Nav.Link as={Link} to="/signup" className="ms-3 navItem">
                   Sign up
                 </Nav.Link>
               </>
