@@ -7,7 +7,6 @@
 
 
 
-
 .startedButton {
   border: 1px;
   padding: 20px;
@@ -23,7 +22,7 @@
 .startedLink {
   text-decoration: none;
   color:white;
-}
+} 
   
   /* Large devices: 2 rows, 5 columns */
   @media (min-width: 992px) {

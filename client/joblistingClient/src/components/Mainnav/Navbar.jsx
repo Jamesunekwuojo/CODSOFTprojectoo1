@@ -50,7 +50,7 @@ function Mainnav() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary mb-2 mainNav">
+    <Navbar expand="lg" className=" mb-2 mainNav">
       <Container>
         <Navbar.Brand as={Link} to="/">
           JOBHUB
