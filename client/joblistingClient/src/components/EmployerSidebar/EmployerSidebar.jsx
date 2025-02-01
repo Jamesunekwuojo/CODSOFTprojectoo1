@@ -49,7 +49,7 @@ function EmployerSidebar() {
       style={{ width: isMobile ? "100vw" : "" }}
     >
       <Navbar
-        className={`flex-column p-3 ${collapsed ? "collapsed" : ""}`}
+        className={`flex-column p-3 ${collapsed ? "collapsed" : ""} sidebar`}
         style={{
           width:
             isMobile && !collapsed ? "100vw" : collapsed ? "80px" : "250px",
@@ -62,7 +62,7 @@ function EmployerSidebar() {
             as={Link}
             to="/employer-dashboard/addJobs"
             onClick={handleLinkClick}
-            className="my-2 d-flex align-items-center"
+            className="my-2 d-flex align-items-center sidebarItem"
           >
             <MdOutlineAddBusiness className="me-2  " />
             {!collapsed && "Add Job"}
@@ -72,7 +72,7 @@ function EmployerSidebar() {
             as={Link}
             to="/employer-dashboard/jobs"
             onClick={handleLinkClick}
-            className="my-2"
+            className="my-2 sidebarItem"
           >
             <FaBriefcase className="me-2 " /> {!collapsed && "Jobs"}
           </Nav.Link>
@@ -81,7 +81,7 @@ function EmployerSidebar() {
             as={Link}
             to="/employer-dashboard/blogs"
             onClick={handleLinkClick}
-            className="my-2"
+            className="my-2 sidebarItem"
           >
             <FaBlog className="me-2 " /> {!collapsed && "Blogs"}
           </Nav.Link>
@@ -90,7 +90,7 @@ function EmployerSidebar() {
             as={Link}
             to="/employer-dashboard/addBlogs"
             onClick={handleLinkClick}
-            className="my-2"
+            className="my-2 sidebarItem"
           >
             <AiOutlinePlusCircle className="me-2 " />
             {!collapsed && "Add Blog"}
