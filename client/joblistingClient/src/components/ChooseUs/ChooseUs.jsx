@@ -36,7 +36,7 @@ function ChooseUs() {
               <li>Our Talented & Experienced Marketing Agency</li>
               <li>Create your own skin to match your brand</li>
             </ul>
-            <Link to="/contact"><Button variant="success">Contact us</Button>
+            <Link to="/contact"><Button className='accentItem'>Contact us</Button>
             </Link>
           </div>
         </Col>

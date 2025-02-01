@@ -11,10 +11,14 @@
   border: 1px;
   padding: 20px;
   border-radius: 15px;
-  background-color: blue;
-  color: white;
+  background-color: var(--color-secondary);
+
   animation: zoom 1.5s infinite;
   transform: transform 0.5 ease;
+}
+
+.mainText {
+  color: var(--color-primary);
 }
 
 

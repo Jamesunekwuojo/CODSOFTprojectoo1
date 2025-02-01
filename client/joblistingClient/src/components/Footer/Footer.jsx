@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Facebook, Twitter, Instagram, Youtube } from "react-bootstrap-icons";
 import { useSubscribeMutation } from "../../slices/subscribeApiSlice";
 import { toast } from "react-toastify";
+import "./Footer.css";
 
 function Footer() {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ function Footer() {
   };
 
   return (
-    <footer className="footer mt-5 py-3 bg-dark text-white">
+    <footer className="footer mt-5 py-3  text-white footerContainer">
       <Container>
         <Row className="d-flex justify-content-between align-items-center">
           <Col md={3} className="text-center">
@@ -64,9 +65,9 @@ function Footer() {
                 required
               />
               <Button
-                variant="primary"
+          
                 type="submit"
-                className=""
+                className="accentItem"
                 disabled={isLoading}
               >
                 {isLoading ? "Submitting..." : "Submit"}

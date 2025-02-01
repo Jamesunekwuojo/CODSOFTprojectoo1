@@ -52,7 +52,7 @@ function Mainnav() {
   return (
     <Navbar expand="lg" className=" mb-2 mainNav">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand className="navItem" as={Link} to="/">
           JOBHUB
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

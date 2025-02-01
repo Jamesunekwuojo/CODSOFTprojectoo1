@@ -60,9 +60,9 @@ function Searchdiv() {
   return (
     <Container  className="mt-5 ">
       <Row className="justify-content-left">
-        <Col className="form-container ">
-          <h2>Find Your Expected Job</h2>
-          <p>
+        <Col className="form-container  ">
+          <h2 className="mx-2">Find Your Expected Job</h2>
+          <p className="mx-2">
             Find Jobs, Employment & Career Opportunities. Some of the companies
             we've helped recruit excellent applicants over the years.
           </p>
@@ -114,7 +114,7 @@ function Searchdiv() {
               </Form.Control>
             </Form.Group>
 
-            <Button variant="success" type="submit" className="mb-4">
+            <Button  type="submit" className="mb-4 accentItem mx-2">
               Search
             </Button>
           </Form>

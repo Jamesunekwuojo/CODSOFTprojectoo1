@@ -1,4 +1,10 @@
-/* <---  HOME PAGE --> */
+:root {
+  --color-primary: #2C3E50;
+  --color-secondary: #3498DB;
+  --color-accent: #E67E22;
+  --color-background: #ECF0F1;
+  --color-text: #2C3E50;
+}
 
 /* Get started div */
 .custom-box {
@@ -25,6 +31,10 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  /* background: linear-gradient(to bottom, #3F51B5,  #7986CB); */
+ 
 }
 
 /* Make the Router container take up the full height */

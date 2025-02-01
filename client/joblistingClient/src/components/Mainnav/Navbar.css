@@ -1,9 +1,9 @@
 .mainNav {
-    background-color: #1F3A93;
+    background-color:var(--color-primary);
 }
 
 .navItem {
-    color: #ECF0F1;
+    color:#FFFFFF;
 }
 
 @media (max-width:992px) {
