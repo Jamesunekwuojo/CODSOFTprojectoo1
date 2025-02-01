@@ -57,7 +57,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--color-background);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 200px; /* Set the height to 300px */
   }

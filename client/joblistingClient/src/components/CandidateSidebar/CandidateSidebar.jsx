@@ -46,12 +46,11 @@ function EmployerSidebar() {
     >
       {/* Sidebar */}
       <Navbar
-        className={`flex-column p-3 ${collapsed ? "collapsed" : ""}`}
+        className={`flex-column p-3 ${collapsed ? "collapsed" : ""} sidebar`}
         style={{
           width:
             isMobile && !collapsed ? "100vw" : collapsed ? "80px" : "250px",
           transition: "width 0.3s ease",
-          backgroundColor: "blue",
         }}
       >
         <Nav className="flex-column">
@@ -59,24 +58,27 @@ function EmployerSidebar() {
             as={Link}
             to="/candidate-dashboard/dashboard"
             onClick={handleLinkClick}
+            className="sidebarItem"
           >
-            <FaHome className="me-2" /> { !collapsed && "Dashboard"}
+            <FaHome className="me-2" /> {!collapsed && "Dashboard"}
           </Nav.Link>
 
           <Nav.Link
             as={Link}
             to="/candidate-dashboard/alljob"
             onClick={handleLinkClick}
+            className="sidebarItem"
           >
-            <FaBriefcase className="me-2" /> {!collapsed && "Jobs" }
+            <FaBriefcase className="me-2" /> {!collapsed && "Jobs"}
           </Nav.Link>
 
           <Nav.Link
             as={Link}
             to="/candidate-dashboard/allblogs"
             onClick={handleLinkClick}
+            className="sidebarItem"
           >
-            <FaBlog className="me-2" /> {!collapsed && "Blogs" }
+            <FaBlog className="me-2" /> {!collapsed && "Blogs"}
           </Nav.Link>
 
           <Nav.Item onClick={handleLinkClick}>
@@ -86,7 +88,6 @@ function EmployerSidebar() {
 
         <Button
           className="mt-4"
-          variant="outline-light"
           onClick={toggleSidebar}
           style={{
             transform: collapsed ? "rotate(180deg)" : "rotate(0)",
@@ -106,7 +107,6 @@ function EmployerSidebar() {
           </Container>
         </div>
       )}
-
     </div>
   );
 }

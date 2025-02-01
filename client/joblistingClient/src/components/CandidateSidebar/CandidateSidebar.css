@@ -1,0 +1,13 @@
+.sidebar {
+    background-color: var(--color-primary, #2C3E50);
+    /* color: var(--color-background,); */
+    color:  #ECF0F1;
+}
+
+.sidebar a:hover {
+    background-color: rgba(236, 240, 241, 0.1); /* Slight highlight on hover */
+}
+
+.sidebarItem {
+    color: #ECF0F1;
+}
