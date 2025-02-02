@@ -24,11 +24,11 @@ const AboutUs = () => {
           Welcome to JOB HUB, a dynamic job portal designed to connect employers with talented job seekers efficiently. Whether you're an employer looking to post job opportunities or a candidate searching for your next career move, JOB HUB provides a seamless experience tailored to your needs.
           </p>
 
-          <span className="mb-2 fs-2">For Employers</span>
+         
 
           <p>At JOB HUB, employers can easily create and post job listings, ensuring that opportunities reach the right candidates. Beyond job postings, employers can engage with the community by sharing insightful blog posts, offering industry tips, and guiding potential applicants on career growth.</p>
 
-          <span className="mb-2 fs-2">For Job Seekers</span>
+        
 
           <p>Our platform enables job seekers to explore a wide range of job listings and apply directly through the provided links. We aim to streamline the job search process, making it easier for candidates to find and secure their dream roles.</p>
 
