@@ -5,6 +5,15 @@ import { useSubscribeMutation } from "../../slices/subscribeApiSlice";
 import { toast } from "react-toastify";
 import "./Footer.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faXTwitter,
+  faInstagram,
+  faYoutube,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+
 function Footer() {
   const [email, setEmail] = useState("");
 
@@ -38,18 +47,36 @@ function Footer() {
           <Col md={3} className="text-center">
             <h5>FOLLOW US</h5>
             <div className="d-flex justify-content-center">
-              <a href="#" className="text-white m-2">
-                <Facebook size={24} />
+
+              <a href="https://www.facebook.com/profile.php?id=61561430930897" target="_blank">
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  size=""
+                  className="mx-2 "
+                />
               </a>
-              <a href="#" className="text-white m-2">
-                <Twitter size={24} />
+
+              <a href="https://x.com/james_unekwuojo" target="_blank">
+                <FontAwesomeIcon icon={faXTwitter} size="" className="mx-2" />
               </a>
-              <a href="#" className="text-white m-2">
-                <Instagram size={24} />
+
+              <a href="https://www.instagram.com/unekwuojo_james/" target="_blank">
+                <FontAwesomeIcon
+                  icon={faInstagram}
+                  size=""
+                  className="mx-2"
+                />
               </a>
-              <a href="#" className="text-white m-2">
+
+              <a
+                href="https://www.linkedin.com/in/unekwuojo-james-b2511225b/"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon={faLinkedin} size="" className="mx-2" />
+              </a>
+              {/* <a href="#" className="text-white m-2">
                 <Youtube size={24} />
-              </a>
+              </a> */}
             </div>
           </Col>
           <Col md={6} className="text-center">
@@ -64,12 +91,7 @@ function Footer() {
                 className="mx-2 flex-grow-1"
                 required
               />
-              <Button
-          
-                type="submit"
-                className="accentItem"
-                disabled={isLoading}
-              >
+              <Button type="submit" className="accentItem" disabled={isLoading}>
                 {isLoading ? "Submitting..." : "Submit"}
               </Button>
             </Form>

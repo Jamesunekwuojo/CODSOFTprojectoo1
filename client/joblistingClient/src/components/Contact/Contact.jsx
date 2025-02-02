@@ -21,7 +21,7 @@ const Contact = () => {
         </Col>
         <Col className="d-flex justify-content-center align-items-center">
           
-          <a href="https://www.facebook.com/profile.php?id=61561430930897">
+          <a href="https://www.facebook.com/profile.php?id=61561430930897" target="_blank">
             <FontAwesomeIcon  icon={faFacebook} size="2x" className="mx-2 " />
           </a>
           <a
@@ -30,10 +30,10 @@ const Contact = () => {
           >
             <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-2" />
           </a>
-          <a href="https://www.instagram.com/unekwuojo_james/">
+          <a href="https://www.instagram.com/unekwuojo_james/" target="_blank">
             <FontAwesomeIcon icon={faInstagram} size="2x" className="mx-2" />
           </a>
-          <a href="https://x.com/james_unekwuojo">
+          <a href="https://x.com/james_unekwuojo" target="_blank">
             
             <FontAwesomeIcon
               icon={faXTwitter}
