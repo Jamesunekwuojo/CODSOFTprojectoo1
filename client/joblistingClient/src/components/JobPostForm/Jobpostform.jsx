@@ -207,9 +207,9 @@ const JobPostForm = () => {
 
         <div className="d-flex justify-content-center">
           <Button
-            variant="primary"
+            
             type="submit"
-            className="mt-2 "
+            className="mt-2 accentItem"
           >
             Submit
           </Button>

@@ -59,11 +59,11 @@ const AllJobCard = () => {
                 </Button> */}
 
                 <Button
-                  className="d-flex justify-content-center "
-                  variant="primary"
+                  className="d-flex justify-content-center accentItem"
+                  
                   
                 >
-                  <a href={job.JobLink} target="blank">  Application Link</a>
+                  <a href={job.JobLink} target="blank" className="jobLink">  Application Link</a>
                 
                 </Button>
               </Card.Body>
