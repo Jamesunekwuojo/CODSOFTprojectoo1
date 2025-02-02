@@ -55,8 +55,8 @@ function Mainnav() {
         <Navbar.Brand className="navItem" as={Link} to="/">
           JOBHUB
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="navItem" />
+        <Navbar.Collapse id="basic-navbar-nav" className="navItem">
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/" className="ms-3 navItem">
               Home
