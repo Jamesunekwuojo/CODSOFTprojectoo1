@@ -21,8 +21,8 @@ const Contact = () => {
         </Col>
         <Col className="d-flex justify-content-center align-items-center">
           
-          <a href="">
-            <FontAwesomeIcon icon={faFacebook} size="2x" className="mx-2" />
+          <a href="https://www.facebook.com/profile.php?id=61561430930897">
+            <FontAwesomeIcon  icon={faFacebook} size="2x" className="mx-2 " />
           </a>
           <a
             href="https://www.linkedin.com/in/unekwuojo-james-b2511225b/"
@@ -30,7 +30,7 @@ const Contact = () => {
           >
             <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-2" />
           </a>
-          <a href="">
+          <a href="https://www.instagram.com/unekwuojo_james/">
             <FontAwesomeIcon icon={faInstagram} size="2x" className="mx-2" />
           </a>
           <a href="https://x.com/james_unekwuojo">
@@ -41,9 +41,9 @@ const Contact = () => {
               className="mx-2"
             />
           </a>
-          <a href="">
+          {/* <a href="">
             <FontAwesomeIcon icon={faYoutube} size="2x" className="mx-2" />
-          </a>
+          </a> */}
         </Col>
       </Row>
     </Container>
