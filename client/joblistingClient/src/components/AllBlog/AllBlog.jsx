@@ -10,6 +10,10 @@ const AllBlog = () => {
 
   const { data: blogs, error, isLoading } = useGetAllBlogsQuery({ page, limit });
 
+  if (!blogs || blogs.Blogs.length === 0) {
+    return <p>No Blog found</p>;
+  }
+
   if (isLoading) return <p>Loading blogs...</p>;
 
   if (error) {
@@ -17,9 +21,7 @@ const AllBlog = () => {
     return <p>Error fetching blogs</p>;
   }
 
-  if (blogs.Blogs.length === 0) {
-    return <p>No Blog found</p>;
-  }
+ 
 
   const handlePreviousPage = () => {
     if (page > 1) setPage(page - 1);
