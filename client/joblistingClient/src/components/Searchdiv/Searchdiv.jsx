@@ -63,8 +63,7 @@ function Searchdiv() {
         <Col className="form-container  ">
           <h2 className="mx-2">Find Your Expected Job</h2>
           <p className="mx-2">
-            Find Jobs, Employment & Career Opportunities. Some of the companies
-            we've helped recruit excellent applicants over the years.
+            Find Jobs, Employment & Career Opportunities. Apply to jobs through links provided in each listing.
           </p>
           <Form onSubmit={handleSearch}>
             <Form.Group controlId="searchKeywords" className="m-2">

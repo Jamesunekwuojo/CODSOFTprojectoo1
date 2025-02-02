@@ -57,6 +57,19 @@ const BlogForm = () => {
       const response = await createBlog(data).unwrap();
       console.log("Blog posted successfully", response);
       toast.success('Successfully posted blog');
+      setFormData({
+        authorName: '',
+        authorEmail: userInfo.user.email,
+        authorPhone: '',
+        articleTitle: '',
+        articleDescript: '',
+        articleLink: '',
+
+      })
+
+      if(fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
     } catch (error) {
       toast.error('Error creating blog');
       console.error(error);

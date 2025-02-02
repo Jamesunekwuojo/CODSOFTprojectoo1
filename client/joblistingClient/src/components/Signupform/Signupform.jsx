@@ -138,8 +138,9 @@ function SignupForm() {
 
             <div className="d-flex justify-content-center">
               <Button
-                style={{ color: "black", backgroundColor: "#a8071a" }}
+                style={{ color: "black",  }}
                 type="submit"
+                className="accentItem"
               >
                 Sign up
               </Button>
