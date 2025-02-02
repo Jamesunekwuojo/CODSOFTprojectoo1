@@ -54,7 +54,7 @@ function EmployerSidebar() {
           width:
             isMobile && !collapsed ? "100vw" : collapsed ? "80px" : "250px",
           transition: "width 0.3s ease",
-          backgroundColor: "blue",
+        
         }}
       >
         <Nav className="flex-column">

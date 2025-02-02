@@ -1,11 +1,11 @@
-/* .side_bar {
-    display: flex;
-    width: 250px;
-    height: 100vh;
+.side_bar {
+
+    background-color: var(--color-primary);
+  
    
 
 
-}  */
+} 
 /* 
 .sidebarRow {
     height:100vh

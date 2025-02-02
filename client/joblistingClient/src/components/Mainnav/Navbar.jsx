@@ -102,7 +102,7 @@ function Mainnav() {
                   >
                     Profile
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} onClick={handleLogout} className="navItem">
+                  <NavDropdown.Item as={Link} onClick={handleLogout} className="">
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>

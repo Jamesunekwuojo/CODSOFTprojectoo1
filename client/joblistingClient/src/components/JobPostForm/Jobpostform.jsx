@@ -75,7 +75,7 @@ const JobPostForm = () => {
   };
 
   return (
-    <Container className="jobformcontainer">
+    <Container className="jobformcontainer mt-4">
       <h2>Create a Job Post</h2>
       <Form onSubmit={handleSubmit} >
         <Form.Group controlId="formJobTitle">
