@@ -53,7 +53,7 @@ function Mainnav() {
     <Navbar expand="lg" className=" mb-2 mainNav">
       <Container>
         <Navbar.Brand className="navItem" as={Link} to="/">
-          JOBHUB
+          <img className="m-2" src="/icon.png" alt=""  style={{width: '40px', borderRadius: '20px'}}/>JOBHUB
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="navItem" />
         <Navbar.Collapse id="basic-navbar-nav" className="navItem">
