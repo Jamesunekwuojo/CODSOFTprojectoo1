@@ -8,7 +8,7 @@ const AboutUs = () => {
     <Container className="d-flex justify-content-center flex-column">
       <Row>
         <Col>
-          <header className="d-flex justify-content-center">
+          <header className="d-flex justify-content-center mt-4">
             <h1>About us</h1>
           </header>
         </Col>
@@ -19,16 +19,21 @@ const AboutUs = () => {
         </Col>
       </Row>
       <Row className="text-row">
-        <Col className="d-flex mw-25 justify-content-center">
+        <Col className="d-flex mw-25 justify-content-center flex-column">
           <p>
-            Welcome Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Assumenda asperiores quibusdam dolorem voluptatem? Facere ab nulla,
-            reiciendis rem voluptatem fugit. Accusantium nihil fuga magni,
-            facere sed repudiandae doloremque, nesciunt odit est dolore et
-            dolorem? Reprehenderit dicta quos consequatur. Voluptatibus
-            voluptatem minus veniam officia voluptate vero sapiente assumenda
-            obcaecati officiis dignissimos.
+          Welcome to JOB HUB, a dynamic job portal designed to connect employers with talented job seekers efficiently. Whether you're an employer looking to post job opportunities or a candidate searching for your next career move, JOB HUB provides a seamless experience tailored to your needs.
           </p>
+
+          <span className="mb-2 fs-2">For Employers</span>
+
+          <p>At JOB HUB, employers can easily create and post job listings, ensuring that opportunities reach the right candidates. Beyond job postings, employers can engage with the community by sharing insightful blog posts, offering industry tips, and guiding potential applicants on career growth.</p>
+
+          <span className="mb-2 fs-2">For Job Seekers</span>
+
+          <p>Our platform enables job seekers to explore a wide range of job listings and apply directly through the provided links. We aim to streamline the job search process, making it easier for candidates to find and secure their dream roles.</p>
+
+       
+
         </Col>
       </Row>
 

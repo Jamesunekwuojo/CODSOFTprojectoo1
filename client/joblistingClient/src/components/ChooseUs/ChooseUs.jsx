@@ -32,9 +32,9 @@ function ChooseUs() {
               Read reviews on over 30000+ companies worldwide.
             </p>
             <ul>
-              <li>Digital Marketing Solutions for Tomorrow</li>
-              <li>Our Talented & Experienced Marketing Agency</li>
-              <li>Create your own skin to match your brand</li>
+              <li>Direct Applications: Apply to jobs through links provided in each listing.</li>
+              <li>Employer Insights: Stay informed with blog posts from industry professionals.</li>
+              <li>Diverse Opportunities: Find jobs across multiple industries and career levels.</li>
             </ul>
             <Link to="/contact"><Button className='accentItem'>Contact us</Button>
             </Link>

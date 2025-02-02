@@ -149,7 +149,7 @@ const BlogForm = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mt-3" disabled={isLoading}>
+        <Button  type="submit" className="mt-3 accentItem" disabled={isLoading}>
           Submit
         </Button>
       </Form>

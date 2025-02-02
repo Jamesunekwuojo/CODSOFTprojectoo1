@@ -20,7 +20,7 @@
     font-weight: 300;
     animation: zoom 1.5s infinite;
     transform: transform 0.5 ease;
-    width: 25%
+    width: 15%
 
 
 }
@@ -30,7 +30,7 @@
 }
 
 .img-row {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .image {
