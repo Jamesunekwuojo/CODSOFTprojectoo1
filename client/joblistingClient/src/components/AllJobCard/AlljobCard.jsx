@@ -63,7 +63,7 @@ const AllJobCard = () => {
                   
                   
                 >
-                  <a href={job.JobLink} target="blank" className="jobLink">  Application Link</a>
+                  <a href={job.JobLink} target="blank" className="jobLink reset-link">  Application Link</a>
                 
                 </Button>
               </Card.Body>

@@ -13,5 +13,10 @@
   overflow-y: auto; /* Scrollable body */
 }
 
+.jobLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 
   
