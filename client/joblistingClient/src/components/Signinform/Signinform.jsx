@@ -68,7 +68,7 @@ function SigninForm() {
 
   return (
     <Container fluid>
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center mt-4">
         <Col lg={4} md={12} xs={12} className="signupForm-container mx-4 mt-4 p-2  formCol ">
           <div className="d-flex justify-content-center mt-2 ">
             <h2>Sign in</h2>

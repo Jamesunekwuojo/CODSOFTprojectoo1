@@ -114,7 +114,7 @@ function Searchdiv() {
               </Form.Control>
             </Form.Group>
 
-            <Button  type="submit" className="mb-4 accentItem mx-2">
+            <Button  type="submit" variant="primary" className="mb-4  mx-2">
               Search
             </Button>
           </Form>

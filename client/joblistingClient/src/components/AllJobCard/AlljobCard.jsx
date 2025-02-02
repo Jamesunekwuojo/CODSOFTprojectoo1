@@ -59,8 +59,9 @@ const AllJobCard = () => {
                 </Button> */}
 
                 <Button
-                  className="d-flex justify-content-center"
-                  variant="secondary"
+                  className="d-flex justify-content-center "
+                  variant="primary"
+                  
                 >
                   <a href={job.JobLink} target="blank">  Application Link</a>
                 
@@ -75,7 +76,7 @@ const AllJobCard = () => {
       {/* jobs && jobs.totalPages > 1 && (  // Added check for pagination visibility */}
         <div className="pagination-controls text-center">
           <Button
-            variant="secondary"
+            className="accentItem"
             onClick={handlePreviousPage}
             disabled={page === 1}
           >
@@ -85,7 +86,7 @@ const AllJobCard = () => {
             Page {page} of {jobs.totalPages}
           </span>
           <Button
-            variant="secondary"
+            className="accentItem"
             onClick={handleNextPage}
             disabled={page === jobs.totalPages}
           >

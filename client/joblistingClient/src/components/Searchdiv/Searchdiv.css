@@ -12,6 +12,7 @@
 .accentItem {
   background-color: var(--color-accent);
   border: 0px;
+  color: black
 }
   
   h2 {
