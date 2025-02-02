@@ -20,7 +20,8 @@
     font-weight: 300;
     animation: zoom 1.5s infinite;
     transform: transform 0.5 ease;
-    width: 15%
+    width: 15%;
+    background-color: var(--color-secondary);
 
 
 }
